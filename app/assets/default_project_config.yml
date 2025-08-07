@@ -1,0 +1,18 @@
+project_name: "Default Threat Status Assessment"
+project_description: "Extracts regional conservation status for species based on standard IUCN codes."
+
+# Define the specific pieces of data you want to extract for each species.
+data_fields:
+  - name: "conservation_status"
+    description: "The regional conservation status. This is often a two-letter code."
+    # Providing validation values helps the LLM be more precise and enables data validation.
+    # Use 'NF' for 'Not Found'.
+    validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF"]
+
+# Optional: You can override the default prompts here if needed.
+# If these are commented out or removed, the system will use its internal default prompts.
+# prompts:
+#   text_based: |
+#     <Your custom text prompt here, using {species_name}, {text_chunk}, and {data_fields_schema} placeholders>
+#   image_based: |
+#     <Your custom image prompt here, using {species_name} and {data_fields_schema} placeholders>

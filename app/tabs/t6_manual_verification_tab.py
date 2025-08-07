@@ -1,0 +1,118 @@
+import streamlit as st
+import pandas as pd
+from ecoparse.core.sourcetext import get_species_page_images
+from app.ui_components import display_df_and_download
+import io
+
+def display():
+    st.header("Manual Verification")
+
+    # Initialize the verification queue from extraction results if it's empty
+    if st.session_state.extraction_results and not st.session_state.verification_queue:
+        st.session_state.verification_queue = st.session_state.extraction_results.copy()
+        st.session_state.verification_current_index = 0
+        st.session_state.manual_verification_results = []
+
+    if not st.session_state.verification_queue:
+        st.info("No extraction results to verify. Please run an extraction first.")
+        return
+
+    total_items = len(st.session_state.verification_queue)
+    index = st.session_state.verification_current_index
+
+    if index >= total_items:
+        st.success("All items have been verified!")
+        st.balloons()
+        if st.session_state.manual_verification_results:
+            final_df = pd.DataFrame(st.session_state.manual_verification_results)
+            display_df_and_download(final_df, "Manually Verified Results", "manual_verification_results")
+        return
+
+    st.progress((index + 1) / total_items, text=f"Verifying item {index + 1} of {total_items}")
+    
+    current_item = st.session_state.verification_queue[index]
+    species_name = current_item.get('species', 'N/A')
+    
+    st.subheader(f"Species: `{species_name}`")
+    
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.markdown("**Page Context**")
+        with st.container(height=500, border=False):
+            images = get_species_page_images(
+                io.BytesIO(st.session_state.pdf_buffer),
+                st.session_state.species_df_final[st.session_state.species_df_final["Name"] == species_name]
+            ).get(species_name, [])
+            if images:
+                for img in images:
+                    # --- START OF FIX ---
+                    st.image(img, use_container_width=True) # Replaced deprecated parameter
+                    # --- END OF FIX ---
+            else:
+                st.warning("No context image found for this species.")
+
+    with col2:
+        st.markdown("**Extracted Data**")
+        
+        edited_data = {}
+        
+        for field, value in current_item.get('data', {}).items():
+            field_config = next((f for f in st.session_state.project_config.get('data_fields', []) if f['name'] == field), None)
+            
+            if field_config and field_config.get('validation_values'):
+                options = field_config['validation_values']
+                try:
+                    current_index = options.index(value)
+                except (ValueError, TypeError):
+                    current_index = 0
+                edited_data[field] = st.selectbox(
+                    label=f"**{field.replace('_', ' ').title()}**",
+                    options=options,
+                    index=current_index,
+                    key=f"verify_{index}_{field}"
+                )
+            else:
+                edited_data[field] = st.text_input(
+                    label=f"**{field.replace('_', ' ').title()}**",
+                    value=value,
+                    key=f"verify_{index}_{field}"
+                )
+
+        edited_notes = st.text_area(
+            "Notes", 
+            value=current_item.get('notes', ''),
+            key=f"verify_{index}_notes"
+        )
+
+    st.markdown("---")
+    nav_cols = st.columns(6)
+    
+    if nav_cols[0].button("⬅️ Back", disabled=index == 0):
+        st.session_state.verification_current_index -= 1
+        st.rerun()
+
+    if nav_cols[1].button("✅ Confirm", type="primary", use_container_width=True):
+        result_to_save = {
+            "species": species_name,
+            "data": edited_data,
+            "notes": edited_notes,
+            "status": "Verified"
+        }
+        if index < len(st.session_state.manual_verification_results):
+            st.session_state.manual_verification_results[index] = result_to_save
+        else:
+            st.session_state.manual_verification_results.append(result_to_save)
+        
+        st.session_state.verification_current_index += 1
+        st.rerun()
+
+    if nav_cols[2].button("⏩ Skip", use_container_width=True):
+        result_to_save = {**current_item, "status": "Skipped"}
+        if index < len(st.session_state.manual_verification_results):
+            st.session_state.manual_verification_results[index] = result_to_save
+        else:
+            st.session_state.manual_verification_results.append(result_to_save)
+            
+        st.session_state.verification_current_index += 1
+        st.rerun()
