@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**EcoParse** is a powerful and flexible tool designed to extract species-level data from large documents like PDFs. Using a combination of scientific name recognition (GNfinder), taxonomic verification (GBIF), and Large Language Models (LLMs), EcoParse automates the data collection process for ecological research.
+**EcoParse** is a powerful and flexible tool designed to extract species-level data from PDFs. Using a combination of scientific name recognition (GNfinder), taxonomic verification (GBIF), and Large Language Models (LLMs), EcoParse automates the data collection process for ecological research.
 
 Unlike rigid scripts, EcoParse is fully configurable. You can define exactly what data fields you want to extract for each species—whether it's conservation status, habitat type, elevation range, or any other piece of information present in the text.
 
@@ -10,7 +10,7 @@ Unlike rigid scripts, EcoParse is fully configurable. You can define exactly wha
 
 -   **Configurable Data Extraction**: Define any data field you need (e.g., "Habitat", "Diet", "Max Size") in a simple YAML configuration file.
 -   **Multiple LLM Backends**: Supports Google Gemini via API (paid tier) and local models via Ollama.
--   **Advanced Species Identification**: Integrates with GNfinder and uses robust filtering to accurately identify species and subspecies, resolving nested names (e.g., preferring "Falco peregrinus peregrinus" over "Falco peregrinus" when both are found).
+-   **Advanced Species Identification**: Integrates with GNfinder and uses robust filtering to accurately identify species and subspecies, resolving nested names (e.g., preferring "Falco peregrinus pelegrinoides" over "Falco peregrinus" when both are found and nested).
 -   **Interactive UI**: An easy-to-use web interface built with Streamlit to manage the entire workflow, from PDF upload to result analysis.
 -   **Context-Aware Analysis**: Provides the LLM with either surrounding text chunks or full-page images for context.
 -   **Manual Verification**: A dedicated tab to step through results one-by-one, view page context, and confirm or correct the LLM's output.

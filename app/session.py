@@ -35,10 +35,19 @@ def initialize_session():
     st.session_state.verification_current_index = 0
     st.session_state.manual_verification_results = []
 
-    # State for Reporting ---
+    # Reporting variables
     st.session_state.extraction_runtime = 0.0
     st.session_state.total_input_tokens = 0
     st.session_state.total_output_tokens = 0
     st.session_state.last_report_path = None
     
+    # Automatic verification
+    st.session_state.uploaded_gemini_file_id = None
+    st.session_state.uploaded_gemini_file_display_name = None
+    st.session_state.automated_verification_results = []
+    st.session_state.verification_gemini_model = "gemini-2.5-flash" # Default model for verification
+    st.session_state.verification_species_chunk_size = 5 # Number of species per verification request
+    st.session_state.total_verification_input_tokens = 0
+    st.session_state.total_verification_output_tokens = 0
+
     st.session_state.session_initialized = True

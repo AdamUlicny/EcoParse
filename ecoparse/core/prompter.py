@@ -95,3 +95,62 @@ Your output MUST be a JSON list containing a single JSON object.
 ---
 </OUTPUT_REQUIREMENTS>
 """
+
+
+def get_default_verification_prompt(species_data_list_for_llm: str, data_fields_schema: str) -> str:
+    """
+    Returns a default prompt for automated verification using the full document.
+    Includes the list of species and their expected data for the LLM to verify.
+    """
+    return f"""
+<PERSONA>
+You are a highly meticulous scientific data verification assistant. Your task is to review a full PDF document I have provided and verify previously extracted data for a list of species.
+</PERSONA>
+
+<TASK_DEFINITION>
+For EACH species in the 'Species Data to Verify' list below, you must:
+1.  Locate the species in the document.
+2.  Find the actual value(s) for the specified data fields.
+3.  Compare the 'found' value(s) with the 'expected' value(s) provided.
+
+**Species Data to Verify (Expected Data from Previous Extraction):**
+{species_data_list_for_llm}
+
+**Data Fields Schema (for accurate extraction from document):**
+{data_fields_schema}
+
+</TASK_DEFINITION>
+
+<OUTPUT_REQUIREMENTS>
+Your output MUST be a single JSON list. Each object in this list corresponds to one species from the input 'Species Data to Verify' list and MUST conform to the following schema:
+
+**JSON Schema for EACH item in the output list:**
+{{
+  "species": "Species Name from Input List",
+  "verified_data": {{
+    "field_name_1": {{
+      "expected": "Expected Value",
+      "found": "Value from Document",
+      "verified": true/false,
+      "status": "Match/Mismatch/NotFound/Error"
+    }},
+    "field_name_2": {{...}},
+    // ... (for all data fields defined in the schema)
+  }},
+  "notes": "Any general notes about this species' verification (e.g., clarity of data, issues)."
+}}
+
+---
+**CRITICAL RULES FOR VERIFICATION OUTPUT:**
+1.  **ALL SPECIES**: You MUST include an entry for EVERY species provided in the 'Species Data to Verify' list, even if data is not found or an error occurs.
+2.  **ALL FIELDS**: For each species, you MUST include an entry for EVERY data field defined in the 'Data Fields Schema' under `verified_data`.
+3.  **"found" VALUE**: If you cannot find a value for a field in the document, use "NF" for "found". Do NOT omit, leave empty, or use null.
+4.  **"verified" BOOLEAN**: Set to `true` if `expected` exactly matches `found`. Otherwise, set to `false`.
+5.  **"status" STRING**:
+    -   "Match": If `verified` is `true`.
+    -   "Mismatch": If `verified` is `false` AND `found` is NOT "NF".
+    -   "NotFound": If `found` is "NF".
+    -   "Error": If you encountered a problem processing this species.
+
+</OUTPUT_REQUIREMENTS>
+"""
