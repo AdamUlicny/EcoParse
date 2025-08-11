@@ -7,7 +7,6 @@ import io
 import time
 
 def display():
-    # ... (UI part of the display function is unchanged)
     st.header("Run Data Extraction")
 
     if st.session_state.species_df_final.empty:
@@ -21,14 +20,14 @@ def display():
     with col1:
         st.selectbox("Extraction Method", ["Text-based", "Image-based"], key="extraction_method")
     with col2:
-        st.number_input("Max Concurrent LLM Requests", 1, 50, key="concurrent_requests")
+        st.number_input("Max Concurrent LLM Requests", 10, 50, key="concurrent_requests")
 
     if st.session_state.extraction_method == "Text-based":
         col3, col4 = st.columns(2)
         with col3:
             st.number_input("Characters Before Mention", 0, 2000, key="context_before")
         with col4:
-            st.number_input("Characters After Mention", 0, 2000, key="context_after")
+            st.number_input("Characters After Mention", 250, 2000, key="context_after")
 
         with st.expander("Preview Text Chunk"):
             # ... (Chunk preview logic is unchanged)
@@ -60,6 +59,7 @@ def display():
             "provider": st.session_state.llm_provider,
             "api_key": st.session_state.google_api_key,
             "model": st.session_state.google_model if st.session_state.llm_provider == "Google Gemini" else st.session_state.ollama_model,
+            "ollama_url": st.session_state.ollama_url, 
             "concurrent_requests": st.session_state.concurrent_requests
         }
         source_context = {
@@ -93,7 +93,6 @@ def display():
         st.session_state.total_input_tokens = in_tokens
         st.session_state.total_output_tokens = out_tokens
         
-        # --- START OF FIX: Build the context dictionary and call the decoupled reporter ---
         report_context = {
             "pdf_name": st.session_state.pdf_name,
             "full_text": st.session_state.full_text,
@@ -117,7 +116,6 @@ def display():
         }
         
         report_path = generate_report(report_context)
-        # --- END OF FIX ---
         
         st.session_state.last_report_path = report_path
         

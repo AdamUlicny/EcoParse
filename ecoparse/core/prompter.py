@@ -52,10 +52,9 @@ Your output MUST be a JSON list containing a single JSON object.
 {data_fields_schema}
 
 ---
-**CRITICAL RULES:**
-1.  **ALWAYS POPULATE ALL DATA FIELDS:** Every single field defined in the schema under 'data' MUST be present in your output.
-2.  **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the text, you MUST use the exact string "NF" (for "Not Found") as its value. **DO NOT** omit the field, leave it empty, or use null.
-3.  **NOTES ARE FOR EXPLANATION:** The 'notes' field is for explaining *why* a value was "NF" or if there was ambiguity. It is separate from and does not replace the requirement to populate the data fields.
+**RULES:**
+1.  **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the text, you MUST use the exact string "NF" (for "Not Found") as its value. 
+2.  **NOTES ARE FOR EXPLANATION:** The 'notes' field is for explaining *why* a value was "NF" or if there was ambiguity. It is separate from and does not replace the requirement to populate the data fields.
 ---
 </OUTPUT_REQUIREMENTS>
 """
@@ -89,7 +88,7 @@ Your output MUST be a JSON list containing a single JSON object.
 {data_fields_schema}
 
 ---
-**CRITICAL RULES:**
+**RULES:**
 1.  **ALWAYS POPULATE ALL DATA FIELDS:** Every single field defined in the schema under 'data' MUST be present in your output.
 2.  **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the image, you MUST use the exact string "NF" (for "Not Found") as its value. **DO NOT** omit the field, leave it empty, or use null.
 3.  **NOTES ARE FOR EXPLANATION:** The 'notes' field is for explaining *why* a value was "NF" or if there was ambiguity. It is separate from and does not replace the requirement to populate the data fields.

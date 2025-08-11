@@ -6,15 +6,20 @@ build-backend = "setuptools.build_meta"
 name = "ecoparse"
 version = "1.0.0"
 authors = [
-  { name="Your Name", email="your.email@example.com" },
+  # Remember to fill this in with your name and email!
+  { name="Adam Ulicny", email="adamulicny98@gmail.com" },
 ]
 description = "A configurable tool for extracting species-level data from documents using LLMs."
 readme = "README.md"
+license = { text = "MIT" } # Explicitly state the license
+keywords = ["ecology", "llm", "gemini", "ollama", "species", "data extraction", "streamlit"] 
 requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Framework :: Streamlit",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 dependencies = [
     "streamlit",
@@ -22,13 +27,17 @@ dependencies = [
     "PyMuPDF",
     "requests",
     "pydantic",
-    "google-genai",
+    "google-genai", 
     "ollama",
     "pygbif",
-    "PyYAML", # For handling YAML configs
+    "PyYAML",
     "plotly",
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/yourusername/ecoparse"
-"Bug Tracker" = "https://github.com/yourusername/ecoparse/issues"
+"Homepage" = "https://github.com/AdamUlicny/EcoParse"
+"Bug Tracker" = "https://github.com/AdamUlicny/EcoParse/issues"
+
+# This section creates a command-line script for easy launching.
+[project.scripts]
+ecoparse = "app.cli:main"

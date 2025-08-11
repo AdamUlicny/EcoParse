@@ -1,5 +1,5 @@
 import json
-import time # Added for runtime calculation
+import time 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Any, Optional, Tuple
 import ollama
@@ -27,9 +27,7 @@ class Extractor:
     def run_extraction(
         self, species_list: List[str], source_context: Dict[str, Any], update_callback=None
     ) -> Tuple[List[Dict], float, int, int]:
-        """
-        Runs extraction and now returns results, runtime, and aggregated token counts.
-        """
+
         all_results = []
         total_input_tokens = 0
         total_output_tokens = 0
@@ -38,7 +36,6 @@ class Extractor:
         start_time = time.time()
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # The future now holds a tuple: (result, in_tokens, out_tokens)
             futures = [
                 executor.submit(self._extract_for_single_species, species, source_context)
                 for species in species_list
@@ -115,7 +112,7 @@ class Extractor:
         """Parses usage_metadata and returns token counts."""
         try:
             client = genai.Client(api_key=self.llm_config["api_key"])
-            content = [prompt] # Text prompt always comes last
+            content = [prompt] 
             if images:
                 for img_bytes in images:
                     content.insert(0, types.Part.from_bytes(data=img_bytes, mime_type="image/png"))
@@ -125,7 +122,6 @@ class Extractor:
                 model=self.llm_config["model"], contents=content, config=config
             )
             
-            # Extract token counts from usage metadata
             in_tokens = response.usage_metadata.prompt_token_count
             out_tokens = response.usage_metadata.candidates_token_count
             
@@ -138,18 +134,22 @@ class Extractor:
             return None, 0, 0
 
     def _call_ollama(self, prompt: str, images: Optional[List[bytes]]) -> Tuple[Optional[Dict], int, int]:
-        """Parses the response dictionary and returns token counts."""
+        """Now uses a specific client with the configured host URL."""
         try:
-            messages = [{"role": "user", "content": prompt}]
-            if images: messages[0]["images"] = images
+            client = ollama.Client(host=self.llm_config["ollama_url"])
 
-            response = ollama.chat(
-                model=self.llm_config["model"], messages=messages, format="json", options={"temperature": 0.1}
+            messages = [{"role": "user", "content": prompt}]
+            if images:
+                messages[0]["images"] = images
+
+            response = client.chat(
+                model=self.llm_config["model"],
+                messages=messages,
+                format="json",
+                options={"temperature": 0.1}
             )
-            
+
             response_content = response['message']['content']
-            
-            # Extract token counts
             in_tokens = response.get('prompt_eval_count', 0)
             out_tokens = response.get('eval_count', 0)
             

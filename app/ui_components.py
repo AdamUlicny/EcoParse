@@ -16,10 +16,6 @@ def setup_sidebar():
 
     st.markdown("---")
 
-    # --- START OF FIX ---
-    # Always render all LLM config fields to preserve their state.
-    # Use the 'disabled' parameter to control which ones are active.
-
     is_gemini_selected = st.session_state.llm_provider == "Google Gemini"
 
     st.subheader("Google Gemini Settings")
@@ -41,13 +37,19 @@ def setup_sidebar():
 
     st.subheader("Ollama Settings")
     st.text_input(
+        "Ollama Host URL",
+        key="ollama_url",
+        disabled=is_gemini_selected,
+        help="The full URL of the Ollama server (e.g., http://192.168.1.10:11434)."
+    )
+    
+    st.text_input(
         "Ollama Model Name",
         key="ollama_model",
         disabled=is_gemini_selected,
         help="The local Ollama model to use (e.g., 'llama3')."
     )
     st.info("Ensure the Ollama application is running and the specified model is downloaded if using Ollama.")
-    # --- END OF FIX ---
 
 def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str):
     """Displays a DataFrame and provides download buttons for CSV and JSON."""
