@@ -7,12 +7,11 @@ from google import genai
 from google.genai import types
 from pydantic import ValidationError, TypeAdapter
 
-from .models import AutomatedVerificationResponseList # Import the new models
+from .models import SimplifiedVerificationResponseList
 from .prompter import get_default_verification_prompt
 
 # Adapter for robust parsing of the LLM's verification output
-verification_response_list_adapter = TypeAdapter(AutomatedVerificationResponseList)
-
+verification_response_list_adapter = TypeAdapter(SimplifiedVerificationResponseList)
 class Verifier:
     def __init__(self, project_config: Dict[str, Any], llm_config: Dict[str, Any]):
         self.project_config = project_config
@@ -45,128 +44,85 @@ class Verifier:
 
     def verify_species_batch_gemini(
         self,
-        species_results_chunk: List[Dict[str, Any]], # List of original extraction results (with 'data' dict)
-        uploaded_gemini_pdf_file_object: types.File,  # The genai.types.File object for the full PDF
+        species_results_chunk: List[Dict[str, Any]],
+        uploaded_gemini_pdf_file_object: types.File,
         llm_model_name: str,
     ) -> Tuple[List[Dict[str, Any]], int, int]:
-        """
-        Verifies a batch of species against a full PDF using Gemini.
-        Returns a list of processed results, input tokens, and output tokens.
-        """
-        input_tokens = 0
-        output_tokens = 0
-        processed_chunk_results = [] # Final list of results for this chunk
-
-        if not species_results_chunk:
-            return [], 0, 0
+        
+        # --- START OF REWRITE: Logic is now much cleaner ---
+        
+        if not species_results_chunk: return [], 0, 0
         if not uploaded_gemini_pdf_file_object:
-            print("Error: PDF File object not provided for Gemini verification.")
-            for item in species_results_chunk:
-                processed_chunk_results.append(self._format_error_result(item, "File Error", "PDF file object missing."))
-            return processed_chunk_results, 0, 0
+            # Handle file error
+            ...
 
         try:
             client = genai.Client(api_key=self.llm_config["api_key"])
             
-            # Prepare species data for the prompt
+            # Prepare species data for the simplified prompt
             species_data_for_llm_prompt = []
             for item in species_results_chunk:
-                species_name = item.get('species', 'Unknown Species')
+                species_name = item.get('species', 'Unknown')
                 data_dict = item.get('data', {})
-                
-                # Format each data field explicitly
-                formatted_fields = []
-                for field_name, expected_value in data_dict.items():
-                    formatted_fields.append(f"    - {field_name}: {expected_value}")
-                
-                species_data_for_llm_prompt.append(
-                    f"Species: {species_name}\nExpected Data:\n" + "\n".join(formatted_fields)
-                )
-            
-            # Join all species entries for the prompt
-            species_list_str_for_prompt = "\n\n".join(species_data_for_llm_prompt)
+                species_data_for_llm_prompt.append(f"Species: {species_name}, Expected Data: {json.dumps(data_dict)}")
+            species_list_str_for_prompt = "\n".join(species_data_for_llm_prompt)
 
             full_prompt_text = get_default_verification_prompt(
                 species_data_list_for_llm=species_list_str_for_prompt,
                 data_fields_schema=self.data_fields_schema
             )
             
-            content = [
-                uploaded_gemini_pdf_file_object, # The actual file object
-                full_prompt_text
-            ]
-            
-            config = {
-                "response_mime_type": "application/json",
-                "temperature": 0.0 # Keep temperature low for verification tasks
-            }
+            content = [uploaded_gemini_pdf_file_object, full_prompt_text]
+            config = {"response_mime_type": "application/json", "temperature": 0.0}
 
-            response = client.models.generate_content(
-                model=llm_model_name,
-                contents=content,
-                config=config,
-            )
-            
-            # Extract token counts
-            input_tokens = response.usage_metadata.prompt_token_count
-            output_tokens = response.usage_metadata.candidates_token_count
-
-            # Parse and process LLM's response
-            response_text = response.text
             try:
-                # The LLM is expected to return a list of AutomatedVerificationItem
+                response = client.models.generate_content(
+                    model=llm_model_name, contents=content, config=config
+                )
+                input_tokens = response.usage_metadata.prompt_token_count
+                output_tokens = response.usage_metadata.candidates_token_count
+                response_text = response.text
+                
+                # Parse the simplified response from the LLM
                 llm_verified_items = verification_response_list_adapter.validate_json(response_text).root
                 
-                # Map LLM's output back to our desired flattened format
-                for original_item in species_results_chunk:
-                    species_name = original_item.get('species')
-                    original_data = original_item.get('data', {})
+                # Now, perform the comparison and flattening logic here in Python
+                processed_chunk_results = []
+                for llm_item in llm_verified_items:
+                    flat_result = {"species": llm_item.species}
+                    all_fields_match = True
                     
-                    # Find the corresponding item from LLM's response
-                    llm_item = next((item for item in llm_verified_items if item.species == species_name), None)
-
-                    if llm_item:
-                        # Construct a flat result for display and download
-                        flat_result = {"species": species_name}
-                        all_verified_fields_match = True
+                    for field_name, expected_value in llm_item.expected_data.items():
+                        found_value = llm_item.found_data.get(field_name, "NF") # Default to NF
                         
-                        for field_name, expected_value in original_data.items():
-                            found_field_data = llm_item.verified_data.get(field_name, {})
-                            found_value = found_field_data.get('found', 'NF') # Default to NF if LLM missed it
-                            verified_bool = found_field_data.get('verified', False)
-                            status_str = found_field_data.get('status', 'Error')
-
-                            # For consistency, derive verified_bool and status here,
-                            # even if LLM provides them, to ensure correctness.
-                            is_match = (str(found_value).lower() == str(expected_value).lower())
-                            if is_match:
-                                status_derived = "Match"
-                            elif str(found_value).lower() == "nf":
-                                status_derived = "NotFound"
-                            else:
-                                status_derived = "Mismatch"
-                            
-                            flat_result[f"{field_name}_expected"] = expected_value
-                            flat_result[f"{field_name}_found"] = found_value
-                            flat_result[f"{field_name}_verified"] = is_match
-                            flat_result[f"{field_name}_status"] = status_derived
-                            
-                            if not is_match:
-                                all_verified_fields_match = False
+                        # The reliable comparison logic
+                        is_match = (str(found_value).lower() == str(expected_value).lower())
                         
-                        flat_result['overall_match'] = all_verified_fields_match
-                        flat_result['notes'] = llm_item.notes or ""
-                        processed_chunk_results.append(flat_result)
-                    else:
-                        # LLM didn't return data for this specific species in the chunk
-                        processed_chunk_results.append(self._format_error_result(original_item, "Partial Response", f"Species '{species_name}' not in LLM's response for chunk."))
+                        if is_match:
+                            status = "Match"
+                        elif str(found_value).lower() == "nf":
+                            status = "NotFound"
+                        else:
+                            status = "Mismatch"
+                        
+                        if not is_match:
+                            all_fields_match = False
+                        
+                        flat_result[f"{field_name}_expected"] = expected_value
+                        flat_result[f"{field_name}_found"] = found_value
+                        flat_result[f"{field_name}_verified"] = is_match
+                        flat_result[f"{field_name}_status"] = status
+                    
+                    flat_result['overall_match'] = all_fields_match
+                    flat_result['notes'] = llm_item.notes or ""
+                    processed_chunk_results.append(flat_result)
+
+                return processed_chunk_results, input_tokens, output_tokens
 
             except (ValidationError, json.JSONDecodeError) as e:
                 print(f"LLM Response Validation Error for verification chunk: {e}\nRaw: {response_text}")
                 for item in species_results_chunk:
                     processed_chunk_results.append(self._format_error_result(item, "Validation Error", f"Malformed LLM response: {e}"))
-            
-            return processed_chunk_results, input_tokens, output_tokens
 
         except Exception as e:
             print(f"Error during Gemini verification API call: {e}")

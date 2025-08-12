@@ -46,3 +46,16 @@ class AutomatedVerificationResponseList(RootModel):
     """Root model for a list of AutomatedVerificationItem objects."""
     root: List[AutomatedVerificationItem]
 
+class SimplifiedVerificationItem(BaseModel):
+    """
+    Represents the LLM's simplified verification output for a single species.
+    The LLM's only job is to find data, not compare it.
+    """
+    species: str = Field(..., description="The species name.")
+    expected_data: Dict[str, Any] = Field(..., description="The expected data provided for context.")
+    found_data: Dict[str, Any] = Field(..., description="The data the LLM actually found in the document.")
+    notes: Optional[str] = Field(None, description="Any general notes from the LLM.")
+
+class SimplifiedVerificationResponseList(RootModel):
+    """Root model for a list of SimplifiedVerificationItem objects."""
+    root: List[SimplifiedVerificationItem]

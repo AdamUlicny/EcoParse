@@ -1,77 +1,119 @@
 import streamlit as st
 import pandas as pd
 from ecoparse.core.sourcetext import trim_pdf_pages, extract_text_from_pdf
-from app.state_loader import load_state_from_report # Import our new function
+from app.state_loader import load_state_from_report
+from app.session import reset_session # Import the centralized reset function
 import io
+from PyPDF2 import PdfReader
 
 def display():
-    st.header("Upload Document")
+    st.header("1. Upload and Process Document")
 
+    # This is the main control switch for the tab's appearance.
+    # If a session is loaded from a report, show the "loaded" view.
+    if st.session_state.get("session_loaded_from_report", False):
+        display_loaded_session_view()
+    else:
+        # Otherwise, show the default "new session" workflow.
+        display_new_session_view()
+
+def display_loaded_session_view():
+    """
+    Renders the UI for when a user has loaded a session from a report.
+    This view is primarily informational and provides a way to start over.
+    """
+    st.success(f"✅ **Session Loaded from Report** for document: **{st.session_state.pdf_name}**")
+    st.info("You can now proceed to the other tabs to view results or continue verification.")
+    
+    if st.button("🔄 Start a New Session", type="primary"):
+        reset_session()
+        st.rerun()
+
+    st.markdown("---")
+    st.subheader("Upload Corresponding PDF (Optional)")
+    st.markdown("To use features that require the original document (like the image context viewer in the verification tabs), please upload the PDF file below.")
+    
     uploaded_file = st.file_uploader(
-        "Choose a PDF file to start a new session",
+        "Upload PDF for loaded session",
         type="pdf",
-        help="Upload the document you want to analyze."
+        key="pdf_for_loaded_session"
     )
-
     if uploaded_file:
-        file_id = f"{uploaded_file.name}-{uploaded_file.size}"
-        if file_id != st.session_state.get('last_uploaded_file_id'):
+        st.session_state.pdf_buffer = uploaded_file.getvalue()
+        st.success(f"PDF '{uploaded_file.name}' has been loaded and is available for context-aware features.")
+
+def display_new_session_view():
+    """
+    Renders the default UI for starting a new session from a PDF.
+    """
+    st.subheader("Start a New Session by Uploading a PDF")
+    
+    def on_pdf_upload():
+        """This callback runs ONLY when the user uploads a new PDF."""
+        uploaded_file = st.session_state.new_pdf_uploader
+        if uploaded_file is not None:
+            # Ensure any old data is cleared before loading the new file
+            reset_session()
             st.session_state.pdf_buffer = uploaded_file.getvalue()
             st.session_state.pdf_name = uploaded_file.name
-            st.session_state.last_uploaded_file_id = file_id
-            # Reset subsequent steps
-            st.session_state.full_text = ""
-            st.session_state.gnfinder_results_raw = None
-            st.session_state.species_df_initial = pd.DataFrame()
-            st.session_state.species_df_final = pd.DataFrame()
-            st.session_state.extraction_results = []
-            st.success(f"Loaded '{uploaded_file.name}'. You can now process it below.")
-            st.rerun()
-
-    # --- NEW: Section to load from a report ---
-    st.markdown("---")
-    st.subheader("Or, Load a Previous Session")
     
-    uploaded_report = st.file_uploader(
-        "Choose a previously generated JSON report file",
-        type="json",
-        help="This will load all extracted and verified data from a past run."
+    # The primary PDF uploader now uses the on_change callback.
+    st.file_uploader(
+        "Choose a PDF file",
+        type="pdf",
+        key="new_pdf_uploader",
+        on_change=on_pdf_upload
     )
-    
-    if uploaded_report:
-        with st.spinner("Loading report and populating session state..."):
-            report_content = uploaded_report.read().decode("utf-8")
-            required_pdf_name = load_state_from_report(report_content)
-            
-            if required_pdf_name:
-                st.success(f"Successfully loaded data from report for '{required_pdf_name}'!")
-                st.info("""
-                **Session data has been restored.** You can now view results, continue manual verification, or download reports.
-                
-                **Note:** To use features that require the original document (like the context viewer in Manual Verification), please also upload the corresponding PDF file (`{}`) using the uploader at the top of the page.
-                """.format(required_pdf_name))
-                # Clear the uploader so it doesn't re-trigger on every action
-                uploaded_report = None 
-                st.rerun()
-    
-    st.markdown("---")
-    # --- END OF NEW SECTION ---
-
     if st.session_state.pdf_buffer:
         st.info(f"**Current Document:** `{st.session_state.pdf_name}`")
-        
         with st.expander("Process PDF and Extract Text", expanded=not st.session_state.full_text):
-            st.markdown("Click the button below to extract text from the uploaded PDF.")
+            st.markdown("Select a page range to focus the analysis, then click the button to extract text.")
             
-            # This part is simplified since trimming is less common. Can be re-added if needed.
-            if st.button("Process Full Document", type="primary"):
-                with st.spinner("Extracting text from PDF..."):
-                    st.session_state.full_text = extract_text_from_pdf(io.BytesIO(st.session_state.pdf_buffer))
-                    st.success(f"Extracted {len(st.session_state.full_text):,} characters.")
-                    st.rerun()
+            try:
+                reader = PdfReader(io.BytesIO(st.session_state.pdf_buffer))
+                num_pages = len(reader.pages)
 
+                col1, col2 = st.columns(2)
+                with col1:
+                    start_page = st.number_input("Start Page", 1, num_pages, 1)
+                with col2:
+                    end_page = st.number_input("End Page", 1, num_pages, num_pages)
+
+                if st.button("Trim PDF & Extract Text", type="primary"):
+                    if start_page > end_page:
+                        st.error("Start page must not be after the end page.")
+                    else:
+                        with st.spinner("Trimming PDF and extracting text..."):
+                            original_buffer = io.BytesIO(st.session_state.pdf_buffer)
+                            trimmed_buffer = trim_pdf_pages(original_buffer, start_page, end_page)
+                            if trimmed_buffer:
+                                st.session_state.pdf_buffer = trimmed_buffer.getvalue() 
+                                st.session_state.full_text = extract_text_from_pdf(trimmed_buffer)
+                                st.success(f"Trimmed to pages {start_page}-{end_page} and extracted {len(st.session_state.full_text):,} characters.")
+                                st.rerun()
+                            else:
+                                st.error("Failed to trim PDF.")
+            except Exception as e:
+                st.error(f"Could not read the uploaded PDF. It may be corrupted. Error: {e}")
+    
     if st.session_state.full_text:
         st.subheader("Extracted Text Preview")
         st.text_area("Preview", st.session_state.full_text[:3000] + "...", height=300, disabled=True)
-    elif not uploaded_report: # Don't show this message if we're loading a report
-        st.info("Please upload a PDF to begin a new session, or upload a JSON report to load a previous one.")
+
+    # --- Secondary Option: Load Session ---
+    st.markdown("---")
+    st.subheader("Or, Load a Previous Session")
+    
+    def on_report_upload():
+        uploaded_report = st.session_state.report_uploader
+        if uploaded_report is not None:
+            report_content = uploaded_report.read().decode("utf-8")
+            load_state_from_report(report_content)
+            # No need to set flags, the main rerun will check the session_loaded_from_report state
+    
+    st.file_uploader(
+        "Choose a previously generated JSON report file",
+        type="json",
+        key="report_uploader",
+        on_change=on_report_upload
+    )

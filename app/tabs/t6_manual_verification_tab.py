@@ -5,17 +5,29 @@ from app.ui_components import display_df_and_download
 import io
 
 def display():
-    st.header("Manual Verification")
+    st.header("6. Manual Verification")
+
+    # --- START OF DEFINITIVE FIX ---
+
+    # Step 1: The primary check. If there are no results to verify, stop.
+    if not st.session_state.extraction_results:
+        st.info("No extraction results to verify. Please run an extraction in Tab 4 or load a report in Tab 1.")
+        return
+
+    # Step 2: The resilience check. If the species DataFrame is missing,
+    # reconstruct it from the extraction results. This is the key fix.
+    if st.session_state.species_df_final.empty and st.session_state.extraction_results:
+        st.info("Reconstructing species list from loaded results for context viewer...")
+        species_names = [res.get('species') for res in st.session_state.extraction_results if res.get('species')]
+        st.session_state.species_df_final = pd.DataFrame(species_names, columns=["Name"])
+
+    # --- END OF DEFINITIVE FIX ---
 
     # Initialize the verification queue from extraction results if it's empty
     if st.session_state.extraction_results and not st.session_state.verification_queue:
         st.session_state.verification_queue = st.session_state.extraction_results.copy()
         st.session_state.verification_current_index = 0
         st.session_state.manual_verification_results = []
-
-    if not st.session_state.verification_queue:
-        st.info("No extraction results to verify. Please run an extraction first.")
-        return
 
     total_items = len(st.session_state.verification_queue)
     index = st.session_state.verification_current_index
@@ -25,8 +37,14 @@ def display():
         st.balloons()
         if st.session_state.manual_verification_results:
             final_df = pd.DataFrame(st.session_state.manual_verification_results)
-            display_df_and_download(final_df, "Manually Verified Results", "manual_verification_results")
+            display_df_and_download(
+                final_df, 
+                "Manually Verified Results", 
+                "manual_verification_results",
+                context="manual_verify_main"
+            )
         return
+
 
     st.progress((index + 1) / total_items, text=f"Verifying item {index + 1} of {total_items}")
     
@@ -40,17 +58,19 @@ def display():
     with col1:
         st.markdown("**Page Context**")
         with st.container(height=500, border=False):
-            images = get_species_page_images(
-                io.BytesIO(st.session_state.pdf_buffer),
-                st.session_state.species_df_final[st.session_state.species_df_final["Name"] == species_name]
-            ).get(species_name, [])
-            if images:
-                for img in images:
-                    # --- START OF FIX ---
-                    st.image(img, use_container_width=True) # Replaced deprecated parameter
-                    # --- END OF FIX ---
+            if st.session_state.pdf_buffer:
+                images = get_species_page_images(
+                    io.BytesIO(st.session_state.pdf_buffer),
+                    st.session_state.species_df_final[st.session_state.species_df_final["Name"] == species_name]
+                ).get(species_name, [])
+                if images:
+                    for img in images:
+                        st.image(img, use_container_width=True)
+                else:
+                    st.warning("No context image found for this species.")
             else:
-                st.warning("No context image found for this species.")
+                st.info("Upload the original PDF document in the '1. Upload PDF' tab to view page context images here.")
+
 
     with col2:
         st.markdown("**Extracted Data**")

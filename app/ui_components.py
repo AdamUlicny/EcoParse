@@ -51,8 +51,16 @@ def setup_sidebar():
     )
     st.info("Ensure the Ollama application is running and the specified model is downloaded if using Ollama.")
 
-def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str):
-    """Displays a DataFrame and provides download buttons for CSV and JSON."""
+def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str, context:str):
+    """
+    Displays a DataFrame and provides download buttons for CSV and JSON.
+    
+    Args:
+        df (pd.DataFrame): The DataFrame to display.
+        title (str): The title for the subheader.
+        file_prefix (str): A prefix for the download filenames.
+        context (str): A unique string from the calling location to ensure widget keys are unique.
+    """
     st.subheader(title)
     if not df.empty:
         st.dataframe(df, use_container_width=True)
@@ -67,6 +75,7 @@ def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str):
                 data=csv_data,
                 file_name=f"{file_prefix}.csv",
                 mime="text/csv",
+                key=f"csv_{context}_{file_prefix}" 
             )
         with col2:
             st.download_button(
@@ -74,6 +83,8 @@ def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str):
                 data=json_data,
                 file_name=f"{file_prefix}.json",
                 mime="application/json",
+                key=f"json_{context}_{file_prefix}"
             )
+            
     else:
         st.info("No data to display.")

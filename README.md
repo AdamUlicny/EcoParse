@@ -32,7 +32,7 @@ First, check if you have a compatible version of Python installed.
 ```bash
 python3 --version
 ```
-If not, please install it from the [official Python website](https://www.python.org/downloads/).
+If not, install it from the [official Python website](https://www.python.org/downloads/).
 
 #### **Git**
 You will need Git to clone the project repository.
@@ -109,7 +109,7 @@ pip install -e .
 
 Make sure your **GNfinder service** (and Ollama, if you're using it) is running in its separate terminal.
 
-Then, to launch the EcoParse web interface, simply run:
+Then, to launch the EcoParse web interface, in your virtual environment simply run:
 ```bash
 ecoparse
 ```

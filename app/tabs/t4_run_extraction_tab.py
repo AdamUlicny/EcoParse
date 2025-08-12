@@ -3,14 +3,30 @@ import pandas as pd
 from ecoparse.core.extractor import Extractor
 from ecoparse.core.sourcetext import get_species_context_chunks
 from ecoparse.core.reporter import generate_report
+from app.ui_components import display_df_and_download # Import the function
 import io
 import time
 
 def display():
-    st.header("Run Data Extraction")
+    st.header("4. Run Data Extraction")
+
+    # This tab should be disabled if a session is loaded from a report
+    if st.session_state.session_loaded_from_report:
+        st.success("✅ This step was completed in the loaded session.")
+        st.info("The extraction has already been run. You can view the results in the 'View Results' tab or start a new session.")
+        
+        # Optionally, display the list of species that were processed
+        st.subheader("Species Processed in Loaded Report")
+        display_df_and_download(
+            st.session_state.species_df_final,
+            "Final Species List",
+            "final_species_list",
+            context="run_extraction_loaded" # Added context for this call
+        )
+        return
 
     if st.session_state.species_df_final.empty:
-        st.warning("No species identified. Please complete the 'Identify Species' step.")
+        st.warning("No species identified. Please complete the '2. Identify Species' step.")
         return
 
     st.info(f"Ready to extract data for **{len(st.session_state.species_df_final)}** species.")
@@ -20,17 +36,16 @@ def display():
     with col1:
         st.selectbox("Extraction Method", ["Text-based", "Image-based"], key="extraction_method")
     with col2:
-        st.number_input("Max Concurrent LLM Requests", 10, 50, key="concurrent_requests")
+        st.number_input("Max Concurrent LLM Requests", 1, 50, key="concurrent_requests")
 
     if st.session_state.extraction_method == "Text-based":
         col3, col4 = st.columns(2)
         with col3:
             st.number_input("Characters Before Mention", 0, 2000, key="context_before")
         with col4:
-            st.number_input("Characters After Mention", 250, 2000, key="context_after")
+            st.number_input("Characters After Mention", 0, 2000, key="context_after")
 
         with st.expander("Preview Text Chunk"):
-            # ... (Chunk preview logic is unchanged)
             species_list = st.session_state.species_df_final["Name"].tolist()
             if species_list:
                 species_to_preview = st.selectbox("Select species to preview", options=species_list)
@@ -51,15 +66,15 @@ def display():
                 st.info("No species available to preview.")
 
     if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty):
+        # ... (The rest of the logic for running an extraction is unchanged)
         examples_text = "\n\n".join(
             [f"Input:\n{ex['input']}\nOutput:\n{ex['output']}" for ex in st.session_state.prompt_examples]
         )
-        
         llm_config = {
             "provider": st.session_state.llm_provider,
             "api_key": st.session_state.google_api_key,
             "model": st.session_state.google_model if st.session_state.llm_provider == "Google Gemini" else st.session_state.ollama_model,
-            "ollama_url": st.session_state.ollama_url, 
+            "ollama_url": st.session_state.ollama_url,
             "concurrent_requests": st.session_state.concurrent_requests
         }
         source_context = {
@@ -71,28 +86,22 @@ def display():
             "context_after": st.session_state.context_after,
             "examples_text": examples_text
         }
-        
         st.session_state.extraction_results = []
         st.session_state.verification_queue = []
         st.session_state.manual_verification_results = []
-        
         extractor = Extractor(st.session_state.project_config, llm_config)
         species_to_process = st.session_state.species_df_final["Name"].tolist()
-        
         progress_bar = st.progress(0, "Starting extraction...")
         def update_progress(completed, total):
             progress_bar.progress(completed / total, f"Processed {completed}/{total} species...")
-
         with st.spinner("LLM is processing..."):
             results, runtime, in_tokens, out_tokens = extractor.run_extraction(
                 species_to_process, source_context, update_progress
             )
-        
         st.session_state.extraction_results = results
         st.session_state.extraction_runtime = runtime
         st.session_state.total_input_tokens = in_tokens
         st.session_state.total_output_tokens = out_tokens
-        
         report_context = {
             "pdf_name": st.session_state.pdf_name,
             "full_text": st.session_state.full_text,
@@ -114,11 +123,8 @@ def display():
             "project_config": st.session_state.project_config,
             "manual_verification_results": st.session_state.manual_verification_results
         }
-        
         report_path = generate_report(report_context)
-        
         st.session_state.last_report_path = report_path
-        
         progress_bar.empty()
         st.success(f"Extraction complete! Report saved to `{report_path}`.")
         st.info("Proceed to the 'View Results' or 'Reports' tab.")

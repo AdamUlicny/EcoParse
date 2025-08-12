@@ -12,6 +12,8 @@ from plotly import express as px
 from google import genai
 from google.genai import types
 
+from PyPDF2 import PdfReader # To get page count for trimming UI
+from ecoparse.core.sourcetext import trim_pdf_pages # The core trimming function
 from ecoparse.core.verifier import Verifier
 from app.ui_components import display_df_and_download
 
@@ -23,63 +25,83 @@ def display():
 
     st.subheader("⚙️ Verification Settings")
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.selectbox(
             "Gemini Model for Verification",
-            ["gemini-1.5-flash-latest", "gemini-1.5-pro-latest", "gemini-pro"],
+            ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.5-pro"],
             key="verification_gemini_model"
         )
     with col2:
         st.number_input(
             "Species per Request (Chunk Size)",
-            min_value=1, max_value=50, value=st.session_state.get("verification_species_chunk_size", 5), step=1,
-            help="Number of species to verify in each API call. Smaller chunks reduce per-request cost/latency but increase total calls.",
+            min_value=1, max_value=50,
             key="verification_species_chunk_size"
         )
+    with col3:
+        st.number_input(
+            "Concurrent Requests",
+            min_value=1, max_value=10,
+            key="verification_concurrent_requests",
+            help="Keep this at 1 to avoid rate-limit errors on most API plans."
+        )
 
-    st.subheader("📤 Upload PDF to Gemini File Manager")
-    st.info("The entire PDF document needs to be uploaded to Gemini's File Manager once. This file will be sent with each chunked verification request.")
-
+    # --- START OF DEFINITIVE FIX: Integrated Trimming and Upload Workflow ---
+    st.subheader("📤 Prepare & Upload PDF for Verification")
+    
     api_key = st.session_state.google_api_key
-    pdf_file_buffer_bytes = st.session_state.pdf_buffer # The raw bytes of the processed PDF
+    pdf_file_buffer_bytes = st.session_state.pdf_buffer
 
     if pdf_file_buffer_bytes and api_key:
-        if not st.session_state.get("uploaded_gemini_file_id"): 
-            if st.button("Upload Full PDF to Gemini File Manager"):
-                if not api_key:
-                    st.error("Please provide your Google API key in the sidebar configuration.")
-                    st.stop()
+        if not st.session_state.get("uploaded_gemini_file_id"):
+            st.info("Select a page range from your original document to upload for verification.")
+            
+            try:
+                reader = PdfReader(io.BytesIO(pdf_file_buffer_bytes))
+                num_pages = len(reader.pages)
                 
-                try:
-                    with st.spinner("Uploading entire PDF to Gemini... This might take a while and incur cost for storage."):
-                        client = genai.Client(api_key=api_key)
-                        
-                        # Write buffer to a temporary file for upload
-                        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                            tmp_file.write(pdf_file_buffer_bytes)
-                            tmp_pdf_path = Path(tmp_file.name)
-                        
-                        uploaded_gemini_file_obj = client.files.upload(file=tmp_pdf_path)
-                        tmp_pdf_path.unlink() # Clean up temp file
-                        
-                        st.session_state.uploaded_gemini_file_id = uploaded_gemini_file_obj.name
-                        st.session_state.uploaded_gemini_file_display_name = uploaded_gemini_file_obj.display_name or uploaded_gemini_file_obj.name
-                        
-                        st.success(f"✅ Full PDF uploaded to Gemini successfully! File ID: {uploaded_gemini_file_obj.name}")
-                        st.caption("This file will be automatically deleted from Gemini after 48 hours or when manually deleted.")
-                        time.sleep(2)
-                        st.rerun() # Rerun to update button state
-                except Exception as e:
-                    st.error(f"❌ Error uploading full PDF to Gemini: {str(e)}")
+                col_start, col_end = st.columns(2)
+                with col_start:
+                    start_page = st.number_input("Start Page", 1, num_pages, 1)
+                with col_end:
+                    end_page = st.number_input("End Page", 1, num_pages, num_pages)
+
+                if st.button("Trim and Upload to Gemini", type="primary"):
+                    if start_page > end_page:
+                        st.error("Start page must not be after the end page.")
+                    else:
+                        with st.spinner("Trimming PDF and uploading to Gemini..."):
+                            original_buffer = io.BytesIO(pdf_file_buffer_bytes)
+                            trimmed_buffer = trim_pdf_pages(original_buffer, start_page, end_page)
+
+                            if trimmed_buffer:
+                                client = genai.Client(api_key=api_key)
+                                with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+                                    tmp_file.write(trimmed_buffer.getvalue())
+                                    tmp_pdf_path = Path(tmp_file.name)
+                                
+                                uploaded_gemini_file_obj = client.files.upload(file=tmp_pdf_path)
+                                tmp_pdf_path.unlink()
+                                
+                                st.session_state.uploaded_gemini_file_id = uploaded_gemini_file_obj.name
+                                st.session_state.uploaded_gemini_file_display_name = f"{uploaded_gemini_file_obj.display_name} (Pages {start_page}-{end_page})"
+                                
+                                st.success(f"✅ Trimmed PDF uploaded successfully! File ID: {uploaded_gemini_file_obj.name}")
+                                st.rerun()
+                            else:
+                                st.error("Failed to trim the PDF before upload.")
+
+            except Exception as e:
+                st.error(f"❌ An error occurred during the trim/upload process: {str(e)}")
         else:
-            st.success(f"Full PDF '{st.session_state.uploaded_gemini_file_display_name}' (ID: {st.session_state.uploaded_gemini_file_id}) is already uploaded to Gemini.")
-            st.info("Proceed to 'Run Verification' below.")
+            st.success(f"Trimmed PDF '{st.session_state.uploaded_gemini_file_display_name}' (ID: {st.session_state.uploaded_gemini_file_id}) is ready for verification.")
+            st.info("Proceed to 'Run Verification' below or delete the file to upload a different version.")
             
     elif pdf_file_buffer_bytes is None:
         st.warning("Please upload and process a PDF in the '1. Upload PDF' tab first.")
     else:
-        st.warning("Please provide your Google API key in the sidebar configuration to upload files.")
+        st.warning("Please provide your Google API key in the sidebar configuration to enable file uploads.")
+    # --- END OF DEFINITIVE FIX ---
 
 
     st.subheader("🔬 Run Verification")
@@ -109,7 +131,9 @@ def display():
             # Re-initialize Gemini client and get the File object
             try:
                 gemini_client_for_run = genai.Client(api_key=api_key)
-                uploaded_file_obj_for_llm = gemini_client_for_run.files.get(st.session_state.uploaded_gemini_file_id)
+                uploaded_file_obj_for_llm = gemini_client_for_run.files.get(
+                    name=st.session_state.uploaded_gemini_file_id
+                )
             except Exception as e:
                 st.error(f"Failed to retrieve uploaded Gemini file: {e}. Please try re-uploading the PDF.")
                 st.stop()
@@ -135,7 +159,7 @@ def display():
             start_time = time.time()
             
             # Using ThreadPoolExecutor for concurrency
-            max_workers = st.session_state.concurrent_requests # Reuse general concurrent requests setting
+            max_workers = st.session_state.verification_concurrent_requests
 
             futures = []
             with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -192,7 +216,8 @@ def display():
         display_df_and_download(
             results_df,
             "Automated Verification Detailed Results",
-            "automated_verification_results"
+            "automated_verification_results",
+            context="auto_verify_main" # Added context
         )
         
         st.subheader("Summary Statistics")

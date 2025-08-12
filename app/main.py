@@ -35,8 +35,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "4. Run Extraction",
     "5. View Results",
     "6. Manual Verification",
-    "7. Reports",
-    "8. Automated Verification" # Add tab title
+    "7. Automated Verification",  
+    "8. Reports" 
 ])
 
 with tab1: t1_upload_pdf_tab.display()
@@ -45,7 +45,7 @@ with tab3: t3_configure_extraction_tab.display()
 with tab4: t4_run_extraction_tab.display()
 with tab5: t5_results_tab.display()
 with tab6: t6_manual_verification_tab.display()
-with tab7: t7_reports_tab.display()
-with tab8: t8_automated_verification_tab.display() # Add the new tab display
+with tab7: t8_automated_verification_tab.display()
+with tab8: t7_reports_tab.display()
 
     
