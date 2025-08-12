@@ -8,20 +8,20 @@ from ecoparse.core.finders import (
 from app.ui_components import display_df_and_download
 
 def display():
-    st.header("Identify Species Names")
+    st.header("2. Identify Species Names")
 
     if st.session_state.session_loaded_from_report:
         st.success("✅ This step was completed in the loaded session.")
+        st.markdown("Below is the final list of species that was used for extraction.")
         display_df_and_download(
             st.session_state.species_df_final,
             "Final Species List (from Report)",
             "final_species_list",
-            context="species_id_loaded" 
+            context="species_id_loaded"
         )
     elif not st.session_state.full_text:
         st.warning("Please upload and process a PDF in the '1. Upload PDF' tab first.")
     else:
-
         if st.button("Find Species with GNfinder", type="primary"):
             with st.spinner("Sending text to GNfinder... This may take a moment."):
                 gnfinder_url = st.session_state.gnfinder_url
@@ -51,7 +51,6 @@ def display():
                         st.session_state.species_df_initial, rank, name
                     )
                 else:
-                    # If filter is cleared, reset to the initial list
                     st.session_state.species_df_final = st.session_state.species_df_initial.copy()
             
             st.markdown("---")
@@ -59,13 +58,15 @@ def display():
                 st.session_state.species_df_final,
                 "Final Species List for Extraction",
                 "final_species_list",
-                context="species_id_final" # Added context
+                context="species_id_final"
             )
             
             with st.expander("Show initial unfiltered species list"):
+                # --- START OF DEFINITIVE FIX ---
+                # Use the correct variable name: species_df_initial
                 display_df_and_download(
-                    st.session_state.initial_filtered_species,
+                    st.session_state.species_df_initial,
                     "Initially Identified Species (Pre-Taxonomic Filter)",
                     "initial_species_list",
-                    context="species_id_initial" # Added context
+                    context="species_id_initial"
                 )
