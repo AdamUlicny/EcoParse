@@ -122,6 +122,7 @@ def display():
             "project_config": st.session_state.project_config,
             "manual_verification_results": st.session_state.manual_verification_results
         }
+        
         report_path = generate_report(report_context)
         st.session_state.last_report_path = report_path
         progress_bar.empty()
