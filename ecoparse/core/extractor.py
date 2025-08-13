@@ -57,8 +57,6 @@ class Extractor:
         return all_results, runtime, total_input_tokens, total_output_tokens
 
     def _extract_for_single_species(self, species_name: str, context: Dict[str, Any]) -> Tuple[Optional[Dict], int, int]:
-        """Now returns a tuple including token counts."""
-        # ... (logic is the same, but the return value changes)
         extraction_method = context.get("extraction_method")
         examples_text = context.get("examples_text", "")
         
@@ -117,9 +115,12 @@ class Extractor:
                 for img_bytes in images:
                     content.insert(0, types.Part.from_bytes(data=img_bytes, mime_type="image/png"))
             
-            config = {"response_mime_type": "application/json", "temperature": 0.1}
             response = client.models.generate_content(
-                model=self.llm_config["model"], contents=content, config=config
+                model=self.llm_config["model"], 
+                contents=content, 
+                config={"response_mime_type": "application/json", 
+                        "temperature": 0.1
+                }
             )
             
             in_tokens = response.usage_metadata.prompt_token_count
@@ -134,7 +135,6 @@ class Extractor:
             return None, 0, 0
 
     def _call_ollama(self, prompt: str, images: Optional[List[bytes]]) -> Tuple[Optional[Dict], int, int]:
-        """Now uses a specific client with the configured host URL."""
         try:
             client = ollama.Client(host=self.llm_config["ollama_url"])
 

@@ -66,7 +66,6 @@ def display():
                 st.info("No species available to preview.")
 
     if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty):
-        # ... (The rest of the logic for running an extraction is unchanged)
         examples_text = "\n\n".join(
             [f"Input:\n{ex['input']}\nOutput:\n{ex['output']}" for ex in st.session_state.prompt_examples]
         )
