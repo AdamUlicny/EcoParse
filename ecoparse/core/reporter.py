@@ -35,9 +35,6 @@ def generate_report(report_context: Dict[str, Any]) -> Optional[str]:
     species_df_final = report_context.get('species_df_final', pd.DataFrame())
     final_species_list_for_json = species_df_final.to_dict(orient='records') if not species_df_final.empty else []
 
-    # --- START OF DEFINITIVE FIX ---
-    # The report_data dictionary is now fully populated with the data
-    # that was passed in via the report_context.
     report_data = {
         "report_timestamp": datetime.now().isoformat(),
         "pdf_info": {
@@ -74,7 +71,6 @@ def generate_report(report_context: Dict[str, Any]) -> Optional[str]:
             "full_results": report_context.get('manual_verification_results', [])
         }
     }
-    # --- END OF DEFINITIVE FIX ---
     
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     report_path = Path("logs") / f"ecoparse_report_{timestamp}.json"

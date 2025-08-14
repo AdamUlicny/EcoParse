@@ -4,7 +4,7 @@ project_description: "Extracts regional conservation status for species based on
 # Define the specific pieces of data you want to extract for each species.
 data_fields:
   - name: "conservation_status"
-    description: "The regional conservation status. This is often a two-letter code."
+    description: "The REGIONAL or NATIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'."
     # Providing validation values helps the LLM be more precise and enables data validation.
     # Use 'NF' for 'Not Found'.
     validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF"]
