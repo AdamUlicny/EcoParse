@@ -43,17 +43,16 @@ If not installed, get it from the [official Git website](https://git-scm.com/dow
 
 #### **GNfinder (Required)**
 EcoParse relies on the GNfinder service to find scientific names in documents.
-1.  Go to the [GNfinder Releases page](https://github.com/gnames/gnfinder/releases) and download the correct version for your operating system.
-2.  Unzip the file and move the `gnfinder` executable to a location in your system's PATH (e.g., `/usr/local/bin` on Linux/macOS).
-3.  **Start the GNfinder web service.** Open a **new, dedicated terminal window** and run the following command. The service must remain running while you use EcoParse.
+1.  Go to the [GNfinder GitHub Repository](https://github.com/gnames/gnfinder/) and install the program.
+2.  **Start the GNfinder web service.** Open a **new, dedicated terminal window** and run the following command. The service must remain running while you use EcoParse.
     ```bash
     gnfinder -p 4040 rest
     ```
     *Keep this terminal open and running in the background.*
 
 #### **Gemini Paid Tier (Optional)**
-Google provides a free tier of their Gemini LLM API, but due to heavy rate limiting (15 requests per minute with Gemini 2.5 Flash Lite), using the paid tier is needed for fast extractions. 
-For testing, Google currently offers a free 3 month trial period.
+Google provides a free tier of their Gemini LLM API, but due to heavy rate limiting (15 requests per minute with Gemini 2.5 Flash Lite), using the **paid tier** is needed for fast extractions. 
+For testing, Google currently offers a free **3 month trial period**.
 Obtain an API key at https://aistudio.google.com/.
 The EcoParse app currently does not accomodate for using the free tier API, or support other LLM service providers such as OpenAI or Anthropic. Support could be added if requested.
 At the time of development, Google Gemini (especially the Flash-Lite variants) offers the best price/performance service for this type of workload.
@@ -157,7 +156,7 @@ data_fields:
 
 ## Contributing
 
-Bug reports, feature requests, and pull requests are welcome! Please open an issue in the [issue tracker](https://github.com/your-username/EcoParse/issues) to discuss any changes.
+Bug reports, feature requests, and pull requests are welcome! Please open an issue in the [issue tracker](https://github.com/AdamUlicny/EcoParse/issues) to discuss any changes.
 
 ## License
 
