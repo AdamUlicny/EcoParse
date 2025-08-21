@@ -2,15 +2,13 @@ import streamlit as st
 import pandas as pd
 from ecoparse.core.sourcetext import trim_pdf_pages, extract_text_from_pdf
 from app.state_loader import load_state_from_report
-from app.session import reset_session # Import the centralized reset function
+from app.session import reset_session 
 import io
 from PyPDF2 import PdfReader
 
 def display():
     st.header("1. Upload and Process Document")
 
-    # This is the main control switch for the tab's appearance.
-    # If a session is loaded from a report, show the "loaded" view.
     if st.session_state.get("session_loaded_from_report", False):
         display_loaded_session_view()
     else:
@@ -98,7 +96,7 @@ def display_new_session_view():
     
     if st.session_state.full_text:
         st.subheader("Extracted Text Preview")
-        st.text_area("Preview", st.session_state.full_text[:3000] + "...", height=300, disabled=True)
+        st.text_area("Preview", st.session_state.full_text[:3000000] + "...", height=300, disabled=True)
 
     # --- Secondary Option: Load Session ---
     st.markdown("---")

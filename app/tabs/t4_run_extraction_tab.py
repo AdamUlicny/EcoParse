@@ -3,25 +3,24 @@ import pandas as pd
 from ecoparse.core.extractor import Extractor
 from ecoparse.core.sourcetext import get_species_context_chunks
 from ecoparse.core.reporter import generate_report
-from app.ui_components import display_df_and_download # Import the function
+from app.ui_components import display_df_and_download 
 import io
 import time
+import json
 
 def display():
     st.header("4. Run Data Extraction")
 
-    # This tab should be disabled if a session is loaded from a report
     if st.session_state.session_loaded_from_report:
         st.success("✅ This step was completed in the loaded session.")
         st.info("The extraction has already been run. You can view the results in the 'View Results' tab or start a new session.")
-        
-        # Optionally, display the list of species that were processed
+
         st.subheader("Species Processed in Loaded Report")
         display_df_and_download(
             st.session_state.species_df_final,
             "Final Species List",
             "final_species_list",
-            context="run_extraction_loaded" # Added context for this call
+            context="run_extraction_loaded" 
         )
         return
 
@@ -66,9 +65,21 @@ def display():
                 st.info("No species available to preview.")
 
     if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty):
-        examples_text = "\n\n".join(
-            [f"Input:\n{ex['input']}\nOutput:\n{ex['output']}" for ex in st.session_state.prompt_examples]
-        )
+        formatted_examples = []
+        for ex in st.session_state.prompt_examples:
+            output_json_string = json.dumps(ex['output'], indent=2)
+            
+            example_parts = [
+                f"Input:\n{ex['input']}",
+                f"Output:\n{output_json_string}"
+            ]
+
+            if ex.get('explainer'):
+                example_parts.append(f"Explainer:\n{ex['explainer']}")
+            
+            formatted_examples.append("\n".join(example_parts))
+
+        examples_text = "\n\n---\n\n".join(formatted_examples)
         llm_config = {
             "provider": st.session_state.llm_provider,
             "api_key": st.session_state.google_api_key,

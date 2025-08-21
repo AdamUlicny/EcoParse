@@ -3,12 +3,11 @@ project_description: "Extracts regional conservation status for species based on
 
 # Define the specific pieces of data you want to extract for each species.
 data_fields:
-  - name: "conservation_status"
-    description: "The REGIONAL or NATIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'."
-    # Providing validation values helps the LLM be more precise and enables data validation.
-    # Use 'NF' for 'Not Found'.
+  - name: "statusCodeVerbatim"
+    description: "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories."
     validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF"]
-
+  - name: "statusCriteria"
+    description: "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i)) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
 # Optional: You can override the default prompts here if needed.
 # If these are commented out or removed, the system will use its internal default prompts.
 # prompts:

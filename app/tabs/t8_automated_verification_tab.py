@@ -217,7 +217,7 @@ def display():
             results_df,
             "Automated Verification Detailed Results",
             "automated_verification_results",
-            context="auto_verify_main" # Added context
+            context="auto_verify_main" 
         )
         
         st.subheader("Summary Statistics")

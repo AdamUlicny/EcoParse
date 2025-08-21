@@ -1,5 +1,6 @@
 import streamlit as st
 import yaml
+import json
 
 def display():
     st.header("Configure Data Extraction")
@@ -35,29 +36,56 @@ def display():
                 st.error(f"Invalid YAML format: {e}")
 
         st.markdown("---")
-        
-        # --- NEW: Prompt Examples Section ---
+
         st.subheader("Add Prompt Examples (Optional)")
-        st.markdown("Provide few-shot examples to guide the LLM. Give it a sample sentence and the exact JSON `data` object you expect as output.")
+    st.markdown("Provide few-shot examples to guide the LLM. The output fields below are generated directly from your YAML configuration.")
 
-        with st.form("new_example_form", clear_on_submit=True):
-            col1, col2 = st.columns(2)
-            with col1:
-                example_input = st.text_area("Example Input Sentence(s)", placeholder="e.g., The conservation status of a species (F. p. peregrinus) is EN.")
-            with col2:
-                example_output = st.text_area("Expected JSON 'data' block", placeholder='e.g., {"conservation_status": "EN"}')
-            
-            submitted = st.form_submit_button("Add Example")
-            if submitted and example_input and example_output:
-                st.session_state.prompt_examples.append({"input": example_input, "output": example_output})
-                st.success("Example added!")
+    with st.form("new_example_form", clear_on_submit=True):
+        st.markdown("**INPUT:**")
+        example_input = st.text_area("The sample sentence or text chunk from a document.", key="example_input_text")
+        
+        st.markdown("**OUTPUT:**")
+        # Dynamically create input fields based on the YAML config
+        data_fields = st.session_state.project_config.get('data_fields', [])
+        if not data_fields:
+            st.warning("No 'data_fields' defined in YAML config above. Please define at least one field to add an example.")
+        
+        output_values = {}
+        for field in data_fields:
+            field_name = field.get('name')
+            # Create a user-friendly label from the field name
+            label = field_name.replace('_', ' ').replace('-', ' ').title()
+            output_values[field_name] = st.text_input(label, key=f"example_output_{field_name}")
 
-        if st.session_state.prompt_examples:
-            st.markdown("**Current Examples:**")
-            for i, example in enumerate(st.session_state.prompt_examples):
-                with st.container(border=True):
-                    st.markdown(f"**Input:**\n```\n{example['input']}\n```")
-                    st.markdown(f"**Expected Output:**\n```json\n{example['output']}\n```")
-                    if st.button("Delete", key=f"del_ex_{i}"):
-                        st.session_state.prompt_examples.pop(i)
-                        st.rerun()
+        st.markdown("**EXPLAINER (Optional):**")
+        example_explainer = st.text_area(
+            "Add extra context or reasoning for the LLM. (e.g., 'The code 'VU D1' should be simplified to just 'VU'').",
+            key="example_explainer_text"
+        )
+        
+        submitted = st.form_submit_button("Add Example")
+        if submitted and example_input and any(output_values.values()):
+            # Create a structured dictionary for the example
+            new_example = {
+                "input": example_input,
+                "output": output_values, # This is now a dictionary
+                "explainer": example_explainer if example_explainer else None
+            }
+            st.session_state.prompt_examples.append(new_example)
+            st.success("Example added!")
+
+    if st.session_state.prompt_examples:
+        st.markdown("**Current Examples:**")
+        for i, example in enumerate(st.session_state.prompt_examples):
+            with st.container(border=True):
+                st.markdown(f"**INPUT:**\n```\n{example['input']}\n```")
+                # Display the output dictionary as a formatted JSON string
+                st.markdown("**OUTPUT:**")
+                st.code(json.dumps(example['output'], indent=2), language='json')
+                # Display the explainer only if it exists
+                if example.get('explainer'):
+                    st.markdown(f"**EXPLAINER:**\n```\n{example['explainer']}\n```")
+                
+                if st.button("Delete", key=f"del_ex_{i}"):
+                    st.session_state.prompt_examples.pop(i)
+                    st.rerun()
