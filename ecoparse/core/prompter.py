@@ -1,7 +1,6 @@
 from typing import List, Dict, Any
 
 def generate_data_fields_schema(data_fields: List[Dict[str, Any]]) -> str:
-    """Creates a string representation of the data fields schema for the LLM prompt."""
     schema_parts = ["The 'data' object in the JSON output should contain the following keys:"]
     for field in data_fields:
         field_name = field.get('name')
@@ -10,7 +9,6 @@ def generate_data_fields_schema(data_fields: List[Dict[str, Any]]) -> str:
 
         part = f"- '{field_name}': {field_desc}"
         if validation_vals:
-            # Add the 'Not Found' code to the list of valid options for clarity
             if "NF" not in validation_vals:
                 validation_vals.append("NF")
             part += f" The value MUST be one of {validation_vals}."
@@ -19,7 +17,6 @@ def generate_data_fields_schema(data_fields: List[Dict[str, Any]]) -> str:
 
 
 def get_default_text_prompt(species_name: str, text_chunk: str, data_fields_schema: str, examples_text: str) -> str:
-    """Returns a stricter default prompt for text-based extraction."""
     return f"""
 <PERSONA>
 You are an expert scientific data extractor. Your task is to accurately extract specific pieces of information for a given species from a provided text chunk.
