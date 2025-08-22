@@ -19,7 +19,7 @@ def generate_data_fields_schema(data_fields: List[Dict[str, Any]]) -> str:
 
 
 def get_default_text_prompt(species_name: str, text_chunk: str, data_fields_schema: str, examples_text: str) -> str:
-    """Returns a generalized default prompt for text-based extraction with stricter rules."""
+    """Returns a stricter default prompt for text-based extraction."""
     return f"""
 <PERSONA>
 You are an expert scientific data extractor. Your task is to accurately extract specific pieces of information for a given species from a provided text chunk.
@@ -40,7 +40,9 @@ Use these examples to understand the context and desired output format:
 </EXAMPLES>
 
 <OUTPUT_REQUIREMENTS>
-Your output MUST be a JSON list containing a single JSON object.
+Your output MUST be a JSON list containing exactly one JSON object.  
+Do not include any text outside this JSON.  
+The JSON MUST be valid and parseable.
 
 **JSON Schema:**
 {{
@@ -53,14 +55,18 @@ Your output MUST be a JSON list containing a single JSON object.
 
 ---
 **RULES:**
-1.  **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the text, you MUST use the exact string "NF" (for "Not Found") as its value. 
-2.  **NOTES ARE FOR EXPLANATION:** The 'notes' field is for explaining *why* a value was "NF" or if there was ambiguity. It is separate from and does not replace the requirement to populate the data fields.
+1. **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the text, you MUST use the exact string "NF".
+2. **NO GUESSING OR INFERENCE:** Do not invent or infer values. Only extract values explicitly present in the text.
+3. **STRICT SCHEMA COMPLIANCE:** Every field defined in the schema MUST be present in the 'data' object, even if its value is "NF".
+4. **NOTES ARE ONLY FOR EXPLANATION:** The 'notes' field is for describing ambiguities or reasons for "NF". It must never contain data values that belong in 'data'.
+5. **VALID JSON ONLY:** Your response must be syntactically correct JSON and nothing else.
 ---
 </OUTPUT_REQUIREMENTS>
 """
 
+
 def get_default_image_prompt(species_name: str, data_fields_schema: str, examples_text: str) -> str:
-    """Returns a generalized default prompt for image-based extraction with stricter rules."""
+    """Returns a stricter default prompt for image-based extraction."""
     return f"""
 <PERSONA>
 You are an expert scientific data extractor. Your task is to accurately extract specific pieces of information for a given species from the provided page image(s).
@@ -76,7 +82,9 @@ Use these examples to understand the context and desired output format:
 </EXAMPLES>
 
 <OUTPUT_REQUIREMENTS>
-Your output MUST be a JSON list containing a single JSON object.
+Your output MUST be a JSON list containing exactly one JSON object.  
+Do not include any text outside this JSON.  
+The JSON MUST be valid and parseable.
 
 **JSON Schema:**
 {{
@@ -89,19 +97,18 @@ Your output MUST be a JSON list containing a single JSON object.
 
 ---
 **RULES:**
-1.  **ALWAYS POPULATE ALL DATA FIELDS:** Every single field defined in the schema under 'data' MUST be present in your output.
-2.  **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the image, you MUST use the exact string "NF" (for "Not Found") as its value. **DO NOT** omit the field, leave it empty, or use null.
-3.  **NOTES ARE FOR EXPLANATION:** The 'notes' field is for explaining *why* a value was "NF" or if there was ambiguity. It is separate from and does not replace the requirement to populate the data fields.
+1. **ALWAYS POPULATE ALL DATA FIELDS:** Every field in the schema under 'data' MUST be present, even if its value is "NF".
+2. **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a field in the image, you MUST use the exact string "NF". Do not omit the field, leave it blank, or use null.
+3. **NO GUESSING OR INFERENCE:** Do not invent or infer values. Only extract values explicitly present in the image.
+4. **NOTES ARE ONLY FOR EXPLANATION:** The 'notes' field is for describing ambiguities or reasons for "NF". It must never contain data values that belong in 'data'.
+5. **STRICT SCHEMA COMPLIANCE:** The JSON must strictly match the schema. No extra keys or formatting variations are allowed.
+6. **VALID JSON ONLY:** Your response must be syntactically correct JSON and nothing else.
 ---
 </OUTPUT_REQUIREMENTS>
 """
 
-
 def get_default_verification_prompt(species_data_list_for_llm: str, data_fields_schema: str) -> str:
-    """
-    Returns a simplified and more robust prompt for automated verification.
-    The LLM's only job is to FIND data, not to compare it.
-    """
+    """Returns a stricter prompt for automated verification."""
     return f"""
 <PERSONA>
 You are a highly meticulous scientific data extraction assistant. Your task is to review a full PDF document I have provided and find the current data for a list of species.
@@ -109,10 +116,10 @@ You are a highly meticulous scientific data extraction assistant. Your task is t
 
 <TASK_DEFINITION>
 For EACH species in the 'Species List' below, you must:
-1.  Locate the species in the document.
-2.  Find the actual value(s) for the specified data fields.
+1. Locate the species in the document.
+2. Find the actual value(s) for the specified data fields.
 
-I have provided 'expected_data' from a previous run for your context, but your primary mission is to find the true values from the document.
+I have provided 'expected_data' from a previous run for context, but your primary mission is to extract the true values from the document.
 
 **Species List and Contextual Expected Data:**
 {species_data_list_for_llm}
@@ -122,7 +129,9 @@ I have provided 'expected_data' from a previous run for your context, but your p
 </TASK_DEFINITION>
 
 <OUTPUT_REQUIREMENTS>
-Your output MUST be a single JSON list. Each object in this list corresponds to one species from the input list and MUST conform to the following simplified schema:
+Your output MUST be a JSON list containing exactly one JSON object per species.  
+Do not include any text outside this JSON.  
+The JSON MUST be valid and parseable.
 
 **JSON Schema for EACH item in the output list:**
 {{
@@ -134,9 +143,12 @@ Your output MUST be a single JSON list. Each object in this list corresponds to 
 
 ---
 **CRITICAL RULES FOR OUTPUT:**
-1.  **POPULATE 'found_data'**: Your main goal is to fill the `found_data` object with the values you discover in the document.
-2.  **USE "NF" FOR MISSING DATA**: If you cannot find the information for a specific field in the document, you MUST use the exact string "NF" as its value in the `found_data` object.
-3.  **INCLUDE ALL SPECIES**: You MUST include an entry for EVERY species provided in the input list.
+1. **POPULATE 'found_data':** Your primary task is to fill the 'found_data' object with values discovered in the document.
+2. **USE 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field, you MUST use the exact string "NF".
+3. **INCLUDE ALL SPECIES:** Each species in the input list MUST appear in the output with its own JSON object.
+4. **NO GUESSING OR INFERENCE:** Only record values explicitly present in the document. Do not generate or infer missing values.
+5. **STRICT SCHEMA COMPLIANCE:** The output must strictly follow the JSON schema provided. No extra keys, text, or formatting variations are allowed.
+6. **VALID JSON ONLY:** Your response must be syntactically correct JSON and nothing else.
 ---
 </OUTPUT_REQUIREMENTS>
 """
