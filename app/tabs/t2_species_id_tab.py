@@ -1,3 +1,10 @@
+"""
+Tab 2: Species Identification
+
+Handles species name discovery using GNfinder service, applies quality filters,
+and provides taxonomic filtering options. Core step for identifying extraction targets.
+"""
+
 import streamlit as st
 from ecoparse.core.finders import (
     send_text_to_gnfinder,
@@ -8,9 +15,11 @@ from ecoparse.core.finders import (
 from app.ui_components import display_df_and_download
 
 def display():
+    """Main display function for species identification tab."""
     st.header("2. Identify Species Names")
 
     if st.session_state.session_loaded_from_report:
+        # Show results from loaded session
         st.success("✅ This step was completed in the loaded session.")
         st.markdown("Below is the final list of species that was used for extraction.")
         display_df_and_download(
@@ -22,6 +31,7 @@ def display():
     elif not st.session_state.full_text:
         st.warning("Please upload and process a PDF in the '1. Upload PDF' tab first.")
     else:
+        # New session workflow
         if st.button("Find Species with GNfinder", type="primary"):
             with st.spinner("Sending text to GNfinder... This may take a moment."):
                 gnfinder_url = st.session_state.gnfinder_url

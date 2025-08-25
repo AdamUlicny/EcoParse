@@ -1,3 +1,11 @@
+"""
+Tab 8: Automated Verification with LLMs
+
+LLM-powered automated verification of extraction results using independent
+re-examination of source documents. Supports batch processing and detailed
+accuracy analysis with visualization.
+"""
+
 import streamlit as st
 import pandas as pd
 import json
@@ -12,8 +20,8 @@ from plotly import express as px
 from google import genai
 from google.genai import types
 
-from PyPDF2 import PdfReader # To get page count for trimming UI
-from ecoparse.core.sourcetext import trim_pdf_pages # The core trimming function
+from PyPDF2 import PdfReader  
+from ecoparse.core.sourcetext import trim_pdf_pages
 from ecoparse.core.verifier import Verifier
 from app.ui_components import display_df_and_download
 

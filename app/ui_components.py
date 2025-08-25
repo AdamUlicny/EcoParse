@@ -1,3 +1,10 @@
+"""
+UI Components and Configuration Interface
+
+Streamlit UI components for global application configuration including
+LLM provider settings, model selection, and data display utilities.
+"""
+
 import streamlit as st
 import pandas as pd
 import json
@@ -5,7 +12,7 @@ import yaml
 from pathlib import Path
 
 def load_models_list():
-    """Load available models from the models_list.yml file."""
+    """Load available LLM models from configuration file."""
     models_file = Path(__file__).parent / "assets" / "models_list.yml"
     try:
         with open(models_file, 'r', encoding='utf-8') as f:
@@ -19,7 +26,7 @@ def load_models_list():
         return {"ollama_models": [], "gemini_models": []}
 
 def setup_sidebar():
-    """Sets up the sidebar for global configuration."""
+    """Configure the main application sidebar with global settings."""
     st.header("⚙️ Global Configuration")
 
     st.text_input("GNfinder URL", key="gnfinder_url")
@@ -143,23 +150,25 @@ def setup_sidebar():
         
     st.info("Ensure the Ollama application is running and the specified model is downloaded if using Ollama.")
 
-def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str, context:str):
+def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str, context: str):
     """
-    Displays a DataFrame and provides download buttons for CSV and JSON.
+    Display DataFrame with download options for CSV and JSON formats.
     
     Args:
-        df (pd.DataFrame): The DataFrame to display.
-        title (str): The title for the subheader.
-        file_prefix (str): A prefix for the download filenames.
-        context (str): A unique string from the calling location to ensure widget keys are unique.
+        df: DataFrame to display and make downloadable
+        title: Section title for the data display
+        file_prefix: Filename prefix for downloaded files
+        context: Unique identifier to prevent Streamlit widget key conflicts
     """
     st.subheader(title)
     if not df.empty:
         st.dataframe(df, use_container_width=True)
         
+        # Prepare download data
         csv_data = df.to_csv(index=False).encode('utf-8')
         json_data = df.to_json(orient='records', indent=2)
 
+        # Create download buttons
         col1, col2 = st.columns(2)
         with col1:
             st.download_button(

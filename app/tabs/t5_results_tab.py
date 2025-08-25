@@ -1,13 +1,23 @@
+"""
+Tab 5: Results Visualization and Analysis
+
+Displays extraction results in tabular and graphical formats with download options.
+Provides overview statistics and data distribution analysis.
+"""
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 from app.ui_components import display_df_and_download
 
 def display():
+    """Main display function for results viewing tab."""
     st.header("5. View Results")
     if not st.session_state.extraction_results:
         st.info("No extraction has been run or loaded yet. Please run an extraction in Tab 4 or load a report in Tab 1.")
         return
+    
+    # Flatten extraction results for analysis
     flat_results = []
     for res in st.session_state.extraction_results:
         row = {'species': res.get('species'), 'notes': res.get('notes')}
@@ -17,6 +27,7 @@ def display():
 
     results_df = pd.DataFrame(flat_results)
 
+    # Get configured data fields for analysis
     defined_fields = [field['name'] for field in st.session_state.project_config.get('data_fields', [])]
     for field in defined_fields:
         if field not in results_df.columns:

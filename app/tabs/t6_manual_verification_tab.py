@@ -1,3 +1,10 @@
+"""
+Tab 6: Manual Verification Interface
+
+Interactive interface for human verification of extraction results with
+document context viewing and species-by-species validation workflow.
+"""
+
 import streamlit as st
 import pandas as pd
 from ecoparse.core.sourcetext import get_species_page_images
@@ -5,17 +12,15 @@ from app.ui_components import display_df_and_download
 import io
 
 def display():
+    """Main display function for manual verification tab."""
     st.header("6. Manual Verification")
 
-    # --- START OF DEFINITIVE FIX ---
-
-    # Step 1: The primary check. If there are no results to verify, stop.
+    # Validate extraction results exist
     if not st.session_state.extraction_results:
         st.info("No extraction results to verify. Please run an extraction in Tab 4 or load a report in Tab 1.")
         return
 
-    # Step 2: The resilience check. If the species DataFrame is missing,
-    # reconstruct it from the extraction results. This is the key fix.
+    # Reconstruct species DataFrame if missing (e.g., from loaded session)
     if st.session_state.species_df_final.empty and st.session_state.extraction_results:
         st.info("Reconstructing species list from loaded results for context viewer...")
         species_names = [res.get('species') for res in st.session_state.extraction_results if res.get('species')]

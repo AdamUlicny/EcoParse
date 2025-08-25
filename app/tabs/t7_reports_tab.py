@@ -1,14 +1,23 @@
+"""
+Tab 7: Reports and Logging
+
+Comprehensive reporting interface for viewing extraction summaries,
+downloading detailed JSON reports, and accessing performance metrics.
+"""
+
 import streamlit as st
 import json
 from pathlib import Path
 
 def display():
+    """Main display function for reports and logging tab."""
     st.header("Logs & Reports")
     st.markdown("Download the detailed JSON report from your most recent extraction run.")
     
     report_path = st.session_state.get('last_report_path')
 
     if report_path and Path(report_path).exists():
+        # Load and display report summary
         with open(report_path, 'r', encoding='utf-8') as f:
             report_data = json.load(f)
             

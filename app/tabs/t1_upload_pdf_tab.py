@@ -1,3 +1,10 @@
+"""
+Tab 1: PDF Upload and Processing
+
+Handles document upload, page range selection, text extraction, and session loading
+from previous reports. First step in the extraction workflow.
+"""
+
 import streamlit as st
 import pandas as pd
 from ecoparse.core.sourcetext import trim_pdf_pages, extract_text_from_pdf
@@ -7,19 +14,16 @@ import io
 from PyPDF2 import PdfReader
 
 def display():
+    """Main display function for the PDF upload tab."""
     st.header("1. Upload and Process Document")
 
     if st.session_state.get("session_loaded_from_report", False):
         display_loaded_session_view()
     else:
-        # Otherwise, show the default "new session" workflow.
         display_new_session_view()
 
 def display_loaded_session_view():
-    """
-    Renders the UI for when a user has loaded a session from a report.
-    This view is primarily informational and provides a way to start over.
-    """
+    """Display interface when session is loaded from a previous report."""
     st.success(f"✅ **Session Loaded from Report** for document: **{st.session_state.pdf_name}**")
     st.info("You can now proceed to the other tabs to view results or continue verification.")
     
@@ -41,21 +45,19 @@ def display_loaded_session_view():
         st.success(f"PDF '{uploaded_file.name}' has been loaded and is available for context-aware features.")
 
 def display_new_session_view():
-    """
-    Renders the default UI for starting a new session from a PDF.
-    """
+    """Display interface for starting a new extraction session with PDF upload."""
     st.subheader("Start a New Session by Uploading a PDF")
     
     def on_pdf_upload():
-        """This callback runs ONLY when the user uploads a new PDF."""
+        """Handle new PDF upload and reset session state."""
         uploaded_file = st.session_state.new_pdf_uploader
         if uploaded_file is not None:
-            # Ensure any old data is cleared before loading the new file
+            # Clear previous session data
             reset_session()
             st.session_state.pdf_buffer = uploaded_file.getvalue()
             st.session_state.pdf_name = uploaded_file.name
     
-    # The primary PDF uploader now uses the on_change callback.
+    # PDF file uploader with change callback
     st.file_uploader(
         "Choose a PDF file",
         type="pdf",

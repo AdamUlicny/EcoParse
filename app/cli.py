@@ -1,9 +1,16 @@
+"""
+Command Line Interface Entry Point
+
+Simple CLI wrapper for launching the Streamlit web application.
+Provides a convenient way to start EcoParse from the command line.
+"""
+
 import subprocess
 import sys
 from pathlib import Path
 
 def main():
-
+    """Launch the EcoParse Streamlit application."""
     main_py_path = Path(__file__).parent / "main.py"
 
     command = [

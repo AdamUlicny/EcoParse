@@ -1,3 +1,10 @@
+"""
+Tab 4: Extraction Execution
+
+Orchestrates the LLM-based data extraction process, including context preparation,
+concurrent processing, progress tracking, and automatic report generation.
+"""
+
 import streamlit as st
 import pandas as pd
 from ecoparse.core.extractor import Extractor
@@ -9,9 +16,11 @@ import time
 import json
 
 def display():
+    """Main display function for extraction execution tab."""
     st.header("4. Run Data Extraction")
 
     if st.session_state.session_loaded_from_report:
+        # Show completion status for loaded sessions
         st.success("✅ This step was completed in the loaded session.")
         st.info("The extraction has already been run. You can view the results in the 'View Results' tab or start a new session.")
 

@@ -7,7 +7,7 @@ data_fields:
     description: "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories."
     validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF"]
   - name: "statusCriteria"
-    description: "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i)) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+    description: "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
 # Optional: You can override the default prompts here if needed.
 # If these are commented out or removed, the system will use its internal default prompts.
 # prompts:

@@ -1,8 +1,16 @@
+"""
+Tab 3: Extraction Configuration
+
+Configure data fields, validation rules, and extraction parameters.
+Defines what specific information to extract for each species.
+"""
+
 import streamlit as st
 import yaml
 import json
 
 def display():
+    """Main display function for extraction configuration tab."""
     st.header("Configure Data Extraction")
     st.markdown("""
     Define what data you want to extract for each species using YAML. This configuration
@@ -14,6 +22,7 @@ def display():
     elif not st.session_state.full_text:
         st.warning("Please upload and process a PDF in the '1. Upload PDF' tab first.")
     else:
+        # Configuration editor
         edited_yaml = st.text_area(
             "Project Configuration (YAML)",
             value=st.session_state.project_config_yaml,
