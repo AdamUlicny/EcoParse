@@ -1,0 +1,55 @@
+# Ollama Models Configuration
+
+ollama_models:
+  # Phi models
+  - name: "phi4:14b"
+    description: "Phi-4 14b model"
+  - name: "phi3:14b-medium-4k-instruct-q8_0"
+    description: "Phi-3 14b Instruct model"
+  # Mistral models
+  - name: "mistral-small3.2:latest"
+    description: "Mistral Small 3.2 model"
+  - name: "mistral:instruct"
+    description: "Mistral Instruct 7b model"
+  - name: "llava:7b-v1.6-mistral-fp16"
+    description: "Llava 7B v1.6 Mistral FP16 model"
+  # Gemma models 
+  - name: "gemma3:27b-it-qat"
+    description: "Gemma3 27b qat"
+  - name: "gemma3:12b"
+    description: "Gemma3 12b model"
+  # Qwen models
+  - name: "qwen3:4b-instruct-2507-fp16"
+    description: "Qwen 3 4B Instruct FP16 model"
+  - name: "qwen3:8b"
+    description: "Qwen 3 8B model"
+  - name: "qwen3:30b-a3b-instruct-2507-q4_K_M"
+    description: "Qwen 3 30b A3B Instruct model"
+  - name: "qwen2.5vl:7b"
+    description: "Qwen 2.5 7B vision model"
+  # Llama models
+  - name: "llama3.1:8b-instruct-q8_0"
+    description: "Llama 3.1 8B Instruct Q8_0 model"
+  - name: "llama3.2:latest"
+    description: "Llama 3.2 3B model"
+  - name: "llama3.2-vision:11b-instruct-q8_0"
+    description: "Llama 3.2 Vision 11B Instruct Q8_0 model"
+  - name: "llama3.2-vision:11b"
+    description: "Llama 3.2 Vision 11B model"
+  - name: "llama4:scout"
+    description: "Llama 4 Scout model"
+  # Granite models
+  - name: "granite3.3:8b"
+    description: "Granite 8B model"
+  - name: "granite3.2-vision:2b"
+    description: "Granite 2B Vision model"
+
+# Gemini Models
+gemini_models:
+  - name: "gemini-2.5-flash-latest"
+    description: "Latest Gemini 2.5 Flash model"
+  - name: "gemini-2.5-flash-lite-latest"
+    description: "Latest Gemini 2.5 Flash Lite model"
+  - name: "gemini-2.5-pro-latest" 
+    description: "Latest Gemini 2.5 Pro model"
+  
