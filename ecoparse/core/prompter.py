@@ -109,7 +109,7 @@ def get_default_text_prompt(species_name: str, text_chunk: str, data_fields_sche
     """
     return f"""
 <PERSONA>
-You are an accurate scientific data extractor. Your task is to accurately extract specific pieces of information for a given species from a provided text chunk.
+You are a precise scientific data extractor.
 </PERSONA>
 
 <TASK_DEFINITION>
@@ -119,10 +119,16 @@ Text Chunk for Analysis:
 ---
 {text_chunk}
 ---
-</TASK_DEFINITION>
+
+**EXTRACTION RULES**
+1. Extract ONLY the values requested in the instruction or examples. Ignore all other scopes, years, or regions.
+2. If the requested scope/year is not found, use "NF" for all fields.
+3. Only extract information explicitly about '{species_name}'. If it is only mentioned in passing, all fields = "NF".
+4. Do NOT copy, infer, or adapt data from other species or from examples.
+
 
 <EXAMPLES>
-Use these examples to understand the context and desired output format:
+Examples illustrate the output format only. Never use them as a source of values.
 {examples_text if examples_text else "No examples provided."}
 </EXAMPLES>
 
@@ -130,30 +136,21 @@ Use these examples to understand the context and desired output format:
 Your output MUST be a JSON list containing exactly one JSON object.  
 Do not include any text outside this JSON.  
 The JSON MUST be valid and parseable.
+If controlled vocabulary is provided for a field, do not use any other placeholders.
 
 **JSON Schema:**
 {{
   "species": "{species_name}",
   "data": {{ ... }},
-  "notes": "Any comments on the extraction process or if data is not found."
+  "notes": "Explanation only if values are missing or ambiguous."
 }}
 
 {data_fields_schema}
 
----
-**CONTEXT**
-Not all species will have complete data available in the text. Use the 'NF' placeholder where information is missing.
-Some species are mentioned in passing, not actually being assessed in the text. Also use 'NF' for those cases.
-NEVER invent or infer information.
----
-**SCIENTIFIC ACCURACY RULES:**
-1. **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a specific field in the text, you MUST use the exact string "NF".
-2. **NO GUESSING OR INFERENCE:** Do not invent or infer values. Only extract values explicitly present in the text.
-3. **STRICT SCHEMA COMPLIANCE:** Every field defined in the schema MUST be present in the 'data' object, even if its value is "NF".
-4. **NOTES ARE ONLY FOR EXPLANATION:** The 'notes' field is for describing ambiguities or reasons for "NF". It must never contain data values that belong in 'data'.
-5. **VALID JSON ONLY:** Your response must be syntactically correct JSON and nothing else.
----
-</OUTPUT_REQUIREMENTS>
+**OUTPUT RULES**
+1. Include all schema fields in 'data'. If no value is found, use "NF".
+2. Output valid JSON only; no extra keys or text outside the JSON.
+3. Use 'notes' only to explain ambiguities or reasons for "NF"; do not place data values there.
 """
 
 
@@ -233,6 +230,8 @@ NEVER invent or infer information.
 
 def get_default_verification_prompt(species_data_list_for_llm: str, data_fields_schema: str) -> str:
     """
+    Approach currently not recommended due to high costs.
+
     Generates prompt for automated verification of extraction results.
     
     Creates a specialized prompt for quality control workflows where an LLM

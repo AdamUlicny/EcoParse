@@ -79,6 +79,20 @@ def display_new_session_view():
                 with col2:
                     end_page = st.number_input("End Page", 1, num_pages, num_pages)
 
+                # Text extraction method selection
+                st.subheader("Text Extraction Method")
+                extraction_method = st.selectbox(
+                    "Choose extraction method",
+                    ["standard", "adaptive", "plumber"],
+                    index=0,  # Default to "standard" for weaker machines
+                    key="pdf_extraction_method",
+                    help="""
+                    - **Standard**: Basic extraction - fastest, good for simple layouts (recommended for weaker machines)
+                    - **Adaptive**: Intelligent column detection - automatically analyzes layout but requires more processing power
+                    - **Plumber**: Advanced extraction - best for tables, forms, and complex structured documents (slowest but most comprehensive)
+                    """
+                )
+
                 if st.button("Trim PDF & Extract Text", type="primary"):
                     if start_page > end_page:
                         st.error("Start page must not be after the end page.")
@@ -88,8 +102,10 @@ def display_new_session_view():
                             trimmed_buffer = trim_pdf_pages(original_buffer, start_page, end_page)
                             if trimmed_buffer:
                                 st.session_state.pdf_buffer = trimmed_buffer.getvalue() 
-                                st.session_state.full_text = extract_text_from_pdf(trimmed_buffer)
-                                st.success(f"Trimmed to pages {start_page}-{end_page} and extracted {len(st.session_state.full_text):,} characters.")
+                                # Use selected extraction method
+                                st.session_state.full_text = extract_text_from_pdf(trimmed_buffer, method=extraction_method)
+                                st.session_state.extraction_method_used = extraction_method  # Store for later reference
+                                st.success(f"Trimmed to pages {start_page}-{end_page} and extracted {len(st.session_state.full_text):,} characters using **{extraction_method}** method.")
                                 st.rerun()
                             else:
                                 st.error("Failed to trim PDF.")
@@ -99,6 +115,7 @@ def display_new_session_view():
     if st.session_state.full_text:
         st.subheader("Extracted Text Preview")
         st.text_area("Preview", st.session_state.full_text[:3000000] + "...", height=300, disabled=True)
+
 
     # --- Secondary Option: Load Session ---
     st.markdown("---")

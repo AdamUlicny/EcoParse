@@ -8,7 +8,7 @@ concurrent processing, progress tracking, and automatic report generation.
 import streamlit as st
 import pandas as pd
 from ecoparse.core.extractor import Extractor
-from ecoparse.core.sourcetext import get_species_context_chunks
+from ecoparse.core.sourcetext import get_species_context_chunks, extract_text_from_pdf
 from ecoparse.core.reporter import generate_report
 from app.ui_components import display_df_and_download 
 import io
@@ -53,25 +53,165 @@ def display():
         with col4:
             st.number_input("Characters After Mention", 0, 2000, key="context_after")
 
-        with st.expander("Preview Text Chunk"):
+        # Text extraction method override section
+        st.subheader("Text Extraction Method")
+        
+        current_method = getattr(st.session_state, 'extraction_method_used', 'adaptive')
+        st.info(f"📄 Current text was extracted using: **{current_method}** method")
+        
+        col_method, col_reextract = st.columns([2, 1])
+        with col_method:
+            new_extraction_method = st.selectbox(
+                "Change extraction method if needed",
+                ["standard", "adaptive", "plumber"],
+                index=["standard", "adaptive", "plumber"].index(current_method) if current_method in ["standard", "adaptive", "plumber"] else 1,  # Default to adaptive
+                key="text_extraction_override",
+                help="""
+                Change this if you're missing species information in context chunks:
+                - **Standard**: Basic extraction, fastest, good for simple single-column layouts
+                - **Adaptive**: Intelligent column detection - automatically analyzes layout and extracts columns optimally (recommended)
+                - **Plumber**: Advanced extraction with table detection - best for complex structured documents, forms, and tables (comprehensive but slower)
+                """
+            )
+        
+        with col_reextract:
+            st.markdown("<br>", unsafe_allow_html=True)  # Align button
+            if st.button("🔄 Re-extract Text", help="Re-extract text using the selected method"):
+                if new_extraction_method != current_method:
+                    with st.spinner(f"Re-extracting text using {new_extraction_method} method..."):
+                        pdf_buffer = io.BytesIO(st.session_state.pdf_buffer)
+                        st.session_state.full_text = extract_text_from_pdf(pdf_buffer, method=new_extraction_method)
+                        st.session_state.extraction_method_used = new_extraction_method
+                        st.success(f"✅ Text re-extracted using **{new_extraction_method}** method ({len(st.session_state.full_text):,} characters)")
+                        st.rerun()
+                else:
+                    st.info("Selected method is the same as current method.")
+
+        with st.expander("Preview Text Chunk", expanded=True):
+            st.markdown("Preview the context chunks that will be sent to the LLM for data extraction.")
+            
             species_list = st.session_state.species_df_final["Name"].tolist()
             if species_list:
-                species_to_preview = st.selectbox("Select species to preview", options=species_list)
-                if st.button("Generate Preview"):
+                col_species, col_settings = st.columns([2, 1])
+                
+                with col_species:
+                    species_to_preview = st.selectbox(
+                        "Select species to preview", 
+                        options=species_list,
+                        key="preview_species_select"
+                    )
+                
+                with col_settings:
+                    st.markdown("**Context Settings**")
+                    st.caption(f"Before: {st.session_state.context_before} chars")
+                    st.caption(f"After: {st.session_state.context_after} chars")
+                    st.caption(f"Method: {getattr(st.session_state, 'extraction_method_used', 'standard')}")
+                
+                col_btn1, col_btn2 = st.columns(2)
+                with col_btn1:
+                    generate_single = st.button("Generate Preview", type="primary")
+                with col_btn2:
+                    generate_all = st.button("Quick Test All Species", help="Check if all species have context chunks")
+                
+                if generate_single:
                     with st.spinner("Generating chunk..."):
+                        # Filter species dataframe for the selected species
+                        species_filter = st.session_state.species_df_final["Name"] == species_to_preview
+                        filtered_df = st.session_state.species_df_final[species_filter]
+                        
                         chunks = get_species_context_chunks(
                             st.session_state.full_text,
-                            st.session_state.species_df_final[st.session_state.species_df_final["Name"] == species_to_preview],
+                            filtered_df,
                             st.session_state.context_before,
                             st.session_state.context_after
                         ).get(species_to_preview, [])
                         
                         if chunks:
-                            st.text_area("Generated Chunk", "\n---\n".join(chunks), height=250)
+                            st.success(f"✅ Found **{len(chunks)}** context chunk(s) for '{species_to_preview}'")
+                            
+                            for i, chunk in enumerate(chunks):
+                                st.markdown(f"**Chunk {i+1} of {len(chunks)}**")
+                                
+                                # Show chunk statistics
+                                col_stats1, col_stats2, col_stats3 = st.columns(3)
+                                with col_stats1:
+                                    st.metric("Characters", len(chunk))
+                                with col_stats2:
+                                    st.metric("Words", len(chunk.split()))
+                                with col_stats3:
+                                    st.metric("Lines", chunk.count('\n') + 1)
+                                
+                                # Show the actual chunk
+                                st.text_area(
+                                    f"Chunk {i+1} Content", 
+                                    chunk, 
+                                    height=200,
+                                    key=f"chunk_preview_{i}",
+                                    help="This is the exact text that will be sent to the LLM"
+                                )
+                                
+                                # Highlight species mention in chunk
+                                if species_to_preview.lower() in chunk.lower():
+                                    st.success("✅ Species name found in chunk")
+                                else:
+                                    st.warning("⚠️ Species name not clearly visible in chunk")
+                                
+                                if i < len(chunks) - 1:
+                                    st.markdown("---")
                         else:
-                            st.warning("No text chunk found for this species with current settings.")
+                            st.error("❌ No text chunk found for this species with current settings.")
+                            st.markdown("**Possible solutions:**")
+                            st.markdown("- Increase context window size (characters before/after)")
+                            st.markdown("- Try a different text extraction method above")
+                            st.markdown("- Check if the species name is correctly spelled")
+                
+                if generate_all:
+                    with st.spinner("Testing chunk generation for all species..."):
+                        all_chunks = get_species_context_chunks(
+                            st.session_state.full_text,
+                            st.session_state.species_df_final,
+                            st.session_state.context_before,
+                            st.session_state.context_after
+                        )
+                        
+                        st.subheader("Chunk Generation Summary")
+                        
+                        species_with_chunks = []
+                        species_without_chunks = []
+                        
+                        for species in species_list:
+                            if species in all_chunks and all_chunks[species]:
+                                species_with_chunks.append(species)
+                            else:
+                                species_without_chunks.append(species)
+                        
+                        # Summary metrics
+                        col_summary1, col_summary2, col_summary3 = st.columns(3)
+                        with col_summary1:
+                            st.metric("Total Species", len(species_list))
+                        with col_summary2:
+                            st.metric("With Chunks", len(species_with_chunks))
+                        with col_summary3:
+                            st.metric("Without Chunks", len(species_without_chunks))
+                        
+                        # Detailed results
+                        if species_with_chunks:
+                            st.success(f"✅ **{len(species_with_chunks)} species** have context chunks:")
+                            for species in species_with_chunks:
+                                chunk_count = len(all_chunks.get(species, []))
+                                st.write(f"• {species} ({chunk_count} chunk{'s' if chunk_count != 1 else ''})")
+                        
+                        if species_without_chunks:
+                            st.error(f"❌ **{len(species_without_chunks)} species** have no context chunks:")
+                            for species in species_without_chunks:
+                                st.write(f"• {species}")
+                            
+                            st.markdown("**Recommendations for missing chunks:**")
+                            st.markdown("- Try increasing context window size")
+                            st.markdown("- Try the 'adaptive' extraction method above for better column handling")
+                            st.markdown("- Check if species names are spelled correctly in the document")
             else:
-                st.info("No species available to preview.")
+                st.info("No species available to preview. Complete step 2 first.")
 
     if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty):
         formatted_examples = []
@@ -124,6 +264,7 @@ def display():
         report_context = {
             "pdf_name": st.session_state.pdf_name,
             "full_text": st.session_state.full_text,
+            "text_extraction_method": getattr(st.session_state, 'extraction_method_used', 'adaptive'),
             "gnfinder_url": st.session_state.gnfinder_url,
             "gnfinder_results_raw": st.session_state.gnfinder_results_raw,
             "species_df_initial": st.session_state.species_df_initial,

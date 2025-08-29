@@ -13,7 +13,9 @@ ollama_models:
     description: "Mistral Instruct 7b model"
   - name: "llava:7b-v1.6-mistral-fp16"
     description: "Llava 7B v1.6 Mistral FP16 model"
-  # Gemma models 
+  - name: "mistral-nemo:12b-instruct-2407-q8_0"
+    description: "Mistral Nemo 12B Instruct 2407 Q8_0 model"
+  # Gemma models
   - name: "gemma3:27b-it-qat"
     description: "Gemma3 27b qat"
   - name: "gemma3:12b"
@@ -28,6 +30,8 @@ ollama_models:
   - name: "qwen2.5vl:7b"
     description: "Qwen 2.5 7B vision model"
   # Llama models
+  - name: "llama3.1:8b-instruct-fp16"
+    description: "Llama 3.1 8B Instruct FP16 model"
   - name: "llama3.1:8b-instruct-q8_0"
     description: "Llama 3.1 8B Instruct Q8_0 model"
   - name: "llama3.2:latest"
