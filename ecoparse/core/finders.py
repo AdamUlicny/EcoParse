@@ -51,10 +51,17 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
     - Enables automated biodiversity data extraction from literature
     - Provides taxonomic verification through multiple databases
     - Supports both exact and fuzzy name matching
+    
+    Text Preprocessing:
+    - Removes extraction method artifacts (column headers, page markers)
+    - Preserves original text structure and formatting
+    - Maintains species names in context for better detection
     """
-    # ... (this function remains the same)
+    # Clean text of extraction artifacts that might confuse GnFinder
+    cleaned_text = _clean_text_for_gnfinder(text)
+    
     with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
-        tmp_file.write(text)
+        tmp_file.write(cleaned_text)
         tmp_file_path = tmp_file.name
 
     try:
@@ -73,6 +80,67 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
         return None
     finally:
         Path(tmp_file_path).unlink()
+
+
+def _clean_text_for_gnfinder(text: str) -> str:
+    """
+    Removes extraction method artifacts and formatting that might interfere with GnFinder.
+    
+    Our extraction methods sometimes add formatting markers, and scientific texts
+    often contain species names in parentheses or brackets which can confuse
+    GnFinder's detection algorithms.
+    
+    Cleaning steps:
+    1. Remove extraction artifacts (column headers, page markers, etc.)
+    2. Remove parentheses and brackets while preserving content
+    3. Clean up resulting formatting issues
+    
+    Args:
+        text: Raw extracted text with potential artifacts
+        
+    Returns:
+        Cleaned text suitable for GnFinder processing
+        
+    Examples:
+    - "Zandhagedis (Lacerta agilis)" → "Zandhagedis Lacerta agilis"
+    - "[Species list: Homo sapiens]" → "Species list: Homo sapiens"
+    - "See (Fig. 1)" → "See Fig. 1"
+    """
+    # Remove extraction method artifacts first
+    text = re.sub(r'=== COLUMN \d+ ===\n?', '', text)
+    text = re.sub(r'=== PAGE \d+ ===\n?', '', text)
+    text = re.sub(r'<!-- Page \d+: \d+ columns detected -->\n?', '', text)
+    text = re.sub(r'--- TABLES ON PAGE \d+ ---\n?', '', text)
+    text = re.sub(r'Table \d+:\n?', '', text)
+    
+    # Remove parentheses and brackets while preserving content
+    # This helps GnFinder detect species names that are often enclosed
+    
+    # Handle nested parentheses by working from inside out
+    # First pass: remove innermost parentheses
+    while re.search(r'\([^()]*\)', text):
+        text = re.sub(r'\(([^()]*)\)', r' \1 ', text)
+    
+    # Remove square brackets
+    text = re.sub(r'\[([^\]]*)\]', r' \1 ', text)
+    
+    # Clean up empty spaces that might result from empty parentheses
+    text = re.sub(r'\s*\(\s*\)\s*', ' ', text)  # Remove empty parentheses
+    
+    # Clean up spacing issues that might result from parentheses removal
+    text = re.sub(r'\s+', ' ', text)  # Multiple spaces to single space
+    text = re.sub(r'\s*\.\s*', '. ', text)  # Fix spacing around periods
+    text = re.sub(r'\s*,\s*', ', ', text)  # Fix spacing around commas
+    text = re.sub(r'\s*:\s*', ': ', text)  # Fix spacing around colons
+    text = re.sub(r'\s*;\s*', '; ', text)  # Fix spacing around semicolons
+    
+    # Clean up excessive newlines
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    
+    # Clean up any leading/trailing whitespace
+    text = text.strip()
+    
+    return text
 
 def parse_gnfinder_results(gnfinder_json: Dict) -> pd.DataFrame:
     """
@@ -96,22 +164,41 @@ def parse_gnfinder_results(gnfinder_json: Dict) -> pd.DataFrame:
     - MatchedName/MatchedCanonical: Standardized nomenclature
     - ClassificationPath: Taxonomic hierarchy information
     """
-    # ... (this function remains the same)
     if not gnfinder_json or "names" not in gnfinder_json:
         return pd.DataFrame()
     
     data = []
     for item in gnfinder_json["names"]:
-        best_result = item.get("verification", {}).get("bestResult", {})
+        # Handle both verified and unverified responses
+        verification = item.get("verification", {})
+        best_result = verification.get("bestResult", {}) if verification else {}
+        
+        # If no verification data, use the name itself as canonical
+        verbatim = item.get("verbatim", "")
+        name = item.get("name", "")
+        
+        # Use verification data if available, otherwise fall back to detected name
+        if best_result:
+            match_type = best_result.get("matchType", "Unverified")
+            matched_name = best_result.get("matchedName", name)
+            matched_canonical = best_result.get("matchedCanonicalFull", name)
+            classification = best_result.get("classificationRanks", "")
+        else:
+            # For unverified results, use detected name as canonical
+            match_type = "Unverified"
+            matched_name = name
+            matched_canonical = name
+            classification = ""
+        
         data.append({
-            "Verbatim": item.get("verbatim", ""),
-            "Name": item.get("name", ""),
+            "Verbatim": verbatim,
+            "Name": name,
             "Start": item.get("start", 0),
             "End": item.get("end", 0),
-            "MatchType": best_result.get("matchType", ""),
-            "MatchedName": best_result.get("matchedName", ""),
-            "MatchedCanonical": best_result.get("matchedCanonicalFull", ""),
-            "ClassificationPath": best_result.get("classificationRanks", "")
+            "MatchType": match_type,
+            "MatchedName": matched_name,
+            "MatchedCanonical": matched_canonical,
+            "ClassificationPath": classification
         })
     return pd.DataFrame(data)
 
@@ -121,15 +208,16 @@ def filter_initial_species(df: pd.DataFrame) -> pd.DataFrame:
     
     This function implements a multi-step filtering process to improve
     the accuracy of species identification by:
-    1. Retaining only exact taxonomic matches
-    2. Validating binomial/trinomial nomenclature format
-    3. Resolving taxonomic nesting (removing species when subspecies present)
+    1. Retaining valid taxonomic matches (exact and unverified)
+    2. Validating binomial/trinomial nomenclature format (including taxonomic abbreviations)
+    3. Prioritizing highest taxonomic detail (subspecies over species) for verified matches only
     4. Eliminating duplicate detections
     
     Scientific Rationale:
-    - Reduces false positives from fuzzy matching algorithms
-    - Ensures compliance with binomial nomenclature standards
-    - Prevents double-counting of taxonomic entities at different ranks
+    - Accepts both verified and unverified matches to maintain sensitivity
+    - Handles taxonomic abbreviations (ssp., subsp., var., f.) in subspecies names
+    - Applies subspecies filtering conservatively (verified matches only)
+    - Preserves unverified matches to avoid over-filtering legitimate species
     
     Args:
         df: DataFrame from parse_gnfinder_results()
@@ -138,16 +226,22 @@ def filter_initial_species(df: pd.DataFrame) -> pd.DataFrame:
         Filtered DataFrame with high-confidence species identifications
         
     Algorithm Details:
-    - Uses regex validation for proper species name format
-    - Implements lexicographic sorting to detect nested names
-    - Applies word-boundary matching to avoid partial matches
+    - Uses enhanced regex for proper species name format validation
+    - Supports taxonomic abbreviations like "Genus species ssp. subspecies"
+    - Only removes redundant species when verified subspecies are present
+    - Preserves all unverified matches to maintain detection sensitivity
     """
     if df.empty:
         return df
     
-    # Step 1: Basic filtering for valid, exact, binomial/trinomial matches
-    df_filtered = df[df["MatchType"] == "Exact"].copy()
-    binomial_regex = r"^\s*([A-Z][a-z]+)\s+([a-z]+)(\s+[a-z]+)?\s*$"
+    # Step 1: Basic filtering for valid binomial/trinomial matches
+    # Accept both "Exact" and "Unverified" matches (GnFinder sometimes returns unverified)
+    valid_match_types = ["Exact", "Unverified"]
+    df_filtered = df[df["MatchType"].isin(valid_match_types)].copy()
+    
+    # Filter for proper binomial/trinomial nomenclature (including taxonomic abbreviations)
+    # Pattern matches: "Genus species" or "Genus species subspecies" or "Genus species ssp. subspecies"
+    binomial_regex = r"^\s*([A-Z][a-z]+)\s+([a-z]+)(\s+(ssp\.|subsp\.|var\.|f\.)?\s*[a-z]+)?\s*$"
     df_filtered['MatchedCanonical'] = df_filtered['MatchedCanonical'].astype(str)
     df_filtered = df_filtered[df_filtered["MatchedCanonical"].str.match(binomial_regex, na=False)]
 
@@ -158,22 +252,48 @@ def filter_initial_species(df: pd.DataFrame) -> pd.DataFrame:
     # Sorting is crucial as it places species names directly before their subspecies.
     canonical_names = sorted(df_filtered["MatchedCanonical"].unique())
     
-    # Step 3: Identify names that are less-specific versions of others.
+    # Step 3: Prioritize highest taxonomic detail - but only for verified matches
+    # For unverified matches, keep everything as GnFinder detection alone is less reliable
+    # This approach maintains the most specific taxonomic information for verified species
+    # while being conservative with unverified detections
     names_to_remove = set()
-    for i in range(len(canonical_names) - 1):
-        current_name = canonical_names[i]
-        next_name = canonical_names[i+1]
+    
+    # Only apply subspecies filtering to verified/exact matches
+    verified_df = df_filtered[df_filtered["MatchType"] == "Exact"]
+    
+    if not verified_df.empty:
+        # Get canonical names from verified matches only
+        verified_canonical_names = sorted(verified_df["MatchedCanonical"].unique())
         
-        # If the current name is a prefix of the next name (e.g., "A b" is a prefix of "A b c"),
-        # then the current name is the less-specific one and should be removed.
-        # We add a space to ensure we match whole words (e.g., "Genus species" not just "Genus").
-        if next_name.startswith(current_name + ' '):
-            names_to_remove.add(current_name)
+        # Group verified names by species to identify subspecies relationships
+        species_groups = {}
+        for name in verified_canonical_names:
+            parts = name.split()
+            if len(parts) >= 2:
+                species_key = f"{parts[0]} {parts[1]}"
+                if species_key not in species_groups:
+                    species_groups[species_key] = []
+                species_groups[species_key].append(name)
+        
+        # For each species group, keep only the most detailed taxonomic level
+        for species_key, variants in species_groups.items():
+            if len(variants) > 1:
+                # Sort by length (number of parts) - longer names are more specific
+                variants_by_detail = sorted(variants, key=lambda x: len(x.split()), reverse=True)
+                
+                # Check if we have subspecies (3+ parts) vs species (2 parts)
+                subspecies = [v for v in variants_by_detail if len(v.split()) >= 3]
+                species_only = [v for v in variants_by_detail if len(v.split()) == 2]
+                
+                if subspecies and species_only:
+                    # We have both subspecies and species - remove the less specific species
+                    # Keep all subspecies as they represent different taxonomic entities
+                    names_to_remove.update(species_only)
+                # If we only have subspecies or only species, keep all (no conflict)
             
     # Step 4: Filter the DataFrame, keeping only the rows whose canonical names
     # are NOT in our set of less-specific names to remove.
     final_df = df_filtered[~df_filtered["MatchedCanonical"].isin(names_to_remove)]
-
 
     # Step 5: Final de-duplication on the original 'Name' to ensure one result per verbatim find.
     return final_df.drop_duplicates(subset=["Name"], keep="first").reset_index(drop=True)

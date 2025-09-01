@@ -27,6 +27,8 @@ ollama_models:
     description: "Qwen 3 8B model"
   - name: "qwen3:30b-a3b-instruct-2507-q4_K_M"
     description: "Qwen 3 30b A3B Instruct model"
+  - name: "qwen2.5:14b-instruct-q8_0"
+    description: "Qwen 2.5 14b instruct Q8"
   - name: "qwen2.5vl:7b"
     description: "Qwen 2.5 7B vision model"
   # Llama models

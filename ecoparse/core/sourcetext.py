@@ -428,47 +428,51 @@ def normalize_text_for_llm(text: str) -> str:
 
 def _create_flexible_species_pattern(species_name: str) -> str:
     """
-    Creates a regex pattern that can match species names even when split across lines.
+    Creates a regex pattern that can match species names even when split across lines
+    or surrounded by punctuation like parentheses.
     
     Handles cases where long species names are broken across lines in formatted text,
-    which is common in PDFs with narrow columns or justified text.
+    which is common in PDFs with narrow columns or justified text, and cases where
+    species names appear in parentheses or with other punctuation.
     
     Args:
         species_name: The species name to search for (e.g., "Rhinoceros unicornis")
         
     Returns:
-        Regex pattern that allows for line breaks between words
+        Regex pattern that allows for line breaks between words and handles punctuation
         
     Examples:
-    - "Homo sapiens" → matches "Homo sapiens" or "Homo\nsapiens"
+    - "Homo sapiens" → matches "Homo sapiens", "Homo\nsapiens", "(Homo sapiens)", etc.
+    - "Lacerta agilis" → matches "(Lacerta agilis ssp. agilis)" 
     - "Tyrannosaurus rex" → matches "Tyrannosaurus rex" or "Tyrannosaurus\nrex"
     
     Pattern Strategy:
+    - Uses flexible word boundaries that work with punctuation
     - Allows 1-5 whitespace characters (including newlines) between words
     - Includes hyphens to handle hyphenated line breaks
-    - Maintains word boundaries to prevent false matches
+    - Handles parentheses, brackets, and other common punctuation
     - Limits whitespace to prevent matching across unrelated text
     """
     # Split the species name into words
     words = species_name.split()
     
     if len(words) == 1:
-        # Single word - use standard word boundary matching
-        return r'\b' + re.escape(words[0]) + r'\b'
+        # Single word - use flexible boundary matching that handles punctuation
+        return r'(?<!\w)' + re.escape(words[0]) + r'(?!\w)'
     
     # Multiple words - allow flexible spacing between them
     escaped_words = [re.escape(word) for word in words]
     
-    # Create pattern with word boundaries
+    # Create pattern with flexible boundaries
     pattern_parts = []
     
     for i, word in enumerate(escaped_words):
         if i == 0:
-            # First word needs word boundary at start
-            pattern_parts.append(r'\b' + word)
+            # First word needs flexible boundary at start (handles parentheses, etc.)
+            pattern_parts.append(r'(?<!\w)' + word)
         elif i == len(escaped_words) - 1:
-            # Last word needs word boundary at end  
-            pattern_parts.append(word + r'\b')
+            # Last word needs flexible boundary at end
+            pattern_parts.append(word + r'(?!\w)')
         else:
             # Middle words
             pattern_parts.append(word)
