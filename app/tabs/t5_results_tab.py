@@ -13,13 +13,16 @@ from app.ui_components import display_df_and_download
 def display():
     """Main display function for results viewing tab."""
     st.header("5. View Results")
-    if not st.session_state.extraction_results:
+    
+    # Check if extraction results exist
+    extraction_results = getattr(st.session_state, 'extraction_results', [])
+    if not extraction_results:
         st.info("No extraction has been run or loaded yet. Please run an extraction in Tab 4 or load a report in Tab 1.")
         return
     
     # Flatten extraction results for analysis
     flat_results = []
-    for res in st.session_state.extraction_results:
+    for res in extraction_results:
         row = {'species': res.get('species'), 'notes': res.get('notes')}
         if isinstance(res.get('data'), dict):
             row.update(res['data'])
@@ -28,7 +31,8 @@ def display():
     results_df = pd.DataFrame(flat_results)
 
     # Get configured data fields for analysis
-    defined_fields = [field['name'] for field in st.session_state.project_config.get('data_fields', [])]
+    project_config = getattr(st.session_state, 'project_config', {})
+    defined_fields = [field['name'] for field in project_config.get('data_fields', [])]
     for field in defined_fields:
         if field not in results_df.columns:
             results_df[field] = "NF" # Default to "Not Found"
@@ -36,7 +40,8 @@ def display():
     existing_cols_in_order = ['species'] + [col for col in defined_fields if col in results_df.columns] + ['notes']
     results_df = results_df[existing_cols_in_order]
 
-    if st.session_state.session_loaded_from_report:
+    session_loaded_from_report = getattr(st.session_state, 'session_loaded_from_report', False)
+    if session_loaded_from_report:
         st.success("✅ Displaying results from the loaded session report.")
     
     display_df_and_download(

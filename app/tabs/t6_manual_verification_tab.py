@@ -16,21 +16,24 @@ def display():
     st.header("6. Manual Verification")
 
     # Validate extraction results exist
-    if not st.session_state.extraction_results:
+    extraction_results = getattr(st.session_state, 'extraction_results', [])
+    if not extraction_results:
         st.info("No extraction results to verify. Please run an extraction in Tab 4 or load a report in Tab 1.")
         return
 
     # Reconstruct species DataFrame if missing (e.g., from loaded session)
-    if st.session_state.species_df_final.empty and st.session_state.extraction_results:
+    species_df_final = getattr(st.session_state, 'species_df_final', pd.DataFrame())
+    if species_df_final.empty and extraction_results:
         st.info("Reconstructing species list from loaded results for context viewer...")
-        species_names = [res.get('species') for res in st.session_state.extraction_results if res.get('species')]
+        species_names = [res.get('species') for res in extraction_results if res.get('species')]
         st.session_state.species_df_final = pd.DataFrame(species_names, columns=["Name"])
 
     # --- END OF DEFINITIVE FIX ---
 
     # Initialize the verification queue from extraction results if it's empty
-    if st.session_state.extraction_results and not st.session_state.verification_queue:
-        st.session_state.verification_queue = st.session_state.extraction_results.copy()
+    verification_queue = getattr(st.session_state, 'verification_queue', [])
+    if extraction_results and not verification_queue:
+        st.session_state.verification_queue = extraction_results.copy()
         st.session_state.verification_current_index = 0
         st.session_state.manual_verification_results = []
 

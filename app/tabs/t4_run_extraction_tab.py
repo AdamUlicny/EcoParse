@@ -1,8 +1,7 @@
 """
 Tab 4: Extraction Execution
 
-Orchestrates the LLM-based data extraction process, including context preparation,
-concurrent processing, progress tracking, and automatic report generation.
+Orchestrates LLM-based data extraction with progress tracking and report generation.
 """
 
 import streamlit as st
@@ -10,7 +9,13 @@ import pandas as pd
 from ecoparse.core.extractor import Extractor
 from ecoparse.core.sourcetext import get_species_context_chunks, extract_text_from_pdf
 from ecoparse.core.reporter import generate_report
-from app.ui_components import display_df_and_download 
+from app.ui_components import display_df_and_download
+from app.ui_messages import (
+    show_loaded_session_complete, show_prerequisite_warning, show_extraction_status,
+    show_method_change_success, show_species_chunks_found, show_no_chunks_error
+)
+from app.ui_helpers import create_extraction_method_selector, create_context_controls
+from app.chunk_preview import show_chunk_preview, generate_chunk_summary, show_chunking_method_selector
 import io
 import time
 import json
@@ -20,24 +25,31 @@ def display():
     st.header("4. Run Data Extraction")
 
     if st.session_state.session_loaded_from_report:
-        # Show completion status for loaded sessions
-        st.success("✅ This step was completed in the loaded session.")
-        st.info("The extraction has already been run. You can view the results in the 'View Results' tab or start a new session.")
-
-        st.subheader("Species Processed in Loaded Report")
-        display_df_and_download(
-            st.session_state.species_df_final,
-            "Final Species List",
-            "final_species_list",
-            context="run_extraction_loaded" 
-        )
+        show_loaded_session_complete("Extraction")
+        st.info("View results in 'View Results' tab or start new session.")
+        st.subheader("Species Processed")
+        display_df_and_download(st.session_state.species_df_final, "Final Species List", "final_species_list", "run_extraction_loaded")
         return
 
     if st.session_state.species_df_final.empty:
-        st.warning("No species identified. Please complete the '2. Identify Species' step.")
+        show_prerequisite_warning("2. Identify Species")
         return
 
     st.info(f"Ready to extract data for **{len(st.session_state.species_df_final)}** species.")
+    
+    # Show information about stop/pause functionality
+    with st.expander("ℹ️ Extraction Control Information"):
+        st.markdown("""
+        **Extraction Control Features:**
+        
+        - **⏹️ Stop**: Immediately stops the extraction process. Partial results are saved.
+        - **⏸️ Pause**: Pauses extraction after current batch completes. Can be resumed later.
+        - **▶️ Resume**: Continues extraction from where it was paused, avoiding duplicate processing.
+        - **📊 View Partial Results**: Check progress and see completed extractions.
+        - **🔄 Reset**: Clear all extraction state and start fresh.
+        
+        **Note**: Extraction is processed in batches. Stop/pause commands take effect between batches.
+        """)
     
     st.subheader("Extraction Settings")
     col1, col2 = st.columns(2)
@@ -47,173 +59,140 @@ def display():
         st.number_input("Max Concurrent LLM Requests", 1, 50, key="concurrent_requests")
 
     if st.session_state.extraction_method == "Text-based":
-        col3, col4 = st.columns(2)
-        with col3:
-            st.number_input("Characters Before Mention", 0, 2000, key="context_before")
-        with col4:
-            st.number_input("Characters After Mention", 0, 2000, key="context_after")
+        create_context_controls()
 
         # Text extraction method override section
         st.subheader("Text Extraction Method")
-        
-        current_method = getattr(st.session_state, 'extraction_method_used', 'adaptive')
-        st.info(f"📄 Current text was extracted using: **{current_method}** method")
+        current_method = getattr(st.session_state, 'extraction_method_used', 'standard')
+        st.info(f"📄 Current: **{current_method}** method")
         
         col_method, col_reextract = st.columns([2, 1])
         with col_method:
-            new_extraction_method = st.selectbox(
-                "Change extraction method if needed",
-                ["standard", "adaptive", "plumber"],
-                index=["standard", "adaptive", "plumber"].index(current_method) if current_method in ["standard", "adaptive", "plumber"] else 1,  # Default to adaptive
-                key="text_extraction_override",
-                help="""
-                Change this if you're missing species information in context chunks:
-                - **Standard**: Basic extraction, fastest, good for simple single-column layouts
-                - **Adaptive**: Intelligent column detection - automatically analyzes layout and extracts columns optimally (recommended)
-                - **Plumber**: Advanced extraction with table detection - best for complex structured documents, forms, and tables (comprehensive but slower)
-                """
-            )
+            new_method = create_extraction_method_selector(current_method, "override")
         
         with col_reextract:
             st.markdown("<br>", unsafe_allow_html=True)  # Align button
-            if st.button("🔄 Re-extract Text", help="Re-extract text using the selected method"):
-                if new_extraction_method != current_method:
-                    with st.spinner(f"Re-extracting text using {new_extraction_method} method..."):
+            if st.button("🔄 Re-extract Text", help="Re-extract using selected method"):
+                if new_method != current_method:
+                    with st.spinner(f"Re-extracting using {new_method}..."):
                         pdf_buffer = io.BytesIO(st.session_state.pdf_buffer)
-                        st.session_state.full_text = extract_text_from_pdf(pdf_buffer, method=new_extraction_method)
-                        st.session_state.extraction_method_used = new_extraction_method
-                        st.success(f"✅ Text re-extracted using **{new_extraction_method}** method ({len(st.session_state.full_text):,} characters)")
+                        st.session_state.full_text = extract_text_from_pdf(pdf_buffer, method=new_method)
+                        st.session_state.extraction_method_used = new_method
+                        show_method_change_success(new_method, len(st.session_state.full_text))
                         st.rerun()
                 else:
-                    st.info("Selected method is the same as current method.")
+                    st.info("Same method selected - no change needed.")
 
         with st.expander("Preview Text Chunk", expanded=True):
-            st.markdown("Preview the context chunks that will be sent to the LLM for data extraction.")
+            st.markdown("Preview context chunks sent to LLM.")
+            
+            # Chunking method selector
+            chunking_result = show_chunking_method_selector()
+            if len(chunking_result) == 3:
+                chunking_method, chars_from_top, chars_from_bottom = chunking_result
+            else:
+                chunking_method = chunking_result
+                chars_from_top, chars_from_bottom = None, None
             
             species_list = st.session_state.species_df_final["Name"].tolist()
             if species_list:
                 col_species, col_settings = st.columns([2, 1])
                 
                 with col_species:
-                    species_to_preview = st.selectbox(
-                        "Select species to preview", 
-                        options=species_list,
-                        key="preview_species_select"
-                    )
+                    species_to_preview = st.selectbox("Select species", species_list, key="preview_species_select")
                 
                 with col_settings:
-                    st.markdown("**Context Settings**")
-                    st.caption(f"Before: {st.session_state.context_before} chars")
-                    st.caption(f"After: {st.session_state.context_after} chars")
+                    st.markdown("**Settings**")
+                    if chunking_method == "Context Window":
+                        st.caption(f"Before: {st.session_state.context_before} chars")
+                        st.caption(f"After: {st.session_state.context_after} chars")
+                    elif chunking_method == "Full Page":
+                        st.caption("Mode: Full page content")
+                    else:  # Partial Page
+                        st.caption(f"Top: {chars_from_top or 500} chars")
+                        st.caption(f"Bottom: {chars_from_bottom or 500} chars")
                     st.caption(f"Method: {getattr(st.session_state, 'extraction_method_used', 'standard')}")
                 
                 col_btn1, col_btn2 = st.columns(2)
                 with col_btn1:
                     generate_single = st.button("Generate Preview", type="primary")
                 with col_btn2:
-                    generate_all = st.button("Quick Test All Species", help="Check if all species have context chunks")
+                    generate_all = st.button("Test All Species")
                 
                 if generate_single:
-                    with st.spinner("Generating chunk..."):
-                        # Filter species dataframe for the selected species
-                        species_filter = st.session_state.species_df_final["Name"] == species_to_preview
-                        filtered_df = st.session_state.species_df_final[species_filter]
-                        
-                        chunks = get_species_context_chunks(
-                            st.session_state.full_text,
-                            filtered_df,
-                            st.session_state.context_before,
-                            st.session_state.context_after
-                        ).get(species_to_preview, [])
-                        
-                        if chunks:
-                            st.success(f"✅ Found **{len(chunks)}** context chunk(s) for '{species_to_preview}'")
-                            
-                            for i, chunk in enumerate(chunks):
-                                st.markdown(f"**Chunk {i+1} of {len(chunks)}**")
-                                
-                                # Show chunk statistics
-                                col_stats1, col_stats2, col_stats3 = st.columns(3)
-                                with col_stats1:
-                                    st.metric("Characters", len(chunk))
-                                with col_stats2:
-                                    st.metric("Words", len(chunk.split()))
-                                with col_stats3:
-                                    st.metric("Lines", chunk.count('\n') + 1)
-                                
-                                # Show the actual chunk
-                                st.text_area(
-                                    f"Chunk {i+1} Content", 
-                                    chunk, 
-                                    height=200,
-                                    key=f"chunk_preview_{i}",
-                                    help="This is the exact text that will be sent to the LLM"
-                                )
-                                
-                                # Highlight species mention in chunk
-                                if species_to_preview.lower() in chunk.lower():
-                                    st.success("✅ Species name found in chunk")
-                                else:
-                                    st.warning("⚠️ Species name not clearly visible in chunk")
-                                
-                                if i < len(chunks) - 1:
-                                    st.markdown("---")
+                    with st.spinner("Generating..."):
+                        if chunking_method == "Full Page":
+                            # Use full page chunking
+                            from ecoparse.core.sourcetext import get_species_full_page_chunks
+                            chunks = get_species_full_page_chunks(
+                                st.session_state.full_text, 
+                                st.session_state.species_df_final
+                            ).get(species_to_preview, [])
+                        elif chunking_method == "Partial Page (Top + Bottom)":
+                            # Use partial page chunking
+                            from ecoparse.core.sourcetext import get_species_partial_page_chunks
+                            chunks = get_species_partial_page_chunks(
+                                st.session_state.full_text,
+                                st.session_state.species_df_final,
+                                chars_from_top or 500,
+                                chars_from_bottom or 500
+                            ).get(species_to_preview, [])
                         else:
-                            st.error("❌ No text chunk found for this species with current settings.")
-                            st.markdown("**Possible solutions:**")
-                            st.markdown("- Increase context window size (characters before/after)")
-                            st.markdown("- Try a different text extraction method above")
-                            st.markdown("- Check if the species name is correctly spelled")
+                            # Use context-based chunking (original method)
+                            species_filter = st.session_state.species_df_final["Name"] == species_to_preview
+                            filtered_df = st.session_state.species_df_final[species_filter]
+                            chunks = get_species_context_chunks(
+                                st.session_state.full_text, filtered_df,
+                                st.session_state.context_before, st.session_state.context_after
+                            ).get(species_to_preview, [])
+                        
+                        show_chunk_preview(species_to_preview, chunks, chunking_method, chars_from_top, chars_from_bottom)
                 
                 if generate_all:
-                    with st.spinner("Testing chunk generation for all species..."):
-                        all_chunks = get_species_context_chunks(
-                            st.session_state.full_text,
-                            st.session_state.species_df_final,
-                            st.session_state.context_before,
-                            st.session_state.context_after
+                    with st.spinner("Testing all species..."):
+                        generate_chunk_summary(
+                            species_list, 
+                            st.session_state.full_text, 
+                            st.session_state.context_before, 
+                            st.session_state.context_after,
+                            chunking_method,
+                            chars_from_top,
+                            chars_from_bottom
                         )
-                        
-                        st.subheader("Chunk Generation Summary")
-                        
-                        species_with_chunks = []
-                        species_without_chunks = []
-                        
-                        for species in species_list:
-                            if species in all_chunks and all_chunks[species]:
-                                species_with_chunks.append(species)
-                            else:
-                                species_without_chunks.append(species)
-                        
-                        # Summary metrics
-                        col_summary1, col_summary2, col_summary3 = st.columns(3)
-                        with col_summary1:
-                            st.metric("Total Species", len(species_list))
-                        with col_summary2:
-                            st.metric("With Chunks", len(species_with_chunks))
-                        with col_summary3:
-                            st.metric("Without Chunks", len(species_without_chunks))
-                        
-                        # Detailed results
-                        if species_with_chunks:
-                            st.success(f"✅ **{len(species_with_chunks)} species** have context chunks:")
-                            for species in species_with_chunks:
-                                chunk_count = len(all_chunks.get(species, []))
-                                st.write(f"• {species} ({chunk_count} chunk{'s' if chunk_count != 1 else ''})")
-                        
-                        if species_without_chunks:
-                            st.error(f"❌ **{len(species_without_chunks)} species** have no context chunks:")
-                            for species in species_without_chunks:
-                                st.write(f"• {species}")
-                            
-                            st.markdown("**Recommendations for missing chunks:**")
-                            st.markdown("- Try increasing context window size")
-                            st.markdown("- Try the 'adaptive' extraction method above for better column handling")
-                            st.markdown("- Check if species names are spelled correctly in the document")
             else:
-                st.info("No species available to preview. Complete step 2 first.")
+                st.info("No species available. Complete step 2 first.")
 
-    if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty):
+    # Check if extraction is already running
+    extraction_in_progress = getattr(st.session_state, 'extraction_running', False)
+    
+    # Show simple extraction control panel if extraction is running
+    if extraction_in_progress:
+        st.markdown("---")
+        st.subheader("⚡ Extraction Control")
+        
+        # Show current status
+        progress = getattr(st.session_state, 'extraction_progress', 0)
+        total = getattr(st.session_state, 'extraction_total', 0)
+        
+        st.info(f"🔄 Extraction in progress: {progress}/{total} species completed")
+        
+        # Simple stop button
+        if st.button("⏹️ Stop Extraction", type="secondary"):
+            st.session_state.extraction_running = False
+            st.warning("Extraction stopped.")
+            st.rerun()
+    
+    if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty or extraction_in_progress):
+        # Initialize extraction control flags and reset metrics
+        st.session_state.extraction_running = True
+        st.session_state.extraction_paused = False
+        st.session_state.extraction_progress = 0
+        st.session_state.extraction_total = len(st.session_state.species_df_final)
+        st.session_state.extraction_runtime = 0
+        st.session_state.total_input_tokens = 0
+        st.session_state.total_output_tokens = 0
+        
+        # Prepare extraction configuration
         formatted_examples = []
         for ex in st.session_state.prompt_examples:
             output_json_string = json.dumps(ex['output'], indent=2)
@@ -236,6 +215,11 @@ def display():
             "ollama_url": st.session_state.ollama_url,
             "concurrent_requests": st.session_state.concurrent_requests
         }
+        # Get chunking method and parameters from session state
+        chunking_method = getattr(st.session_state, 'chunking_method', 'Context Window')
+        chars_from_top = getattr(st.session_state, 'chars_from_top', 500)
+        chars_from_bottom = getattr(st.session_state, 'chars_from_bottom', 500)
+        
         source_context = {
             "extraction_method": st.session_state.extraction_method,
             "species_df": st.session_state.species_df_final,
@@ -243,49 +227,116 @@ def display():
             "pdf_buffer": io.BytesIO(st.session_state.pdf_buffer),
             "context_before": st.session_state.context_before,
             "context_after": st.session_state.context_after,
-            "examples_text": examples_text
+            "examples_text": examples_text,
+            "chunking_method": chunking_method,
+            "chars_from_top": chars_from_top,
+            "chars_from_bottom": chars_from_bottom
         }
+        
+        # Always clear previous results when starting a new extraction
         st.session_state.extraction_results = []
         st.session_state.verification_queue = []
         st.session_state.manual_verification_results = []
+        
         extractor = Extractor(st.session_state.project_config, llm_config)
         species_to_process = st.session_state.species_df_final["Name"].tolist()
-        progress_bar = st.progress(0, "Starting extraction...")
-        def update_progress(completed, total):
-            progress_bar.progress(completed / total, f"Processed {completed}/{total} species...")
-        with st.spinner("LLM is processing..."):
-            results, runtime, in_tokens, out_tokens = extractor.run_extraction(
-                species_to_process, source_context, update_progress
-            )
-        st.session_state.extraction_results = results
-        st.session_state.extraction_runtime = runtime
-        st.session_state.total_input_tokens = in_tokens
-        st.session_state.total_output_tokens = out_tokens
-        report_context = {
-            "pdf_name": st.session_state.pdf_name,
-            "full_text": st.session_state.full_text,
-            "text_extraction_method": getattr(st.session_state, 'extraction_method_used', 'adaptive'),
-            "gnfinder_url": st.session_state.gnfinder_url,
-            "gnfinder_results_raw": st.session_state.gnfinder_results_raw,
-            "species_df_initial": st.session_state.species_df_initial,
-            "species_df_final": st.session_state.species_df_final,
-            "extraction_method": st.session_state.extraction_method,
-            "llm_provider": st.session_state.llm_provider,
-            "llm_model": llm_config["model"],
-            "context_before": source_context["context_before"] if source_context["extraction_method"] == "Text-based" else "N/A",
-            "context_after": source_context["context_after"] if source_context["extraction_method"] == "Text-based" else "N/A",
-            "prompt_examples": st.session_state.prompt_examples,
-            "concurrent_requests": st.session_state.concurrent_requests,
-            "extraction_results": st.session_state.extraction_results,
-            "extraction_runtime": st.session_state.extraction_runtime,
-            "total_input_tokens": st.session_state.total_input_tokens,
-            "total_output_tokens": st.session_state.total_output_tokens,
-            "project_config": st.session_state.project_config,
-            "manual_verification_results": st.session_state.manual_verification_results
-        }
         
-        report_path = generate_report(report_context)
-        st.session_state.last_report_path = report_path
-        progress_bar.empty()
-        st.success(f"Extraction complete! Report saved to `{report_path}`.")
-        st.info("Proceed to the 'View Results' or 'Reports' tab.")
+        # Store configuration for potential resume functionality
+        st.session_state.species_to_process = species_to_process
+        st.session_state.extractor = extractor
+        st.session_state.source_context = source_context
+        st.session_state.llm_config = llm_config
+        
+        # Immediately rerun to show control panel
+        st.rerun()
+    
+    # Run extraction automatically if extraction_running is True
+    if getattr(st.session_state, 'extraction_running', False):
+        # Check if we have the required state for extraction
+        if hasattr(st.session_state, 'extractor') and hasattr(st.session_state, 'source_context'):
+            progress_bar = st.progress(0, "Starting extraction...")
+            status_text = st.empty()
+            
+            def update_progress(completed, total):
+                st.session_state.extraction_progress = completed
+                progress_bar.progress(completed / total, f"Processed {completed}/{total} species...")
+                status_text.text(f"Progress: {completed}/{total} species completed")
+            
+            # Start extraction
+            with st.spinner("LLM is processing..."):
+                try:
+                    extractor = st.session_state.extractor
+                    source_context = st.session_state.source_context
+                    species_to_process = st.session_state.species_to_process
+                    
+                    # Get list of already completed species for resume functionality
+                    completed_species = []
+                    if hasattr(st.session_state, 'extraction_results') and st.session_state.extraction_results:
+                        completed_species = [result.get('species', '') for result in st.session_state.extraction_results]
+                    
+                    results, runtime, in_tokens, out_tokens = extractor.run_resumable_extraction(
+                        species_to_process, source_context, update_progress, completed_species
+                    )
+                    
+                    # Merge with any existing results
+                    if hasattr(st.session_state, 'extraction_results') and st.session_state.extraction_results:
+                        # Combine existing and new results
+                        all_results = st.session_state.extraction_results + results
+                    else:
+                        all_results = results
+                    
+                    # Update session state
+                    st.session_state.extraction_results = all_results
+                    
+                    # Update runtime and token counts (accumulate if resuming)
+                    existing_runtime = getattr(st.session_state, 'extraction_runtime', 0)
+                    existing_in_tokens = getattr(st.session_state, 'total_input_tokens', 0)
+                    existing_out_tokens = getattr(st.session_state, 'total_output_tokens', 0)
+                    
+                    st.session_state.extraction_runtime = existing_runtime + runtime
+                    st.session_state.total_input_tokens = existing_in_tokens + in_tokens
+                    st.session_state.total_output_tokens = existing_out_tokens + out_tokens
+                    
+                    # Check if extraction was completed or stopped
+                    if len(all_results) >= len(species_to_process):
+                        # Extraction completed successfully - clear all flags
+                        st.session_state.extraction_running = False
+                        st.session_state.extraction_paused = False
+                        
+                        report_context = {
+                            "pdf_name": st.session_state.pdf_name,
+                            "full_text": st.session_state.full_text,
+                            "text_extraction_method": getattr(st.session_state, 'extraction_method_used', 'standard'),
+                            "gnfinder_url": st.session_state.gnfinder_url,
+                            "gnfinder_results_raw": st.session_state.gnfinder_results_raw,
+                            "species_df_initial": st.session_state.species_df_initial,
+                            "species_df_final": st.session_state.species_df_final,
+                            "extraction_method": st.session_state.extraction_method,
+                            "llm_provider": st.session_state.llm_provider,
+                            "llm_model": st.session_state.llm_config["model"],
+                            "context_before": source_context["context_before"] if source_context["extraction_method"] == "Text-based" else "N/A",
+                            "context_after": source_context["context_after"] if source_context["extraction_method"] == "Text-based" else "N/A",
+                            "prompt_examples": st.session_state.prompt_examples,
+                            "concurrent_requests": st.session_state.concurrent_requests,
+                            "extraction_results": st.session_state.extraction_results,
+                            "extraction_runtime": st.session_state.extraction_runtime,
+                            "total_input_tokens": st.session_state.total_input_tokens,
+                            "total_output_tokens": st.session_state.total_output_tokens,
+                            "project_config": st.session_state.project_config,
+                            "manual_verification_results": st.session_state.manual_verification_results
+                        }
+                        
+                        report_path = generate_report(report_context)
+                        st.session_state.last_report_path = report_path
+                        progress_bar.empty()
+                        status_text.empty()
+                        st.success(f"Extraction complete! Report saved to `{report_path}`.")
+                        st.info("Proceed to the 'View Results' or 'Reports' tab.")
+                    
+                except Exception as e:
+                    st.session_state.extraction_running = False
+                    progress_bar.empty()
+                    status_text.empty()
+                    st.error(f"Extraction failed: {str(e)}")
+            
+            st.rerun()  # Refresh to show updated state

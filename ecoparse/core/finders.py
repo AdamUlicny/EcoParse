@@ -21,17 +21,21 @@ import pandas as pd
 import requests
 import json
 import tempfile
+import subprocess
+import csv
+import io
 from pathlib import Path
 from typing import Dict, Optional
 from pygbif import species as gbif_species
 import time
 import streamlit as st
 import re
+import os
 
 # --- GNfinder Integration Functions ---
 # GNfinder is a service for finding scientific names in text
 
-def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
+def send_text_to_gnfinder(text: str, gnfinder_url: str, offline_mode: bool = False) -> Optional[Dict]:
     """
     Submits text to GNfinder service for species name detection.
     
@@ -42,6 +46,7 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
     Args:
         text: Input text document for species name detection
         gnfinder_url: URL of the GNfinder service endpoint
+        offline_mode: If True, skips Apache Tika service (equivalent to -U flag)
         
     Returns:
         JSON response containing detected names and verification data,
@@ -51,6 +56,7 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
     - Enables automated biodiversity data extraction from literature
     - Provides taxonomic verification through multiple databases
     - Supports both exact and fuzzy name matching
+    - Offline mode skips Tika service, useful when Tika is down or causing errors
     
     Text Preprocessing:
     - Removes extraction method artifacts (column headers, page markers)
@@ -60,6 +66,13 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
     # Clean text of extraction artifacts that might confuse GnFinder
     cleaned_text = _clean_text_for_gnfinder(text)
     
+    # Route to CLI if offline mode is enabled (workaround for broken API)
+    if offline_mode:
+        print("Using GNfinder CLI (offline mode)")
+        return _send_text_to_gnfinder_cli(cleaned_text)
+    
+    print("Using GNfinder API (online mode)")
+    # Otherwise use API (original method)
     with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
         tmp_file.write(cleaned_text)
         tmp_file_path = tmp_file.name
@@ -67,7 +80,23 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
     try:
         with open(tmp_file_path, "rb") as f:
             files = {"file": (Path(tmp_file_path).name, f, "text/plain")}
-            params = {"verification": "true", "uniqueNames": "true"}
+            
+            # Configure parameters based on offline mode
+            # offline_mode=True: equivalent to gnfinder -U flag (--utf8-input)
+            # This skips Apache Tika service and treats input as plain UTF8
+            if offline_mode:
+                params = {
+                    "WithPlainInput": "true",    # -U, --utf8-input flag - skip Tika service
+                    "WithVerification": "true",  # Keep verification
+                    "WithUniqueNames": "true"
+                }
+            else:
+                params = {
+                    "WithVerification": "true",
+                    "WithUniqueNames": "true"
+                    # Uses Tika service by default
+                }
+            
             response = requests.post(gnfinder_url, files=files, params=params, timeout=120)
         
         if response.status_code == 200:
@@ -82,65 +111,130 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str) -> Optional[Dict]:
         Path(tmp_file_path).unlink()
 
 
-def _clean_text_for_gnfinder(text: str) -> str:
+def _send_text_to_gnfinder_cli(text: str) -> Optional[Dict]:
     """
-    Removes extraction method artifacts and formatting that might interfere with GnFinder.
+    Sends text to GNfinder via command line interface (fallback when API is broken).
     
-    Our extraction methods sometimes add formatting markers, and scientific texts
-    often contain species names in parentheses or brackets which can confuse
-    GnFinder's detection algorithms.
-    
-    Cleaning steps:
-    1. Remove extraction artifacts (column headers, page markers, etc.)
-    2. Remove parentheses and brackets while preserving content
-    3. Clean up resulting formatting issues
+    This function bypasses the GNfinder web API and calls the command-line version directly.
+    Useful when the API service is down but the core GNfinder engine works.
     
     Args:
-        text: Raw extracted text with potential artifacts
+        text: Cleaned text for species name detection
         
     Returns:
-        Cleaned text suitable for GnFinder processing
-        
-    Examples:
-    - "Zandhagedis (Lacerta agilis)" → "Zandhagedis Lacerta agilis"
-    - "[Species list: Homo sapiens]" → "Species list: Homo sapiens"
-    - "See (Fig. 1)" → "See Fig. 1"
+        JSON response in the same format as the API, or None if command fails
     """
-    # Remove extraction method artifacts first
-    text = re.sub(r'=== COLUMN \d+ ===\n?', '', text)
-    text = re.sub(r'=== PAGE \d+ ===\n?', '', text)
-    text = re.sub(r'<!-- Page \d+: \d+ columns detected -->\n?', '', text)
-    text = re.sub(r'--- TABLES ON PAGE \d+ ---\n?', '', text)
-    text = re.sub(r'Table \d+:\n?', '', text)
+    import subprocess
+    import csv
+    import io
     
-    # Remove parentheses and brackets while preserving content
-    # This helps GnFinder detect species names that are often enclosed
+    # Create temporary file for CLI processing
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
+        tmp_file.write(text)
+        tmp_file_path = tmp_file.name
     
-    # Handle nested parentheses by working from inside out
-    # First pass: remove innermost parentheses
-    while re.search(r'\([^()]*\)', text):
-        text = re.sub(r'\(([^()]*)\)', r' \1 ', text)
+    try:
+        # Run gnfinder CLI with -U flag (skip Tika) and -f csv for easier parsing
+        result = subprocess.run(
+            ['gnfinder', tmp_file_path, '-U', '-f', 'csv'],
+            capture_output=True,
+            text=True,
+            timeout=120
+        )
+        
+        if result.returncode != 0:
+            print(f"GNfinder CLI error: {result.stderr}")
+            return None
+            
+        # Parse CSV output to match API format
+        csv_output = result.stdout.strip()
+        if not csv_output:
+            print("No species found by GNfinder CLI")
+            return None
+        
+        # Convert CSV to JSON format matching the API response
+        return _convert_cli_output_to_json(csv_output)
+        
+    except subprocess.TimeoutExpired:
+        print("GNfinder CLI timeout - try with shorter text")
+        return None
+    except Exception as e:
+        print(f"CLI execution error: {e}")
+        return None
+    finally:
+        Path(tmp_file_path).unlink()
+
+
+def _convert_cli_output_to_json(csv_output: str) -> Optional[Dict]:
+    """
+    Converts GNfinder CLI CSV output to JSON format matching the API response.
     
-    # Remove square brackets
-    text = re.sub(r'\[([^\]]*)\]', r' \1 ', text)
+    Args:
+        csv_output: Raw CSV output from gnfinder CLI
+        
+    Returns:
+        Dictionary in the same format as the API JSON response
+    """
+    try:
+        csv_reader = csv.DictReader(io.StringIO(csv_output))
+        names = []
+        
+        for row in csv_reader:
+            # Map CLI CSV columns to API JSON format (use lowercase keys to match API)
+            name_entry = {
+                "verbatim": row.get("Verbatim", ""),
+                "name": row.get("Name", ""),
+                "start": int(row.get("Start", 0)),
+                "end": int(row.get("End", 0)),
+                "oddsLog10": float(row.get("OddsLog10", 0.0)) if row.get("OddsLog10") else None,
+                "cardinality": int(row.get("Cardinality", 0)),
+                "annotNomenType": row.get("AnnotNomenType", ""),
+                "wordsBefore": row.get("WordsBefore", ""),
+                "wordsAfter": row.get("WordsAfter", "")
+                # Note: CLI doesn't provide verification data, so parse_gnfinder_results
+                # will treat these as "Unverified" matches, which is correct
+            }
+            names.append(name_entry)
+        
+        # Return in API-compatible format
+        return {
+            "names": names,
+            "total": len(names),
+            "source": "cli"  # Mark as CLI source for debugging
+        }
+        
+    except Exception as e:
+        print(f"Error converting CLI output: {e}")
+        return None
+
+def _clean_text_for_gnfinder(text: str) -> str:
+    """
+    Clean extracted text to improve GNfinder species detection accuracy.
     
-    # Clean up empty spaces that might result from empty parentheses
-    text = re.sub(r'\s*\(\s*\)\s*', ' ', text)  # Remove empty parentheses
+    Removes common extraction artifacts and formatting issues that
+    can interfere with species name recognition while preserving
+    the scientific content and context.
+    """
+    if not text:
+        return ""
     
-    # Clean up spacing issues that might result from parentheses removal
+    # Remove common extraction artifacts
+    text = re.sub(r'^\s*(?:Page \d+|CONTENT|TABLES?|FIGURES?|APPENDIX|REFERENCES)\s*$', '', text, flags=re.MULTILINE | re.IGNORECASE)
+    text = re.sub(r'^\s*(?:Table|Figure|Fig\.)\s+\d+[^\n]*$', '', text, flags=re.MULTILINE | re.IGNORECASE)
+    text = re.sub(r'\b(?:PDF|DOI|URL|HTTP|WWW)\b[^\s]*', '', text, flags=re.IGNORECASE)
+    
+    # Clean up excessive whitespace and special characters
     text = re.sub(r'\s+', ' ', text)  # Multiple spaces to single space
-    text = re.sub(r'\s*\.\s*', '. ', text)  # Fix spacing around periods
-    text = re.sub(r'\s*,\s*', ', ', text)  # Fix spacing around commas
-    text = re.sub(r'\s*:\s*', ': ', text)  # Fix spacing around colons
-    text = re.sub(r'\s*;\s*', '; ', text)  # Fix spacing around semicolons
+    text = re.sub(r'\n\s*\n\s*\n', '\n\n', text)  # Multiple newlines to double newline
     
-    # Clean up excessive newlines
-    text = re.sub(r'\n{3,}', '\n\n', text)
+    # Remove problematic characters that might cause encoding issues
+    text = re.sub(r'[^\w\s\.\,\;\:\!\?\(\)\[\]\-\'\"]', ' ', text)
     
-    # Clean up any leading/trailing whitespace
-    text = text.strip()
+    # Clean up parentheses and brackets content that might confuse parsing
+    text = re.sub(r'\([^)]{50,}\)', '', text)  # Remove very long parenthetical content
+    text = re.sub(r'\[[^\]]{50,}\]', '', text)  # Remove very long bracketed content
     
-    return text
+    return text.strip()
 
 def parse_gnfinder_results(gnfinder_json: Dict) -> pd.DataFrame:
     """
@@ -302,7 +396,7 @@ def filter_initial_species(df: pd.DataFrame) -> pd.DataFrame:
 # GBIF provides authoritative taxonomic backbone data
 
 @st.cache_data(ttl="1d")
-def get_higher_taxonomy(species_name: str) -> Optional[Dict]:
+def get_higher_taxonomy(species_name: str, include_fuzzy: bool = True, include_higherrank: bool = False) -> Optional[Dict]:
     """
     Retrieves taxonomic hierarchy from GBIF for a given species.
     
@@ -312,10 +406,12 @@ def get_higher_taxonomy(species_name: str) -> Optional[Dict]:
     
     Args:
         species_name: Scientific name for taxonomic lookup
+        include_fuzzy: Whether to accept fuzzy/approximate matches
+        include_higherrank: Whether to accept higher rank matches (genus/family level)
         
     Returns:
-        Dictionary containing taxonomic ranks (kingdom through family),
-        or None if species not found in GBIF
+        Dictionary containing taxonomic ranks and match information,
+        or None if species not found or doesn't meet criteria
         
     Scientific Context:
     - GBIF maintains the most comprehensive taxonomic backbone
@@ -328,22 +424,50 @@ def get_higher_taxonomy(species_name: str) -> Optional[Dict]:
     """
     try:
         response = gbif_species.name_backbone(name=species_name, rank='SPECIES', strict=False)
-        if response and response.get('matchType') != 'NONE':
+        
+        if not response or response.get('matchType') == 'NONE':
+            return None
+            
+        match_type = response.get('matchType')
+        rank = response.get('rank')
+        status = response.get('status')
+        
+        # Determine if we should accept this match based on user preferences
+        accept_match = False
+        
+        if match_type == 'EXACT':
+            accept_match = True
+        elif match_type == 'FUZZY' and include_fuzzy:
+            accept_match = True
+        elif match_type == 'HIGHERRANK' and include_higherrank:
+            accept_match = True
+            
+        # Additional checks for accepted taxonomic status
+        if accept_match and status not in ['ACCEPTED', 'SYNONYM']:
+            accept_match = False
+            
+        if accept_match:
             return {
                 'kingdom': response.get('kingdom'),
                 'phylum': response.get('phylum'),
                 'class': response.get('class'),
                 'order': response.get('order'),
                 'family': response.get('family'),
+                'genus': response.get('genus'),
+                'species': response.get('species'),
+                'match_type': match_type,
+                'rank': rank,
+                'status': status,
+                'confidence': response.get('confidence', 0)
             }
         return None
     except Exception as e:
         print(f"Error querying GBIF for {species_name}: {e}")
         return None
 
-def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str) -> pd.DataFrame:
+def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str, include_fuzzy: bool = True, include_higherrank: bool = False, include_unverified: bool = False) -> pd.DataFrame:
     """
-    Filters species list by taxonomic group membership.
+    Filters species list by taxonomic group membership with configurable strictness.
     
     Applies taxonomic filtering to focus extraction on specific biological
     groups (e.g., only birds, only flowering plants). This is essential
@@ -353,10 +477,13 @@ def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str) -> pd.DataFrame:
     Args:
         df: DataFrame of detected species names
         rank: Taxonomic rank for filtering (kingdom, phylum, class, order, family)
-        name: Name of the taxonomic group to retain
+        name: Name of the taxonomic group to retain (use 'any' for no taxonomic constraint)
+        include_fuzzy: Include species with fuzzy GBIF matches
+        include_higherrank: Include species with higher rank matches
+        include_unverified: Include species with no GBIF verification
         
     Returns:
-        Filtered DataFrame containing only species from specified taxonomic group
+        Filtered DataFrame containing species meeting the specified criteria
         
     Performance Considerations:
     - Includes progress bar for long-running operations
@@ -367,27 +494,255 @@ def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str) -> pd.DataFrame:
     - Taxonomic group-specific conservation assessments
     - Focused studies on particular lineages
     - Quality control by excluding unlikely taxonomic matches
+    - General quality filtering using GBIF verification criteria
     """
-    if df.empty or not rank or not name or name.lower() == 'any':
+    if df.empty:
         return df
+
+    # Check if this is general quality filtering (no taxonomic constraint)
+    is_quality_filter_only = (not rank or not name or name.lower() == 'any')
 
     filtered_indices = []
     total = len(df)
-    progress_bar = st.progress(0, text=f"Applying taxonomic filter... (0/{total})")
+    filter_type = "quality filter" if is_quality_filter_only else f"taxonomic filter ({rank}: {name})"
+    progress_bar = st.progress(0, text=f"Applying {filter_type}... (0/{total})")
 
     for i, row in df.iterrows():
         species_name = row["Name"]
-        taxonomy = get_higher_taxonomy(species_name)
+        taxonomy = get_higher_taxonomy(species_name, include_fuzzy=include_fuzzy, include_higherrank=include_higherrank)
         
-        if not taxonomy:
+        # Check if we should include this species
+        include_species = False
+        
+        if taxonomy:
+            # Species has GBIF verification
+            if is_quality_filter_only:
+                # No taxonomic constraint - just apply quality criteria
+                include_species = True
+            else:
+                # Check taxonomic match
+                actual_rank_value = taxonomy.get(rank)
+                if isinstance(actual_rank_value, str) and actual_rank_value.lower() == name.lower():
+                    include_species = True
+        elif include_unverified:
+            # Species has no GBIF verification but user wants to include unverified
+            include_species = True
+            
+        if include_species:
             filtered_indices.append(i)
-        else:
-            actual_rank_value = taxonomy.get(rank)
-            if isinstance(actual_rank_value, str) and actual_rank_value.lower() == name.lower():
-                filtered_indices.append(i)
         
         time.sleep(0.05)
-        progress_bar.progress((i + 1) / total, text=f"Applying taxonomic filter... ({i+1}/{total})")
+        progress_bar.progress((i + 1) / total, text=f"Applying {filter_type}... ({i+1}/{total})")
 
     progress_bar.empty()
     return df.loc[filtered_indices].reset_index(drop=True)
+
+
+def filter_by_gbif_verification(df: pd.DataFrame, include_fuzzy: bool = True, include_higherrank: bool = False, min_confidence: int = 80) -> pd.DataFrame:
+    """
+    Filters species list to only include GBIF-verified species names with configurable criteria.
+    
+    NOTE: This function is currently unused in the main workflow as the taxonomic filter
+    provides the same functionality with more flexibility. Kept for potential future use
+    or specialized filtering scenarios.
+    
+    This function provides flexible quality control by removing species names
+    that cannot be verified against the GBIF taxonomic backbone, while allowing
+    users to configure the strictness of verification.
+    
+    Args:
+        df: DataFrame of detected species names
+        include_fuzzy: Include species with fuzzy/approximate GBIF matches
+        include_higherrank: Include species with higher rank matches (genus/family level)
+        min_confidence: Minimum confidence score required (0-100)
+        
+    Returns:
+        Filtered DataFrame containing species meeting verification criteria
+        
+    Verification Options:
+    - EXACT matches: Always included (highest confidence)
+    - FUZZY matches: Included if include_fuzzy=True (good for variant spellings)
+    - HIGHERRANK matches: Included if include_higherrank=True (less specific)
+    - Confidence threshold: Additional quality control based on GBIF confidence
+    
+    Scientific Benefits:
+    - Configurable balance between precision and recall
+    - Maintains legitimate species while removing obvious false positives
+    - Allows for different strictness levels based on study requirements
+    
+    Use Cases:
+    - Conservative filtering: Only exact matches, high confidence
+    - Moderate filtering: Include fuzzy matches for variant spellings
+    - Permissive filtering: Include higher rank matches for broader coverage
+    """
+    if df.empty:
+        return df
+
+    filtered_indices = []
+    verification_stats = {'exact': 0, 'fuzzy': 0, 'higherrank': 0, 'rejected': 0}
+    total = len(df)
+    progress_bar = st.progress(0, text=f"Verifying species with GBIF... (0/{total})")
+
+    for i, row in df.iterrows():
+        species_name = row["Name"]
+        taxonomy = get_higher_taxonomy(species_name, include_fuzzy=include_fuzzy, include_higherrank=include_higherrank)
+        
+        if taxonomy and taxonomy.get('confidence', 0) >= min_confidence:
+            filtered_indices.append(i)
+            match_type = taxonomy.get('match_type', 'unknown')
+            verification_stats[match_type.lower()] = verification_stats.get(match_type.lower(), 0) + 1
+        else:
+            verification_stats['rejected'] += 1
+        
+        time.sleep(0.05)
+        progress_bar.progress((i + 1) / total, text=f"Verifying species with GBIF... ({i+1}/{total})")
+
+    progress_bar.empty()
+    
+    # Display verification statistics
+    if st.session_state.get('show_gbif_stats', True):
+        st.info(f"📊 GBIF Verification Results: "
+                f"Exact: {verification_stats['exact']}, "
+                f"Fuzzy: {verification_stats['fuzzy']}, "
+                f"Higher Rank: {verification_stats['higherrank']}, "
+                f"Rejected: {verification_stats['rejected']}")
+    
+    return df.loc[filtered_indices].reset_index(drop=True)
+
+
+def get_gbif_match_type_explanation() -> Dict[str, str]:
+    """
+    Returns explanations for different GBIF match types to help users understand filtering options.
+    
+    NOTE: This function is kept for potential future use or educational purposes
+    in case GBIF verification filtering is re-implemented.
+    
+    Returns:
+        Dictionary mapping match types to user-friendly explanations
+    """
+    return {
+        'EXACT': 'Perfect match to a species name in GBIF (highest confidence)',
+        'FUZZY': 'Approximate match due to spelling variants or minor differences',
+        'HIGHERRANK': 'Match to a genus or family name rather than species level',
+        'NONE': 'No match found in GBIF database'
+    }
+
+
+def analyze_species_gbif_quality(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Analyzes the GBIF match quality of species in a DataFrame for diagnostic purposes.
+    
+    NOTE: This function is kept for potential future use in diagnostic workflows
+    or detailed quality analysis features.
+    
+    Args:
+        df: DataFrame of species names to analyze
+        
+    Returns:
+        DataFrame with GBIF verification details for each species
+    """
+    if df.empty:
+        return pd.DataFrame()
+    
+    analysis_results = []
+    total = len(df)
+    
+    for i, row in df.iterrows():
+        species_name = row["Name"]
+        taxonomy = get_higher_taxonomy(species_name, include_fuzzy=True, include_higherrank=True)
+        
+        if taxonomy:
+            result = {
+                'Species': species_name,
+                'GBIF_Match_Type': taxonomy.get('match_type', 'Unknown'),
+                'GBIF_Rank': taxonomy.get('rank', 'Unknown'),
+                'GBIF_Status': taxonomy.get('status', 'Unknown'),
+                'GBIF_Confidence': taxonomy.get('confidence', 0),
+                'Kingdom': taxonomy.get('kingdom', ''),
+                'Class': taxonomy.get('class', ''),
+                'Order': taxonomy.get('order', ''),
+                'Family': taxonomy.get('family', ''),
+                'Verified': 'Yes'
+            }
+        else:
+            result = {
+                'Species': species_name,
+                'GBIF_Match_Type': 'NONE',
+                'GBIF_Rank': '',
+                'GBIF_Status': '',
+                'GBIF_Confidence': 0,
+                'Kingdom': '',
+                'Class': '',
+                'Order': '',
+                'Family': '',
+                'Verified': 'No'
+            }
+        
+        analysis_results.append(result)
+    
+    return pd.DataFrame(analysis_results)
+
+def test_gnfinder_connection(gnfinder_url: str = "http://localhost:4040/api/v1/find", offline_mode: bool = False) -> bool:
+    """
+    Test GNfinder connection with a simple request.
+    
+    Args:
+        gnfinder_url: URL of the GNfinder service
+        offline_mode: If True, tests without remote verification
+    
+    Returns True if successful, False otherwise.
+    Prints detailed debug information.
+    """
+    test_text = "Homo sapiens and Canis lupus are common species."
+    
+    print(f"Testing GNfinder connection to: {gnfinder_url}")
+    print(f"Offline mode: {offline_mode}")
+    
+    try:
+        # Test ping first
+        ping_url = gnfinder_url.replace('/api/v1/find', '/api/v1/ping')
+        ping_response = requests.get(ping_url, timeout=5)
+        print(f"Ping response: {ping_response.status_code}")
+        
+        # Test actual find request with offline mode support
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as tmp_file:
+            tmp_file.write(test_text)
+            tmp_file_path = tmp_file.name
+        
+        with open(tmp_file_path, 'rb') as f:
+            files = {'file': ('test.txt', f, 'text/plain')}
+            
+            # Configure parameters for offline mode (-U flag equivalent)
+            if offline_mode:
+                params = {
+                    'WithPlainInput': 'true',    # -U, --utf8-input flag - skip Tika service
+                    'WithVerification': 'true',  # Keep verification
+                    'WithUniqueNames': 'true'
+                }
+            else:
+                params = {
+                    'WithVerification': 'true',
+                    'WithUniqueNames': 'true'
+                    # Uses Tika service by default
+                }
+            
+            response = requests.post(gnfinder_url, files=files, params=params, timeout=30)
+            print(f"Find response status: {response.status_code}")
+            print(f"Find response content length: {len(response.text)}")
+            
+            if response.status_code != 200:
+                print(f"Error response: {response.text}")
+                return False
+            
+            result = response.json()
+            print(f"Success! Found {len(result.get('names', []))} names")
+            return True
+            
+    except Exception as e:
+        print(f"Test failed: {type(e).__name__}: {str(e)}")
+        return False
+    finally:
+        try:
+            os.unlink(tmp_file_path)
+        except:
+            pass

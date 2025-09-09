@@ -36,45 +36,23 @@ from .prompter import (
     get_default_text_prompt, 
     get_default_image_prompt
 )
-from .sourcetext import get_species_context_chunks, get_species_page_images
+from .sourcetext import get_species_context_chunks, get_species_page_images, get_species_full_page_chunks, get_species_partial_page_chunks
 
 # Pydantic adapter for validating LLM JSON responses
 extraction_list_adapter = TypeAdapter(ExtractionResultList)
 
 class Extractor:
     """
-    Main extraction engine coordinating LLM-based data extraction.
+    LLM-based data extraction engine.
     
-    This class manages the complete extraction workflow from document
-    preprocessing through LLM inference to result validation. It handles
-    both text-based and image-based extraction modes with configurable
-    parameters for different research requirements.
-    
-    Attributes:
-        project_config: Dictionary defining data fields and extraction parameters
-        llm_config: Dictionary specifying LLM provider and model settings
-        data_fields_schema: Structured schema for LLM prompt generation
-        
-    Extraction Workflow:
-    1. Initialize with project and LLM configurations
-    2. Generate data field schema for consistent prompting
-    3. Process species list with concurrent LLM calls
-    4. Validate and aggregate extraction results
-    5. Track token usage and performance metrics
+    Manages extraction workflow from preprocessing through validation.
+    Supports text-based and image-based extraction with concurrent processing.
     """
     def __init__(self, project_config: Dict[str, Any], llm_config: Dict[str, Any]):
-        """
-        Initialize extractor with configuration parameters.
-        
-        Args:
-            project_config: Project-specific settings including data fields
-            llm_config: LLM provider settings and API credentials
-        """
+        """Initialize with project and LLM configurations."""
         self.project_config = project_config
         self.llm_config = llm_config
-        self.data_fields_schema = generate_data_fields_schema(
-            project_config.get("data_fields", [])
-        )
+        self.data_fields_schema = generate_data_fields_schema(project_config.get("data_fields", []))
 
     def run_extraction(
         self, species_list: List[str], source_context: Dict[str, Any], update_callback=None
@@ -84,7 +62,8 @@ class Extractor:
         
         This method orchestrates the complete extraction pipeline, processing
         multiple species concurrently to maximize throughput while respecting
-        API rate limits and system resources.
+        API rate limits and system resources. Supports pause/stop functionality
+        through session state monitoring.
         
         Args:
             species_list: List of species names for data extraction
@@ -103,6 +82,7 @@ class Extractor:
         - Configurable max_workers to control API load
         - Progress tracking for long-running extractions
         - Token aggregation for cost monitoring
+        - Stop/pause support via session state flags
         
         Scientific Considerations:
         - Maintains extraction order independence for reproducibility
@@ -117,6 +97,13 @@ class Extractor:
         
         start_time = time.time()
 
+        # Check if we have Streamlit session state for stop/pause functionality
+        try:
+            import streamlit as st
+            has_streamlit = True
+        except ImportError:
+            has_streamlit = False
+
         # Execute concurrent extraction tasks
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = [
@@ -126,6 +113,15 @@ class Extractor:
 
             # Collect results as they complete
             for i, future in enumerate(as_completed(futures)):
+                # Check for stop/pause flags if running in Streamlit
+                if has_streamlit:
+                    if hasattr(st.session_state, 'extraction_running') and not st.session_state.extraction_running:
+                        # User requested stop - cancel remaining futures
+                        for remaining_future in futures:
+                            if not remaining_future.done():
+                                remaining_future.cancel()
+                        break
+                
                 result, in_tokens, out_tokens = future.result()
                 if result:
                     all_results.append(result)
@@ -137,6 +133,100 @@ class Extractor:
                 # Report progress to callback function if provided
                 if update_callback:
                     update_callback(i + 1, len(species_list))
+        
+        runtime = time.time() - start_time
+        return all_results, runtime, total_input_tokens, total_output_tokens
+
+    def run_resumable_extraction(
+        self, species_list: List[str], source_context: Dict[str, Any], update_callback=None,
+        completed_species: List[str] = None
+    ) -> Tuple[List[Dict], float, int, int]:
+        """
+        Execute data extraction with support for pause/resume functionality.
+        
+        This method provides a resumable extraction workflow that can be paused
+        and resumed, making it suitable for long-running extractions where users
+        may need to stop and continue later.
+        
+        Args:
+            species_list: List of species names for data extraction
+            source_context: Dictionary containing document data and extraction parameters
+            update_callback: Optional function for progress reporting
+            completed_species: List of species already processed (for resume functionality)
+            
+        Returns:
+            Tuple containing:
+            - List of extraction results (one dict per species)
+            - Total runtime in seconds
+            - Total input tokens consumed
+            - Total output tokens generated
+        """
+        
+        # Filter out already completed species
+        if completed_species:
+            remaining_species = [s for s in species_list if s not in completed_species]
+        else:
+            remaining_species = species_list.copy()
+        
+        all_results = []
+        total_input_tokens = 0
+        total_output_tokens = 0
+        max_workers = self.llm_config.get("concurrent_requests", 5)
+        
+        start_time = time.time()
+
+        # Check if we have Streamlit session state for stop/pause functionality
+        try:
+            import streamlit as st
+            has_streamlit = True
+        except ImportError:
+            has_streamlit = False
+
+        completed_count = len(species_list) - len(remaining_species)
+        
+        # Process species one batch at a time to allow for pause/resume
+        batch_size = min(max_workers, len(remaining_species))
+        
+        for batch_start in range(0, len(remaining_species), batch_size):
+            # Check for stop/pause before starting each batch
+            if has_streamlit and hasattr(st.session_state, 'extraction_running'):
+                if not st.session_state.extraction_running:
+                    break
+            
+            batch_end = min(batch_start + batch_size, len(remaining_species))
+            batch_species = remaining_species[batch_start:batch_end]
+            
+            # Process this batch concurrently
+            with ThreadPoolExecutor(max_workers=len(batch_species)) as executor:
+                futures = [
+                    executor.submit(self._extract_for_single_species, species, source_context)
+                    for species in batch_species
+                ]
+
+                # Collect results as they complete
+                for i, future in enumerate(as_completed(futures)):
+                    # Check for stop/pause during batch processing
+                    if has_streamlit and hasattr(st.session_state, 'extraction_running'):
+                        if not st.session_state.extraction_running:
+                            # Cancel remaining futures in this batch
+                            for remaining_future in futures:
+                                if not remaining_future.done():
+                                    remaining_future.cancel()
+                            break
+                    
+                    result, in_tokens, out_tokens = future.result()
+                    if result:
+                        all_results.append(result)
+                    
+                    # Aggregate token counts for cost tracking
+                    total_input_tokens += in_tokens or 0
+                    total_output_tokens += out_tokens or 0
+                    
+                    completed_count += 1
+                    
+                    # Report progress to callback function if provided
+                    if update_callback:
+                        update_callback(completed_count, len(species_list))
         
         runtime = time.time() - start_time
         return all_results, runtime, total_input_tokens, total_output_tokens
@@ -188,13 +278,33 @@ class Extractor:
 
         # Route to appropriate extraction method
         if extraction_method == "Text-based":
-            # Extract contextual text passages around species mentions
-            chunks = get_species_context_chunks(
-                context['full_text'],
-                context['species_df'][context['species_df']['Name'] == species_name],
-                context['context_before'],
-                context['context_after']
-            ).get(species_name, [])
+            # Check chunking method
+            chunking_method = context.get('chunking_method', 'Context Window')
+            
+            if chunking_method == "Full Page":
+                # Use full page chunking - get complete page content where species is mentioned
+                chunks = get_species_full_page_chunks(
+                    context['full_text'],
+                    context['species_df']
+                ).get(species_name, [])
+            elif chunking_method == "Partial Page (Top + Bottom)":
+                # Use partial page chunking - get top and bottom of pages where species is mentioned
+                chars_from_top = context.get('chars_from_top', 500)
+                chars_from_bottom = context.get('chars_from_bottom', 500)
+                chunks = get_species_partial_page_chunks(
+                    context['full_text'],
+                    context['species_df'],
+                    chars_from_top,
+                    chars_from_bottom
+                ).get(species_name, [])
+            else:
+                # Use context-based chunking (original method)
+                chunks = get_species_context_chunks(
+                    context['full_text'],
+                    context['species_df'][context['species_df']['Name'] == species_name],
+                    context['context_before'],
+                    context['context_after']
+                ).get(species_name, [])
             
             if not chunks: return no_context_result
             

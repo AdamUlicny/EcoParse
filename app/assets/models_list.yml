@@ -1,45 +1,16 @@
 # Ollama Models Configuration
-
 ollama_models:
-  # Phi models
-  - name: "phi4:14b"
-    description: "Phi-4 14b model"
-  - name: "phi3:14b-medium-4k-instruct-q8_0"
-    description: "Phi-3 14b Instruct model"
   # Mistral models
-  - name: "mistral-small3.2:latest"
-    description: "Mistral Small 3.2 model"
   - name: "mistral:instruct"
     description: "Mistral Instruct 7b model"
-  - name: "llava:7b-v1.6-mistral-fp16"
-    description: "Llava 7B v1.6 Mistral FP16 model"
-  - name: "mistral-nemo:12b-instruct-2407-q8_0"
-    description: "Mistral Nemo 12B Instruct 2407 Q8_0 model"
-  # Gemma models
-  - name: "gemma3:27b-it-qat"
-    description: "Gemma3 27b qat"
-  - name: "gemma3:12b"
-    description: "Gemma3 12b model"
+  - name: "mixtral:8x7b-instruct-v0.1-q8_0"
+    description: "Mixtral 8x7b Instruct q8"
   # Qwen models
-  - name: "qwen3:4b-instruct-2507-fp16"
-    description: "Qwen 3 4B Instruct FP16 model"
-  - name: "qwen3:8b"
-    description: "Qwen 3 8B model"
   - name: "qwen3:30b-a3b-instruct-2507-q4_K_M"
     description: "Qwen 3 30b A3B Instruct model"
-  - name: "qwen2.5:14b-instruct-q8_0"
-    description: "Qwen 2.5 14b instruct Q8"
-  - name: "qwen2.5vl:7b"
-    description: "Qwen 2.5 7B vision model"
   # Llama models
   - name: "llama3.1:8b-instruct-fp16"
     description: "Llama 3.1 8B Instruct FP16 model"
-  - name: "llama3.1:8b-instruct-q8_0"
-    description: "Llama 3.1 8B Instruct Q8_0 model"
-  - name: "llama3.2:latest"
-    description: "Llama 3.2 3B model"
-  - name: "llama3.2-vision:11b-instruct-q8_0"
-    description: "Llama 3.2 Vision 11B Instruct Q8_0 model"
   - name: "llama3.2-vision:11b"
     description: "Llama 3.2 Vision 11B model"
   - name: "llama4:scout"

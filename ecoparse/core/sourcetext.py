@@ -1,21 +1,8 @@
 """
 PDF Text Processing and Context Extraction Module
 
-This module handles PDF document processing, text extraction, and context
-retrieval for species-specific information. It provides functions for
-extracting readable text from PDFs and locating relevant passages
-surrounding species mentions.
-
-Scientific Purpose:
-- Enables automated processing of biodiversity literature in PDF format
-- Provides contextual text passages for species data extraction
-- Supports both text-based and image-based analysis workflows
-
-Key Features:
-- Robust PDF text extraction using multiple libraries
-- Context window extraction around species mentions
-- Page image generation for visual analysis
-- Text normalization for improved search accuracy
+Handles PDF processing, text extraction, and context retrieval for species data.
+Supports multiple extraction methods for different document layouts.
 """
 
 import io
@@ -28,48 +15,70 @@ import pdfplumber
 
 def extract_text_from_pdf(pdf_file_buffer: io.BytesIO, method: str = "standard") -> str:
     """
-    Extracts text content from PDF documents using PyMuPDF with layout options.
-    
-    Processes PDF files to extract plain text suitable for species name
-    detection and data extraction. Supports different extraction methods
-    for handling complex layouts like multi-column documents.
+    Extract text from PDF with layout-aware options.
     
     Args:
         pdf_file_buffer: Binary PDF data stream
-        method: Extraction method ("standard", "adaptive", "plumber")
+        method: "standard", "adaptive", "plumber", or "reading-order"
         
     Returns:
-        Concatenated text content from all PDF pages
-        
-    Technical Details:
-    - Handles various PDF encodings and formats
-    - Preserves page breaks for document structure
-    - Robust error handling for corrupted or protected PDFs
-    - Adaptive method handles any layout automatically
-    - Plumber method excels at complex layouts and tables
-    
-    Extraction Methods:
-    - "standard": Basic text extraction (fastest, good for simple layouts)
-    - "adaptive": Automatic layout analysis and column detection (recommended for complex layouts)
-    - "plumber": PDFplumber-based extraction (best for tables, forms, and structured documents)
+        Concatenated text content from all pages
     """
     if method == "adaptive":
         return _extract_text_adaptive(pdf_file_buffer)
     elif method == "plumber":
         return _extract_text_plumber(pdf_file_buffer)
+    elif method == "reading-order":
+        return _extract_text_reading_order(pdf_file_buffer)
     else:
-        # Default to standard method
         return _extract_text_standard(pdf_file_buffer)
 
 
 def _extract_text_standard(pdf_file_buffer: io.BytesIO) -> str:
-    """Standard text extraction method (original implementation)."""
+    """Standard text extraction with Unicode handling."""
     full_text = ""
     try:
         pdf_file_buffer.seek(0)
-        doc = fitz.open(stream=pdf_file_buffer.read(), filetype="pdf")
-        for page in doc:
-            full_text += page.get_text("text") + "\n"
+        pdf_data = pdf_file_buffer.read()
+        doc = fitz.open(stream=pdf_data, filetype="pdf")
+        
+        for page_num, page in enumerate(doc):
+            try:
+                # Try different extraction methods for better Unicode support
+                # Method 1: Standard text extraction
+                page_text = page.get_text()
+                
+                # Method 2: If that doesn't work, try extracting as bytes and decode
+                if not page_text or page_text.count('`') > page_text.count('ž'):
+                    # Likely encoding issue, try alternative
+                    text_dict = page.get_text("dict")
+                    page_text = ""
+                    for block in text_dict.get("blocks", []):
+                        if "lines" in block:
+                            for line in block["lines"]:
+                                for span in line["spans"]:
+                                    span_text = span.get("text", "")
+                                    # Handle potential encoding issues
+                                    if isinstance(span_text, bytes):
+                                        try:
+                                            span_text = span_text.decode('utf-8')
+                                        except:
+                                            span_text = span_text.decode('utf-8', errors='replace')
+                                    page_text += span_text
+                                page_text += "\n"
+                
+                if page_text:
+                    full_text += f"=== PAGE {page_num + 1} ===\n"
+                    full_text += page_text + "\n"
+                    
+            except Exception as e:
+                print(f"Error processing page {page_num + 1}: {e}")
+                continue
+                
+        doc.close()
+        
+        # Apply Croatian character fixes to the final text
+        full_text = fix_croatian_characters(full_text)
         return full_text
     except Exception as e:
         print(f"Error extracting text from PDF: {e}")
@@ -77,21 +86,7 @@ def _extract_text_standard(pdf_file_buffer: io.BytesIO) -> str:
 
 
 def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
-    """
-    PDFplumber-based text extraction for complex layouts and structured documents.
-    
-    Uses PDFplumber's advanced layout analysis to handle:
-    - Complex tables and forms
-    - Mixed column layouts
-    - Structured documents with precise positioning
-    - Documents with heavy formatting
-    
-    PDFplumber excels at:
-    - Table extraction and structure preservation
-    - Handling overlapping text elements
-    - Maintaining spatial relationships
-    - Processing forms and structured data
-    """
+    """PDFplumber extraction for complex layouts and tables."""
     full_text = ""
     try:
         pdf_file_buffer.seek(0)
@@ -103,6 +98,10 @@ def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
                     page_text = page.extract_text()
                     
                     if page_text:
+                        # Ensure proper UTF-8 encoding
+                        if isinstance(page_text, bytes):
+                            page_text = page_text.decode('utf-8', errors='replace')
+                        
                         # Add page marker for context
                         full_text += f"\n=== PAGE {page_num + 1} ===\n"
                         full_text += page_text + "\n"
@@ -115,7 +114,17 @@ def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
                                 full_text += f"\nTable {table_idx + 1}:\n"
                                 for row in table:
                                     if row and any(cell for cell in row if cell):  # Skip empty rows
-                                        row_text = " | ".join([str(cell) if cell else "" for cell in row])
+                                        # Ensure proper UTF-8 encoding for table cells
+                                        encoded_cells = []
+                                        for cell in row:
+                                            if cell:
+                                                cell_text = str(cell)
+                                                if isinstance(cell_text, bytes):
+                                                    cell_text = cell_text.decode('utf-8', errors='replace')
+                                                encoded_cells.append(cell_text)
+                                            else:
+                                                encoded_cells.append("")
+                                        row_text = " | ".join(encoded_cells)
                                         full_text += row_text + "\n"
                                 full_text += "\n"
                     
@@ -125,11 +134,16 @@ def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
                     try:
                         basic_text = page.extract_text()
                         if basic_text:
+                            # Ensure proper UTF-8 encoding
+                            if isinstance(basic_text, bytes):
+                                basic_text = basic_text.decode('utf-8', errors='replace')
                             full_text += f"\n=== PAGE {page_num + 1} (basic) ===\n"
                             full_text += basic_text + "\n"
                     except:
                         continue
         
+        # Apply Croatian character fixes to the final text
+        full_text = fix_croatian_characters(full_text)
         return full_text
         
     except Exception as e:
@@ -138,23 +152,31 @@ def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
 
 
 def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
-    """
-    Adaptive text extraction that automatically detects and handles different layouts.
-    
-    Analyzes each page to determine the optimal extraction strategy:
-    - Single column: Standard top-to-bottom extraction
-    - Two columns: Extract left column first, then right
-    - Multi-column: Extract columns in order, preserving relationships
-    """
+    """Adaptive extraction with automatic layout detection."""
     full_text = ""
     try:
         pdf_file_buffer.seek(0)
-        doc = fitz.open(stream=pdf_file_buffer.read(), filetype="pdf")
+        # Try to open with explicit encoding handling
+        pdf_data = pdf_file_buffer.read()
+        doc = fitz.open(stream=pdf_data, filetype="pdf")
         
         for page_num, page in enumerate(doc):
             # Analyze page layout
             layout = _analyze_page_layout(page)
             
+            # Try different text extraction methods for better encoding
+            try:
+                # Method 1: Use simple text extraction first (often better for encoding)
+                simple_text = page.get_text()
+                if simple_text and any(ord(c) > 127 for c in simple_text):  # Contains non-ASCII
+                    # Add layout information as comment
+                    full_text += f"\n<!-- Page {page_num + 1}: {layout['columns']} columns detected -->\n"
+                    full_text += simple_text + "\n"
+                    continue
+            except:
+                pass
+            
+            # Method 2: Fall back to dict-based extraction if simple fails
             text_dict = page.get_text("dict")
             blocks = text_dict.get("blocks", [])
             
@@ -172,7 +194,11 @@ def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
                     for line in block.get("lines", []):
                         line_text = ""
                         for span in line.get("spans", []):
-                            line_text += span.get("text", "")
+                            span_text = span.get("text", "")
+                            # Ensure proper UTF-8 encoding
+                            if isinstance(span_text, bytes):
+                                span_text = span_text.decode('utf-8', errors='replace')
+                            line_text += span_text
                         if line_text.strip():
                             full_text += line_text + "\n"
             
@@ -211,15 +237,54 @@ def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
                             for line in block.get("lines", []):
                                 line_text = ""
                                 for span in line.get("spans", []):
-                                    line_text += span.get("text", "")
+                                    span_text = span.get("text", "")
+                                    # Ensure proper UTF-8 encoding
+                                    if isinstance(span_text, bytes):
+                                        span_text = span_text.decode('utf-8', errors='replace')
+                                    line_text += span_text
                                 if line_text.strip():
                                     full_text += line_text + "\n"
             
             full_text += "\n"  # Page break
         
+        # Apply Croatian character fixes to the final text
+        full_text = fix_croatian_characters(full_text)
         return full_text
     except Exception as e:
         print(f"Error in adaptive text extraction: {e}")
+        return ""
+
+
+def _extract_text_reading_order(pdf_file_buffer: io.BytesIO) -> str:
+    """
+    Reading-order text extraction using PyPDF2's reading order method.
+    This method focuses on extracting text in the proper reading order,
+    which should correctly position headers and maintain document structure.
+    """
+    full_text = ""
+    try:
+        pdf_file_buffer.seek(0)
+        reader = PdfReader(pdf_file_buffer)
+        
+        for page_num, page in enumerate(reader.pages):
+            try:
+                # Use PyPDF2's text extraction which follows reading order
+                page_text = page.extract_text()
+                
+                if page_text and page_text.strip():
+                    full_text += f"\n=== PAGE {page_num + 1} ===\n"
+                    full_text += page_text + "\n"
+                    
+            except Exception as e:
+                print(f"Error extracting text from page {page_num + 1}: {e}")
+                continue
+        
+        # Apply Croatian character fixes to the final text
+        full_text = fix_croatian_characters(full_text)
+        return full_text
+        
+    except Exception as e:
+        print(f"Error in reading-order text extraction: {e}")
         return ""
 
 
@@ -318,26 +383,7 @@ def _analyze_page_layout(page) -> Dict:
 
 
 def trim_pdf_pages(pdf_buffer: io.BytesIO, start_page: int, end_page: int) -> Optional[io.BytesIO]:
-    """
-    Extracts a page range from a PDF document.
-    
-    Creates a new PDF containing only the specified page range,
-    useful for processing specific sections of large documents
-    or reducing computational load.
-    
-    Args:
-        pdf_buffer: Original PDF data stream
-        start_page: First page to include (1-indexed)
-        end_page: Last page to include (1-indexed, inclusive)
-        
-    Returns:
-        New PDF buffer with selected pages, or None if invalid range
-        
-    Use Cases:
-    - Processing specific chapters or sections
-    - Excluding irrelevant front/back matter
-    - Reducing memory usage for large documents
-    """
+    """Extract page range from PDF (1-indexed, inclusive)."""
     try:
         pdf_buffer.seek(0)
         reader = PdfReader(pdf_buffer)
@@ -356,6 +402,42 @@ def trim_pdf_pages(pdf_buffer: io.BytesIO, start_page: int, end_page: int) -> Op
         print(f"Failed to trim PDF: {e}")
         return None
 
+def fix_croatian_characters(text: str) -> str:
+    """
+    Fixes common Croatian character corruptions from PDF encoding issues.
+    
+    Args:
+        text: Text with potential Croatian character corruptions
+        
+    Returns:
+        Text with Croatian characters properly restored
+    """
+    croatian_fixes = {
+        'ugro`enosti': 'ugroženosti',
+        'ukljuc`eni': 'uključeni', 
+        'poznaca`': 'poznaća',
+        'c`ini': 'čini',
+        'zivotnic`ki': 'životnički',
+        'u`inak': 'učinak',
+        'promjec`enom': 'promijećenom',
+        'vec`i': 'veći',
+        'zastup`en': 'zastupljen',
+        '`esto': 'često',
+        '`ak': 'čak',
+        '`ita': 'čita',
+        '`iji': 'čiji',
+        'u`e': 'uče',
+        'c`e': 'će',
+        'kolic`ina': 'količina',
+        'kljuc`ni': 'ključni'
+    }
+    
+    for corrupted, correct in croatian_fixes.items():
+        text = text.replace(corrupted, correct)
+    
+    return text
+
+
 def normalize_text_for_search(text: str) -> str:
     """
     Normalizes text for improved species name searching.
@@ -365,6 +447,7 @@ def normalize_text_for_search(text: str) -> str:
     - Hyphenated line breaks
     - Inconsistent whitespace
     - Line break artifacts
+    - Common Croatian character corruptions
     
     Args:
         text: Raw text from PDF extraction
@@ -373,11 +456,16 @@ def normalize_text_for_search(text: str) -> str:
         Cleaned text optimized for species name matching
         
     Normalization Steps:
-    1. Remove hyphenated line breaks (e.g., "Homo sapi-\nens" -> "Homo sapiens")
-    2. Replace line breaks with spaces
-    3. Normalize multiple whitespace characters
-    4. Trim leading/trailing whitespace
+    1. Fix common Croatian character corruptions
+    2. Remove hyphenated line breaks (e.g., "Homo sapi-\nens" -> "Homo sapiens")
+    3. Replace line breaks with spaces
+    4. Normalize multiple whitespace characters
+    5. Trim leading/trailing whitespace
     """
+    # Fix Croatian character corruptions
+    text = fix_croatian_characters(text)
+    
+    # Original normalization
     text = re.sub(r'-\s*\n\s*', '', text)
     text = text.replace('\n', ' ')
     text = re.sub(r'\s+', ' ', text)
@@ -584,6 +672,126 @@ def get_species_context_chunks(
             if chunk not in species_chunks[search_name]:
                 species_chunks[search_name].append(chunk)
 
+    return species_chunks
+
+def get_species_partial_page_chunks(full_text: str, species_df: pd.DataFrame, chars_from_top: int = 500, chars_from_bottom: int = 500) -> Dict[str, List[str]]:
+    """
+    Extract partial page content (top + bottom) for each species mention.
+    
+    For pages where species are mentioned, extracts a configurable number of 
+    characters from the top and bottom of the page, skipping the middle content.
+    This captures headers, introductions, conclusions, and summaries while 
+    avoiding lengthy middle sections that often contain less relevant detail.
+    
+    Args:
+        full_text: Complete document text with page markers
+        species_df: DataFrame containing detected species names
+        chars_from_top: Number of characters to extract from page start
+        chars_from_bottom: Number of characters to extract from page end
+        
+    Returns:
+        Dictionary mapping species names to lists of partial page texts
+        Format: "TOP: [top_content] ... [MIDDLE CONTENT OMITTED] ... BOTTOM: [bottom_content]"
+    """
+    species_chunks = {}
+    if species_df.empty:
+        return species_chunks
+
+    # Split text by page markers
+    pages = re.split(r'=== PAGE (\d+) ===', full_text)
+    
+    # Create a list of (page_number, page_text) tuples
+    page_contents = []
+    for i in range(1, len(pages), 2):
+        if i + 1 < len(pages):
+            page_num = int(pages[i])
+            page_text = pages[i + 1]
+            page_contents.append((page_num, page_text))
+    
+    # For each species, find all pages where it's mentioned
+    for _, row in species_df.iterrows():
+        search_name = row["Name"]
+        if not search_name:
+            continue
+            
+        species_chunks[search_name] = []
+        
+        # Check each page for this species
+        for page_num, page_text in page_contents:
+            # Case-insensitive search for species mentions
+            if search_name.lower() in page_text.lower():
+                # Create partial page chunk
+                page_text_clean = page_text.strip()
+                
+                if len(page_text_clean) <= (chars_from_top + chars_from_bottom):
+                    # Page is short enough, use full content
+                    partial_chunk = f"=== PAGE {page_num} ===\n{page_text_clean}"
+                else:
+                    # Extract top and bottom portions
+                    top_portion = page_text_clean[:chars_from_top].strip()
+                    bottom_portion = page_text_clean[-chars_from_bottom:].strip()
+                    
+                    # Create formatted partial page chunk
+                    partial_chunk = f"""=== PAGE {page_num} (Top {chars_from_top} + Bottom {chars_from_bottom} chars) ===
+TOP SECTION:
+{top_portion}
+
+... [MIDDLE CONTENT OMITTED - {len(page_text_clean) - chars_from_top - chars_from_bottom} characters] ...
+
+BOTTOM SECTION:
+{bottom_portion}"""
+                
+                species_chunks[search_name].append(partial_chunk)
+    
+    return species_chunks
+
+def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Dict[str, List[str]]:
+    """
+    Extract full page content for each species mention.
+    
+    Instead of extracting text around each species mention, this function
+    extracts the complete content of pages where species are mentioned.
+    This provides maximum context for species data extraction.
+    
+    Args:
+        full_text: Complete document text with page markers
+        species_df: DataFrame containing detected species names
+        
+    Returns:
+        Dictionary mapping species names to lists of full page texts
+        where each species is mentioned
+    """
+    species_chunks = {}
+    if species_df.empty:
+        return species_chunks
+
+    # Split text by page markers
+    pages = re.split(r'=== PAGE (\d+) ===', full_text)
+    
+    # Create a list of (page_number, page_text) tuples
+    page_contents = []
+    for i in range(1, len(pages), 2):
+        if i + 1 < len(pages):
+            page_num = int(pages[i])
+            page_text = pages[i + 1]
+            page_contents.append((page_num, page_text))
+    
+    # For each species, find all pages where it's mentioned
+    for _, row in species_df.iterrows():
+        search_name = row["Name"]
+        if not search_name:
+            continue
+            
+        species_chunks[search_name] = []
+        
+        # Check each page for this species
+        for page_num, page_text in page_contents:
+            # Case-insensitive search for species mentions
+            if search_name.lower() in page_text.lower():
+                # Add full page content as a chunk
+                full_page_chunk = f"=== PAGE {page_num} ===\n{page_text}"
+                species_chunks[search_name].append(full_page_chunk)
+    
     return species_chunks
 
 def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) -> Dict[str, List[bytes]]:

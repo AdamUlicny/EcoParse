@@ -114,9 +114,10 @@ def display():
 
     st.subheader("🔬 Run Verification")
 
-    if st.session_state.get("uploaded_gemini_file_id") and st.session_state.extraction_results:
+    extraction_results = getattr(st.session_state, 'extraction_results', [])
+    if st.session_state.get("uploaded_gemini_file_id") and extraction_results:
         st.write("**Data to verify (from '4. Run Extraction' tab):**")
-        verification_df_input = pd.DataFrame(st.session_state.extraction_results)
+        verification_df_input = pd.DataFrame(extraction_results)
         st.dataframe(verification_df_input, use_container_width=True)
 
         st.metric("Estimated Input Tokens (Verification)", st.session_state.total_verification_input_tokens)
@@ -152,7 +153,7 @@ def display():
             )
 
             # Prepare chunks
-            all_species_results = st.session_state.extraction_results
+            all_species_results = extraction_results
             chunk_size = st.session_state.verification_species_chunk_size
             species_chunks = [
                 all_species_results[i:i + chunk_size]
@@ -199,7 +200,7 @@ def display():
             
     elif st.session_state.pdf_buffer is None:
         st.info("Please upload and process a PDF in the '1. Upload PDF' tab first.")
-    elif not st.session_state.extraction_results:
+    elif not extraction_results:
         st.info("Please run species extraction in the '4. Run Extraction' tab first to get data for verification.")
     elif not st.session_state.get("uploaded_gemini_file_id"):
         st.info("Please upload the full PDF to Gemini's File Manager above before running verification.")

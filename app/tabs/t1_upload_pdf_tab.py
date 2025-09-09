@@ -1,15 +1,15 @@
 """
 Tab 1: PDF Upload and Processing
 
-Handles document upload, page range selection, text extraction, and session loading
-from previous reports. First step in the extraction workflow.
+Handles document upload, page range selection, and text extraction.
 """
 
 import streamlit as st
 import pandas as pd
 from ecoparse.core.sourcetext import trim_pdf_pages, extract_text_from_pdf
-from app.state_loader import load_state_from_report
 from app.session import reset_session 
+from app.ui_messages import show_loaded_session_complete, show_method_change_success
+from app.ui_helpers import create_extraction_method_selector
 import io
 from PyPDF2 import PdfReader
 
@@ -24,25 +24,21 @@ def display():
 
 def display_loaded_session_view():
     """Display interface when session is loaded from a previous report."""
-    st.success(f"✅ **Session Loaded from Report** for document: **{st.session_state.pdf_name}**")
-    st.info("You can now proceed to the other tabs to view results or continue verification.")
+    st.success(f"✅ **Session Loaded** for: **{st.session_state.pdf_name}**")
+    st.info("Proceed to other tabs to view results or continue verification.")
     
-    if st.button("🔄 Start a New Session", type="primary"):
+    if st.button("🔄 Start New Session", type="primary"):
         reset_session()
         st.rerun()
 
     st.markdown("---")
-    st.subheader("Upload Corresponding PDF (Optional)")
-    st.markdown("To use features that require the original document (like the image context viewer in the verification tabs), please upload the PDF file below.")
+    st.subheader("Upload PDF for Context Features (Optional)")
+    st.markdown("Upload the original PDF to enable image context viewer in verification tabs.")
     
-    uploaded_file = st.file_uploader(
-        "Upload PDF for loaded session",
-        type="pdf",
-        key="pdf_for_loaded_session"
-    )
+    uploaded_file = st.file_uploader("Upload PDF for context", type="pdf", key="pdf_for_loaded_session")
     if uploaded_file:
         st.session_state.pdf_buffer = uploaded_file.getvalue()
-        st.success(f"PDF '{uploaded_file.name}' has been loaded and is available for context-aware features.")
+        st.success(f"PDF '{uploaded_file.name}' loaded for context features.")
 
 def display_new_session_view():
     """Display interface for starting a new extraction session with PDF upload."""
@@ -64,7 +60,7 @@ def display_new_session_view():
         key="new_pdf_uploader",
         on_change=on_pdf_upload
     )
-    if st.session_state.pdf_buffer:
+    if st.session_state.get('pdf_buffer'):
         st.info(f"**Current Document:** `{st.session_state.pdf_name}`")
         with st.expander("Process PDF and Extract Text", expanded=not st.session_state.full_text):
             st.markdown("Select a page range to focus the analysis, then click the button to extract text.")
@@ -81,56 +77,26 @@ def display_new_session_view():
 
                 # Text extraction method selection
                 st.subheader("Text Extraction Method")
-                extraction_method = st.selectbox(
-                    "Choose extraction method",
-                    ["standard", "adaptive", "plumber"],
-                    index=0,  # Default to "standard" for weaker machines
-                    key="pdf_extraction_method",
-                    help="""
-                    - **Standard**: Basic extraction - fastest, good for simple layouts (recommended for weaker machines)
-                    - **Adaptive**: Intelligent column detection - automatically analyzes layout but requires more processing power
-                    - **Plumber**: Advanced extraction - best for tables, forms, and complex structured documents (slowest but most comprehensive)
-                    """
-                )
+                extraction_method = create_extraction_method_selector(key_suffix="pdf_upload")
 
                 if st.button("Trim PDF & Extract Text", type="primary"):
                     if start_page > end_page:
-                        st.error("Start page must not be after the end page.")
+                        st.error("Start page must not be after end page.")
                     else:
-                        with st.spinner("Trimming PDF and extracting text..."):
+                        with st.spinner("Processing PDF..."):
                             original_buffer = io.BytesIO(st.session_state.pdf_buffer)
                             trimmed_buffer = trim_pdf_pages(original_buffer, start_page, end_page)
                             if trimmed_buffer:
                                 st.session_state.pdf_buffer = trimmed_buffer.getvalue() 
-                                # Use selected extraction method
                                 st.session_state.full_text = extract_text_from_pdf(trimmed_buffer, method=extraction_method)
-                                st.session_state.extraction_method_used = extraction_method  # Store for later reference
-                                st.success(f"Trimmed to pages {start_page}-{end_page} and extracted {len(st.session_state.full_text):,} characters using **{extraction_method}** method.")
+                                st.session_state.extraction_method_used = extraction_method
+                                show_method_change_success(extraction_method, len(st.session_state.full_text))
                                 st.rerun()
                             else:
                                 st.error("Failed to trim PDF.")
             except Exception as e:
                 st.error(f"Could not read the uploaded PDF. It may be corrupted. Error: {e}")
     
-    if st.session_state.full_text:
+    if st.session_state.get('full_text'):
         st.subheader("Extracted Text Preview")
         st.text_area("Preview", st.session_state.full_text[:3000000] + "...", height=300, disabled=True)
-
-
-    # --- Secondary Option: Load Session ---
-    st.markdown("---")
-    st.subheader("Or, Load a Previous Session")
-    
-    def on_report_upload():
-        uploaded_report = st.session_state.report_uploader
-        if uploaded_report is not None:
-            report_content = uploaded_report.read().decode("utf-8")
-            load_state_from_report(report_content)
-            # No need to set flags, the main rerun will check the session_loaded_from_report state
-    
-    st.file_uploader(
-        "Choose a previously generated JSON report file",
-        type="json",
-        key="report_uploader",
-        on_change=on_report_upload
-    )

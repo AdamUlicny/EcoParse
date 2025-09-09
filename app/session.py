@@ -1,8 +1,7 @@
 """
 Session State Management
 
-Handles initialization and management of Streamlit session state variables
-for maintaining application data across user interactions.
+Streamlit session state initialization and management.
 """
 
 import streamlit as st
@@ -11,71 +10,76 @@ import yaml
 from pathlib import Path
 
 def reset_session():
-    """Reset all data-related session variables while preserving configuration."""
-    # PDF and Text Data
-    st.session_state.pdf_buffer = None
-    st.session_state.pdf_name = ""
-    st.session_state.full_text = ""
-    st.session_state.last_uploaded_file_id = None
+    """Reset data-related session variables, preserving configuration."""
+    # Initialize data variables to None/empty values
+    data_defaults = {
+        'pdf_buffer': None,
+        'pdf_name': "",
+        'full_text': "",
+        'gnfinder_results_raw': None,
+        'species_df_initial': pd.DataFrame(),
+        'species_df_final': pd.DataFrame(),
+        'extraction_results': [],
+        'last_report_path': None,
+        'verification_queue': [],
+        'manual_verification_results': [],
+        'automated_verification_results': [],
+        'uploaded_gemini_file_id': None,
+        'uploaded_gemini_file_display_name': None,
+        'session_loaded_from_report': False,
+        'extraction_method_used': 'standard',
+        # Extraction control variables
+        'extraction_running': False,
+        'extraction_paused': False,
+        'extraction_progress': 0,
+        'extraction_total': 0,
+        'extraction_runtime': 0,
+        'total_input_tokens': 0,
+        'total_output_tokens': 0,
+        'species_to_process': [],
+        'extractor': None,
+        'source_context': {}
+    }
     
-    # Species Data
-    st.session_state.gnfinder_results_raw = None
-    st.session_state.species_df_initial = pd.DataFrame()
-    st.session_state.species_df_final = pd.DataFrame()
-    
-    # Extraction and Verification Results
-    st.session_state.extraction_results = []
-    st.session_state.verification_queue = []
-    st.session_state.manual_verification_results = []
-    st.session_state.automated_verification_results = []
-    
-    # Reporting and Metrics
-    st.session_state.extraction_runtime = 0.0
-    st.session_state.total_input_tokens = 0
-    st.session_state.total_output_tokens = 0
-    st.session_state.last_report_path = None
-    
-    # Session state management flag
-    st.session_state.session_loaded_from_report = False
+    for var, default_value in data_defaults.items():
+        st.session_state[var] = default_value
 
 def initialize_session():
-    """Initialize all session state variables on first application run."""
-    if "session_initialized" in st.session_state:
+    """Initialize session state variables on first run."""
+    if getattr(st.session_state, 'session_initialized', False):
         return
     
-    # Initialize all data variables
     reset_session()
     
-    # Set configuration defaults that persist across resets
-    st.session_state.gnfinder_url = "http://localhost:4040/api/v1/find"
-    st.session_state.llm_provider = "Google Gemini"
-    st.session_state.google_api_key = ""
-    st.session_state.google_model = "gemini-2.5-flash-lite"
-    st.session_state.ollama_model = "gemma3:12b"
-    st.session_state.ollama_url = "http://localhost:11434"
+    # Configuration defaults
+    defaults = {
+        'gnfinder_url': "http://localhost:4040/api/v1/find",
+        'llm_provider': "Google Gemini", 
+        'google_api_key': "",
+        'google_model': "gemini-2.5-flash-lite",
+        'ollama_model': "mistral:instruct",
+        'ollama_url': "http://localhost:11434",
+        'extraction_method': "Text-based",
+        'context_before': 0,
+        'context_after': 500,
+        'concurrent_requests': 5,
+        'verification_concurrent_requests': 1,
+        'prompt_examples': [],
+        'verification_current_index': 0,
+        'verification_gemini_model': "gemini-2.5-flash",
+        'verification_species_chunk_size': 5,
+        'total_verification_input_tokens': 0,
+        'total_verification_output_tokens': 0
+    }
+    
+    for key, value in defaults.items():
+        st.session_state[key] = value
+
     
     # Load default project configuration
     default_config_path = Path(__file__).parent / "assets/default_project_config.yml"
     with open(default_config_path, 'r') as f:
         st.session_state.project_config_yaml = f.read()
     st.session_state.project_config = yaml.safe_load(st.session_state.project_config_yaml)
-    
-    # Extraction configuration defaults
-    st.session_state.extraction_method = "Text-based"
-    st.session_state.context_before = 0
-    st.session_state.context_after = 250
-    st.session_state.concurrent_requests = 5
-    st.session_state.verification_concurrent_requests = 1
-    st.session_state.prompt_examples = []
-    
-    # Verification settings
-    st.session_state.verification_current_index = 0
-    st.session_state.uploaded_gemini_file_id = None
-    st.session_state.uploaded_gemini_file_display_name = None
-    st.session_state.verification_gemini_model = "gemini-2.5-flash"
-    st.session_state.verification_species_chunk_size = 5
-    st.session_state.total_verification_input_tokens = 0
-    st.session_state.total_verification_output_tokens = 0
 
-    # Mark session as initialized
     st.session_state.session_initialized = True
