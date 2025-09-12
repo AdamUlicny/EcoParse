@@ -12,6 +12,7 @@ import pandas as pd
 from PyPDF2 import PdfReader, PdfWriter
 import fitz  # PyMuPDF
 import pdfplumber
+import unicodedata
 
 def extract_text_from_pdf(pdf_file_buffer: io.BytesIO, method: str = "standard") -> str:
     """
@@ -77,8 +78,6 @@ def _extract_text_standard(pdf_file_buffer: io.BytesIO) -> str:
                 
         doc.close()
         
-        # Apply Croatian character fixes to the final text
-        full_text = fix_croatian_characters(full_text)
         return full_text
     except Exception as e:
         print(f"Error extracting text from PDF: {e}")
@@ -142,8 +141,6 @@ def _extract_text_plumber(pdf_file_buffer: io.BytesIO) -> str:
                     except:
                         continue
         
-        # Apply Croatian character fixes to the final text
-        full_text = fix_croatian_characters(full_text)
         return full_text
         
     except Exception as e:
@@ -247,8 +244,6 @@ def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
             
             full_text += "\n"  # Page break
         
-        # Apply Croatian character fixes to the final text
-        full_text = fix_croatian_characters(full_text)
         return full_text
     except Exception as e:
         print(f"Error in adaptive text extraction: {e}")
@@ -279,8 +274,6 @@ def _extract_text_reading_order(pdf_file_buffer: io.BytesIO) -> str:
                 print(f"Error extracting text from page {page_num + 1}: {e}")
                 continue
         
-        # Apply Croatian character fixes to the final text
-        full_text = fix_croatian_characters(full_text)
         return full_text
         
     except Exception as e:
@@ -402,40 +395,10 @@ def trim_pdf_pages(pdf_buffer: io.BytesIO, start_page: int, end_page: int) -> Op
         print(f"Failed to trim PDF: {e}")
         return None
 
-def fix_croatian_characters(text: str) -> str:
-    """
-    Fixes common Croatian character corruptions from PDF encoding issues.
-    
-    Args:
-        text: Text with potential Croatian character corruptions
-        
-    Returns:
-        Text with Croatian characters properly restored
-    """
-    croatian_fixes = {
-        'ugro`enosti': 'ugroženosti',
-        'ukljuc`eni': 'uključeni', 
-        'poznaca`': 'poznaća',
-        'c`ini': 'čini',
-        'zivotnic`ki': 'životnički',
-        'u`inak': 'učinak',
-        'promjec`enom': 'promijećenom',
-        'vec`i': 'veći',
-        'zastup`en': 'zastupljen',
-        '`esto': 'često',
-        '`ak': 'čak',
-        '`ita': 'čita',
-        '`iji': 'čiji',
-        'u`e': 'uče',
-        'c`e': 'će',
-        'kolic`ina': 'količina',
-        'kljuc`ni': 'ključni'
-    }
-    
-    for corrupted, correct in croatian_fixes.items():
-        text = text.replace(corrupted, correct)
-    
-    return text
+
+
+
+
 
 
 def normalize_text_for_search(text: str) -> str:
@@ -447,7 +410,7 @@ def normalize_text_for_search(text: str) -> str:
     - Hyphenated line breaks
     - Inconsistent whitespace
     - Line break artifacts
-    - Common Croatian character corruptions
+    - Ligatures and other complex characters
     
     Args:
         text: Raw text from PDF extraction
@@ -456,14 +419,14 @@ def normalize_text_for_search(text: str) -> str:
         Cleaned text optimized for species name matching
         
     Normalization Steps:
-    1. Fix common Croatian character corruptions
+    1. Apply Unicode normalization (NFKC) to handle ligatures and variants.
     2. Remove hyphenated line breaks (e.g., "Homo sapi-\nens" -> "Homo sapiens")
     3. Replace line breaks with spaces
     4. Normalize multiple whitespace characters
     5. Trim leading/trailing whitespace
     """
-    # Fix Croatian character corruptions
-    text = fix_croatian_characters(text)
+    # Apply NFKC normalization to decompose ligatures and other variants
+    text = unicodedata.normalize('NFKC', text)
     
     # Original normalization
     text = re.sub(r'-\s*\n\s*', '', text)

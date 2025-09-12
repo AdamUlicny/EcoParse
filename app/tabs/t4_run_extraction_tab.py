@@ -14,7 +14,7 @@ from app.ui_messages import (
     show_loaded_session_complete, show_prerequisite_warning, show_extraction_status,
     show_method_change_success, show_species_chunks_found, show_no_chunks_error
 )
-from app.ui_helpers import create_extraction_method_selector, create_context_controls
+from app.ui_helpers import create_extraction_method_selector, create_context_controls, preload_highlighted_images
 from app.chunk_preview import show_chunk_preview, generate_chunk_summary, show_chunking_method_selector
 import io
 import time
@@ -297,6 +297,12 @@ def display():
                     st.session_state.total_input_tokens = existing_in_tokens + in_tokens
                     st.session_state.total_output_tokens = existing_out_tokens + out_tokens
                     
+                    # --- Preload highlighted images for verification ---
+                    if 'final_results_df' in st.session_state and not st.session_state.final_results_df.empty:
+                        with st.spinner("Pre-loading context images for verification..."):
+                            preload_highlighted_images(st.session_state.final_results_df)
+                    # ----------------------------------------------------
+
                     # Check if extraction was completed or stopped
                     if len(all_results) >= len(species_to_process):
                         # Extraction completed successfully - clear all flags

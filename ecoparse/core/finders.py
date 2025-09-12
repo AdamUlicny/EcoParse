@@ -31,6 +31,7 @@ import time
 import streamlit as st
 import re
 import os
+import unicodedata
 
 # --- GNfinder Integration Functions ---
 # GNfinder is a service for finding scientific names in text
@@ -217,6 +218,9 @@ def _clean_text_for_gnfinder(text: str) -> str:
     """
     if not text:
         return ""
+    
+    # Apply NFKC normalization to handle ligatures (e.g., 'ﬁ' -> 'fi')
+    text = unicodedata.normalize('NFKC', text)
     
     # Remove common extraction artifacts
     text = re.sub(r'^\s*(?:Page \d+|CONTENT|TABLES?|FIGURES?|APPENDIX|REFERENCES)\s*$', '', text, flags=re.MULTILINE | re.IGNORECASE)

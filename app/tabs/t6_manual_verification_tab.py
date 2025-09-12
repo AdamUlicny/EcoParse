@@ -44,7 +44,35 @@ def display():
         st.success("All items have been verified!")
         st.balloons()
         if st.session_state.manual_verification_results:
-            final_df = pd.DataFrame(st.session_state.manual_verification_results)
+            # Flatten the results before displaying
+            flattened_results = []
+            for result in st.session_state.manual_verification_results:
+                flat_record = {
+                    'species': result.get('species'),
+                    'status': result.get('status')
+                }
+                # Unpack the 'data' dictionary into top-level keys
+                if isinstance(result.get('data'), dict):
+                    flat_record.update(result['data'])
+                
+                flat_record['notes'] = result.get('notes')
+                flattened_results.append(flat_record)
+
+            final_df = pd.DataFrame(flattened_results)
+            
+            # Reorder columns to a more logical sequence if desired
+            if not final_df.empty:
+                cols = final_df.columns.tolist()
+                # Move species and status to the front
+                if 'species' in cols:
+                    cols.insert(0, cols.pop(cols.index('species')))
+                if 'status' in cols:
+                    cols.insert(1, cols.pop(cols.index('status')))
+                # Move notes to the end
+                if 'notes' in cols:
+                    cols.append(cols.pop(cols.index('notes')))
+                final_df = final_df[cols]
+
             display_df_and_download(
                 final_df, 
                 "Manually Verified Results", 
@@ -64,20 +92,28 @@ def display():
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        st.markdown("**Page Context**")
+        st.markdown("**Text Context**")
         with st.container(height=500, border=False):
-            if st.session_state.pdf_buffer:
-                images = get_species_page_images(
-                    io.BytesIO(st.session_state.pdf_buffer),
-                    st.session_state.species_df_final[st.session_state.species_df_final["Name"] == species_name]
-                ).get(species_name, [])
-                if images:
-                    for img in images:
-                        st.image(img, use_container_width=True)
-                else:
-                    st.warning("No context image found for this species.")
+            context_chunks = current_item.get('context_chunks', [])
+            if not context_chunks:
+                st.warning("No text context is available for this item. It might have been an image-based extraction or an error occurred.")
             else:
-                st.info("Upload the original PDF document in the '1. Upload PDF' tab to view page context images here.")
+                # Get all dynamic field values for highlighting
+                terms_to_find = [species_name] + [str(v) for v in current_item.get('data', {}).values() if v]
+                
+                total_found_count = 0
+                
+                for i, chunk in enumerate(context_chunks):
+                    st.markdown(f"--- **Context Chunk {i+1}** ---")
+                    from app.ui_helpers import highlight_text_in_chunk
+                    highlighted_chunk, found_count = highlight_text_in_chunk(chunk, terms_to_find)
+                    
+                    st.markdown(highlighted_chunk, unsafe_allow_html=True)
+                    total_found_count += found_count
+                
+                if total_found_count == 0:
+                    st.info("None of the extracted data fields could be highlighted in the provided text chunks.")
+
 
 
     with col2:

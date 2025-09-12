@@ -268,11 +268,11 @@ class Extractor:
         
         # Standardized fallback results when context is unavailable
         no_context_result = (
-            {"species": species_name, "data": {}, "notes": "No text context found."},
+            {"species": species_name, "data": {}, "notes": "No text context found.", "context_chunks": []},
             0, 0
         )
         no_image_result = (
-            {"species": species_name, "data": {}, "notes": "No page images found."},
+            {"species": species_name, "data": {}, "notes": "No page images found.", "context_chunks": []},
             0, 0
         )
 
@@ -312,7 +312,10 @@ class Extractor:
             prompt = get_default_text_prompt(
                 species_name, "\n---\n".join(chunks), self.data_fields_schema, examples_text
             )
-            return self._call_llm(prompt, images=None)
+            result, in_tokens, out_tokens = self._call_llm(prompt, images=None)
+            if result:
+                result['context_chunks'] = chunks
+            return result, in_tokens, out_tokens
         
         elif extraction_method == "Image-based":
             # Generate page images containing species information
@@ -325,7 +328,11 @@ class Extractor:
 
             # Generate image-based extraction prompt
             prompt = get_default_image_prompt(species_name, self.data_fields_schema, examples_text)
-            return self._call_llm(prompt, images=images)
+            result, in_tokens, out_tokens = self._call_llm(prompt, images=images)
+            # For image-based, we don't have text chunks, so we can add a placeholder or leave it empty
+            if result:
+                result['context_chunks'] = ["Image-based extraction does not use text chunks."]
+            return result, in_tokens, out_tokens
 
         return None, 0, 0
 
