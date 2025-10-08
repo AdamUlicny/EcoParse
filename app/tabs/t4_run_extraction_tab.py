@@ -19,6 +19,7 @@ from app.chunk_preview import show_chunk_preview, generate_chunk_summary, show_c
 import io
 import time
 import json
+import json
 
 def display():
     """Main display function for extraction execution tab."""
@@ -37,20 +38,6 @@ def display():
 
     st.info(f"Ready to extract data for **{len(st.session_state.species_df_final)}** species.")
     
-    # Show information about stop/pause functionality
-    with st.expander("ℹ️ Extraction Control Information"):
-        st.markdown("""
-        **Extraction Control Features:**
-        
-        - **⏹️ Stop**: Immediately stops the extraction process. Partial results are saved.
-        - **⏸️ Pause**: Pauses extraction after current batch completes. Can be resumed later.
-        - **▶️ Resume**: Continues extraction from where it was paused, avoiding duplicate processing.
-        - **📊 View Partial Results**: Check progress and see completed extractions.
-        - **🔄 Reset**: Clear all extraction state and start fresh.
-        
-        **Note**: Extraction is processed in batches. Stop/pause commands take effect between batches.
-        """)
-    
     st.subheader("Extraction Settings")
     col1, col2 = st.columns(2)
     with col1:
@@ -60,28 +47,6 @@ def display():
 
     if st.session_state.extraction_method == "Text-based":
         create_context_controls()
-
-        # Text extraction method override section
-        st.subheader("Text Extraction Method")
-        current_method = getattr(st.session_state, 'extraction_method_used', 'standard')
-        st.info(f"📄 Current: **{current_method}** method")
-        
-        col_method, col_reextract = st.columns([2, 1])
-        with col_method:
-            new_method = create_extraction_method_selector(current_method, "override")
-        
-        with col_reextract:
-            st.markdown("<br>", unsafe_allow_html=True)  # Align button
-            if st.button("🔄 Re-extract Text", help="Re-extract using selected method"):
-                if new_method != current_method:
-                    with st.spinner(f"Re-extracting using {new_method}..."):
-                        pdf_buffer = io.BytesIO(st.session_state.pdf_buffer)
-                        st.session_state.full_text = extract_text_from_pdf(pdf_buffer, method=new_method)
-                        st.session_state.extraction_method_used = new_method
-                        show_method_change_success(new_method, len(st.session_state.full_text))
-                        st.rerun()
-                else:
-                    st.info("Same method selected - no change needed.")
 
         with st.expander("Preview Text Chunk", expanded=True):
             st.markdown("Preview context chunks sent to LLM.")
@@ -103,7 +68,7 @@ def display():
                 
                 with col_settings:
                     st.markdown("**Settings**")
-                    if chunking_method == "Context Window":
+                    if chunking_method == "Context Window (default)":
                         st.caption(f"Before: {st.session_state.context_before} chars")
                         st.caption(f"After: {st.session_state.context_after} chars")
                     elif chunking_method == "Full Page":
@@ -179,7 +144,7 @@ def display():
         # Simple stop button
         if st.button("⏹️ Stop Extraction", type="secondary"):
             st.session_state.extraction_running = False
-            st.warning("Extraction stopped.")
+            st.warning("Stopping extraction... Partial results will be saved.")
             st.rerun()
     
     if st.button("Start Extraction", type="primary", disabled=st.session_state.species_df_final.empty or extraction_in_progress):
@@ -297,14 +262,27 @@ def display():
                     st.session_state.total_input_tokens = existing_in_tokens + in_tokens
                     st.session_state.total_output_tokens = existing_out_tokens + out_tokens
                     
-                    # --- Preload highlighted images for verification ---
-                    if 'final_results_df' in st.session_state and not st.session_state.final_results_df.empty:
+                    # Create final_results_df from extraction_results for compatibility with verification tab
+                    if all_results:
+                        flat_results = []
+                        for res in all_results:
+                            row = {'Species Name': res.get('species'), 'Mentioned In': res.get('notes', '')}
+                            if isinstance(res.get('data'), dict):
+                                row.update(res['data'])
+                            flat_results.append(row)
+                        
+                        st.session_state.final_results_df = pd.DataFrame(flat_results)
+                        
+                        # --- Preload highlighted images for verification ---
                         with st.spinner("Pre-loading context images for verification..."):
                             preload_highlighted_images(st.session_state.final_results_df)
-                    # ----------------------------------------------------
-
+                        # ----------------------------------------------------
+                    
                     # Check if extraction was completed or stopped
-                    if len(all_results) >= len(species_to_process):
+                    extraction_completed = len(all_results) >= len(species_to_process)
+                    extraction_stopped = not st.session_state.extraction_running
+                    
+                    if extraction_completed:
                         # Extraction completed successfully - clear all flags
                         st.session_state.extraction_running = False
                         st.session_state.extraction_paused = False
@@ -338,6 +316,25 @@ def display():
                         status_text.empty()
                         st.success(f"Extraction complete! Report saved to `{report_path}`.")
                         st.info("Proceed to the 'View Results' or 'Reports' tab.")
+                    
+                    elif extraction_stopped and all_results:
+                        # Extraction was stopped but we have partial results - save them
+                        st.session_state.extraction_running = False
+                        st.session_state.extraction_paused = False
+                        
+                        progress_bar.empty()
+                        status_text.empty()
+                        st.warning(f"Extraction stopped. Partial results saved ({len(all_results)} species processed).")
+                        st.info("Partial results are available in the 'View Results' tab.")
+                    
+                    elif extraction_stopped:
+                        # Extraction was stopped with no results
+                        st.session_state.extraction_running = False
+                        st.session_state.extraction_paused = False
+                        
+                        progress_bar.empty()
+                        status_text.empty()
+                        st.warning("Extraction stopped. No results were generated.")
                     
                 except Exception as e:
                     st.session_state.extraction_running = False

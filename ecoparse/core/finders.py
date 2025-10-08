@@ -482,6 +482,7 @@ def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str, include_fuzzy: bo
         df: DataFrame of detected species names
         rank: Taxonomic rank for filtering (kingdom, phylum, class, order, family)
         name: Name of the taxonomic group to retain (use 'any' for no taxonomic constraint)
+            NOTE: For plants, use kingdom='Plantae' or phylum='Tracheophyta' (not 'Plantae')
         include_fuzzy: Include species with fuzzy GBIF matches
         include_higherrank: Include species with higher rank matches
         include_unverified: Include species with no GBIF verification

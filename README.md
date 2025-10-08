@@ -1,4 +1,4 @@
-# EcoParse 🦎
+# EcoParse 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -8,7 +8,7 @@ Unlike rigid scripts, EcoParse is fully configurable. You can define exactly wha
 
 ## Key Features
 
--   **Configurable Data Extraction**: Define any data field you need (e.g., "Habitat", "Diet", "Max Size") in a simple YAML configuration file.
+-   **Configurable Data Extraction**: Define any data field you need (e.g., "Habitat", "Diet", "Wingspan") in a simple YAML configuration file.
 -   **Multiple LLM Backends**: Supports Google Gemini via API (paid tier) and local models via Ollama.
 -   **Advanced Species Identification**: Integrates with GNfinder and uses robust filtering to accurately identify species and subspecies, resolving nested names (e.g., preferring "Falco peregrinus pelegrinoides" over "Falco peregrinus" when both are found and nested).
 -   **Interactive UI**: An easy-to-use web interface built with Streamlit to manage the entire workflow, from PDF upload to result analysis.
@@ -18,105 +18,62 @@ Unlike rigid scripts, EcoParse is fully configurable. You can define exactly wha
 
 ---
 
-## Installation Guide
+## Installation
 
-Follow these steps to set up and run EcoParse on your local machine. This guide is intended for Linux, macOS, or Windows using WSL (Windows Subsystem for Linux).
+### Docker Installation (Recommended)
 
-### 1. Prerequisites
+The easiest way to run EcoParse is using Docker, which handles all crucial dependencies automatically:
 
-Before installing EcoParse, you must have the following software installed and running.
+**Prerequisites:**
+- [Docker](https://docs.docker.com/get-docker/) installed on your system
+- [Git](https://git-scm.com/downloads) to clone the repository
 
-#### **Python (version 3.9 or newer)**
-First, check if you have a compatible version of Python installed.
-
+**Quick Start:**
 ```bash
-python3 --version
-```
-If not, install it from the [official Python website](https://www.python.org/downloads/).
-
-#### **Git**
-You will need Git to clone the project repository.
-```bash
-git --version
-```
-If not installed, get it from the [official Git website](https://git-scm.com/downloads).
-
-#### **GNfinder (Required)**
-EcoParse relies on the GNfinder service to find scientific names in documents.
-1.  Go to the [GNfinder GitHub Repository](https://github.com/gnames/gnfinder/) and install the program.
-2.  **Start the GNfinder web service.** Open a **new, dedicated terminal window** and run the following command. The service must remain running while you use EcoParse.
-    ```bash
-    gnfinder -p 4040 rest
-    ```
-    *Keep this terminal open and running in the background.*
-
-#### **Gemini Paid Tier (Optional)**
-Google provides a free tier of their Gemini LLM API, but due to heavy rate limiting (15 requests per minute with Gemini 2.5 Flash Lite), using the **paid tier** is needed for fast extractions. 
-For testing, Google currently offers a free **3 month trial period**.
-Obtain an API key at https://aistudio.google.com/.
-The EcoParse app currently does not accomodate for using the free tier API, or support other LLM service providers such as OpenAI or Anthropic. Support could be added if requested.
-At the time of development, Google Gemini (especially the Flash-Lite variants) offers the best price/performance service for this type of workload.
-
-#### **Ollama (Optional)**
-If you wish to use local LLMs instead of the Google Gemini API, you must install Ollama.
-1.  Download and install Ollama from the [official Ollama website](https://ollama.ai/).
-2.  After installing, pull the model you want to use from the command line. For example, to get Llama 3:
-    ```bash
-    ollama pull llama3
-    ```
-3.  Ensure the Ollama application is running in the background before starting EcoParse.
-
-For running local LLM's efficiently, a powerful graphics card is required.
-NVIDIA graphics cards currently have better support for AI related workloads (due to CUDA support).
-Newer AMD cards can work too after installing [ROCm](https://www.amd.com/en/products/software/rocm.html). Tested on RX 7900 XTX.
-For text-based data extraction, we currently use 8-20b parameter models.
-
-### 2. Setting Up EcoParse
-
-With the prerequisites ready, you can now install the application.
-
-**Step 1: Clone the Repository**
-Open your terminal, navigate to where you want to store the project, and clone it.
-```bash
+# Clone the repository
 git clone https://github.com/AdamUlicny/EcoParse.git
 cd EcoParse
+
+# Build and run with our convenient script
+./build_docker.sh
 ```
 
-**Step 2: Create and Activate a Virtual Environment**
+The `build_docker.sh` script will:
+- Build the Docker image with all dependencies (Python, GNfinder, etc.)
+- Automatically start the container
+- Launch the application on `http://localhost:8501`
+- Start GNfinder service in the background
 
+That's it! The script handles everything for you.
+
+**Alternative:** After the initial build, you can also start the container directly with:
 ```bash
-# Create the virtual environment folder named 'venv'
-python3 -m venv venv
-
-# Activate the environment (the command differs by operating system)
-
-# On Linux or macOS:
-source venv/bin/activate
-
-# On Windows (in Command Prompt or PowerShell):
-.\venv\Scripts\activate
-```
-You will know the environment is active because your terminal prompt will change to show `(venv)` at the beginning.
-
-**Step 3: Install EcoParse and Dependencies**
-While inside the activated virtual environment, use pip to install the package in "editable" mode (`-e`).
-```bash
-pip install -e .
+docker run -p 8501:8501 -p 4040:4040 ecoparse-app
 ```
 
-### 3. Running the Application
+**Setting up LLMs:**
 
-Make sure your **GNfinder service** (and Ollama, if you're using it) is running in its separate terminal.
+For **Gemini API** (recommended for most users):
+- Get your API key at [Google AI Studio](https://aistudio.google.com/)
+- Enter the key in the EcoParse interface when prompted
+- Note: Paid tier recommended for fast extractions (free tier has heavy rate limiting)
 
-Then, to launch the EcoParse web interface, in your virtual environment simply run:
-```bash
-ecoparse
-```
-This will start the Streamlit web server. Your terminal will display a local URL, which you can open in your web browser to begin.
+For **Ollama** (local LLMs):
+- Install Ollama on your host system: [ollama.ai](https://ollama.ai/)
+- Pull your desired model: `ollama pull llama3`
+- EcoParse will connect to Ollama running on your host machine
 
-To stop the app, return to the terminal where you ran the `ecoparse` command and press `Ctrl+C`.
+**Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
+
+### 📋 Manual Installation
+
+For development or if you prefer manual setup, see our [detailed installation guide](documentation/manual-installation.md).
 
 ---
+
+## Getting Started
+
+Once EcoParse is running (via Docker or manual installation), open your browser to `http://localhost:8501` to access the web interface.
 
 ## Workflow Overview
 

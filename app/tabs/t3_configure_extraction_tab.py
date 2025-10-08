@@ -14,7 +14,7 @@ from app.ui_messages import show_loaded_session_complete, show_prerequisite_warn
 
 def display():
     """Main display function for extraction configuration tab."""
-    st.header("Configure Data Extraction")
+    st.header("3. Configure Data Extraction")
     st.markdown("Define data fields for extraction using YAML configuration.")
     
     if st.session_state.session_loaded_from_report:

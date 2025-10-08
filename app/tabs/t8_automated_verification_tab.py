@@ -27,8 +27,9 @@ from app.ui_components import display_df_and_download
 
 
 def display():
-    st.header("🔍 Automated LLM Verification")
+    st.header("Automated LLM Verification")
     st.markdown("Verify the entire list of extracted species data against the full PDF by sending chunks of species to Gemini.")
+    st.warning("EXPERIMENTAL FEATURE")
     st.warning("⚠️ **Warning:** This method sends the full PDF with each request, which can incur very high token costs, especially for large PDFs. Adjust 'Species per Request' to manage cost and latency!")
 
     st.subheader("⚙️ Verification Settings")

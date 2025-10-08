@@ -166,12 +166,22 @@ def display():
             with st.expander("🏷️ Taxonomic Group Filter", expanded=True):
                 st.markdown("Filter by a specific taxonomic group with configurable GBIF verification strictness.")
 
+
                 # Basic taxonomic filter settings
                 col1, col2 = st.columns(2)
                 with col1:
-                    rank = st.selectbox("Taxonomic Rank", ["class", "order", "family", "phylum"], key="tax_rank")
+                    rank = st.selectbox("Taxonomic Rank", ["kingdom", "phylum", "class", "order", "family"], key="tax_rank")
                 with col2:
-                    name = st.text_input("Taxon Name (e.g., 'Aves' or 'Mammalia')", "Any", key="tax_name")
+                    # Provide helpful examples based on selected rank
+                    examples = {
+                        "kingdom": "e.g., 'Plantae', 'Animalia', 'Fungi'",
+                        "phylum": "e.g., 'Chordata' (vertebrates), 'Tracheophyta' (vascular plants), 'Arthropoda' (insects/spiders)",
+                        "class": "e.g., 'Aves' (birds), 'Mammalia' (mammals), 'Magnoliopsida' (flowering plants)",
+                        "order": "e.g., 'Primates', 'Carnivora', 'Passeriformes'", 
+                        "family": "e.g., 'Felidae' (cats), 'Rosaceae' (roses)"
+                    }
+                    placeholder_text = examples.get(rank, "Enter taxon name")
+                    name = st.text_input(f"Taxon Name ({placeholder_text})", "Any", key="tax_name")
 
                 # GBIF verification options
                 st.markdown("**GBIF Verification Options:**")
@@ -199,30 +209,7 @@ def display():
                         help="Include species with no GBIF verification"
                     )
 
-                # Preset filtering levels
-                st.markdown("**Quick Verification Presets:**")
-                preset_col1, preset_col2, preset_col3 = st.columns(3)
-                
-                with preset_col1:
-                    if st.button("🔒 Strict Verification", help="Only exact GBIF matches"):
-                        st.session_state.tax_include_fuzzy = False
-                        st.session_state.tax_include_higherrank = False
-                        st.session_state.tax_include_unverified = False
-                        st.rerun()
-                
-                with preset_col2:
-                    if st.button("⚖️ Moderate Verification", help="Include fuzzy matches (recommended)"):
-                        st.session_state.tax_include_fuzzy = True
-                        st.session_state.tax_include_higherrank = False
-                        st.session_state.tax_include_unverified = False
-                        st.rerun()
-                
-                with preset_col3:
-                    if st.button("🔓 Permissive Verification", help="Include fuzzy, higher rank, and unverified"):
-                        st.session_state.tax_include_fuzzy = True
-                        st.session_state.tax_include_higherrank = True
-                        st.session_state.tax_include_unverified = True
-                        st.rerun()
+
 
                 # Apply filter button
                 if st.button("Apply Taxonomic Filter", type="primary"):
