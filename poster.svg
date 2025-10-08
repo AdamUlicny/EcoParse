@@ -26,15 +26,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="0.25062336"
-     inkscape:cx="945.64208"
-     inkscape:cy="1244.8959"
-     inkscape:window-width="1920"
-     inkscape:window-height="1043"
+     inkscape:zoom="0.35443495"
+     inkscape:cx="1366.9645"
+     inkscape:cy="2255.703"
+     inkscape:window-width="2516"
+     inkscape:window-height="1362"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"><inkscape:grid
+     inkscape:current-layer="layer2"><inkscape:grid
        id="grid2"
        units="mm"
        originx="0"
@@ -48,37 +48,31 @@
        empspacing="5"
        enabled="true"
        visible="false" /><sodipodi:guide
-       position="280,1519.6742"
+       position="349.91876,1011.0108"
        orientation="-1,0"
        id="guide4"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,134,229)" /><sodipodi:guide
-       position="559.99999,1540.9102"
+       position="674.82999,1024.8209"
        orientation="-1,0"
        id="guide5"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,134,229)" /><sodipodi:guide
-       position="50,1174.0056"
+       position="25.007527,1031.726"
        orientation="-1,0"
        id="guide6"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,134,229)" /><sodipodi:guide
-       position="790.00001,1168.1918"
-       orientation="-1,0"
-       id="guide7"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,134,229)" /><sodipodi:guide
-       position="-61.807058,1139"
+       position="-2459.1357,974.99248"
        orientation="0,1"
        id="guide8"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,134,229)" /><sodipodi:guide
-       position="-67.808111,53.000016"
+       position="-682.66817,24.893073"
        orientation="0,1"
        id="guide9"
        inkscape:locked="false"
@@ -1096,9 +1090,9 @@
      id="layer1"
      style="display:inline"
      transform="matrix(0.82953008,0,0,0.89846437,0.02585783,0.01540148)"><rect
-       style="fill:#2e7d4a;fill-opacity:1;stroke-width:0.349079"
+       style="fill:#2e7d4a;fill-opacity:1;stroke-width:0.349451"
        id="rect9"
-       width="842.13977"
+       width="843.93958"
        height="177.15582"
        x="0.15168558"
        y="0.15168546"
@@ -1245,27 +1239,27 @@
        style="font-size:24px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect30);display:inline;fill:#ffffff"><tspan
          x="2470.5684"
          y="2351.4464"
-         id="tspan1">Input: &quot;IUCN Nederland 2023:
+         id="tspan3">Input: &quot;IUCN Nederland 2023:
 </tspan><tspan
          x="2470.5684"
          y="2381.4464"
-         id="tspan2">              critically endangered&quot;
+         id="tspan6">              critically endangered&quot;
 </tspan><tspan
          x="2470.5684"
          y="2411.4464"
-         id="tspan5">
+         id="tspan82">
 </tspan><tspan
          x="2470.5684"
          y="2441.4464"
-         id="tspan12">Output: CR
+         id="tspan93">Output: CR
 </tspan><tspan
          x="2470.5684"
          y="2471.4464"
-         id="tspan15">
+         id="tspan94">
 </tspan><tspan
          x="2470.5684"
          y="2501.4464"
-         id="tspan17">Explainer: Only IUCN 2023 data</tspan></text><text
+         id="tspan99">Explainer: Only IUCN 2023 data</tspan></text><text
        xml:space="preserve"
        style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
        x="593.31561"
@@ -5017,7 +5011,7 @@
        transform="matrix(0.21947983,0,0,0.2377187,0.02585783,0.01540148)"><tspan
          x="5022.0996"
          y="3358.1274"
-         id="tspan19">  </tspan></text><text
+         id="tspan100">  </tspan></text><text
        xml:space="preserve"
        style="font-size:22.5167px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;opacity:0.85;fill:#ffffff;stroke-width:0.199991"
        x="288.66751"
@@ -5317,51 +5311,51 @@
        y="0"><tspan
          x="2162.0859"
          y="1698.3624"
-         id="tspan24"><tspan
+         id="tspan105"><tspan
            style="fill:#ff0000"
-           id="tspan20">Actualmente esta zona
+           id="tspan104">Actualmente esta zona
 </tspan></tspan><tspan
          x="2162.0859"
          y="1728.3624"
-         id="tspan29"><tspan
+         id="tspan113"><tspan
            style="fill:#ffcc00"
-           id="tspan25">Alnus acuminata
+           id="tspan110">Alnus acuminata
 </tspan></tspan><tspan
          x="2162.0859"
          y="1758.3624"
-         id="tspan30">Ampelion rufaxilla
+         id="tspan114">Ampelion rufaxilla
 </tspan><tspan
          x="2162.0859"
          y="1788.3624"
-         id="tspan64"><tspan
+         id="tspan116"><tspan
            style="fill:#ff0000"
-           id="tspan33">Andes orientales
+           id="tspan115">Andes orientales
 </tspan></tspan><tspan
          x="2162.0859"
          y="1818.3624"
-         id="tspan65">Andigena hypoglauca
+         id="tspan117">Andigena hypoglauca
 </tspan><tspan
          x="2162.0859"
          y="1848.3624"
-         id="tspan68">Andigena laminirostris
+         id="tspan118">Andigena laminirostris
 </tspan><tspan
          x="2162.0859"
          y="1878.3624"
-         id="tspan72">Andigena nigrirostris
+         id="tspan119">Andigena nigrirostris
 </tspan><tspan
          x="2162.0859"
          y="1908.3624"
-         id="tspan79">Anisognathus notabilis
+         id="tspan120">Anisognathus notabilis
 </tspan><tspan
          x="2162.0859"
          y="1938.3624"
-         id="tspan133"><tspan
+         id="tspan122"><tspan
    style="fill:#ffcc00"
-   id="tspan132">Antidaphne andina</tspan>
+   id="tspan121">Antidaphne andina</tspan>
 </tspan><tspan
          x="2162.0859"
          y="1968.3624"
-         id="tspan134">Ara militaris
+         id="tspan123">Ara militaris
 </tspan></text><text
        xml:space="preserve"
        transform="matrix(0.20235411,0,0,0.212977,121.85099,36.735951)"
@@ -5371,27 +5365,27 @@
        y="0"><tspan
          x="2162.0859"
          y="1698.3624"
-         id="tspan135">Ampelion rufaxilla
+         id="tspan124">Ampelion rufaxilla
 </tspan><tspan
          x="2162.0859"
          y="1728.3624"
-         id="tspan136">Andigena hypoglauca
+         id="tspan125">Andigena hypoglauca
 </tspan><tspan
          x="2162.0859"
          y="1758.3624"
-         id="tspan137">Andigena laminirostris
+         id="tspan126">Andigena laminirostris
 </tspan><tspan
          x="2162.0859"
          y="1788.3624"
-         id="tspan138">Andigena nigrirostris
+         id="tspan127">Andigena nigrirostris
 </tspan><tspan
          x="2162.0859"
          y="1818.3624"
-         id="tspan139">Anisognathus notabilis
+         id="tspan128">Anisognathus notabilis
 </tspan><tspan
          x="2162.0859"
          y="1848.3624"
-         id="tspan140">Ara militaris
+         id="tspan129">Ara militaris
 </tspan></text><g
        style="display:inline;fill:#000000"
        id="g3"
@@ -5440,7 +5434,7 @@
        style="font-size:24px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect12);display:inline;fill:#000000"><tspan
          x="2357.8242"
          y="1654.7354"
-         id="tspan141">Class: Aves</tspan></text><text
+         id="tspan130">Class: Aves</tspan></text><text
        xml:space="preserve"
        style="font-size:5.40402px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#ffffff;stroke-width:0.225167"
        x="461.28098"
@@ -5764,7 +5758,7 @@
        transform="matrix(0.21947983,0,0,0.2377187,0.02585783,0.01540148)"><tspan
          x="3405.2227"
          y="1820.3832"
-         id="tspan142"> </tspan></text><text
+         id="tspan131"> </tspan></text><text
        xml:space="preserve"
        style="font-size:4.98234px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#000000;stroke-width:0.207597"
        x="525.16205"
@@ -6030,18 +6024,18 @@
        style="font-size:133.333px;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect10);display:inline;fill:#000000;fill-opacity:1"><tspan
          x="151.35156"
          y="231.31564"
-         id="tspan145"><tspan
+         id="tspan134"><tspan
            style="font-weight:bold;font-size:163.496px;fill:#ffffff"
-           id="tspan143">EcoParse</tspan><tspan
+           id="tspan132">EcoParse</tspan><tspan
            style="fill:#ffffff"
-           id="tspan144">
+           id="tspan133">
 </tspan></tspan><tspan
          x="151.35156"
          y="408.24106"
-         id="tspan147"><tspan
+         id="tspan136"><tspan
            dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00010681152 0 0 0 0.00018692017 0 -0.00011825562 0 0 -0.00015258789 0 0 -0.00016784668"
            style="font-size:128.995px;fill:#ffffff"
-           id="tspan146">Automated Species-Level Data Extraction Tool</tspan></tspan></text><text
+           id="tspan135">Automated Species-Level Data Extraction Tool</tspan></tspan></text><text
        xml:space="preserve"
        style="font-size:26.1492px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke-width:0.228417"
        x="48.740841"
