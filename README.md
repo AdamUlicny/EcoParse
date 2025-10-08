@@ -55,12 +55,12 @@ docker run -p 8501:8501 -p 4040:4040 ecoparse-app
 
 For **Gemini API** (recommended for most users):
 - Get your API key at [Google AI Studio](https://aistudio.google.com/)
-- Enter the key in the EcoParse interface when prompted
+- Enter the key in the EcoParse interface
 - Note: Paid tier recommended for fast extractions (free tier has heavy rate limiting)
 
 For **Ollama** (local LLMs):
 - Install Ollama on your host system: [ollama.ai](https://ollama.ai/)
-- Pull your desired model: `ollama pull llama3`
+- Pull your desired model: `ollama pull <model_name>`
 - EcoParse will connect to Ollama running on your host machine
 
 **Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
