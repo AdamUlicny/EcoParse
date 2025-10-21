@@ -395,12 +395,6 @@ def trim_pdf_pages(pdf_buffer: io.BytesIO, start_page: int, end_page: int) -> Op
         print(f"Failed to trim PDF: {e}")
         return None
 
-
-
-
-
-
-
 def normalize_text_for_search(text: str) -> str:
     """
     Normalizes text for improved species name searching.
@@ -599,13 +593,9 @@ def get_species_context_chunks(
     formatted_full_text = normalize_text_for_llm(full_text)
 
     for _, row in species_df.iterrows():
-        # --- ROBUST SPECIES NAME MATCHING ---
-        # Use cleaned canonical name rather than messy verbatim text
-        # This improves matching accuracy for formatted documents
         search_name = row["Name"]
         if not search_name:
             continue
-        # --- END ROBUST MATCHING ---
 
         try:
             # Create flexible pattern that handles line breaks within species names

@@ -44,6 +44,5 @@ dependencies = [
 [project.scripts]
 ecoparse = "app.cli:main"
 
-
 [tool.setuptools]
 packages = ["ecoparse", "app"]
