@@ -111,7 +111,8 @@ data_fields:
 
 ## More information
 
-See the [poster](https://github.com/AdamUlicny/EcoParse/blob/main/poster/POSTER_web.pdf) made for the **LivingData 2025 Conference** to quickly grasp the core idea of the pipeline.
+See the poster made for the [**LivingData 2025 Conference**](https://www.livingdata2025.com/) to quickly grasp the core idea of the pipeline.
+![poster](/poster/POSTER_web.png) 
 
 ---
 ## Disclaimer
