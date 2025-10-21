@@ -117,7 +117,7 @@ See the poster made for the [**LivingData 2025 Conference**](https://www.livingd
 ---
 ## Disclaimer
 
-The author of this software is not a computer scientist or professional programer! Because of that, most of the code in this repository was created with the help of various AI systems (commonly known as [vibe-coding](https://www.ibm.com/think/topics/vibe-coding)). If you spot any mistakes, please inform us.
+The author of this software is not a computer scientist or professional programmer! Because of that, most of the code in this repository was created with the help of various AI systems (commonly known as [vibe-coding](https://www.ibm.com/think/topics/vibe-coding)). If you spot any mistakes, please inform us.
 
 ## Contributing
 
