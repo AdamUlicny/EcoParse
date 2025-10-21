@@ -14,6 +14,7 @@ Scientific Purpose:
 Supported LLM Providers:
 - Google Gemini: Cloud-based models with strong multimodal capabilities
 - Ollama: Local models for privacy-sensitive or offline processing
+- Adding other providers is being considered (OpenAI, Anthropic, OpenRouter, vLLM)
 
 Key Features:
 - Concurrent processing for improved throughput
