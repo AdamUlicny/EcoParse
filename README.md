@@ -74,6 +74,10 @@ For **Ollama** (local LLMs):
 > You need an AI-capable machine for Ollama. 
 > For running the recommended models with 8b-30b parameters, we used a 20GB VRAM GPU in a powerful workstation.
 
+> [!NOTE]
+> Both Ollama and Gemini support fine tuning models.
+> EcoParse can use customised models.
+
 **Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
 
 ### 📋 Manual Installation
