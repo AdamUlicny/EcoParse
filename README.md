@@ -46,6 +46,11 @@ The `build_docker.sh` script will:
 
 That's it! The script handles everything for you.
 
+> [! Note]
+> If you choose the docker installation method, the data fields yml is not as easily editable afterwards.
+> For a simpler workflow, modify the /app/assets/default_project_config.yml before compiling the docker image.
+> Currently, the data fields are configured for IUCN threat categories and criteria.
+
 **Alternative:** After the initial build, you can also start the container directly with:
 ```bash
 docker run -p 8501:8501 -p 4040:4040 ecoparse-app
