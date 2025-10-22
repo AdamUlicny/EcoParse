@@ -1,3 +1,6 @@
+
+# To simplify your workflow, list here the models you want to use with Ollama and Gemini backends.
+# You can add or remove models as needed. Make sure the model names match those available in your Ollama installation or Gemini API access.
 # Ollama Models Configuration
 ollama_models:
   # Mistral models
@@ -23,10 +26,10 @@ ollama_models:
 
 # Gemini Models
 gemini_models:
-  - name: "gemini-2.5-flash-latest"
-    description: "Latest Gemini 2.5 Flash model"
-  - name: "gemini-2.5-flash-lite-latest"
-    description: "Latest Gemini 2.5 Flash Lite model"
-  - name: "gemini-2.5-pro-latest" 
-    description: "Latest Gemini 2.5 Pro model"
+  - name: "gemini-2.5-flash"
+    description: "Gemini 2.5 Flash model"
+  - name: "gemini-2.5-flash-lite"
+    description: "Gemini 2.5 Flash Lite model"
+  - name: "gemini-2.5-pro" 
+    description: "Gemini 2.5 Pro model"
   
