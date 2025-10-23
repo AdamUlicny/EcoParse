@@ -80,7 +80,7 @@ For **Ollama** (local LLMs):
 
 **Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
 
-### 📋 Manual Installation
+### Manual Installation
 
 For development or if you prefer manual setup, see our [detailed installation guide](documentation/manual-installation.md).
 
