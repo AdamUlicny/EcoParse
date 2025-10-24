@@ -80,7 +80,7 @@ For **Ollama** (local LLMs):
 
 **Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
 
-### 📋 Manual Installation
+### Manual Installation
 
 For development or if you prefer manual setup, see our [detailed installation guide](documentation/manual-installation.md).
 
@@ -125,6 +125,9 @@ data_fields:
 ```
 
 ## More information
+
+>[!NOTE]
+> Support for other file formats (other than PDF) is in development.
 
 See the poster made for the [**LivingData 2025 Conference**](https://www.livingdata2025.com/) to quickly grasp the core idea of the pipeline.
 ![poster](/poster/POSTER_web.png) 
