@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**EcoParse** is a powerful and flexible tool designed to extract species-level data from PDFs. Using a combination of scientific name recognition (GNfinder), taxonomic verification (GBIF), and Large Language Models (LLMs), EcoParse automates the data collection process for ecological research.
+**EcoParse** is a flexible tool designed to extract species-level data from PDFs. Using a combination of scientific name recognition [(GNfinder)](https://github.com/gnames/gnfinder), taxonomic verification [(GBIF)](https://github.com/gbif/pygbif), and Large Language Models (LLMs), EcoParse automates the data collection process for ecological research.
 
-Unlike rigid scripts, EcoParse is fully configurable. You can define exactly what data fields you want to extract. Whether it's conservation status, habitat type, elevation range, or any other piece of information present in the text.
+Unlike rigid scraping scripts, EcoParse is fully configurable. You can define exactly what data fields you want to extract. Whether it's conservation status, habitat type, elevation range, or any other piece of information present in the text.
 
 ## Key Features
 
@@ -46,6 +46,11 @@ The `build_docker.sh` script will:
 
 That's it! The script handles everything for you.
 
+> [!NOTE]
+> If you choose the docker installation method, the data fields yml is not as easily editable afterwards.
+> For a simpler workflow, modify the /app/assets/default_project_config.yml before compiling the docker image.
+> Currently, the data fields are configured for IUCN threat categories and criteria.
+
 **Alternative:** After the initial build, you can also start the container directly with:
 ```bash
 docker run -p 8501:8501 -p 4040:4040 ecoparse-app
@@ -56,16 +61,26 @@ docker run -p 8501:8501 -p 4040:4040 ecoparse-app
 For **Gemini API** (recommended for most users):
 - Get your API key at [Google AI Studio](https://aistudio.google.com/)
 - Enter the key in the EcoParse interface
-- Note: Paid tier recommended for fast extractions (free tier has heavy rate limiting)
+> [!NOTE]
+> Google provides a 3 month free trial of the paid tier. Get it if you want to test EcoParse with Gemini.
+> Free tier is heavily rate limited and will not work well with EcoParse in the current implementation.
+> Use the free tier only for a quick test.
 
 For **Ollama** (local LLMs):
 - Install Ollama on your host system: [ollama.ai](https://ollama.ai/)
 - Pull your desired model: `ollama pull <model_name>`
 - EcoParse will connect to Ollama running on your host machine
+> [!NOTE]
+> You need an AI-capable machine for Ollama. 
+> For running the recommended models with 8b-30b parameters, we used a 20GB VRAM GPU in a powerful workstation.
+
+> [!NOTE]
+> Both Ollama and Gemini support fine tuning models.
+> EcoParse can use customised models.
 
 **Need help?** See the [Docker installation guide](documentation/docker-guide.md) for detailed instructions and troubleshooting.
 
-### 📋 Manual Installation
+### Manual Installation
 
 For development or if you prefer manual setup, see our [detailed installation guide](documentation/manual-installation.md).
 
@@ -109,7 +124,18 @@ data_fields:
     validation_values: []
 ```
 
+## More information
+
+>[!NOTE]
+> Support for other file formats (other than PDF) is in development.
+
+See the poster made for the [**LivingData 2025 Conference**](https://www.livingdata2025.com/) to quickly grasp the core idea of the pipeline.
+![poster](/poster/POSTER_web.png) 
+
 ---
+## Disclaimer
+
+The author of this software is not a computer scientist or professional programmer! Because of that, most of the code in this repository was created with the help of various AI systems (commonly known as [vibe-coding](https://www.ibm.com/think/topics/vibe-coding)). If you spot any mistakes, please inform us.
 
 ## Contributing
 

@@ -30,7 +30,7 @@ from app.tabs import (
 st.set_page_config(page_title="EcoParse", page_icon="🦎", layout="wide")
 initialize_session()
 
-st.title("EcoParse 🦎")
+st.title("EcoParse")
 st.markdown("A configurable tool for extracting species-level data from documents.")
 
 # Setup global configuration sidebar

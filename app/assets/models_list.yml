@@ -1,3 +1,6 @@
+
+# To simplify your workflow, list here the models you want to use with Ollama and Gemini backends.
+# You can add or remove models as needed. Make sure the model names match those available in your Ollama installation or Gemini API access.
 # Ollama Models Configuration
 ollama_models:
   # Mistral models
@@ -23,22 +26,10 @@ ollama_models:
 
 # Gemini Models
 gemini_models:
-  - name: "gemini-2.5-flash"
-    description: "Gemini 2.5 Flash model"
-  - name: "gemini-2.5-flash-lite"
-    description: "Gemini 2.5 Flash Lite model"
-  - name: "gemini-2.5-pro" 
-    description: "Gemini 2.5 Pro model"
-
-# OpenRouter Models
-openrouter_models:
-  - name: "google/gemini-pro-1.5"
-    description: "Google: Gemini Pro 1.5"
-  - name: "anthropic/claude-3.5-sonnet"
-    description: "Anthropic: Claude 3.5 Sonnet"
-  - name: "openai/gpt-4o"
-    description: "OpenAI: GPT-4o"
-  - name: "meta-llama/llama-3-70b-instruct"
-    description: "Meta: Llama 3 70B Instruct"
-  - name: "mistralai/mixtral-8x22b-instruct"
-    description: "Mistral: Mixtral 8x22B Instruct"
+  - name: "gemini-2.5-flash-latest"
+    description: "Latest Gemini 2.5 Flash model"
+  - name: "gemini-2.5-flash-lite-latest"
+    description: "Latest Gemini 2.5 Flash Lite model"
+  - name: "gemini-2.5-pro-latest" 
+    description: "Latest Gemini 2.5 Pro model"
+  
