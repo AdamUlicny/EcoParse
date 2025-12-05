@@ -7,7 +7,6 @@ from ecoparse.core.sourcetext import get_species_context_chunks, get_species_ful
 from app.ui_messages import show_species_chunks_found, show_no_chunks_error
 
 def show_chunking_method_selector():
-    """Display chunking method selection."""
     st.subheader("Chunking Method")
     
     method = st.radio(
@@ -53,7 +52,6 @@ def show_chunking_method_selector():
     return method, None, None
 
 def show_chunk_preview(species_name: str, chunks: list, chunking_method: str = "Context Window", chars_from_top: int = None, chars_from_bottom: int = None):
-    """Display preview of text chunks for a species."""
     if not chunks:
         show_no_chunks_error()
         return
@@ -118,7 +116,6 @@ def show_chunk_preview(species_name: str, chunks: list, chunking_method: str = "
             st.markdown("---")
 
 def generate_chunk_summary(species_list: list, full_text: str, context_before: int, context_after: int, chunking_method: str = "Context Window", chars_from_top: int = None, chars_from_bottom: int = None):
-    """Generate summary of chunk availability for all species."""
     st.subheader("Chunk Generation Summary")
     
     if chunking_method == "Full Page":

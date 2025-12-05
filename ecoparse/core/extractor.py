@@ -2,24 +2,7 @@
 Large Language Model Data Extraction Engine
 
 This module orchestrates the extraction of species-specific data from documents
-using various large language model (LLM) providers. It supports both text-based
-and image-based extraction workflows with concurrent processing for efficiency.
-
-Scientific Purpose:
-- Automated extraction of ecological data from biodiversity literature
-- Scalable processing of large document corpora
-- Multi-modal analysis combining text and visual information
-- Standardized data output format for downstream analysis
-
-Supported LLM Providers:
-- Google Gemini: Cloud-based models with strong multimodal capabilities
-- Ollama: Local models for privacy-sensitive or offline processing
-
-Key Features:
-- Concurrent processing for improved throughput
-- Token usage tracking for cost monitoring
-- Robust error handling and fallback mechanisms
-- Flexible prompt engineering framework
+using various large language model (LLM) providers.
 """
 
 import json
@@ -27,6 +10,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Any, Optional, Tuple
 import ollama
+import openai
 from google import genai
 from google.genai import types
 from pydantic import ValidationError, TypeAdapter
@@ -44,9 +28,6 @@ extraction_list_adapter = TypeAdapter(ExtractionResultList)
 class Extractor:
     """
     LLM-based data extraction engine.
-    
-    Manages extraction workflow from preprocessing through validation.
-    Supports text-based and image-based extraction with concurrent processing.
     """
     def __init__(self, project_config: Dict[str, Any], llm_config: Dict[str, Any]):
         """Initialize with project and LLM configurations."""
@@ -60,11 +41,6 @@ class Extractor:
         """
         Execute data extraction for a list of species using concurrent processing.
         
-        This method orchestrates the complete extraction pipeline, processing
-        multiple species concurrently to maximize throughput while respecting
-        API rate limits and system resources. Supports pause/stop functionality
-        through session state monitoring.
-        
         Args:
             species_list: List of species names for data extraction
             source_context: Dictionary containing document data and extraction parameters
@@ -76,18 +52,6 @@ class Extractor:
             - Total runtime in seconds
             - Total input tokens consumed
             - Total output tokens generated
-            
-        Concurrent Processing Strategy:
-        - Uses ThreadPoolExecutor for I/O-bound LLM API calls
-        - Configurable max_workers to control API load
-        - Progress tracking for long-running extractions
-        - Token aggregation for cost monitoring
-        - Stop/pause support via session state flags
-        
-        Scientific Considerations:
-        - Maintains extraction order independence for reproducibility
-        - Handles partial failures gracefully
-        - Provides detailed performance metrics for analysis
         """
 
         all_results = []
@@ -143,10 +107,6 @@ class Extractor:
     ) -> Tuple[List[Dict], float, int, int]:
         """
         Execute data extraction with support for pause/resume functionality.
-        
-        This method provides a resumable extraction workflow that can be paused
-        and resumed, making it suitable for long-running extractions where users
-        may need to stop and continue later.
         
         Args:
             species_list: List of species names for data extraction
@@ -235,33 +195,12 @@ class Extractor:
         """
         Extract data for a single species using specified extraction method.
         
-        This method handles the species-specific extraction workflow,
-        preparing appropriate context (text chunks or page images) and
-        invoking the configured LLM with properly formatted prompts.
-        
         Args:
             species_name: Scientific name of target species
             context: Extraction context containing document data and parameters
             
         Returns:
             Tuple of (extraction_result_dict, input_tokens, output_tokens)
-            
-        Extraction Methods:
-        
-        Text-based Extraction:
-        - Retrieves contextual text passages around species mentions
-        - Uses specialized text prompts optimized for narrative content
-        - Effective for descriptive text and species accounts
-        
-        Image-based Extraction:
-        - Generates page images containing species information
-        - Uses vision-capable models for visual data interpretation
-        - Essential for tables, figures, and structured layouts
-        
-        Error Handling:
-        - Returns standardized "no context" results for missing data
-        - Maintains consistent token counting across all code paths
-        - Preserves species information even when extraction fails
         """
         extraction_method = context.get("extraction_method")
         examples_text = context.get("examples_text", "")
@@ -355,21 +294,13 @@ class Extractor:
             return self._call_gemini(prompt, images)
         elif provider == "Ollama":
             return self._call_ollama(prompt, images)
+        elif provider == "OpenRouter":
+            return self._call_openrouter(prompt, images)
         return None, 0, 0
 
     def _call_gemini(self, prompt: str, images: Optional[List[bytes]]) -> Tuple[Optional[Dict], int, int]:
         """
         Execute extraction using Google Gemini models.
-        
-        Handles Gemini-specific API formatting, multimodal content preparation,
-        and response parsing. Extracts detailed token usage information for
-        cost tracking and performance analysis.
-        
-        Gemini-Specific Features:
-        - Native multimodal support for text + image inputs
-        - JSON response mode for structured output
-        - Detailed token usage metadata
-        - Configurable temperature for deterministic results
         
         Args:
             prompt: Text prompt for the model
@@ -414,27 +345,12 @@ class Extractor:
         """
         Execute extraction using local Ollama models.
         
-        Handles Ollama-specific API formatting and response parsing.
-        Supports both text-only and multimodal models depending on
-        the selected model's capabilities.
-        
-        Ollama-Specific Features:
-        - Local model execution for privacy and control
-        - Support for custom and fine-tuned models
-        - JSON format enforcement for structured output
-        - Token counting for performance monitoring
-        
         Args:
             prompt: Text prompt for the model
             images: Optional list of image bytes for multimodal models
             
         Returns:
             Tuple of (parsed_result, input_tokens, output_tokens)
-            
-        Response Parsing Strategy:
-        - Primary: Parse as ExtractionResultList (array format)
-        - Fallback: Parse as single SpeciesData object
-        - This handles variations in model output format
         """
         try:
             # Initialize Ollama client with host URL
@@ -472,4 +388,64 @@ class Extractor:
         
         except Exception as e:
             print(f"Error with Ollama API: {e}")
+            return None, 0, 0
+
+    def _call_openrouter(self, prompt: str, images: Optional[List[bytes]]) -> Tuple[Optional[Dict], int, int]:
+        """
+        Execute extraction using OpenRouter API.
+        
+        Args:
+            prompt: Text prompt for the model
+            images: Optional list of image bytes
+            
+        Returns:
+            Tuple of (parsed_result, input_tokens, output_tokens)
+        """
+        try:
+            client = openai.OpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=self.llm_config["api_key"],
+            )
+
+            messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
+            
+            # Handle images for multimodal models if supported
+            # OpenRouter supports base64 encoded images in standard OpenAI format
+            if images:
+                import base64
+                for img_bytes in images:
+                    base64_image = base64.b64encode(img_bytes).decode('utf-8')
+                    messages[0]["content"].append({
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{base64_image}"
+                        }
+                    })
+
+            response = client.chat.completions.create(
+                model=self.llm_config["model"],
+                messages=messages,
+                response_format={"type": "json_object"},
+                temperature=0.1
+            )
+
+            response_content = response.choices[0].message.content
+            
+            # Extract token usage
+            usage = response.usage
+            in_tokens = usage.prompt_tokens if usage else 0
+            out_tokens = usage.completion_tokens if usage else 0
+
+            # Parse response
+            try:
+                parsed_list = extraction_list_adapter.validate_json(response_content)
+                result = parsed_list.root[0].model_dump() if parsed_list.root else None
+            except ValidationError:
+                single_object = SpeciesData.model_validate_json(response_content)
+                result = single_object.model_dump()
+
+            return result, in_tokens, out_tokens
+
+        except Exception as e:
+            print(f"Error with OpenRouter API: {e}")
             return None, 0, 0

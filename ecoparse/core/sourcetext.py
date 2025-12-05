@@ -1,8 +1,5 @@
 """
 PDF Text Processing and Context Extraction Module
-
-Handles PDF processing, text extraction, and context retrieval for species data.
-Supports multiple extraction methods for different document layouts.
 """
 
 import io
@@ -17,13 +14,6 @@ import unicodedata
 def extract_text_from_pdf(pdf_file_buffer: io.BytesIO, method: str = "standard") -> str:
     """
     Extract text from PDF with layout-aware options.
-    
-    Args:
-        pdf_file_buffer: Binary PDF data stream
-        method: "standard", "adaptive", "plumber", or "reading-order"
-        
-    Returns:
-        Concatenated text content from all pages
     """
     if method == "adaptive":
         return _extract_text_adaptive(pdf_file_buffer)
@@ -284,13 +274,6 @@ def _extract_text_reading_order(pdf_file_buffer: io.BytesIO) -> str:
 def _analyze_page_layout(page) -> Dict:
     """
     Analyzes page layout to detect columns and content structure.
-    
-    Uses text block positions to automatically detect column boundaries
-    and content organization patterns.
-    
-    Returns:
-        Dictionary with layout analysis including column boundaries,
-        block distribution, and recommended extraction strategy
     """
     text_dict = page.get_text("dict")
     blocks = text_dict.get("blocks", [])
@@ -404,26 +387,6 @@ def trim_pdf_pages(pdf_buffer: io.BytesIO, start_page: int, end_page: int) -> Op
 def normalize_text_for_search(text: str) -> str:
     """
     Normalizes text for improved species name searching.
-    
-    Removes common PDF artifacts and formatting issues that can
-    interfere with species name detection, including:
-    - Hyphenated line breaks
-    - Inconsistent whitespace
-    - Line break artifacts
-    - Ligatures and other complex characters
-    
-    Args:
-        text: Raw text from PDF extraction
-        
-    Returns:
-        Cleaned text optimized for species name matching
-        
-    Normalization Steps:
-    1. Apply Unicode normalization (NFKC) to handle ligatures and variants.
-    2. Remove hyphenated line breaks (e.g., "Homo sapi-\nens" -> "Homo sapiens")
-    3. Replace line breaks with spaces
-    4. Normalize multiple whitespace characters
-    5. Trim leading/trailing whitespace
     """
     # Apply NFKC normalization to decompose ligatures and other variants
     text = unicodedata.normalize('NFKC', text)
@@ -438,25 +401,6 @@ def normalize_text_for_search(text: str) -> str:
 def normalize_text_for_llm(text: str) -> str:
     """
     Normalizes text for LLM processing while preserving helpful formatting.
-    
-    Removes PDF artifacts but maintains document structure that helps
-    LLMs understand context, including:
-    - Paragraph boundaries (double line breaks)
-    - List structures
-    - Section breaks
-    - Table-like formatting
-    
-    Args:
-        text: Raw text from PDF extraction
-        
-    Returns:
-        Cleaned text optimized for LLM comprehension
-        
-    Normalization Steps:
-    1. Remove hyphenated line breaks (preserves words across lines)
-    2. Preserve paragraph breaks (double newlines)
-    3. Clean excessive whitespace within lines
-    4. Maintain single line breaks that indicate structure
     """
     # Remove hyphenated line breaks (e.g., "Homo sapi-\nens" -> "Homo sapiens")
     text = re.sub(r'-\s*\n\s*', '', text)
@@ -481,28 +425,6 @@ def _create_flexible_species_pattern(species_name: str) -> str:
     """
     Creates a regex pattern that can match species names even when split across lines
     or surrounded by punctuation like parentheses.
-    
-    Handles cases where long species names are broken across lines in formatted text,
-    which is common in PDFs with narrow columns or justified text, and cases where
-    species names appear in parentheses or with other punctuation.
-    
-    Args:
-        species_name: The species name to search for (e.g., "Rhinoceros unicornis")
-        
-    Returns:
-        Regex pattern that allows for line breaks between words and handles punctuation
-        
-    Examples:
-    - "Homo sapiens" → matches "Homo sapiens", "Homo\nsapiens", "(Homo sapiens)", etc.
-    - "Lacerta agilis" → matches "(Lacerta agilis ssp. agilis)" 
-    - "Tyrannosaurus rex" → matches "Tyrannosaurus rex" or "Tyrannosaurus\nrex"
-    
-    Pattern Strategy:
-    - Uses flexible word boundaries that work with punctuation
-    - Allows 1-5 whitespace characters (including newlines) between words
-    - Includes hyphens to handle hyphenated line breaks
-    - Handles parentheses, brackets, and other common punctuation
-    - Limits whitespace to prevent matching across unrelated text
     """
     # Split the species name into words
     words = species_name.split()
@@ -546,50 +468,7 @@ def get_species_context_chunks(
     Extracts contextual text passages surrounding species mentions.
     
     Locates all occurrences of each species name in the document and
-    extracts surrounding text context. This provides the textual
-    information needed for data extraction algorithms to identify
-    species-specific attributes.
-    
-    **Updated for LLM Processing**: Now extracts chunks from formatting-preserved
-    text while maintaining species matching accuracy through dual-text search.
-    
-    **Line-Break Handling**: Uses flexible pattern matching to find species names
-    even when split across lines in formatted PDFs, common in narrow columns.
-    
-    Args:
-        full_text: Complete document text from PDF extraction
-        species_df: DataFrame containing detected species names
-        context_before: Number of characters to include before species mention
-        context_after: Number of characters to include after species mention
-        
-    Returns:
-        Dictionary mapping species names to lists of context passages
-        (now with preserved formatting for better LLM comprehension)
-        
-    Scientific Rationale:
-    - Context windows capture relevant information about species
-    - Multiple contexts per species enable comprehensive data extraction
-    - Robust searching handles nomenclatural variations and formatting
-    - Preserved formatting helps LLMs understand document structure
-    - Line-break tolerance ensures long species names are not missed
-    
-    Algorithm Details:
-    - Uses flexible regex patterns to handle line breaks within species names
-    - Searches in formatted text with structure preservation
-    - Implements word boundary matching to avoid false positives
-    - Deduplicates identical context passages
-    - Case-insensitive matching for robustness
-    - Fallback to simple patterns if flexible matching fails
-    
-    Context Window Design:
-    - Size should balance information content vs. noise
-    - Typical values: 200-500 characters before/after
-    - Longer contexts for complex ecological descriptions
-    - Formatting preservation aids LLM comprehension
-    
-    Line-Break Examples:
-    - "Rhinoceros unicornis" matches "Rhinoceros\nunicornis"
-    - "Panthera tigris altaica" matches "Panthera\ntigris altaica"
+    extracts surrounding text context.
     """
     species_chunks = {}
     if species_df.empty:
@@ -640,21 +519,6 @@ def get_species_context_chunks(
 def get_species_partial_page_chunks(full_text: str, species_df: pd.DataFrame, chars_from_top: int = 500, chars_from_bottom: int = 500) -> Dict[str, List[str]]:
     """
     Extract partial page content (top + bottom) for each species mention.
-    
-    For pages where species are mentioned, extracts a configurable number of 
-    characters from the top and bottom of the page, skipping the middle content.
-    This captures headers, introductions, conclusions, and summaries while 
-    avoiding lengthy middle sections that often contain less relevant detail.
-    
-    Args:
-        full_text: Complete document text with page markers
-        species_df: DataFrame containing detected species names
-        chars_from_top: Number of characters to extract from page start
-        chars_from_bottom: Number of characters to extract from page end
-        
-    Returns:
-        Dictionary mapping species names to lists of partial page texts
-        Format: "TOP: [top_content] ... [MIDDLE CONTENT OMITTED] ... BOTTOM: [bottom_content]"
     """
     species_chunks = {}
     if species_df.empty:
@@ -711,18 +575,6 @@ BOTTOM SECTION:
 def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Dict[str, List[str]]:
     """
     Extract full page content for each species mention.
-    
-    Instead of extracting text around each species mention, this function
-    extracts the complete content of pages where species are mentioned.
-    This provides maximum context for species data extraction.
-    
-    Args:
-        full_text: Complete document text with page markers
-        species_df: DataFrame containing detected species names
-        
-    Returns:
-        Dictionary mapping species names to lists of full page texts
-        where each species is mentioned
     """
     species_chunks = {}
     if species_df.empty:
@@ -760,34 +612,6 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
 def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) -> Dict[str, List[bytes]]:
     """
     Generates page images for species mentions in PDF documents.
-    
-    Creates high-resolution images of PDF pages containing species mentions,
-    enabling visual analysis and image-based data extraction workflows.
-    This is particularly useful for documents with tables, figures, or
-    complex layouts that may not extract well as text.
-    
-    Args:
-        pdf_buffer: PDF document data stream
-        species_df: DataFrame of detected species names
-        
-    Returns:
-        Dictionary mapping species names to lists of page images (PNG bytes)
-        
-    Technical Specifications:
-    - 150 DPI resolution balances quality with file size
-    - PNG format for lossless image quality
-    - Processes only pages containing species mentions for efficiency
-    
-    Scientific Applications:
-    - Extraction from tables and structured data
-    - Analysis of figures and diagrams
-    - Verification of text extraction accuracy
-    - Multi-modal language model inputs
-    
-    Performance Optimization:
-    - Deduplicates pages when multiple species appear together
-    - Uses set operations to minimize redundant processing
-    - Sorts page numbers for consistent output order
     """
     species_pages = {}
     species_images = {}

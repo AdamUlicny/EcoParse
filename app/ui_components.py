@@ -14,10 +14,11 @@ def setup_sidebar():
     st.header("⚙️ Global Configuration")
 
     st.text_input("GNfinder URL", key="gnfinder_url")
-    st.selectbox("LLM Provider", ["Google Gemini", "Ollama"], key="llm_provider")
+    st.selectbox("LLM Provider", ["Google Gemini", "Ollama", "OpenRouter"], key="llm_provider")
     st.markdown("---")
 
     is_gemini = st.session_state.llm_provider == "Google Gemini"
+    is_openrouter = st.session_state.llm_provider == "OpenRouter"
 
     # Gemini Settings
     st.subheader("Google Gemini Settings")
@@ -40,17 +41,36 @@ def setup_sidebar():
 
     st.markdown("---")
 
+    # OpenRouter Settings
+    st.subheader("OpenRouter Settings")
+    st.text_input(
+        "OpenRouter API Key",
+        type="password",
+        key="openrouter_api_key",
+        disabled=not is_openrouter,
+        help="Required for OpenRouter."
+    )
+    
+    openrouter_models = models_data.get("openrouter_models", [])
+    final_openrouter = create_model_selector("OpenRouter", openrouter_models, not is_openrouter)
+    if final_openrouter:
+        st.session_state.openrouter_model = final_openrouter
+    elif "openrouter_model" not in st.session_state:
+        st.session_state.openrouter_model = ""
+
+    st.markdown("---")
+
     # Ollama Settings
     st.subheader("Ollama Settings")
     st.text_input(
         "Ollama Host URL",
         key="ollama_url",
-        disabled=is_gemini,
+        disabled=is_gemini or is_openrouter,
         help="Full URL of Ollama server (e.g., http://192.168.1.10:11434)."
     )
     
     ollama_models = models_data.get("ollama_models", [])
-    final_ollama = create_model_selector("Ollama", ollama_models, is_gemini)
+    final_ollama = create_model_selector("Ollama", ollama_models, is_gemini or is_openrouter)
     
     if final_ollama:
         st.session_state.ollama_model = final_ollama

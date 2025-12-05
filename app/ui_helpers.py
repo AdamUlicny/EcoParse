@@ -77,8 +77,7 @@ def load_models_config():
 def create_highlighted_page_image(pdf_buffer: bytes, page_number: int, terms_to_highlight: list[str]):
     """
     Generates an image of a specific PDF page with given terms highlighted.
-    Uses fuzzy matching and different colors for exact and fuzzy matches.
-
+    
     Args:
         pdf_buffer: The PDF file content as bytes.
         page_number: The 1-based page number to render.
@@ -86,7 +85,6 @@ def create_highlighted_page_image(pdf_buffer: bytes, page_number: int, terms_to_
 
     Returns:
         A tuple of (PIL.Image, found_terms_count) or (None, 0) if an error occurs.
-        `found_terms_count` is the number of terms successfully found and highlighted.
     """
     try:
         page_index = page_number - 1
@@ -99,8 +97,8 @@ def create_highlighted_page_image(pdf_buffer: bytes, page_number: int, terms_to_
         img = Image.open(io.BytesIO(pix.tobytes()))
         draw = ImageDraw.Draw(img, "RGBA")
 
-        perfect_match_color = (0, 255, 0, 100)  # Green, semi-transparent
-        fuzzy_match_color = (255, 165, 0, 100)  # Orange, semi-transparent
+        perfect_match_color = (0, 255, 0, 100)
+        fuzzy_match_color = (255, 165, 0, 100)
         
         found_terms_count = 0
 
@@ -125,7 +123,6 @@ def create_highlighted_page_image(pdf_buffer: bytes, page_number: int, terms_to_
                     draw.rectangle(scaled_rect, fill=perfect_match_color)
             else:
                 # Fuzzy matching if no direct match
-                # This is a simplified fuzzy search. For more complex cases, one might need to check n-grams.
                 for w in words:
                     word_text = w[4]
                     ratio = fuzz.ratio(term.lower(), word_text.lower())
@@ -153,14 +150,6 @@ def create_highlighted_page_image(pdf_buffer: bytes, page_number: int, terms_to_
 def highlight_text_in_chunk(chunk_text: str, terms_to_highlight: list[str]) -> str:
     """
     Highlights terms within a text string using Markdown.
-    Uses fuzzy matching and different colors for exact and fuzzy matches.
-
-    Args:
-        chunk_text: The text content of the chunk.
-        terms_to_highlight: A list of strings to search for and highlight.
-
-    Returns:
-        A Markdown-formatted string with highlighted terms.
     """
     highlighted_text = chunk_text
     found_terms_count = 0
@@ -194,7 +183,6 @@ def highlight_text_in_chunk(chunk_text: str, terms_to_highlight: list[str]) -> s
 def preload_highlighted_images(final_results_df):
     """
     Pre-generates and caches highlighted images for all species in the final results.
-    To be run in the background while the user is on the extraction results tab.
     """
     if 'pdf_buffer' not in st.session_state or not st.session_state.pdf_buffer:
         return
