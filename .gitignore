@@ -1,8 +1,9 @@
-# Cache
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-ecoparse.egg-info/
+*.egg-info/
+.egg-info/
 
 # Environments
 .env
@@ -10,19 +11,21 @@ ecoparse.egg-info/
 env/
 venv/
 ENV/
-env.bak/
-venv.bak/
-demo/
-
-# Streamlit
-.streamlit/
-credentials.toml
-config.toml
 
 # Logs
-logs/*.log
-!logs/.gitkeep
+logs/
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+# Keep config.toml if you want to share theme settings
+# .streamlit/config.toml
 
 # IDE
 .vscode/
+.idea/
 
+# System
+.DS_Store
+Thumbs.db
