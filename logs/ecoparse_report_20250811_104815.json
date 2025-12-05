@@ -1,0 +1,1202 @@
+{
+    "report_timestamp": "2025-08-11T10:48:15.091003",
+    "pdf_info": {
+        "file_name": "lrcompletoparaweb_tcm30-207942.pdf",
+        "extracted_text_char_count": 2185737
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 4045,
+        "total_species_identified_initial_filter": 281,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 171
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "granite3.3:8b",
+        "context_chars_before": 0,
+        "context_chars_after": 250,
+        "total_examples_provided": 4,
+        "examples_used": [
+            {
+                "input": "Casi Amenazado; NT C1",
+                "output": "{\"conservation_status\":\"NT\"}"
+            },
+            {
+                "input": "Vulnerable; VU D1+2",
+                "output": "{\"conservation_status\":\"VU\"}"
+            },
+            {
+                "input": "Datos Insuficientes; DD",
+                "output": "{\"conservation_status\":\"DD\"}"
+            },
+            {
+                "input": "En Peligro; EN B1ab(iii,iv)",
+                "output": "{\"conservation_status\":\"EN\"}"
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 171,
+        "runtime_seconds": 278.9274764060974,
+        "total_input_tokens": 123521,
+        "total_output_tokens": 12526,
+        "extraction_results_summary": {
+            "VU": 42,
+            "EN": 34,
+            "NF": 31,
+            "CR": 15,
+            "NT": 11,
+            "RE": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Gavia immer",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1' was identified from the text chunk. No additional details like population size or geographic distribution were provided, hence those fields are marked as not found."
+            },
+            {
+                "species": "Podiceps nigricollis",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide a clear conservation status code for Podiceps nigricollis. It mentions population fluctuations and fragmentation but lacks a standardized two-letter code like NT, VU, EN, etc."
+            },
+            {
+                "species": "Podiceps cristatus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Tachybaptus ruficollis",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Bulweria bulwerii",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B2ab(ii,iii,iv)'. The abbreviation 'EN' corresponds to 'Endangered' in the IUCN Red List categories."
+            },
+            {
+                "species": "Asio otus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Larus cachinnans",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Calonectris diomedea diomedea",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'En Peligro' (EN) was identified based on the text mentioning that the species is in danger due to a small reproductive population facing high mortality rates. Regulations and corrective measures are being initiated but not yet fully effective."
+            },
+            {
+                "species": "Bubo bubo",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Calonectris diomedea borealis",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified based on the text mentioning 'Vulnerable; VU'. No specific regional code beyond 'VU' could be extracted from the provided information."
+            },
+            {
+                "species": "Puffinus puffinus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B2ab(ii,iii);'. The specific subcategory (B2ab(ii,iii)) was not extracted as per the schema requirements."
+            },
+            {
+                "species": "Puffinus mauretanicus",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the text mentioning 'En Peligro Cr\u00edtico; CR A3ace+4ace'. Other details like B2ab(ii,iii,iv,v); E were noted but do not map directly to the standardized conservation status codes."
+            },
+            {
+                "species": "Puffinus assimilis baroli",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B2ab (i,ii,iii)'. Other details like subcategory or specific threats were not explicitly mentioned."
+            },
+            {
+                "species": "Pelagodroma marina hypoleuca",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified from the text chunk. The regional designation 'D' is implied by context, aligning with 'VU' as per IUCN Red List categories."
+            },
+            {
+                "species": "Hydrobates pelagicus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU'. Other details like subcategories or specific criteria were not explicitly provided in the text chunk."
+            },
+            {
+                "species": "Oceanodroma castro",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text chunk which mentions 'En Peligro; EN B2ab(ii,iii)'. Other details such as subspecies or specific population metrics were not explicitly provided in the text."
+            },
+            {
+                "species": "Falco eleonorae",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. No explicit regional variation in status was mentioned, so NT is assumed for this species."
+            },
+            {
+                "species": "Phalacrocorax aristotelis aristotelis",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro 1; EN A4ae; B2ab(iii,v)c(iv)' indicating Endangered according to IUCN Red List categories and criteria."
+            },
+            {
+                "species": "Phalacrocorax aristotelis desmarestii",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified in the text chunk. The species is listed as Vulnerable according to the IUCN Red List Categories and Criteria version 3.1."
+            },
+            {
+                "species": "Botaurus stellaris",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk. The specific subcategory 'C2a(i)b' is not captured in the predefined codes, so it remains as 'CR'. No other detailed population or trend information was explicitly provided using standardized codes."
+            },
+            {
+                "species": "Ardeola ralloides",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The species Ardeola ralloides is identified as 'Casi Amenazado' which corresponds to the conservation status 'NT' (Near Threatened) based on population fluctuations and limited breeding localities."
+            },
+            {
+                "species": "Ciconia nigra",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1' was identified in the text chunk."
+            },
+            {
+                "species": "Plegadis falcinellus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1+2' was identified in the text chunk."
+            },
+            {
+                "species": "Phalacrocorax pygmeus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Platalea leucorodia",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified based on the text mentioning 'Vulnerable 1; VU D2'. Other details like population numbers and regional distribution were noted but not directly translatable into standardized conservation status codes without additional context."
+            },
+            {
+                "species": "Phoenicopterus ruber",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not explicitly mention a conservation status using standard two-letter codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. Therefore, the conservation status is marked as 'Not Found'."
+            },
+            {
+                "species": "Anser fabalis rossicus",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk using the code CR A2ac."
+            },
+            {
+                "species": "Anser serrirostris rossicus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Tadorna ferruginea",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified for the species Tadorna ferruginea, specifically referring to its population in Canarias. The text mentions 'En Peligro Cr\u00edtico' which translates to Critically Endangered in English conservation classification terms."
+            },
+            {
+                "species": "Tadorna tadorna",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. The status is mentioned as 'Casi Amenazado; NT [VU D1]' and later referenced as 'estatus reproductor en las provincias de Sevilla, Huelva y M\u00e1laga, con un m\u00e1ximo de 6 pp. en conjunto' indicating a relatively low population."
+            },
+            {
+                "species": "Anas crecca",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified from the text chunk. The specific codes mentioned in the text, such as CR B2b(iii,v)c(iii,iv); C2a(i)+b; D, align with the IUCN Red List categories and were interpreted as Vulnerable."
+            },
+            {
+                "species": "Anas acuta",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified based on the text chunk's mention of 'Vulnerable; VU D'. The regional code 'D' is not explicitly provided, but 'VU' clearly indicates a vulnerable status."
+            },
+            {
+                "species": "Anas querquedula",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified from the text chunk. The specific code 'D1+2' mentioned in the text corresponds to this category under IUCN Red List criteria."
+            },
+            {
+                "species": "Anas clypeata",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. The species is described as Casi Amenazado; NT [VU D1], indicating its regional conservation status."
+            },
+            {
+                "species": "Marmaronetta angustirostris",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the text mentioning 'En Peligro Cr\u00edtico; CR C2a(ii)b'. The two-letter code 'CR' directly corresponds to this category."
+            },
+            {
+                "species": "Porphyrio porphyrio",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain information about the conservation status of Porphyrio porphyrio. It discusses the species' impact on the production of seeds from Scirpus litoralis but does not provide a regional conservation status."
+            },
+            {
+                "species": "Netta rufina",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) is extracted from the text chunk, as it mentions 'Vulnerable; VU B2abc(iv)' indicating this species' regional vulnerability."
+            },
+            {
+                "species": "Aythya nyroca",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the text mentioning 'En Peligro Cr\u00edtico; CR B2ab(iii,v); C2a(i,ii); D'. The specific codes B2ab(iii,v) and C2a(i,ii) refer to population size and area of occupancy criteria respectively, indicating a critically endangered status."
+            },
+            {
+                "species": "Oxyura leucocephala",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' (Endangered) was identified based on the text mentioning 'En Peligro; EN A3ce'. The specific subcategory (A3ce) was not extracted as per the provided schema requirements."
+            },
+            {
+                "species": "Oxyura jamaicensis",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Elanus caeruleus",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status codes like 'NT', 'VU', etc. The closest reference to population status is 'La poblaci\u00f3n europea del Elanio Azul se estima entre 450-950 pp.' which suggests a range but lacks a standardized code for conservation status."
+            },
+            {
+                "species": "Milvus migrans",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provides information about the species' population dynamics and threats but does not explicitly state a conservation status using standard codes such as 'VU', 'NT', etc. Therefore, the conservation status is marked as 'Not Found'."
+            },
+            {
+                "species": "Milvus milvus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' (Endangered) was identified based on the phrase 'En Peligro; EN A2ab+4ab'. The text mentions insufficient knowledge about the species ('insuficientemente conocida') and threats such as human persecution, including venom use, which impact its population. Despite some local variations in presence noted across different regions (Asturias, Navarra, Aragon), the overall context suggests a threatened status."
+            },
+            {
+                "species": "Gypaetus barbatus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' (Endangered) was identified based on the text mentioning 'En Peligro; EN D'. The other details like subcategories or specific threats were not explicitly provided in the text chunk."
+            },
+            {
+                "species": "Neophron percnopterus majorensis",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the phrase 'En Peligro Cr\u00edtico; CR C2a(ii); c.D'. The specific code 'CR' directly corresponds to Critically Endangered in IUCN Red List categories."
+            },
+            {
+                "species": "Corvus corax canariensis",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text mentioning 'En Peligro; EN A4abcd'. The specific subcategory (A4abcd) was not extracted as per the schema requirements."
+            },
+            {
+                "species": "Buteo buteo insularum",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Alectoris barbara",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Aegypius monachus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU C1'. No other specific regional statuses were mentioned for different regions."
+            },
+            {
+                "species": "Circus pygargus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified in the text chunk. No explicit regional code beyond 'VU' was provided, so 'VU' is used as per the given instructions."
+            },
+            {
+                "species": "Accipiter nisus granti",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1' was identified from the text chunk. No specific habitat destruction details were provided beyond mentioning 'Destruction of habitat'."
+            },
+            {
+                "species": "Columba bollii",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Serinus canarius",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain any information regarding the conservation status of Serinus canarius. Therefore, 'conservation_status' is marked as 'NF' (Not Found)."
+            },
+            {
+                "species": "Columba junoniae",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Aquila adalberti",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the phrase 'En Peligro; EN C1+C2a(i)' in the text chunk. The specific subcategory (C1+C2a(i)) was not extracted as per the schema requirements."
+            },
+            {
+                "species": "Aquila chrysaetos",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified based on the text mentioning 'Casi Amenazado; NT C1'. No explicit population size or breeding pair numbers were found in the provided text chunk."
+            },
+            {
+                "species": "Hieraaetus fasciatus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the phrase 'En Peligro; EN C1'. No explicit regional code beyond 'EN' could be extracted due to the text focusing on general endangerment without specifying a subcategory."
+            },
+            {
+                "species": "Pandion haliaetus",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the text mentioning 'En Peligro Cr\u00edtico 1'. Other details like population numbers and specific regions were not explicitly categorized into standard conservation status codes."
+            },
+            {
+                "species": "Haematopus ostralegus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Falco peregrinus",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information using standard codes. It mentions 'almost eliminated' and lists a few historical sightings, but no specific code like NT, VU, EN, etc., is used."
+            },
+            {
+                "species": "Falco naumanni",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified from the text chunk. The specific code 'D1' mentioned in another context for a different subspecies (Falco tinnunculus dacotiae) was not applicable here due to distinct species identification."
+            },
+            {
+                "species": "Falco tinnunculus dacotiae",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1' was identified from the text chunk. The 'D1' part indicates a population size or area of habitat, but for the JSON schema requirement, only the two-letter code 'VU' is used."
+            },
+            {
+                "species": "Falco subbuteo",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. The text mentions that Falco subbuteo has a population under 10,000 mature individuals and faces future risk of decline due to primary threats including harassment."
+            },
+            {
+                "species": "Corvus corone",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Melanocorypha calandra",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Passer domesticus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Falco pelegrinoides pelegrinoides",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' (Endangered) was identified from the text chunk where it mentions 'En Peligro; EN D'. The other details like subcategory or specific threats were not explicitly provided in the text."
+            },
+            {
+                "species": "Columba livia",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Lagopus mutus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified from the text chunk using the format [EN C2a(ii)]. Other species information like geographical distribution and habitat details were not explicitly provided in a standardized format."
+            },
+            {
+                "species": "Tetrao urogallus cantabricus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk, specifically in the line 'En Peligro; EN c.A2ac'. The other details provided in the text pertain to geographical distribution and ecological factors rather than direct conservation status codes."
+            },
+            {
+                "species": "Tetrao urogallus aquitanicus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The species is identified as 'En Peligro' (in Danger) according to the text. The specific subcategory 'C2a(ii)' was mentioned, but following the provided schema, it's represented with 'EN'. No further details about subcategories were explicitly given in a standardized format."
+            },
+            {
+                "species": "Alectoris rufa",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provides information about population decline and habitat impacts of Alectoris rufa but does not explicitly state a conservation status using standardized codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', or 'DD'. Therefore, the conservation status is marked as 'NF' (Not Found)."
+            },
+            {
+                "species": "Perdix perdix hispaniensis",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified in the text chunk. The two-letter code 'VU' corresponds to this status according to the IUCN Red List categories."
+            },
+            {
+                "species": "Coturnix coturnix",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain explicit conservation status information for Coturnix coturnix. It discusses various aspects such as abundance, altitude effects on the species, and potential legal issues related to hunting but lacks a direct mention of a standardized conservation status like those listed in the examples."
+            },
+            {
+                "species": "Turnix sylvatica",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified for Turnix sylvatica in the text chunk. No other specific details about subcategories or regional variations were provided."
+            },
+            {
+                "species": "Porzana porzana",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not explicitly mention a regional conservation status for Porzana porzana. The focus is on breeding behavior and habitat occupation rather than providing a standardized conservation status code."
+            },
+            {
+                "species": "Porzana parva",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not contain explicit conservation status information for Porzana parva. It discusses population trends and declines but lacks a standardized conservation status code like 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', or 'DD'. Therefore, the conservation status is marked as 'NF' (Not Found)."
+            },
+            {
+                "species": "Porzana pusilla",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not contain explicit information about the conservation status of Porzana pusilla. It discusses population decline and habitat preferences but lacks a standardized conservation status code."
+            },
+            {
+                "species": "Fulica cristata",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified based on the text mentioning 'En Peligro Cr\u00edtico; CR C2a(ii)+2b'. The abbreviation 'CR' corresponds to Critically Endangered in IUCN Red List categories."
+            },
+            {
+                "species": "Tetrax tetrax",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) is explicitly mentioned in the text chunk. No other specific details about subcategories or regions were provided, so those fields are marked as not found."
+            },
+            {
+                "species": "Chlamydotis undulata fuertaventurae",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text mentioning 'En Peligro; EN B1ab(i,ii,ii,iv,v)+2ab(i,ii,iii,iv,v)'. The specific subcategories within B1 and ab are detailed but the primary status is 'EN', indicating it's Endangered."
+            },
+            {
+                "species": "Otis tarda",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified from the text chunk. The status code 'VU' corresponds to this description."
+            },
+            {
+                "species": "Burhinus oedicnemus distinctus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk using the pattern 'En Peligro; EN B1ab(i,ii,iii,iv)+2ab(i,ii,iii,iv); C2a(i)'. Other details like specific sub-categories or regional information were not explicitly provided in a standardized format."
+            },
+            {
+                "species": "Burhinus oedicnemus insularum",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B1ab(ii,iii)'. The abbreviation 'EN' corresponds to the IUCN Red List category 'Endangered'. Other details like specific subcategories (B1ab(ii,iii)) were noted but not directly mapped into the standardized categories."
+            },
+            {
+                "species": "Cursorius cursor",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text chunk's mention of 'En Peligro; EN B1ab(i,ii,iii,v)+2ab(i,ii,iii,v)'. The abbreviation 'EN' corresponds to 'Endangered' in the IUCN Red List categories."
+            },
+            {
+                "species": "Glareola pratincola",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified from the text chunk. The specific criteria (A2ac?) were mentioned but not necessary for the standardized status code."
+            },
+            {
+                "species": "Tringa totanus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Charadrius alexandrinus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified based on the text chunk's mention of 'Vulnerable; VU [EN B2ab(ii,iii,v)c(ii,iv)]'. The specific IUCN category and subcategory details were not extracted as per the schema requirements."
+            },
+            {
+                "species": "Charadrius morinellus",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk using the EN code format. The specific subcategories like B1bc(iv); C2a(i,ii)+b; D; c.CR C1 were considered to determine this status."
+            },
+            {
+                "species": "Gallinago gallinago",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro; EN D'. The other details like subcategory or specific location codes were not explicitly provided, hence left as per instructions."
+            },
+            {
+                "species": "Limosa limosa",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified from the text chunk. The regional codes were not present, but the description matches 'VU'."
+            },
+            {
+                "species": "Numenius arquata",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' was identified from the text chunk as EN [CR B1ac(ii,iii,iv)+2ac(ii,iii,iv); D]. The abbreviation 'EN' corresponds to 'Endangered' and 'CR' specifically denotes 'Critically Endangered'."
+            },
+            {
+                "species": "Larus genei",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Gelochelidon nilotica",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Larus audouinii",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D2' was identified in the text chunk."
+            },
+            {
+                "species": "Rissa tridactyla",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU'. No specific regional code beyond 'VU' was provided."
+            },
+            {
+                "species": "Sterna sandvicensis",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk using the abbreviation NT."
+            },
+            {
+                "species": "Sterna hirundo",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Recurvirostra avosetta",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Sterna albifrons",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide a clear conservation status using standard codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. It mentions 'Casi Amenazado; NT [VU C1+2b]', but without further context or clarification, it's ambiguous and doesn't match the specified format. Therefore, conservation status is marked as 'Not Found'."
+            },
+            {
+                "species": "Sterna antillarum",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Chlidonias hybridus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable 1; VU B2ac(ii,iv)' which corresponds to the IUCN Red List categories."
+            },
+            {
+                "species": "Larus ridibundus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Chlidonias niger",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the phrase 'En Peligro; EN D'. No specific subcategory (like B1ab(iii,iv)) was discernible from the provided text."
+            },
+            {
+                "species": "Alca torda",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Uria aalge ibericus",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Pterocles orientalis",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU A2c+3c+4c'. The specific category code 'A2c+3c+4c' provides additional context but the primary status is 'VU'."
+            },
+            {
+                "species": "Pterocles alchata",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Columba oenas",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not contain explicit conservation status information using standard codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. The closest reference to population status is the mention of the species being 'francamente escasa' (very scarce) in its distribution area, but this qualitative description does not map directly to a standard conservation status code."
+            },
+            {
+                "species": "Corvus monedula",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Streptopelia turtur",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU A2acd'. Other details like specific sub-categories or regions were not explicitly provided in the text chunk, so they are marked as NF."
+            },
+            {
+                "species": "Tyto alba gracilirostris",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro; EN B1ab(iii,iv)'. The specific subcategory (B1ab(iii,iv)) was not extracted as per the instructions."
+            },
+            {
+                "species": "Asio flammeus",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. No ambiguity or missing data noted."
+            },
+            {
+                "species": "Aegolius funereus",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information using standard codes like NT, VU, EN, etc. It mentions 'NT' in the context of VU D1 but doesn't clearly assign a regional status for Aegolius funereus without additional external data."
+            },
+            {
+                "species": "Apus caffer",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' was identified from the text chunk using the provided examples and corresponding codes."
+            },
+            {
+                "species": "Hirundo daurica",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Delichon urbica",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Alcedo atthis",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. The specific phrase 'Casi Amenazado; NT A2ac' corresponds to this category."
+            },
+            {
+                "species": "Coracias garrulus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified in the text chunk. The regional specifics or additional details were not provided, hence no further sub-categories are listed."
+            },
+            {
+                "species": "Jynx torquilla",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not explicitly mention a conservation status using standard codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. It discusses population estimates and proposed conservation measures but lacks a direct, coded conservation status."
+            },
+            {
+                "species": "Dendrocopos major thanneri",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1+2' was identified in the text chunk, corresponding to the IUCN Red List category 'VU'. The status code 'D1+2' refers to population size and rate of decline criteria."
+            },
+            {
+                "species": "Dendrocopos major canariensis",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D1' was identified from the text chunk."
+            },
+            {
+                "species": "Dendrocopos medius",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information using standard codes such as RE, CR, EN, VU, NT, LC, DD, or NF. The closest reference to a conservation concern is 'Casi Amenazado; NT C1', but it's not in the required format."
+            },
+            {
+                "species": "Dendrocopos leucotos",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU [EN D]'. No other specific regional codes were provided, so 'VU' is used as per standard IUCN categories."
+            },
+            {
+                "species": "Chersophilus duponti",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the mention of 'En Peligro; EN B2ab(ii,iii)' in the text chunk. The specific subcategory (B2ab(ii,iii)) was not extracted as per the instructions."
+            },
+            {
+                "species": "Calandrella brachydactyla",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU'. No explicit regional code beyond 'VU' was provided."
+            },
+            {
+                "species": "Calandrella cinerea",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Calandrella rufescens apetzii",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information using standard codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. It mentions the species is 'Casi Amenazado' (nearly threatened) but does not use a standardized code for this. Therefore, the conservation status field is marked as 'NF' (Not Found)."
+            },
+            {
+                "species": "Calandrella rufescens rufescens",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk using the code 'A4abc'. Other details like subcategories (B1ab(i,ii,iii,iv,v)+2ab(i,ii,iii,iv,v); C1+2a(i, ii)) pertain to specific regions and were not converted into a standardized conservation status code."
+            },
+            {
+                "species": "Calandrella rufescens polatzeki",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the phrase 'En Peligro; EN B1ab(i,ii,iii,iv,v)'. The specific subcategory (B1ab(i,ii,iii,iv,v)) was not extracted as per the schema requirements."
+            },
+            {
+                "species": "Cercotrichas galactotes",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'En Peligro; EN A2c' was identified from the text chunk. The species is listed as Endangered (EN) according to the IUCN Red List criteria."
+            },
+            {
+                "species": "Sylvia hortensis",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Phoenicurus phoenicurus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU'. Other details such as subcategory or specific population estimates were not explicitly provided in a standardized format, hence marked as 'NF' for Not Found."
+            },
+            {
+                "species": "Oenanthe hispanica",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not explicitly mention a conservation status using standard two-letter codes such as 'RE', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', or 'NF'. Therefore, the conservation status is marked as 'Not Found'."
+            },
+            {
+                "species": "Locustella luscinioides",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide a clear conservation status code for Locustella luscinioides. It mentions 'Casi Amenazado; NT [VU B2ab(ii,iii,v); C1]', but the standardized codes listed in examples do not match this description exactly. Therefore, the conservation status is marked as 'NF' (Not Found)."
+            },
+            {
+                "species": "Acrocephalus melanopogon",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) was identified based on the text mentioning 'Vulnerable; VU B2ab(iii,v)' in one of the provided chunks. The other parts of the text do not provide additional information about conservation status or abundance estimates."
+            },
+            {
+                "species": "Acrocephalus paludicola",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' was identified in the text chunk."
+            },
+            {
+                "species": "Hippolais pallida",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified based on the text mentioning 'Casi Amenazado; NT D1'. No further specific regional details beyond this general classification were provided in the text chunk."
+            },
+            {
+                "species": "Panurus biarmicus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'VU' (Vulnerable) is inferred from the mention of 'NT [VU B2ab(ii,v)]'. The abbreviation 'VU' directly corresponds to Vulnerable in the provided schema."
+            },
+            {
+                "species": "Parus caeruleus degener",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro; EN B1ab(i,ii,iii,iv,v)+2ab(i,ii,iii,iv,v)'. Other details like specific sub-categories (B1ab, 2ab) were also noted but the main status code 'EN' was extracted."
+            },
+            {
+                "species": "Parus caeruleus palmensis",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)'. The abbreviation 'EN' directly corresponds to Endangered in the IUCN Red List categories."
+            },
+            {
+                "species": "Parus caeruleus ombriosus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text chunk's mention of 'En Peligro; EN B1ab(i,ii,iii,v)+ 2ab(i,ii,iii,iv)'. The specific subcategory details were not extracted due to lack of explicit information in the provided text."
+            },
+            {
+                "species": "Lanius minor",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk. The specific subcategory (C2a(i)) is not captured in the standardized schema, so it remains as 'CR'. No other detailed population data or specific measures of conservation were explicitly mentioned."
+            },
+            {
+                "species": "Pica pica",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Lanius meridionalis",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Lanius senator",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Lanius collurio",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Lanius excubitor",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Pyrrhocorax pyrrhocorax erythroramphus",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide a clear conservation status using standard two-letter codes. It mentions 'Casi Amenazado' which translates to 'Near Threatened', but this is not represented by the predefined codes."
+            },
+            {
+                "species": "Pyrrhocorax pyrrhocorax barbarus",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B1ab(iii).'"
+            },
+            {
+                "species": "Corvus frugilegus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU D2' was identified in the text chunk."
+            },
+            {
+                "species": "Fringilla coelebs palmae",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro; EN B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)'. The specific subcategory details within parentheses were not extracted as per instructions."
+            },
+            {
+                "species": "Fringilla coelebs ombriosa",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk. The specific subcategory (B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)) was not extracted as per the schema requirements."
+            },
+            {
+                "species": "Fringilla teydea polatzeki",
+                "data": {
+                    "conservation_status": "CR"
+                },
+                "notes": "The conservation status 'CR' (Critically Endangered) was identified from the text chunk. The specific codes B1ab(ii,v); C2a(ii) are part of IUCN Red List Criteria and were noted but not directly mapped to a standard two-letter code in the output."
+            },
+            {
+                "species": "Fringilla teydea teydea",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' is directly extracted from the text chunk. The 'D2' part of the original description likely refers to a subcategory or regional detail not explicitly mentioned in the provided data fields."
+            },
+            {
+                "species": "Bucanetes githagineus zedlitzi",
+                "data": {
+                    "conservation_status": "NT"
+                },
+                "notes": "The conservation status 'NT' (Near Threatened) was identified from the text chunk. The specific region mentioned is Espa\u00f1a, and no conflicting information was found to alter this determination."
+            },
+            {
+                "species": "Bucanetes githagineus amantum",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk where it mentions 'En Peligro; EN B1b(i,ii,iii,iv,v)c(iii,iv)' indicating the species is classified as Endangered."
+            },
+            {
+                "species": "Emberiza schoeniclus witherbyi",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified from the text chunk as 'En Peligro; EN B1ab(i,ii,iv,v)+2ab(i,ii,iii,iv)'. The abbreviation 'EN' directly corresponds to Endangered in the IUCN Red List categories."
+            },
+            {
+                "species": "Emberiza schoeniclus lusitanica",
+                "data": {
+                    "conservation_status": "EN"
+                },
+                "notes": "The conservation status 'EN' was identified based on the text mentioning 'En Peligro; EN B1ab(i,ii,iv,v)+2ab(i,ii,iii,iv)'. The specific sub-category details beyond 'EN' were not extracted due to lack of precision in the provided text."
+            },
+            {
+                "species": "Emberiza schoeniclus schoeniclus",
+                "data": {
+                    "conservation_status": "VU"
+                },
+                "notes": "The conservation status 'Vulnerable; VU' is directly mentioned in the text chunk. The status code 'VU' aligns with the predefined schema."
+            },
+            {
+                "species": "Halia\u00ebtus albicilla",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information for Halia\u00ebtus albicilla. It mentions 'RE' in the distribution section, but without further context or a standardized code conversion, it's unclear if this directly corresponds to one of the predefined statuses."
+            },
+            {
+                "species": "Haliaeetus albicilla",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain information about the conservation status of Haliaeetus albicilla. It discusses a different species, Halc\u00f3n Born\u00ed Falco biarmicus (RE), and its distribution across Africa without mentioning any specifics related to Haliaeetus albicilla."
+            },
+            {
+                "species": "Falco biarmicus",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information for Falco biarmicus. It mentions 'extinguido como reproductor' (extinct as breeder) in Tarifa, Spain, but no standardized conservation status code is given."
+            },
+            {
+                "species": "Bonasa bonasia",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not contain explicit information about the conservation status of Bonasa bonasia. The closest reference to a potential status is 'RE?', which could be interpreted as a regional evaluation but lacks clarity and standard classification into one of the predefined categories."
+            },
+            {
+                "species": "Tetrao tetrix",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk provided does not contain any information regarding the conservation status of Tetrao tetrix. The distribution details are given, but no specific conservation status is mentioned."
+            },
+            {
+                "species": "Alectoris graeca saxatilis",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide information on the conservation status of Alectoris graeca saxatilis. The distribution details are given, but no specific conservation status is mentioned."
+            },
+            {
+                "species": "Anthropoides virgo",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide a clear conservation status code for Anthropoides virgo. The term 'Extinguida reciente' suggests recent extinction, but it doesn't map directly to the standardized codes (RE, CR, EN, VU, NT, LC, DD, NF). Therefore, I marked it as 'NF' for Not Found."
+            },
+            {
+                "species": "Grus grus",
+                "data": {
+                    "conservation_status": "RE"
+                },
+                "notes": "The conservation status 'RE' was directly extracted from the text chunk as part of the species distribution description."
+            },
+            {
+                "species": "Haematopus meadewaldoi",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The text chunk does not provide explicit conservation status information using standard codes. The species is described as 'endemismo' (endemics) and its historical presence in certain Canary Islands is noted, along with a mention of possible extinction around mid-20th century. Without a direct match to the predefined status codes, 'NF' is used."
+            },
+            {
+                "species": "Saxicola dacotiae murielae",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain explicit information about the conservation status of Saxicola dacotiae murielae. It mentions extinction (EX) in relation to taxa but does not specify a current conservation status for this specific subspecies."
+            },
+            {
+                "species": "Acanthis cannabina harterti",
+                "data": {
+                    "conservation_status": "NF"
+                },
+                "notes": "The provided text chunk does not contain information regarding the conservation status of Acanthis cannabina harterti. It focuses on its taxonomy and historical extinction status rather than current conservation status."
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "conservation_status",
+                "description": "The regional conservation status. This is often a two-letter code.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

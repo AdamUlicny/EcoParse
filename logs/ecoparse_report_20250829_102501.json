@@ -1,0 +1,2040 @@
+{
+    "report_timestamp": "2025-08-29T10:25:01.503995",
+    "pdf_info": {
+        "file_name": "XKX_Animalia_Fauna_2019.pdf",
+        "extracted_text_char_count": 869578
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 1453,
+        "total_species_identified_initial_filter": 321,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 109,
+        "final_species_list": [
+            {
+                "Verbatim": "Anguilla anguilla",
+                "Name": "Anguilla anguilla",
+                "Start": 80831,
+                "End": 80848,
+                "MatchType": "Exact",
+                "MatchedName": "Anguilla anguilla (Linnaeus, 1758)",
+                "MatchedCanonical": "Anguilla anguilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila chrysaetos",
+                "Name": "Aquila chrysaetos",
+                "Start": 84023,
+                "End": 84040,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila chrysaetos (Linnaeus, 1758)",
+                "MatchedCanonical": "Aquila chrysaetos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Ardea cinerea",
+                "Name": "Ardea cinerea",
+                "Start": 86921,
+                "End": 86934,
+                "MatchType": "Exact",
+                "MatchedName": "Ardea cinerea Linnaeus, 1758",
+                "MatchedCanonical": "Ardea cinerea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Gyps fulvus",
+                "Name": "Gyps fulvus",
+                "Start": 89992,
+                "End": 90003,
+                "MatchType": "Exact",
+                "MatchedName": "Gyps fulvus (Hablizl, 1783)",
+                "MatchedCanonical": "Gyps fulvus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Lynx lynx balcanicus",
+                "Name": "Lynx lynx balcanicus",
+                "Start": 92831,
+                "End": 92851,
+                "MatchType": "Exact",
+                "MatchedName": "Lynx lynx balcanicus (Bures, 1941)",
+                "MatchedCanonical": "Lynx lynx balcanicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Salmo marmoratus",
+                "Name": "Salmo marmoratus",
+                "Start": 136921,
+                "End": 136937,
+                "MatchType": "Exact",
+                "MatchedName": "Salmo marmoratus Cuvier, 1829",
+                "MatchedCanonical": "Salmo marmoratus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Salamandra atra",
+                "Name": "Salamandra atra",
+                "Start": 139924,
+                "End": 139939,
+                "MatchType": "Exact",
+                "MatchedName": "Salamandra atra Laurenti, 1768",
+                "MatchedCanonical": "Salamandra atra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Triturus alpestris",
+                "Name": "Triturus alpestris",
+                "Start": 142521,
+                "End": 142539,
+                "MatchType": "Exact",
+                "MatchedName": "Triturus alpestris (Laurenti, 1768)",
+                "MatchedCanonical": "Triturus alpestris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Aythya ferina",
+                "Name": "Aythya ferina",
+                "Start": 145726,
+                "End": 145739,
+                "MatchType": "Exact",
+                "MatchedName": "Aythya ferina (Linnaeus, 1758)",
+                "MatchedCanonical": "Aythya ferina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aythya nyroca",
+                "Name": "Aythya nyroca",
+                "Start": 149079,
+                "End": 149092,
+                "MatchType": "Exact",
+                "MatchedName": "Aythya nyroca (G\u00fcldenst\u00e4dt, 1770)",
+                "MatchedCanonical": "Aythya nyroca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Botaurus stellaris",
+                "Name": "Botaurus stellaris",
+                "Start": 152486,
+                "End": 152504,
+                "MatchType": "Exact",
+                "MatchedName": "Botaurus stellaris (Linnaeus, 1758)",
+                "MatchedCanonical": "Botaurus stellaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Himantopus \u2424himantopus",
+                "Name": "Himantopus himantopus",
+                "Start": 154983,
+                "End": 155005,
+                "MatchType": "Exact",
+                "MatchedName": "Himantopus himantopus (Linnaeus, 1758)",
+                "MatchedCanonical": "Himantopus himantopus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Tichodroma muraria",
+                "Name": "Tichodroma muraria",
+                "Start": 157737,
+                "End": 157755,
+                "MatchType": "Exact",
+                "MatchedName": "Tichodroma muraria (Linnaeus, 1766)",
+                "MatchedCanonical": "Tichodroma muraria",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Vanellus vanellus",
+                "Name": "Vanellus vanellus",
+                "Start": 160392,
+                "End": 160409,
+                "MatchType": "Exact",
+                "MatchedName": "Vanellus vanellus (Linnaeus, 1758)",
+                "MatchedCanonical": "Vanellus vanellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Capreolus capreolus",
+                "Name": "Capreolus capreolus",
+                "Start": 162965,
+                "End": 162984,
+                "MatchType": "Exact",
+                "MatchedName": "Capreolus capreolus (Linnaeus, 1758)",
+                "MatchedCanonical": "Capreolus capreolus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rupicapra \u2424rupicapra balcanica",
+                "Name": "Rupicapra rupicapra balcanica",
+                "Start": 166916,
+                "End": 166946,
+                "MatchType": "Exact",
+                "MatchedName": "Rupicapra rupicapra balcanica Bolkay, 1925",
+                "MatchedCanonical": "Rupicapra rupicapra balcanica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Cyprinus carpio",
+                "Name": "Cyprinus carpio",
+                "Start": 262022,
+                "End": 262037,
+                "MatchType": "Exact",
+                "MatchedName": "Cyprinus carpio Linnaeus, 1758",
+                "MatchedCanonical": "Cyprinus carpio",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Triturus cristatus",
+                "Name": "Triturus cristatus",
+                "Start": 265410,
+                "End": 265428,
+                "MatchType": "Exact",
+                "MatchedName": "Triturus cristatus (Laurenti, 1768)",
+                "MatchedCanonical": "Triturus cristatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Vipera ursinii macrops",
+                "Name": "Vipera ursinii macrops",
+                "Start": 269238,
+                "End": 269260,
+                "MatchType": "Exact",
+                "MatchedName": "Vipera ursinii macrops (M\u00e9hely, 1911)",
+                "MatchedCanonical": "Vipera ursinii macrops",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Accipiter brevipes",
+                "Name": "Accipiter brevipes",
+                "Start": 272809,
+                "End": 272827,
+                "MatchType": "Exact",
+                "MatchedName": "Accipiter brevipes (Severtsov, 1850)",
+                "MatchedCanonical": "Accipiter brevipes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Alcedo atthis",
+                "Name": "Alcedo atthis",
+                "Start": 275333,
+                "End": 275346,
+                "MatchType": "Exact",
+                "MatchedName": "Alcedo atthis (Linnaeus, 1758)",
+                "MatchedCanonical": "Alcedo atthis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Alectoris graeca",
+                "Name": "Alectoris graeca",
+                "Start": 278367,
+                "End": 278383,
+                "MatchType": "Exact",
+                "MatchedName": "Alectoris graeca (Meisner, 1804)",
+                "MatchedCanonical": "Alectoris graeca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco biarmicus",
+                "Name": "Falco biarmicus",
+                "Start": 281084,
+                "End": 281099,
+                "MatchType": "Exact",
+                "MatchedName": "Falco biarmicus Temminck, 1825",
+                "MatchedCanonical": "Falco biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus blasii",
+                "Name": "Rhinolophus blasii",
+                "Start": 283997,
+                "End": 284015,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus blasii Peters, 1867",
+                "MatchedCanonical": "Rhinolophus blasii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Eudontomyzon \u2424stankokaramani",
+                "Name": "Eudontomyzon stankokaramani",
+                "Start": 455433,
+                "End": 455461,
+                "MatchType": "Exact",
+                "MatchedName": "Eudontomyzon stankokaramani Karaman, 1974",
+                "MatchedCanonical": "Eudontomyzon stankokaramani",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Barbus rebeli",
+                "Name": "Barbus rebeli",
+                "Start": 458827,
+                "End": 458840,
+                "MatchType": "Exact",
+                "MatchedName": "Barbus rebeli Koller, 1926",
+                "MatchedCanonical": "Barbus rebeli",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Carassius carassius",
+                "Name": "Carassius carassius",
+                "Start": 461492,
+                "End": 461511,
+                "MatchType": "Exact",
+                "MatchedName": "Carassius carassius (Linnaeus, 1758)",
+                "MatchedCanonical": "Carassius carassius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Pachychilon pictum",
+                "Name": "Pachychilon pictum",
+                "Start": 464800,
+                "End": 464818,
+                "MatchType": "Exact",
+                "MatchedName": "Pachychilon pictum (Heckel & Kner, 1858)",
+                "MatchedCanonical": "Pachychilon pictum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rhodeus amarus",
+                "Name": "Rhodeus amarus",
+                "Start": 467480,
+                "End": 467494,
+                "MatchType": "Exact",
+                "MatchedName": "Rhodeus amarus (Bloch, 1782)",
+                "MatchedCanonical": "Rhodeus amarus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Ablepharus kitaibelii",
+                "Name": "Ablepharus kitaibelii",
+                "Start": 470907,
+                "End": 470928,
+                "MatchType": "Exact",
+                "MatchedName": "Ablepharus kitaibelii Bibron & Bory de Saint-Vincent, 1833",
+                "MatchedCanonical": "Ablepharus kitaibelii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|unranked|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Coronella austriaca",
+                "Name": "Coronella austriaca",
+                "Start": 474631,
+                "End": 474650,
+                "MatchType": "Exact",
+                "MatchedName": "Coronella austriaca Laurenti, 1768",
+                "MatchedCanonical": "Coronella austriaca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Darevskia praticola",
+                "Name": "Darevskia praticola",
+                "Start": 478164,
+                "End": 478183,
+                "MatchType": "Exact",
+                "MatchedName": "Darevskia praticola (Eversmann, 1834)",
+                "MatchedCanonical": "Darevskia praticola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Emys orbicularis",
+                "Name": "Emys orbicularis",
+                "Start": 481472,
+                "End": 481488,
+                "MatchType": "Exact",
+                "MatchedName": "Emys orbicularis (Linnaeus, 1758)",
+                "MatchedCanonical": "Emys orbicularis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Natrix natrix",
+                "Name": "Natrix natrix",
+                "Start": 485221,
+                "End": 485234,
+                "MatchType": "Exact",
+                "MatchedName": "Natrix natrix (Linnaeus, 1758)",
+                "MatchedCanonical": "Natrix natrix",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Podarcis tauricus",
+                "Name": "Podarcis tauricus",
+                "Start": 488811,
+                "End": 488828,
+                "MatchType": "Exact",
+                "MatchedName": "Podarcis tauricus (Georgi, 1801)",
+                "MatchedCanonical": "Podarcis tauricus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Testudo hermanni",
+                "Name": "Testudo hermanni",
+                "Start": 492287,
+                "End": 492303,
+                "MatchType": "Exact",
+                "MatchedName": "Testudo hermanni Gmelin, 1789",
+                "MatchedCanonical": "Testudo hermanni",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Zootoca vivipara",
+                "Name": "Zootoca vivipara",
+                "Start": 495732,
+                "End": 495748,
+                "MatchType": "Exact",
+                "MatchedName": "Zootoca vivipara (Lichtenstein, 1823)",
+                "MatchedCanonical": "Zootoca vivipara",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Acrocephalus \u2424palustris",
+                "Name": "Acrocephalus palustris",
+                "Start": 499562,
+                "End": 499585,
+                "MatchType": "Exact",
+                "MatchedName": "Acrocephalus palustris (Bechstein, 1798)",
+                "MatchedCanonical": "Acrocephalus palustris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas crecca",
+                "Name": "Anas crecca",
+                "Start": 502264,
+                "End": 502275,
+                "MatchType": "Exact",
+                "MatchedName": "Anas crecca Linnaeus, 1758",
+                "MatchedCanonical": "Anas crecca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Picoides tridactylus",
+                "Name": "Picoides tridactylus",
+                "Start": 505802,
+                "End": 505822,
+                "MatchType": "Exact",
+                "MatchedName": "Picoides tridactylus (Linnaeus, 1758)",
+                "MatchedCanonical": "Picoides tridactylus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Tetrao urogallus",
+                "Name": "Tetrao urogallus",
+                "Start": 508169,
+                "End": 508185,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao urogallus Linnaeus, 1758",
+                "MatchedCanonical": "Tetrao urogallus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Felis silvestris",
+                "Name": "Felis silvestris",
+                "Start": 511318,
+                "End": 511334,
+                "MatchType": "Exact",
+                "MatchedName": "Felis silvestris Schreber, 1777",
+                "MatchedCanonical": "Felis silvestris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lutra lutra",
+                "Name": "Lutra lutra",
+                "Start": 514471,
+                "End": 514482,
+                "MatchType": "Exact",
+                "MatchedName": "Lutra lutra (Linnaeus, 1758)",
+                "MatchedCanonical": "Lutra lutra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Miniopterus \u2424schreibersii",
+                "Name": "Miniopterus schreibersii",
+                "Start": 518010,
+                "End": 518035,
+                "MatchType": "Exact",
+                "MatchedName": "Miniopterus schreibersii (Kuhl, 1817)",
+                "MatchedCanonical": "Miniopterus schreibersii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Myotis blythii",
+                "Name": "Myotis blythii",
+                "Start": 521518,
+                "End": 521532,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) blythii (Tomes, 1857)",
+                "MatchedCanonical": "Myotis blythii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Myotis myotis",
+                "Name": "Myotis myotis",
+                "Start": 524663,
+                "End": 524676,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) myotis (Borkhausen, 1797)",
+                "MatchedCanonical": "Myotis myotis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus euryale",
+                "Name": "Rhinolophus euryale",
+                "Start": 527415,
+                "End": 527434,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus euryale Blasius, 1853",
+                "MatchedCanonical": "Rhinolophus euryale",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus \u2424ferrumequinum",
+                "Name": "Rhinolophus ferrumequinum",
+                "Start": 530418,
+                "End": 530444,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus ferrumequinum (Schreber, 1774)",
+                "MatchedCanonical": "Rhinolophus ferrumequinum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus \u2424hipposideros",
+                "Name": "Rhinolophus hipposideros",
+                "Start": 533811,
+                "End": 533836,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus hipposideros (Bechstein, 1800)",
+                "MatchedCanonical": "Rhinolophus hipposideros",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Ursus arctos",
+                "Name": "Ursus arctos",
+                "Start": 537100,
+                "End": 537112,
+                "MatchType": "Exact",
+                "MatchedName": "Ursus arctos Linnaeus, 1758",
+                "MatchedCanonical": "Ursus arctos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Barbus balcanicus",
+                "Name": "Barbus balcanicus",
+                "Start": 575326,
+                "End": 575343,
+                "MatchType": "Exact",
+                "MatchedName": "Barbus balcanicus Kotl\u00edk, Tsigenopoulos, R\u00e1b & Berrebi, 2002",
+                "MatchedCanonical": "Barbus balcanicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Scardinius \u2424erythrophthalmus",
+                "Name": "Scardinius erythrophthalmus",
+                "Start": 577589,
+                "End": 577617,
+                "MatchType": "Exact",
+                "MatchedName": "Scardinius erythrophthalmus (Linnaeus, 1758)",
+                "MatchedCanonical": "Scardinius erythrophthalmus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Bombina variegata",
+                "Name": "Bombina variegata",
+                "Start": 579684,
+                "End": 579701,
+                "MatchType": "Exact",
+                "MatchedName": "Bombina variegata (Linnaeus, 1758)",
+                "MatchedCanonical": "Bombina variegata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pelophylax ridibundus",
+                "Name": "Pelophylax ridibundus",
+                "Start": 582699,
+                "End": 582720,
+                "MatchType": "Exact",
+                "MatchedName": "Pelophylax ridibundus (Pallas, 1771)",
+                "MatchedCanonical": "Pelophylax ridibundus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Triturus vulgaris",
+                "Name": "Triturus vulgaris",
+                "Start": 585633,
+                "End": 585650,
+                "MatchType": "Exact",
+                "MatchedName": "Triturus vulgaris (Linnaeus, 1758)",
+                "MatchedCanonical": "Triturus vulgaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Algyroides \u2424nigropunctatus",
+                "Name": "Algyroides nigropunctatus",
+                "Start": 588235,
+                "End": 588261,
+                "MatchType": "Exact",
+                "MatchedName": "Algyroides nigropunctatus (Dum\u00e9ril & Bibron, 1839)",
+                "MatchedCanonical": "Algyroides nigropunctatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Anguis fragilis",
+                "Name": "Anguis fragilis",
+                "Start": 591346,
+                "End": 591361,
+                "MatchType": "Exact",
+                "MatchedName": "Anguis fragilis Linnaeus, 1758",
+                "MatchedCanonical": "Anguis fragilis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|unranked|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lacerta viridis",
+                "Name": "Lacerta viridis",
+                "Start": 594301,
+                "End": 594316,
+                "MatchType": "Exact",
+                "MatchedName": "Lacerta viridis (Laurenti, 1768)",
+                "MatchedCanonical": "Lacerta viridis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Natrix tessellata",
+                "Name": "Natrix tessellata",
+                "Start": 597393,
+                "End": 597410,
+                "MatchType": "Exact",
+                "MatchedName": "Natrix tessellata (Laurenti, 1768)",
+                "MatchedCanonical": "Natrix tessellata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Podarcis muralis",
+                "Name": "Podarcis muralis",
+                "Start": 600317,
+                "End": 600333,
+                "MatchType": "Exact",
+                "MatchedName": "Podarcis muralis (Laurenti, 1768)",
+                "MatchedCanonical": "Podarcis muralis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Vipera ammodytes",
+                "Name": "Vipera ammodytes",
+                "Start": 603248,
+                "End": 603264,
+                "MatchType": "Exact",
+                "MatchedName": "Vipera ammodytes (Linnaeus, 1758)",
+                "MatchedCanonical": "Vipera ammodytes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Vipera berus",
+                "Name": "Vipera berus",
+                "Start": 606638,
+                "End": 606650,
+                "MatchType": "Exact",
+                "MatchedName": "Vipera berus (Linnaeus, 1758)",
+                "MatchedCanonical": "Vipera berus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Zamenis longissimus",
+                "Name": "Zamenis longissimus",
+                "Start": 610349,
+                "End": 610368,
+                "MatchType": "Exact",
+                "MatchedName": "Zamenis longissimus (Laurenti, 1768)",
+                "MatchedCanonical": "Zamenis longissimus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Apodemus sylvaticus",
+                "Name": "Apodemus sylvaticus",
+                "Start": 616285,
+                "End": 616304,
+                "MatchType": "Exact",
+                "MatchedName": "Apodemus sylvaticus (Linnaeus, 1758)",
+                "MatchedCanonical": "Apodemus sylvaticus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Canis aureus",
+                "Name": "Canis aureus",
+                "Start": 618450,
+                "End": 618462,
+                "MatchType": "Exact",
+                "MatchedName": "Canis aureus Linnaeus, 1758",
+                "MatchedCanonical": "Canis aureus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Canis lupus",
+                "Name": "Canis lupus",
+                "Start": 621078,
+                "End": 621089,
+                "MatchType": "Exact",
+                "MatchedName": "Canis lupus Linnaeus, 1758",
+                "MatchedCanonical": "Canis lupus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Erinaceus \u2424roumanicus",
+                "Name": "Erinaceus roumanicus",
+                "Start": 623651,
+                "End": 623672,
+                "MatchType": "Exact",
+                "MatchedName": "Erinaceus roumanicus Barrett-Hamilton, 1900",
+                "MatchedCanonical": "Erinaceus roumanicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Glis glis",
+                "Name": "Glis glis",
+                "Start": 626403,
+                "End": 626412,
+                "MatchType": "Exact",
+                "MatchedName": "Glis glis (Linnaeus, 1766)",
+                "MatchedCanonical": "Glis glis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lepus europaeus",
+                "Name": "Lepus europaeus",
+                "Start": 628409,
+                "End": 628424,
+                "MatchType": "Exact",
+                "MatchedName": "Lepus europaeus Pallas, 1778",
+                "MatchedCanonical": "Lepus europaeus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Martes foina",
+                "Name": "Martes foina",
+                "Start": 631394,
+                "End": 631406,
+                "MatchType": "Exact",
+                "MatchedName": "Martes foina (Erxleben, 1777)",
+                "MatchedCanonical": "Martes foina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Martes martes",
+                "Name": "Martes martes",
+                "Start": 633660,
+                "End": 633673,
+                "MatchType": "Exact",
+                "MatchedName": "Martes martes (Linnaeus, 1758)",
+                "MatchedCanonical": "Martes martes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Meles meles",
+                "Name": "Meles meles",
+                "Start": 636127,
+                "End": 636138,
+                "MatchType": "Exact",
+                "MatchedName": "Meles meles (Linnaeus, 1758)",
+                "MatchedCanonical": "Meles meles",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mustela erminea",
+                "Name": "Mustela erminea",
+                "Start": 638744,
+                "End": 638759,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela erminea Linnaeus, 1758",
+                "MatchedCanonical": "Mustela erminea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mustela nivalis",
+                "Name": "Mustela nivalis",
+                "Start": 641595,
+                "End": 641610,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela nivalis Linnaeus, 1766",
+                "MatchedCanonical": "Mustela nivalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mustela putorius",
+                "Name": "Mustela putorius",
+                "Start": 644398,
+                "End": 644414,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela putorius Linnaeus, 1758",
+                "MatchedCanonical": "Mustela putorius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Sciurus vulgaris",
+                "Name": "Sciurus vulgaris",
+                "Start": 647441,
+                "End": 647457,
+                "MatchType": "Exact",
+                "MatchedName": "Sciurus (Sciurus) vulgaris Linnaeus, 1758",
+                "MatchedCanonical": "Sciurus vulgaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|tribe|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Sus scrofa",
+                "Name": "Sus scrofa",
+                "Start": 649767,
+                "End": 649777,
+                "MatchType": "Exact",
+                "MatchedName": "Sus scrofa Linnaeus, 1758",
+                "MatchedCanonical": "Sus scrofa",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Talpa caeca",
+                "Name": "Talpa caeca",
+                "Start": 652200,
+                "End": 652211,
+                "MatchType": "Exact",
+                "MatchedName": "Talpa caeca Savi, 1822",
+                "MatchedCanonical": "Talpa caeca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Vulpes vulpes",
+                "Name": "Vulpes vulpes",
+                "Start": 654390,
+                "End": 654403,
+                "MatchType": "Exact",
+                "MatchedName": "Vulpes vulpes (Linnaeus, 1758)",
+                "MatchedCanonical": "Vulpes vulpes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Gobio bulgaricus",
+                "Name": "Gobio bulgaricus",
+                "Start": 783205,
+                "End": 783221,
+                "MatchType": "Exact",
+                "MatchedName": "Gobio bulgaricus Drensky, 1926",
+                "MatchedCanonical": "Gobio bulgaricus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Leucaspius delineatus",
+                "Name": "Leucaspius delineatus",
+                "Start": 784688,
+                "End": 784709,
+                "MatchType": "Exact",
+                "MatchedName": "Leucaspius delineatus (Heckel, 1843)",
+                "MatchedCanonical": "Leucaspius delineatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rhodeus meridionalis",
+                "Name": "Rhodeus meridionalis",
+                "Start": 787583,
+                "End": 787603,
+                "MatchType": "Exact",
+                "MatchedName": "Rhodeus meridionalis Karaman, 1924",
+                "MatchedCanonical": "Rhodeus meridionalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Sabanejewia balcanica",
+                "Name": "Sabanejewia balcanica",
+                "Start": 789867,
+                "End": 789888,
+                "MatchType": "Exact",
+                "MatchedName": "Sabanejewia balcanica (Karaman, 1922)",
+                "MatchedCanonical": "Sabanejewia balcanica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Salmo macedonicus",
+                "Name": "Salmo macedonicus",
+                "Start": 792381,
+                "End": 792398,
+                "MatchType": "Exact",
+                "MatchedName": "Salmo macedonicus (Karaman, 1924)",
+                "MatchedCanonical": "Salmo macedonicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|gigaclass|superclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Bufo bufo",
+                "Name": "Bufo bufo",
+                "Start": 794019,
+                "End": 794028,
+                "MatchType": "Exact",
+                "MatchedName": "Bufo bufo (Linnaeus, 1758)",
+                "MatchedCanonical": "Bufo bufo",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Bufotes viridis",
+                "Name": "Bufotes viridis",
+                "Start": 797385,
+                "End": 797400,
+                "MatchType": "Exact",
+                "MatchedName": "Bufotes viridis (Laurenti, 1768)",
+                "MatchedCanonical": "Bufotes viridis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Hyla arborea",
+                "Name": "Hyla arborea",
+                "Start": 800586,
+                "End": 800598,
+                "MatchType": "Exact",
+                "MatchedName": "Hyla arborea (Linnaeus, 1758)",
+                "MatchedCanonical": "Hyla arborea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rana dalmatina",
+                "Name": "Rana dalmatina",
+                "Start": 803711,
+                "End": 803725,
+                "MatchType": "Exact",
+                "MatchedName": "Rana dalmatina Fitzinger in Bonaparte, 1838",
+                "MatchedCanonical": "Rana dalmatina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rana graeca",
+                "Name": "Rana graeca",
+                "Start": 806865,
+                "End": 806876,
+                "MatchType": "Exact",
+                "MatchedName": "Rana graeca Boulenger, 1891",
+                "MatchedCanonical": "Rana graeca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rana temporaria",
+                "Name": "Rana temporaria",
+                "Start": 809671,
+                "End": 809686,
+                "MatchType": "Exact",
+                "MatchedName": "Rana temporaria Linnaeus, 1758",
+                "MatchedCanonical": "Rana temporaria",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Salamandra \u2424salamandra",
+                "Name": "Salamandra salamandra",
+                "Start": 812999,
+                "End": 813021,
+                "MatchType": "Exact",
+                "MatchedName": "Salamandra salamandra (Linnaeus, 1758)",
+                "MatchedCanonical": "Salamandra salamandra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Dolichophis caspius",
+                "Name": "Dolichophis caspius",
+                "Start": 816713,
+                "End": 816732,
+                "MatchType": "Exact",
+                "MatchedName": "Dolichophis caspius (Gmelin, 1789)",
+                "MatchedCanonical": "Dolichophis caspius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lacerta agilis",
+                "Name": "Lacerta agilis",
+                "Start": 820110,
+                "End": 820124,
+                "MatchType": "Exact",
+                "MatchedName": "Lacerta agilis Linnaeus, 1758",
+                "MatchedCanonical": "Lacerta agilis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Podarcis erhardii",
+                "Name": "Podarcis erhardii",
+                "Start": 823331,
+                "End": 823348,
+                "MatchType": "Exact",
+                "MatchedName": "Podarcis erhardii (Bedriaga, 1882)",
+                "MatchedCanonical": "Podarcis erhardii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila fasciata",
+                "Name": "Aquila fasciata",
+                "Start": 826366,
+                "End": 826381,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila fasciata Vieillot, 1822",
+                "MatchedCanonical": "Aquila fasciata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Ciconia nigra",
+                "Name": "Ciconia nigra",
+                "Start": 832284,
+                "End": 832297,
+                "MatchType": "Exact",
+                "MatchedName": "Ciconia nigra (Linnaeus, 1758)",
+                "MatchedCanonical": "Ciconia nigra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco cherrug",
+                "Name": "Falco cherrug",
+                "Start": 835652,
+                "End": 835665,
+                "MatchType": "Exact",
+                "MatchedName": "Falco cherrug J. E. Gray, 1834",
+                "MatchedCanonical": "Falco cherrug",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Hieraaetus pennatus",
+                "Name": "Hieraaetus pennatus",
+                "Start": 838226,
+                "End": 838245,
+                "MatchType": "Exact",
+                "MatchedName": "Hieraaetus pennatus (J. F. Gmelin, 1788)",
+                "MatchedCanonical": "Hieraaetus pennatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Monticola saxatilis",
+                "Name": "Monticola saxatilis",
+                "Start": 841224,
+                "End": 841243,
+                "MatchType": "Exact",
+                "MatchedName": "Monticola saxatilis (Linnaeus, 1766)",
+                "MatchedCanonical": "Monticola saxatilis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Panurus biarmicus",
+                "Name": "Panurus biarmicus",
+                "Start": 843693,
+                "End": 843710,
+                "MatchType": "Exact",
+                "MatchedName": "Panurus biarmicus (Linnaeus, 1758)",
+                "MatchedCanonical": "Panurus biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Myotis capaccinii",
+                "Name": "Myotis capaccinii",
+                "Start": 846557,
+                "End": 846574,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) capaccinii (Bonaparte, 1837)",
+                "MatchedCanonical": "Myotis capaccinii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Myotis daubentonii",
+                "Name": "Myotis daubentonii",
+                "Start": 849136,
+                "End": 849154,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) daubentonii (Kuhl, 1817)",
+                "MatchedCanonical": "Myotis daubentonii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Myotis mystacinus",
+                "Name": "Myotis mystacinus",
+                "Start": 852109,
+                "End": 852126,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) mystacinus (Kuhl, 1817)",
+                "MatchedCanonical": "Myotis mystacinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Myotis nattereri",
+                "Name": "Myotis nattereri",
+                "Start": 854705,
+                "End": 854721,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) nattereri (Kuhl, 1817)",
+                "MatchedCanonical": "Myotis nattereri",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Pipistrellus pipistrellus",
+                "Name": "Pipistrellus pipistrellus",
+                "Start": 857271,
+                "End": 857296,
+                "MatchType": "Exact",
+                "MatchedName": "Pipistrellus pipistrellus (Schreber, 1774)",
+                "MatchedCanonical": "Pipistrellus pipistrellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Pipistrellus pygmaeus",
+                "Name": "Pipistrellus pygmaeus",
+                "Start": 859726,
+                "End": 859747,
+                "MatchType": "Exact",
+                "MatchedName": "Pipistrellus pygmaeus (Leach, 1825)",
+                "MatchedCanonical": "Pipistrellus pygmaeus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus auritus",
+                "Name": "Plecotus auritus",
+                "Start": 862253,
+                "End": 862269,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus auritus (Linnaeus, 1758)",
+                "MatchedCanonical": "Plecotus auritus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus austriacus",
+                "Name": "Plecotus austriacus",
+                "Start": 864639,
+                "End": 864658,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus austriacus (J. Fischer, 1829)",
+                "MatchedCanonical": "Plecotus austriacus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Vespertilio murinus",
+                "Name": "Vespertilio murinus",
+                "Start": 867317,
+                "End": 867336,
+                "MatchType": "Exact",
+                "MatchedName": "Vespertilio murinus Linnaeus, 1758",
+                "MatchedCanonical": "Vespertilio murinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "gemma3:12b",
+        "context_chars_before": 0,
+        "context_chars_after": 500,
+        "total_examples_provided": 1,
+        "examples_used": [
+            {
+                "input": "Threat category in Kosovo (IUCN\ncriteria)\nHabitat\nCritically Endangered, CR A2ac;\nB2ab(iii,iv)",
+                "output": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2ab(iii,iv)"
+                },
+                "explainer": "We want data from under \"Threat category in Kosovo (IUCN\ncriteria)\""
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 109,
+        "runtime_seconds": 306.00853157043457,
+        "total_input_tokens": 90520,
+        "total_output_tokens": 9321,
+        "extraction_results_summary": {
+            "LC": 53,
+            "NF": 34,
+            "VU": 9,
+            "NT": 8,
+            "CR": 2,
+            "EN": 2,
+            "DD": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Anguilla anguilla",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2ac; B2ab(iii,iv)"
+                },
+                "notes": "Extracted 'statusCodeVerbatim' and 'statusCriteria' from the 'Threat category in Europe (according to IUCN)' and 'Threat category in Kosovo (IUCN criteria)' sections."
+            },
+            {
+                "species": "Aquila chrysaetos",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment for Kosovo is provided with criteria. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Ardea cinerea",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no specific criteria are provided. The Kosovo assessment is 'Critically Endangered' with criteria 'CR B2ab(iv)', but the European assessment lacks criteria. Therefore, statusCodeVerbatim is LC and statusCriteria is NF."
+            },
+            {
+                "species": "Gyps fulvus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text also mentions 'Critically Endangered' in Kosovo, but no criteria are provided. Since the task requires regional IUCN based categories, and no criteria are provided, statusCriteria is set to NF."
+            },
+            {
+                "species": "Lynx lynx balcanicus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2ac; C2a(i)"
+                },
+                "notes": "Extracted 'CR' as the regional conservation status and 'A2ac; C2a(i)' as the criteria."
+            },
+            {
+                "species": "Salmo marmoratus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Salmo marmoratus in the provided text."
+            },
+            {
+                "species": "Salamandra atra",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Salamandra atra in the provided text."
+            },
+            {
+                "species": "Triturus alpestris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text also mentions 'Endangered' in Kosovo with criteria 'EN B2ab(iii,iv)', but this is a regional assessment and the 'statusCodeVerbatim' field should reflect the IUCN status. Since no criteria are provided for the European assessment, 'statusCriteria' is set to 'NF'."
+            },
+            {
+                "species": "Aythya ferina",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Vulnerable, VU' as the threat category in Europe, but no specific criteria are provided. The text also mentions 'Endangered, EN B2ab(ii)' as the threat category in Kosovo, but this is not a regional assessment."
+            },
+            {
+                "species": "Aythya nyroca",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe, but no specific criteria are provided. The text also mentions 'Endangered, EN B2ab(ii)' as the threat category in Kosovo, but this is not the regional status we are looking for."
+            },
+            {
+                "species": "Botaurus stellaris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment criteria are provided. The Kosovo assessment is 'Endangered, EN B2ab(ii)', but the criteria are not extracted as the 'statusCodeVerbatim' field is expected to be a IUCN code."
+            },
+            {
+                "species": "Himantopus himantopus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment criteria are provided. The text also mentions 'Endangered, EN B2ab(ii)' as the threat category in Kosovo, but this is not a verbatim status code."
+            },
+            {
+                "species": "Tichodroma muraria",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Endangered, EN B2ab(ii)' as the threat category in Kosovo, but this is not the regional status we are looking for."
+            },
+            {
+                "species": "Vanellus vanellus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe, but no criteria are provided. The text also mentions 'Endangered, EN B2ab(ii)' as the threat category in Kosovo, but no criteria are provided. Since the task requires the REGIONAL conservation status, and the text does not provide criteria for either region, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Capreolus capreolus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions a threat category in Europe as 'Least Concern (LC)'. However, it also mentions a threat category in Kosovo as 'Endangered (EN A2acd+3cd)'. Since the task requires the REGIONAL conservation status, I have extracted 'LC' as the global status. The criteria for the Kosovo assessment are present, but the task requires the criteria for the REGIONAL assessment, which is not provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Rupicapra rupicapra balcanica",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions the species is assessed as Endangered, but does not provide specific IUCN criteria. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Cyprinus carpio",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A3e"
+                },
+                "notes": "The provided text indicates a 'Vulnerable' status (VU) in Europe and Kosovo. The Kosovo assessment includes criteria 'A3e'."
+            },
+            {
+                "species": "Triturus cristatus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria are mentioned in the provided text."
+            },
+            {
+                "species": "Vipera ursinii macrops",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned in the provided text."
+            },
+            {
+                "species": "Accipiter brevipes",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": "VU is the regional conservation status in Kosovo, with criteria D2. LC is the global status."
+            },
+            {
+                "species": "Alcedo atthis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(iii)"
+                },
+                "notes": "The text provides a regional (Kosovo) assessment of 'Alcedo atthis' as Vulnerable (VU) with criteria B2ab(iii)."
+            },
+            {
+                "species": "Alectoris graeca",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1+2"
+                },
+                "notes": "The text provides two regional threat categories for Alectoris graeca. The first is 'Near Threatened, NT' for Europe, and the second is 'Vulnerable, VU D1+2' for Kosovo. I have selected the Kosovo assessment as the regional assessment."
+            },
+            {
+                "species": "Falco biarmicus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": "The text provides two regional threat categories for Falco biarmicus. The Kosovo assessment (VU D2) is the most recent and relevant regional assessment."
+            },
+            {
+                "species": "Rhinolophus blasii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(ii,iii)"
+                },
+                "notes": "Extracted the threat category for Kosovo as 'Vulnerable', which corresponds to 'VU' in IUCN codes. The criteria are B2ab(ii,iii)."
+            },
+            {
+                "species": "Eudontomyzon stankokaramani",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but not a regional assessment for Kosovo. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Barbus rebeli",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text also mentions 'Near Threatened' in Kosovo, but no criteria are provided. Since no criteria are provided for either assessment, statusCriteria is set to NF."
+            },
+            {
+                "species": "Carassius carassius",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened, NT' as the threat category in Kosovo, but no criteria are provided. Therefore, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Pachychilon pictum",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Pachychilon pictum in the provided text."
+            },
+            {
+                "species": "Rhodeus amarus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text also mentions 'Near Threatened, NT' as the threat category in Kosovo, but no criteria are provided. Since no criteria are provided for either region, statusCriteria is set to NF."
+            },
+            {
+                "species": "Ablepharus kitaibelii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no specific criteria are provided. The text mentions 'Near Threatened, NT' as the threat category in Kosovo, but no specific criteria are provided. Therefore, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Coronella austriaca",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no regional criteria are provided for Kosovo. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Darevskia praticola",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Emys orbicularis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as a threat category, but no specific criteria are provided. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Natrix natrix",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional criteria are provided for Kosovo. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Podarcis tauricus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment for Kosovo is provided with criteria. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Testudo hermanni",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is marked as NF."
+            },
+            {
+                "species": "Zootoca vivipara",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment for Kosovo is provided with criteria."
+            },
+            {
+                "species": "Acrocephalus palustris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened' in Kosovo, but no criteria are provided. Therefore, the status code is LC and criteria is NF."
+            },
+            {
+                "species": "Anas crecca",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened' in Kosovo, but no criteria are provided. Therefore, the status code is LC and criteria is NF."
+            },
+            {
+                "species": "Picoides tridactylus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Picoides tridactylus in the provided text."
+            },
+            {
+                "species": "Tetrao urogallus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened' in Kosovo, but no criteria are provided. Since no criteria are provided for either assessment, statusCriteria is set to NF."
+            },
+            {
+                "species": "Felis silvestris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened' in Kosovo, but no criteria are provided. Since no criteria are provided for either, statusCriteria is set to NF."
+            },
+            {
+                "species": "Lutra lutra",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Miniopterus schreibersii",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Myotis blythii",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Myotis blythii in the provided text."
+            },
+            {
+                "species": "Myotis myotis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned for Myotis myotis in the provided text."
+            },
+            {
+                "species": "Rhinolophus euryale",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Vulnerable, VU' as the threat category in Europe, but no criteria are provided. The threat category in Kosovo is 'Near Threatened, NT', but no criteria are provided. Therefore, the status code is VU and criteria are NF."
+            },
+            {
+                "species": "Rhinolophus ferrumequinum",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Rhinolophus hipposideros",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Near Threatened, NT' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Ursus arctos",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Near Threatened, NT' as the threat category in Kosovo, but no criteria are provided. Therefore, the status code is LC and criteria is NF."
+            },
+            {
+                "species": "Barbus balcanicus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but does not provide specific criteria. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Scardinius erythrophthalmus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is set to 'NF'."
+            },
+            {
+                "species": "Bombina variegata",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Pelophylax ridibundus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Pelophylax ridibundus in the provided text."
+            },
+            {
+                "species": "Triturus vulgaris",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Triturus vulgaris in the provided text."
+            },
+            {
+                "species": "Algyroides nigropunctatus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment for Kosovo is provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Anguis fragilis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Lacerta viridis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Natrix tessellata",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is set to NF."
+            },
+            {
+                "species": "Podarcis muralis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but no specific criteria are provided for Kosovo. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Vipera ammodytes",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but does not provide specific criteria. Therefore, statusCriteria is set to 'NF'."
+            },
+            {
+                "species": "Vipera berus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Zamenis longissimus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Apodemus sylvaticus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were mentioned in the text."
+            },
+            {
+                "species": "Canis aureus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Canis lupus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but does not provide the specific IUCN criteria used for the assessment. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Erinaceus roumanicus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Glis glis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Lepus europaeus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Martes foina",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned for Martes foina in the provided text."
+            },
+            {
+                "species": "Martes martes",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Meles meles",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe and Kosovo, but does not provide specific criteria. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Mustela erminea",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Mustela nivalis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned for Mustela nivalis in the provided text."
+            },
+            {
+                "species": "Mustela putorius",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned for Mustela putorius in the provided text."
+            },
+            {
+                "species": "Sciurus vulgaris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Sus scrofa",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Sus scrofa in the provided text."
+            },
+            {
+                "species": "Talpa caeca",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is marked as NF."
+            },
+            {
+                "species": "Vulpes vulpes",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category, but no specific criteria are provided for either Europe or Kosovo. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Gobio bulgaricus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned for Gobio bulgaricus in the provided text."
+            },
+            {
+                "species": "Leucaspius delineatus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no regional assessment for Kosovo is provided, only 'Data Deicient, DD'. Since Kosovo is a region, I am extracting 'DD' as the status code verbatim. However, the prompt asks for the criteria, which is not provided, so I am extracting 'NF'."
+            },
+            {
+                "species": "Rhodeus meridionalis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria are mentioned in the provided text."
+            },
+            {
+                "species": "Sabanejewia balcanica",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no specific criteria or Kosovo assessment is provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Salmo macedonicus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria were explicitly mentioned for Salmo macedonicus in the provided text."
+            },
+            {
+                "species": "Bufo bufo",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Since no criteria are provided for either region, statusCriteria is set to NF."
+            },
+            {
+                "species": "Bufotes viridis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Hyla arborea",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Rana dalmatina",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Rana graeca",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Therefore, statusCriteria is 'NF'."
+            },
+            {
+                "species": "Rana temporaria",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were mentioned in the provided text."
+            },
+            {
+                "species": "Salamandra salamandra",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Since no criteria are provided for either region, statusCriteria is set to NF."
+            },
+            {
+                "species": "Dolichophis caspius",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Lacerta agilis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Since no criteria are provided for either region, statusCriteria is set to NF."
+            },
+            {
+                "species": "Podarcis erhardii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Therefore, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Aquila fasciata",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no specific criteria are provided. The text also mentions 'Data Deicient, DD' as the threat category in Kosovo, but no specific criteria are provided. Therefore, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Ciconia nigra",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Since no criteria are provided for either region, statusCriteria is set to NF."
+            },
+            {
+                "species": "Falco cherrug",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Endangered, EN' as the threat category in Europe, but no criteria are provided. The text also mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Since the task requires regional IUCN codes, and no criteria are provided, statusCriteria is set to NF."
+            },
+            {
+                "species": "Hieraaetus pennatus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but not a regional assessment for Kosovo. Therefore, statusCriteria is NF."
+            },
+            {
+                "species": "Monticola saxatilis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but no criteria are provided. The text mentions 'Data Deicient, DD' as the threat category in Kosovo, but no criteria are provided. Therefore, the statusCriteria is set to NF."
+            },
+            {
+                "species": "Panurus biarmicus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Data Deicient, DD' as the threat category in both Europe and Kosovo, but does not provide specific criteria. Therefore, statusCodeVerbatim is DD and statusCriteria is NF."
+            },
+            {
+                "species": "Myotis capaccinii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Vulnerable, VU' as the threat category in Europe, but no criteria are provided. The threat category in Kosovo is 'Data Deicient, DD' without criteria. Therefore, the status code is VU and criteria is NF."
+            },
+            {
+                "species": "Myotis daubentonii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Least Concern, LC' as the threat category in Europe, but not Kosovo. The Kosovo assessment is 'Data Deicient, DD', but no criteria are provided."
+            },
+            {
+                "species": "Myotis mystacinus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were explicitly mentioned for Myotis mystacinus in the provided text."
+            },
+            {
+                "species": "Myotis nattereri",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned for Myotis nattereri in the provided text."
+            },
+            {
+                "species": "Pipistrellus pipistrellus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria are explicitly mentioned for Pipistrellus pipistrellus in the provided text."
+            },
+            {
+                "species": "Pipistrellus pygmaeus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria are mentioned in the provided text."
+            },
+            {
+                "species": "Plecotus auritus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria mentioned in the provided text."
+            },
+            {
+                "species": "Plecotus austriacus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria are mentioned in the text."
+            },
+            {
+                "species": "Vespertilio murinus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No conservation status or criteria were mentioned in the provided text."
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

@@ -1,0 +1,474 @@
+{
+    "report_timestamp": "2025-09-12T09:16:11.009734",
+    "pdf_info": {
+        "file_name": "NLD_Animalia_Amphibians_2023.pdf",
+        "extracted_text_char_count": 93427
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 28,
+        "total_species_identified_initial_filter": 24,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 19,
+        "final_species_list": [
+            {
+                "Verbatim": "(Salamandra salamandra ssp. terrestris)",
+                "Name": "Salamandra salamandra ssp. terrestris",
+                "Start": 2073,
+                "End": 2112,
+                "MatchType": "Unverified",
+                "MatchedName": "Salamandra salamandra ssp. terrestris",
+                "MatchedCanonical": "Salamandra salamandra ssp. terrestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Triturus cristatus)",
+                "Name": "Triturus cristatus",
+                "Start": 9368,
+                "End": 9388,
+                "MatchType": "Unverified",
+                "MatchedName": "Triturus cristatus",
+                "MatchedCanonical": "Triturus cristatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Lissotriton helveticus ssp. helveticus)",
+                "Name": "Lissotriton helveticus ssp. helveticus",
+                "Start": 14787,
+                "End": 14827,
+                "MatchType": "Unverified",
+                "MatchedName": "Lissotriton helveticus ssp. helveticus",
+                "MatchedCanonical": "Lissotriton helveticus ssp. helveticus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Bombina variegata ssp. variegata)",
+                "Name": "Bombina variegata ssp. variegata",
+                "Start": 23143,
+                "End": 23177,
+                "MatchType": "Unverified",
+                "MatchedName": "Bombina variegata ssp. variegata",
+                "MatchedCanonical": "Bombina variegata ssp. variegata",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Pelobates fuscus)",
+                "Name": "Pelobates fuscus",
+                "Start": 29435,
+                "End": 29453,
+                "MatchType": "Unverified",
+                "MatchedName": "Pelobates fuscus",
+                "MatchedCanonical": "Pelobates fuscus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Hyla arborea)",
+                "Name": "Hyla arborea",
+                "Start": 36046,
+                "End": 36060,
+                "MatchType": "Unverified",
+                "MatchedName": "Hyla arborea",
+                "MatchedCanonical": "Hyla arborea",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Ichthyosaura alpestris ssp. alpestris)",
+                "Name": "Ichthyosaura alpestris ssp. alpestris",
+                "Start": 41493,
+                "End": 41532,
+                "MatchType": "Unverified",
+                "MatchedName": "Ichthyosaura alpestris ssp. alpestris",
+                "MatchedCanonical": "Ichthyosaura alpestris ssp. alpestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Bufo bufo ssp. bufo)",
+                "Name": "Bufo bufo ssp. bufo",
+                "Start": 44255,
+                "End": 44276,
+                "MatchType": "Unverified",
+                "MatchedName": "Bufo bufo ssp. bufo",
+                "MatchedCanonical": "Bufo bufo ssp. bufo",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Epidalea calamita)",
+                "Name": "Epidalea calamita",
+                "Start": 48007,
+                "End": 48026,
+                "MatchType": "Unverified",
+                "MatchedName": "Epidalea calamita",
+                "MatchedCanonical": "Epidalea calamita",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Rana arvalis ssp. arvalis)",
+                "Name": "Rana arvalis ssp. arvalis",
+                "Start": 50376,
+                "End": 50403,
+                "MatchType": "Unverified",
+                "MatchedName": "Rana arvalis ssp. arvalis",
+                "MatchedCanonical": "Rana arvalis ssp. arvalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Rana temporaria ssp. temporaria)",
+                "Name": "Rana temporaria ssp. temporaria",
+                "Start": 52743,
+                "End": 52776,
+                "MatchType": "Unverified",
+                "MatchedName": "Rana temporaria ssp. temporaria",
+                "MatchedCanonical": "Rana temporaria ssp. temporaria",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Pelophylax lessonae ssp. lessonae)",
+                "Name": "Pelophylax lessonae ssp. lessonae",
+                "Start": 54167,
+                "End": 54202,
+                "MatchType": "Unverified",
+                "MatchedName": "Pelophylax lessonae ssp. lessonae",
+                "MatchedCanonical": "Pelophylax lessonae ssp. lessonae",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Zootoca vivipara ssp. vivipara)",
+                "Name": "Zootoca vivipara ssp. vivipara",
+                "Start": 59847,
+                "End": 59879,
+                "MatchType": "Unverified",
+                "MatchedName": "Zootoca vivipara ssp. vivipara",
+                "MatchedCanonical": "Zootoca vivipara ssp. vivipara",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Podarcis muralis ssp. brongniardii)",
+                "Name": "Podarcis muralis ssp. brongniardii",
+                "Start": 64555,
+                "End": 64591,
+                "MatchType": "Unverified",
+                "MatchedName": "Podarcis muralis ssp. brongniardii",
+                "MatchedCanonical": "Podarcis muralis ssp. brongniardii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Coronella austriaca ssp. austriaca)",
+                "Name": "Coronella austriaca ssp. austriaca",
+                "Start": 72079,
+                "End": 72115,
+                "MatchType": "Unverified",
+                "MatchedName": "Coronella austriaca ssp. austriaca",
+                "MatchedCanonical": "Coronella austriaca ssp. austriaca",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Natrix helvetica ssp. helvetica)",
+                "Name": "Natrix helvetica ssp. helvetica",
+                "Start": 77212,
+                "End": 77245,
+                "MatchType": "Unverified",
+                "MatchedName": "Natrix helvetica ssp. helvetica",
+                "MatchedCanonical": "Natrix helvetica ssp. helvetica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Vipera berus ssp. berus)",
+                "Name": "Vipera berus ssp. berus",
+                "Start": 81164,
+                "End": 81189,
+                "MatchType": "Unverified",
+                "MatchedName": "Vipera berus ssp. berus",
+                "MatchedCanonical": "Vipera berus ssp. berus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Anguis fragilis)",
+                "Name": "Anguis fragilis",
+                "Start": 86252,
+                "End": 86269,
+                "MatchType": "Unverified",
+                "MatchedName": "Anguis fragilis",
+                "MatchedCanonical": "Anguis fragilis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Lacerta agilis ssp. agilis)",
+                "Name": "Lacerta agilis ssp. agilis",
+                "Start": 87292,
+                "End": 87320,
+                "MatchType": "Unverified",
+                "MatchedName": "Lacerta agilis ssp. agilis",
+                "MatchedCanonical": "Lacerta agilis ssp. agilis",
+                "ClassificationPath": ""
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "qwen3:30b-a3b-instruct-2507-q4_K_M",
+        "context_chars_before": 0,
+        "context_chars_after": 1500,
+        "total_examples_provided": 1,
+        "examples_used": [
+            {
+                "input": "IUCN-criteria: near threatened (A2b)",
+                "output": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2b"
+                },
+                "explainer": "translat IUCN threat into 2 letter code. Criteria are in parentheses ()"
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 19,
+        "runtime_seconds": 64.2102541923523,
+        "total_input_tokens": 20999,
+        "total_output_tokens": 2129,
+        "extraction_results_summary": {
+            "LC": 11,
+            "NT": 4,
+            "VU": 3,
+            "CR": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Salamandra salamandra ssp. terrestris",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2be, C1"
+                },
+                "notes": "The IUCN Nederland 2023 assessment explicitly states 'critically endangered' with criteria A2be and C1, which are directly applicable to the species. This is the most recent regional assessment and takes precedence.",
+                "context_chunks": [
+                    "Salamandra salamandra ssp. terrestris)\nRode Lijst 2023:\nernstig bedreigd\nRode Lijst 2007:\nbedreigd\nIUCN Nederland 2023: critically endangered \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt tussen de 50\nen 250 volwassen dieren geschat en de soort plant zich\nvoort in 4 atlasblokken, wat in beide gevallen leidt tot\nzeldzaamheidsklasse zeer zeldzaam (zzz).\nTrend sinds 1950: de verspreiding is afgenomen met\n50% wat leidt tot trendklasse sterk afgenomen (tt). De\npopulatiegrootte is afgenomen met 99%, wat leidt tot\nde zwaardere trendklasse zeer sterk afgenomen (ttt). \n\nFiguur 8. Aantalstrend vuursalamander sinds 1997 \n\nIUCN-criteria: critically endangered (A2be, C1)\nA. Populatieverandering: critically endangered (A2be)\nDe populatietrend over drie generaties is een achteruitgang van 99%. Het A2-criterium is\ngebaseerd op een passende index (toevoeging b) en het gevolg van de inbreng van een pathogeen\n(toevoeging e).9\nB. Verspreiding: endangered (B2ab)\nDe \u2018area of occupancy\u2019 (AOO) is 28 km2 (7 hokken van 2 bij 2 km)10. Het aantal populaties\nbedraagt 2 (B2a). De voortdurend afname (B2b) betreft oppervlak, verspreiding en kwaliteit11\nvan het habitat (iii), het aantal locaties (iv) en het aantal volwassen individuen (v). \n\n9 De generatietijd voor deze relatief langlevende soort wordt geschat op >8 jaar, daarom wordt voor de trend\nover 3 generaties uitgegaan van een periode van 25 jaar. Deze soort kan niet onder het A1-criterium vallen,\nomdat de achteruitgang weliswaar begrepen wordt, maar niet tegelijk aan de"
+                ]
+            },
+            {
+                "species": "Triturus cristatus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2be"
+                },
+                "notes": "The latest regional IUCN assessment for 2023 is 'near threatened' with criteria A2be, based on the population trend and additional factors such as local decline due to hybridization and pathogens. This is the most recent and relevant assessment for the species.",
+                "context_chunks": [
+                    "Triturus cristatus)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nkwetsbaar\nIUCN Nederland 2023: near threatened \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt\ntot zeldzaamheidsklasse algemeen (a). De soort plant\nzich voort in 397 atlasblokken, wat leidt tot de\nzwaardere zeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n38%, wat leidt tot trendklasse matig afgenomen (t).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met\nde populatiegrootte rond 1950 kan de populatietrend niet worden geschat. \n\nIUCN-criteria: near threatened (A2be)\nA. Populatieverandering: near threatened (A2be)\nDe populatietrend over drie generaties is een achteruitgang van 20-30%. Het A2-criterium is\ngebaseerd op een passende index (toevoegingen b en e): de trend op kilometerhokniveau van\nsinds 1997; tevens is sprake van lokale afname door hybridisatie en pathogenen.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 is welisaar 3.420 km2, maar er zijn te weinig\naanwijzingen voor het voldoen aan de benodigde aanvullende criteria voor vulnerable of near\nthreatened.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreiding en ontwikkelingen\nDe kamsalamander komt voor in wateren met een goede waterkwalitei"
+                ]
+            },
+            {
+                "species": "Lissotriton helveticus ssp. helveticus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The IUCN Nederland 2023 assessment is 'least concern', which corresponds to the code 'LC'. No specific criteria (e.g., A2b, B1ab(iii,v)) are provided for the regional assessment in the text, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Lissotriton helveticus ssp. helveticus)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nkwetsbaar\nIUCN Nederland 2023: least concern \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt tot\nzeldzaamheidsklasse algemeen (a). De soort plant zich\nvoort in 88 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n26%, wat leidt tot trendklasse matig afgenomen (t).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met de\npopulatiegrootte rond 1950 kan de populatietrend niet worden geschat. \n\nIUCN-criteria: least concern\nA. Populatieverandering: least concern\nHieraan wordt niet voldaan: lichte toename sinds 1997.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 is welisaar 844 km2, maar er zijn te weinig\naanwijzingen voor het voldoen aan de benodigde aanvullende criteria voor vulnerable of near\nthreatened.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreiding en ontwikkelingen\nNatuurlijke populaties van de vinpootsalamander kwamen en komen alleen voor in NoordBrabant en Limburg. Meldingen van de soort buiten deze provincies betreffen foute\ndeterminaties en/of uitzettingen buiten het natuurlijke areaal. De verspreiding van de soort is\nsterk gebonden aan hogere dekzand"
+                ]
+            },
+            {
+                "species": "Bombina variegata ssp. variegata",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ac"
+                },
+                "notes": "The latest regional IUCN assessment for 2023 is 'vulnerable', corresponding to the code 'VU'. The criteria 'B2ac' are explicitly stated in the text as the basis for this assessment.",
+                "context_chunks": [
+                    "Bombina variegata ssp. variegata)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nernstig bedreigd\nIUCN Nederland 2023: vulnerable \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt tussen de\n250 en 1.500 volwassen individuen geschat, wat leidt\ntot zeldzaamheidsklasse zeldzaam (zz). De soort plant\nzich voort in 9 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse zeer zeldzaam (zzz).\nTrend sinds 1950: de verspreiding is afgenomen met\n44%. Dit leidt tot de trendklasse matige afname (t).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met\nde populatiegrootte rond 1950 kan de populatietrend niet worden geschat.\nEr wordt wel jaarlijks aantalstrend (tn) vanaf 2000 berekend op basis van tellingen die in het\nkader van het NEM verzameld worden. \n\nFiguur 10. Index (referentie 1950=100) op basis van het aantal bezette atlasblokken in vier\ngesommeerde tijdsperiodes. \n\nIUCN-criteria: vulnerable (B2ac)\nA. Populatieverandering: least concern\nHieraan wordt niet voldaan: matige toename in aantallen sinds 2000.\nB. Verspreiding: vulnerable (B2ac)\nDe \u2018area of occupancy\u2019 is 116 km2. Het aantal bezette atlasblokken is gestegen van 3 in de periode\n2000-2005 naar 9 in de laatste periode. Het betreft 9 populaties. De achteruitgang van de soort\nis qua verspreiding weliswaar veranderd in een vooruitgang, maar de soort komt op minder dan\n10 plekken voor en aantallen laten nogal extreme variaties zien van jaar tot jaar, wat vooral te\nmaken heeft met te vroeg droogvallen"
+                ]
+            },
+            {
+                "species": "Pelobates fuscus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment is 'least concern', which corresponds to the code 'LC'. The criteria 'A2b' are explicitly mentioned in the text under 'IUCN-criteria: least concern' and are part of the assessment rationale. The regional status 'kwetsbaar' (2023) and 'bedreigd' (2007) are not used as they are not IUCN codes and the latest IUCN assessment is prioritized.",
+                "context_chunks": [
+                    "Pelobates fuscus)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nbedreigd\nIUCN Nederland 2023: least concern \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt tussen de\n2.500 en 10.000 volwassen individuen geschat, wat\nleidt tot zeldzaamheidsklasse vrij zeldzaam (z). De\nsoort plant zich voort in 65 atlasblokken, wat leidt tot\nde zwaardere zeldzaamheidsklasse zeldzaam (zz).\nTrend sinds 1950: de verspreiding is afgenomen met\n39%. Dit leidt tot de trendklasse matige afname (t).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met de\npopulatiegrootte rond 1950 kan de populatietrend niet worden geschat. \n\nFiguur 11. Index (referentie 1950=100) op basis van het aantal bezette atlasblokken in vier\ngesommeerde tijdsperiodes. \n\nIUCN-criteria: least concern\nA. Populatieverandering (achteruitgang): least concern\nToename, daarom niet geclassificeerd.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 is weliswaar 400 km2, maar er zijn te weinig\naanwijzingen voor het voldoen aan de benodigde aanvullende criteria voor vulnerable of near\nthreatened.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan: de totale populatie bestaat weliswaar waarschijnlijk uit tussen de\n5.000 tot 10.000 volwassen, reproducerende dieren, verdeeld over circa 45 populaties, maar er\nis geen sprake van een afname.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreid"
+                ]
+            },
+            {
+                "species": "Hyla arborea",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment is 'least concern', which corresponds to the code 'LC'. The criteria 'A2b' are explicitly mentioned in the text under 'IUCN-criteria: least concern' and 'A. Populatieverandering: least concern' with the note 'Hieraan wordt niet voldaan: toename', indicating that the criteria used are A2b. The regional assessment is based on the latest available data (2023).",
+                "context_chunks": [
+                    "Hyla arborea)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nbedreigd\nIUCN Nederland 2023: least concern \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt tussen de\n20.000 en 30.000 volwassen individuen geschat, wat\nleidt tot zeldzaamheidsklasse algemeen (a) of vrij\nzeldzaam (z). De soort plant zich voort in 97\natlasblokken, wat leidt tot de zeldzaamheidsklasse vrij\nzeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n56%. Dit leidt tot de trendklasse sterke afname (tt).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met de populatiegrootte rond 1950 kan de\npopulatietrend niet worden geschat. \n\nFiguur 12. Index (referentie 1950=100) op basis van het aantal bezette atlasblokken in vier\ngesommeerde tijdsperiodes. \n\nIUCN-criteria: least concern\nA. Populatieverandering: least concern\nHieraan wordt niet voldaan: toename.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 is welisaar 1.232 km2, maar er zijn te weinig\naanwijzingen voor het voldoen aan de benodigde aanvullende criteria voor vulnerable of near\nthreatened.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan: de totale populatie bestaat weliswaar waarschijnlijk uit tussen de\n20.o00 tot 30.000 volwassen, reproducerende dieren, maar er is geen sprake van een afname. \n\n=== PAGE 14 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n59\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan "
+                ]
+            },
+            {
+                "species": "Ichthyosaura alpestris ssp. alpestris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the IUCN code 'LC'. No specific criteria are provided for this assessment, so 'statusCriteria' is set to 'NF'.",
+                "context_chunks": [
+                    "Ichthyosaura alpestris ssp. alpestris)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: least concern \n\nDe Alpenwatersalamander is een vrij zeldzame soort\nmet een ruime habitatkeuze. De soort komt in een\nveelheid aan watertypen voor. Ze planten zich ook\nvoort in kleine tuinvijvers, zelfs in betonnen bakken of\nplastic kuipen. Het zwaartepunt van de natuurlijke\nverspreiding ligt in Noord-Brabant en Limburg. Buiten\ndeze provincies is de soort bekend van Drenthe13, het\nzuiden van Zeeuws-Vlaanderen en het Rijk van\nNijmegen (Gelderland). In andere gebieden en\nprovincies zijn de Alpenwatersalamanders aantoonbaar uitgezet, deze vallen buiten het\nnatuurlijk areaal (Creemers & van Delft, 2009). Inmiddels is dit op steeds grotere schaal het\ngeval, waardoor de soort ook in Midden- en West-Nederland algemener wordt.\nHet aantal atlasblokken in het natuurlijk areaal is licht toegenomen, waarschijnlijk wordt dit\nvooral veroorzaakt door een verhoogde inventarisatieactiviteit en een daardoor betere kennis\nvan de verspreiding. Grote, niet op een verandering in de inventarisatieactiviteit of uitzettingen\nberustende verschuivingen in de verspreiding hebben zich hier niet voorgedaan.\nSpecifieke maatregelen zijn niet noodzakelijk. De gangbare maatregelen die voor amfibie\u00ebn\nworden genomen, bieden ook goede kansen aan de Alpenwatersalamander. In tal van\npoelenonderzoeken blijkt de soort nieuwe wateren snel te accepteren. De soort profiteert ook\nvan venherstel. \n\nKleine watersalamander (Lisso"
+                ]
+            },
+            {
+                "species": "Bufo bufo ssp. bufo",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment for Bufo bufo ssp. bufo is 'vulnerable' with criteria A2b, which is the most recent and specific regional assessment provided. The Rode Lijst 2023 and 2007 statuses are 'thans niet bedreigd', but the IUCN Nederland 2023 status takes precedence as it is the latest and explicitly tied to criteria.",
+                "context_chunks": [
+                    "Bufo bufo ssp. bufo)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: vulnerable \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat en de soort\nplant zich voort in 1.488 atlasblokken, wat in beide\ngevallen leidt tot zeldzaamheidsklasse algemeen (a).\nTrend sinds 1950: de verspreiding is toegenomen met\n24%, wat leidt tot de trendklasse stabiel of\ntoegenomen (0/+). Vanwege het ontbreken van\nbetrouwbare\ngegevens\nover\nde\nhuidige\npopulatiegrootte in vergelijking met de populatiegrootte rond 1950 kan de populatietrend niet\nworden geschat. \n\nIUCN-criteria: vulnerable (A2b)\nA. Populatieverandering: vulnerable (A2b)\nDe populatietrend over drie generaties is een achteruitgang van meer dan 30%. Het A2criterium is gebaseerd op een passende index (toevoeging b): dit is gebaseerd op de\nachteruitgang op oversteekplaatsen (zie figuur 13; zie uitleg hieronder).\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 ligt boven de 2.000 km2.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nFiguur 13. Aantalstrend (referentie 2008=100) (padden.nu) \n\nDe aantalstrend berekend uit het aantal overgezette padden laat op deze oversteekplaatsen voor\nde gewone pad een afname van rond de 50% zien vergeleken met 2008 (figuur 13). Deze cijfers\nworden via Padden.nu verzameld ("
+                ]
+            },
+            {
+                "species": "Epidalea calamita",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the code 'LC'. No specific criteria are provided for this assessment, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Epidalea calamita)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\ngereconstrueerd: thans niet bedreigd; gepubliceerd: gevoelig\nIUCN Nederland 2023: least concern \n\nDe verspreiding van de rugstreeppad is met 29%\nafgenomen, maar het is nog steeds een algemene soort.\nIn het vorige Rode-Lijstrapport werd uitgegaan van\neen sterk afgenomen populatietrend, maar die\npopulatietrend bleek onbetrouwbaar te zijn. De\ntrendklasse voor de gereconstrueerde Rode Lijst 2007\nkan daardoor alleen maar worden gebaseerd op de\nverspreidingstrend. Die trendklasse was toen (en ook\nnu) matig afgenomen (t), waardoor de oorspronkelijke\ncategorie Gevoelig is gecorrigeerd naar Thans niet bedreigd. \n\nDe rugstreeppad heeft vier zwaartepunten qua verspreiding: de duinen, het rivierengebied, in\npolders en laagveen in West-Nederland en de Noordoostpolder. Daarnaast komt de soort voor\nop de hogere zandgronden, maar daar is de verspreiding meer gelokaliseerd tot grotere\nnatuurgebieden. Verspreid over de zandgronden lijken veel van deze populaties te verdwijnen\nen vallen steeds grotere gaten in de voormalige verspreiding. Daartegenover staat dat de soort \n\n=== PAGE 18 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n63\nsuccesvol Flevoland (vooral de Noordoostpolder) heeft gekoloniseerd na de aanleg van deze\npolders. Al met al is de verspreiding over de periode 1997-2021 ruwweg stabiel.\nDe (voormalige) afname van de rugstreeppad komt vooral door het verdwijnen van natuurlijke\ndynamische processen in belangrijke l"
+                ]
+            },
+            {
+                "species": "Rana arvalis ssp. arvalis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the code 'LC'. No specific criteria (e.g., A2b) are provided for the regional assessment, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Rana arvalis ssp. arvalis)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: least concern \n\nDe heikikker komt voor in hoog- en laagvenen, op de\nheide,\nin\nbeekdalen,\nin\nklei-op-veenen\nkomkleigebieden en ook in de uiterwaarden van de\nNederrijn/Lek. De zwaartepunten liggen in Drenthe en\naangrenzend Friesland en in veenweidegebieden\n(laagveen en klei-op-veen). Ook daarbuiten komen\nduidelijke\nconcentraties\nvoor,\nmet\nname\nin\nvoedselarme, schrale milieus in Limburg, NoordBrabant,\nGelderland\nen\nOverijssel\nen\nin\nlaagveengordels in Noord-Nederland. Langs de kust is de soort aanwezig op Texel en in de Kop\nvan Schouwen.\nDe heikikker is een vrij algemene soort waarvan de verspreiding echter wel met 34% is\nafgenomen. Deze afname heeft tussen 1950 en 1997 plaatsgevonden (de verspreidingstrend\nvanaf 1997 is stabiel). Her en der lijken atlasblokken af te vallen. Daar staan nieuw ontdekte\natlasblokken tegenover. Het is echter heel aannemelijk dat deze 'nieuwe hokken' niet zozeer een\nuitbreiding van het verspreidingsgebied weerspiegelen, maar dat het niet eerder ontdekte\nrestpopulaties zijn. Met name in Groningen, Friesland, Alblasserwaard en Krimpenerwaard zijn\nveel 'nieuwe' vindplaatsen en atlasblokken gevonden (Luijten, 2004; van den Bogert, 2005; van\nEekelen, 2014; van der Lugt & Slagboom, 2016). \n\nDe heikikker heeft sterk te lijden gehad van de grootschalige ontginningen van heide en\nhoogveen. De intensivering van de landbouw en de daarmee gepaard gaande verdroging in "
+                ]
+            },
+            {
+                "species": "Rana temporaria ssp. temporaria",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the code 'LC'. No specific criteria are provided for this assessment, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Rana temporaria ssp. temporaria)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: least concern \n\nDe bruine kikker is een zeer algemene soort die in\ngeheel Nederland aangetroffen kan worden. De soort\nkomt voor in alle landschapstypen, van het zeeklei-,\nlaagveen- en duinlandschap tot het zand- en\nheuvellandschap. De soort heeft een voorkeur voor\nmatig voedselrijke tot zeer voedselrijke wateren.\nAlleen groot open water in de vorm van meren wordt\ngemeden. In voedselarmere wateren en habitats\n(vennen en hoogveen) is de verwante heikikker de\ndominante soort. De landhabitat is eveneens zeer divers, de soort komt ook voor in stedelijk\ngebied en heeft aan een tuin met een tuinvijver vaak al genoeg. In het buitengebied bestaat de\nlandhabitat vaak uit loofbos en ruigtes.\nDe verspreiding na 1950 is toegenomen, onder andere ook door de kolonisatie van Flevoland.\nSpecifieke maatregelen zijn niet noodzakelijk. De gangbare maatregelen die voor amfibie\u00ebn\nworden genomen in de vorm van poelenaanleg, natuurontwikkeling en de aanleg van\ntuinvijvers, biedt goede kansen.\nOpvallend is wel dat de bruine kikker op oversteekplaatsen in aantallen lijkt af te nemen (>30%\nover de periode 2008-2021; Padden.nu, RAVONbalans 2022). Dit zou te maken kunnen hebben\nmet een onvoldoende basiskwaliteit of een complex van drukfactoren. Deze trend is wat minder\nbetrouwbaar dan bij de gewone pad en niet in alle provincies is het beeld hetzelfdet. \n\nPoelkikker (Pelophylax lessonae ssp. lessonae) \n\nRode "
+                ]
+            },
+            {
+                "species": "Pelophylax lessonae ssp. lessonae",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the IUCN code 'LC'. No specific criteria are provided for this assessment, so 'statusCriteria' is set to 'NF'.",
+                "context_chunks": [
+                    "Pelophylax lessonae ssp. lessonae) \n\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: least concern \n\nDe poelkikker komt vooral voor op de pleistocene\nzandgronden. Daarbuiten is de soort ook aanwezig op\nlaagdynamische plekken, vaak met kwelinvloed, in het\nrivierengebied. Uit het laagveen en de duinen zijn\neveneens waarnemingen bekend, maar de soort lijkt er\nzeldzaam. Zoals bij alle groene kikkers wordt het\nverspreidingsbeeld nog in hoge mate be\u00efnvloed door\ninventarisatie-effecten. Pas in 1976 is vastgesteld dat\ner in Nederland drie vertegenwoordigers\nvan het groene-kikkercomplex voorkomen. Uiteraard is pas vanaf dat moment de verspreiding\nbekend. Voor veel vrijwilligers is het bovendien lastig om de groene kikkers onderling van elkaar\nte onderscheiden. Daardoor wordt het voorkomen van de soort mogelijk nog steeds licht\nonderschat, maar de soort komt wel duidelijk boven de 25% bezette atlasblokken voor in\nNederland en is daarmee algemeen. De versopreiding is waarschijnlijk met 33% afgenomen. \n\n=== PAGE 20 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n65\nDe hoogste dichtheden worden bereikt in vennen, hoogveen en laagveen. In andere habitats\ngaat het vaak om een kleiner aandeel poelkikkers binnen de groene kikker-populaties.\nDe poelkikker is de meest kritische groene kikker, die vooral gebaat is bij schoon en veelal\nenigszins voedselarm water. De verhouding tussen bastaardkikkers en poelkikkers wordt sterk\nbe\u00efnvloed door de mate van voedselrijkdom.\nD"
+                ]
+            },
+            {
+                "species": "Zootoca vivipara ssp. vivipara",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment explicitly states 'near threatened' with criteria A2b, which is the most recent regional assessment for this subspecies. No other regional assessments are provided for this subspecies beyond the IUCN Nederland 2023 entry.",
+                "context_chunks": [
+                    "Zootoca vivipara ssp. vivipara)\nRode Lijst 2023:\ngevoelig\nRode Lijst 2007:\ngevoelig\nIUCN Nederland 2023: near threatened \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat en de soort\nplant zich voort in 592 atlasblokken, wat in beide\ngevallen leidt tot zeldzaamheidsklasse algemeen (a).\nTrend sinds 1950: de verspreiding is afgenomen met\n7%, wat leidt tot trendklasse stabiel of toegenomen\n(0/+). De populatiegrootte is afgenomen met 68%, wat\nleidt tot de zwaardere trendklasse sterk afgenomen\n(tt). \n\nIUCN-criteria: near threatened (A2b)\nA. Populatieverandering: near threatened (A2b)\nDe populatietrend over 10 jaar is een achteruitgang van 20-30%. Het A2-criterium is gebaseerd\nop een passende index (toevoeging b): het NEM-meetprogramma voor reptielen.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 ligt boven de 2.000 km2.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreiding en ontwikkelingen\nIn Nederland komt de levendbarende hagedis voornamelijk voor op de zandgronden van het\npleistocene deel van het land. De soort bereikt de hoogste dichtheden op natte heide en\nhoogveen, maar komt ook voor op drogere heides en in open bossen. In de duinen is de\nverspreiding beperkt tot enkele Zeeuwse eilanden en Terschelling. Sporadisch komt de soort\nook voor in laagveen en schrale bermen en gr"
+                ]
+            },
+            {
+                "species": "Podarcis muralis ssp. brongniardii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'IUCN Nederland 2023: vulnerable', which corresponds to the code 'VU'. No specific criteria (e.g., A2b, B1ab(iii,v)) are provided for this assessment, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Podarcis muralis ssp. brongniardii)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\ngereconstrueerd: bedreigd; gepubliceerd: ernstig bedreigd\nIUCN Nederland 2023: vulnerable \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt rond de 650\nvolwassen\nindividuen\ngeschat,\nwat\nleidt\ntot\nzeldzaamheidsklasse zeldzaam (zz). De soort plant\nzich voort in 3 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse zeer zeldzaam (zzz).\nTrend sinds 1950: de verspreiding is toegenomen met\n200%, wat leidt tot trendklasse stabiel of toegenomen\n(0/+). De populatiegrootte is afgenomen met 27%, wat\nleidt tot de zwaardere trendklasse matig afgenomen\n(t). \n\nToelichting op de trend sinds 1950 en de Rode Lijst 2007: betrouwbare gegevens over de\npopulatiegrootte rond 1950 ontbreken. Op basis van Kruyntjens (1993) is echter wel bekend wat\nhet aantal vindplaatsen in de referentieperiode was. In het vorige basisrapport werd het\ntoenmalige aantal vindplaatsen daarmee rechtstreeks vergeleken, als benadering van de\npopulatietrend. Dat is tegenwoordig minder goed mogelijk vanwege het meer aaneengesloten\nverspreidingspatroon. In plaats daarvan is gekozen voor een vergelijking van het aantal bezette\nkilometerhokken. Dat nam af van 11 naar 8. Dit is een achteruitgang van 27%, wat leidt tot de\nzwaardere trendklasse matige afname (t) voor tn. Dat is waarschijnlijk een conservatieve\nschatting van de populatietrend. Aan de hand van anekdotische informatie en fotomateriaal uit \n\n=== PAGE 24 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Rept"
+                ]
+            },
+            {
+                "species": "Coronella austriaca ssp. austriaca",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment is 'least concern' (LC), and the criteria 'A2b' are explicitly mentioned in the text. Although 'A2b' is not directly linked to the 'LC' status in the text, it is listed under 'IUCN-criteria: least concern' with 'A2b' as the criterion. This is interpreted as the correct status criteria for the regional assessment.",
+                "context_chunks": [
+                    "Coronella austriaca ssp. austriaca)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 20o7:\ngereconstrueerd: kwetsbaar; gepubliceerd: bedreigd\nIUCN Nederland 2023: least concern \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt tussen de\n10.000 en 40.000 volwassen individuen geschat\n(Habitatrichtlijnrapportage\n2014),\nwat\nleidt\ntot\nzeldzaamheidsklasse algemeen (a) of vrij zeldzaam (z).\nDe soort plant zich voort in 108 atlasblokken, wat leidt\ntot de zeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n51%, wat leidt tot trendklasse sterk afgenomen (tt).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met de populatiegrootte rond 1950 kan de\npopulatietrend niet worden geschat.\nRode Lijst 2007: uit de herberekening blijkt dat de soort in 18 extra atlasblokken voorkwam,\nwaardoor de zeldzaamheidsklasse vrij zeldzaam (z) was, in plaats van zeldzaam (zz); de\noorspronkelijke categorie Bedreigd is gecorrigeerd naar Kwetsbaar. \n\nIUCN-criteria: least concern\nA. Populatieverandering: least concern\nHieraan wordt niet voldaan: de aantalstrend is stabiel over de laatste drie generaties.\nB. Verspreiding: least concern \n\n=== PAGE 26 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n71\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 is welisaar 1.172 km2, maar er zijn te weinig\naanwijzingen voor het voldoen aan de benodigde aanvullende criteria voor vulnerable of near\nthreatened.\nC. Kleine populatie en achteruitgang: least concer"
+                ]
+            },
+            {
+                "species": "Natrix helvetica ssp. helvetica",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment is 'least concern', which corresponds to the code 'LC'. The criteria 'A2b' are explicitly mentioned in the text under 'IUCN-criteria: least concern' and are part of the assessment, despite the note about uncertainty in the trend. This is the most recent regional IUCN assessment provided.",
+                "context_chunks": [
+                    "Natrix helvetica ssp. helvetica)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nkwetsbaar\nIUCN Nederland 2023: least concern \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt tot\nzeldzaamheidsklasse algemeen (a). De soort plant zich\nvoort in 281 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n25%, wat leidt tot trendklasse matig afgenomen (t).\nVanwege het ontbreken van betrouwbare gegevens\nover de huidige populatiegrootte in vergelijking met de\npopulatiegrootte rond 1950 kan de populatietrend niet worden geschat. \n\nIUCN-criteria: least concern\nA. Populatieverandering: least concern\nEen onzekere aantalstrend over de laatste 12 jaar, stabiel en om deze reden niet geclassificeerd.\nB. Verspreiding: least concern\nHieraan wordt niet voldaan: de \u2018area of occupancy\u2019 ligt boven de 2.000 km2.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreiding en ontwikkelingen\nDe ringslang komt voornamelijk voor in waterrijke gebieden ten noorden van de grote rivieren.\nDe belangrijkste populaties zijn aanwezig in Noord- en Zuid-Holland, Flevoland, Utrecht,\nGelderland, Overijssel, Drenthe en Friesland. In Zuid-Limburg hebben sinds 2015 twee nieuwe\npopulaties voet aan de grond gekregen aan de Nederlandse kant van het Limburgse Wormdal\nen rond Vaa"
+                ]
+            },
+            {
+                "species": "Vipera berus ssp. berus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2b, B2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment for Vipera berus ssp. berus is 'near threatened', with criteria A2b and B2b explicitly stated. This is the most recent regional assessment provided.",
+                "context_chunks": [
+                    "Vipera berus ssp. berus)\nRode Lijst 2023:\nkwetsbaar\nRode Lijst 2007:\nkwetsbaar\nIUCN Nederland 2023: near threatened \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt tot\nzeldzaamheidsklasse algemeen (a). De soort plant zich\nvoort in 138 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n57% en de populatiegrootte is afgenomen met 63%,\nwat in beide gevallen leidt tot trendklasse sterk\nafgenomen (tt). \n\nFiguur 6. Aantalstrend adder sinds 1994 \n\nIUCN-criteria: near threatened (A2b, B2b)\nA. Populatieverandering: near threatened (A2b)\nDe populatietrend over drie generaties is een achteruitgang van 20-30% (de achteruitgang\nbetrof 38% over de laatste 12 jaar, zie figuur 6). Het A2-criterium is gebaseerd op een passende\nindex (toevoeging b): het NEM-meetprogramma voor reptielen.\nB. Verspreiding: near threatened (B2b) \n\n=== PAGE 29 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n74\nDe \u2018area of occupancy\u2019 is 1.468 km2. Er wordt voldaan aan voorwaarde b(iii): een verwachte\nvoortdurende aantasting van de habitatkwaliteit door o.a. verdroging, versnippering, te\nintensief beheer en klimaatopwarming.\nC. Kleine populatie en achteruitgang: least concern\nHieraan wordt niet voldaan.\nD. Bijzonder kleine of beperkte populatie: least concern\nHieraan wordt niet voldaan. \n\nHabitat, verspreiding en ontwikkelingen\nDe adder is een soort van hoogveen en natte "
+                ]
+            },
+            {
+                "species": "Anguis fragilis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'IUCN Nederland 2023: least concern', which corresponds to the code 'LC'. No specific criteria are provided for this assessment, so 'statusCriteria' is 'NF'.",
+                "context_chunks": [
+                    "Anguis fragilis)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\nthans niet bedreigd\nIUCN Nederland 2023: least concern \n\nDe vrij zeldzame hazelworm komt in bijna alle\nNederlandse provincies voor in halfopen bos,\nkleinschalig cultuurlandschap, op de heide en in\ngroeves. De verspreiding van de hazelworm in\nNederland valt grotendeels samen met de pleistocene\nzandgronden en Zuid-Limburg. Kerngebieden zijn de\nVeluwe, de Utrechtse Heuvelrug en Zuid-Limburg. In\nFlevoland, Zeeland en de Hollandse duinenrij gaat het\nom\nintroducties\nbuiten\nhet\nnatuurlijk\nverspreidingsgebied. De verspreiding van de hazelworm is lange tijd sterk onderschat. Door zijn\nverborgen levenswijze is de soort lastig te inventariseren en kan hij in gebieden met lage\ndichtheden lang over het hoofd worden gezien. Gerichte inventarisaties via oproepen en\ninterviews in Noord-Brabant brengen sinds enkele jaren veel meer vindplaatsen in de provincie\naan het licht. Dit zijn geen uitbreidingen van de soort, maar vooral een gevolg van gericht\nonderzoek. \n\nZandhagedis (Lacerta agilis ssp. agilis)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\ngereconstrueerd: thans niet bedreigd; gepubliceerd: kwetsbaar\nIUCN Nederland 2023: near threatened \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt tot\nzeldzaamheidsklasse algemeen (a). De soort plant zich\nvoort in 202 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1"
+                ]
+            },
+            {
+                "species": "Lacerta agilis ssp. agilis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The IUCN Nederland 2023 assessment explicitly states 'near threatened (A2b)', which is the most recent regional assessment for the species. The status code 'NT' and criteria 'A2b' are directly extracted from this statement.",
+                "context_chunks": [
+                    "Lacerta agilis ssp. agilis)\nRode Lijst 2023:\nthans niet bedreigd\nRode Lijst 2007:\ngereconstrueerd: thans niet bedreigd; gepubliceerd: kwetsbaar\nIUCN Nederland 2023: near threatened \n\nNederlandse criteria\nZeldzaamheid: de populatiegrootte wordt veel groter\ndan 25.000 volwassen individuen geschat, wat leidt tot\nzeldzaamheidsklasse algemeen (a). De soort plant zich\nvoort in 202 atlasblokken, wat leidt tot de zwaardere\nzeldzaamheidsklasse vrij zeldzaam (z).\nTrend sinds 1950: de verspreiding is afgenomen met\n12%, wat leidt tot trendklasse stabiel of toegenomen\n(0/+). Vanwege het ontbreken van betrouwbare\ngegevens\nover\nde\nhuidige\npopulatiegrootte\nin\nvergelijking met de populatiegrootte rond 1950 kan de populatietrend niet worden geschat.\nRode Lijst 2007: uit de herberekening blijkt dat de trendklasse stabiel of toegenomen (0/+)\nwas, in plaats van matig afgenomen (t); de oorspronkelijke categorie Kwetsbaar is gecorrigeerd\nnaar Thans niet bedreigd. In de berekeningen voor de verspreidingstrend zijn nu ook\nwaarnemingen meegenomen met alleen een jaaraanduiding. Daarnaast waren enkele\nvindplaatsen buiten beschouwing gelaten omdat het om uitzettingen ging waarvan ten onrechte\ngedacht werd dat ze niet hadden geleid tot een bestendige populatie. \n\n=== PAGE 31 ===\n\nBasisrapport Rode Lijsten Amfibie\u00ebn en Reptielen 2023 \n\n76 \n\nIUCN-criteria: near threatened (A2b)\nA. Populatieverandering: near threatened (A2b)\nDe populatietrend over drie generaties is een achteruitgang van 20-30% (de achteruitgang\nbetrof 38% over de la"
+                ]
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

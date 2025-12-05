@@ -1,0 +1,905 @@
+{
+    "report_timestamp": "2025-08-13T12:15:46.003782",
+    "pdf_info": {},
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 459,
+        "total_species_identified_initial_filter": 87,
+        "taxonomic_filter_applied": false,
+        "total_species_identified_final_filter": 87,
+        "final_species_list": [
+            {
+                "Verbatim": "Pelecanus crispus",
+                "Name": "Pelecanus crispus",
+                "Start": 77,
+                "End": 94,
+                "MatchType": "Exact",
+                "MatchedName": "Pelecanus crispus Bruch, 1832",
+                "MatchedCanonical": "Pelecanus crispus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pelecanus ono-\u2424crotalus,",
+                "Name": "Pelecanus onocrotalus",
+                "Start": 1541,
+                "End": 1565,
+                "MatchType": "Exact",
+                "MatchedName": "Pelecanus onocrotalus Linnaeus, 1758",
+                "MatchedCanonical": "Pelecanus onocrotalus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Geronticus eremita",
+                "Name": "Geronticus eremita",
+                "Start": 5099,
+                "End": 5117,
+                "MatchType": "Exact",
+                "MatchedName": "Geronticus eremita (Linnaeus, 1758)",
+                "MatchedCanonical": "Geronticus eremita",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas acuta",
+                "Name": "Anas acuta",
+                "Start": 8554,
+                "End": 8564,
+                "MatchType": "Exact",
+                "MatchedName": "Anas acuta Linnaeus, 1758",
+                "MatchedCanonical": "Anas acuta",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas clypeata",
+                "Name": "Anas clypeata",
+                "Start": 13211,
+                "End": 13224,
+                "MatchType": "Exact",
+                "MatchedName": "Anas clypeata Linnaeus, 1758",
+                "MatchedCanonical": "Anas clypeata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Oxyura leucocephala",
+                "Name": "Oxyura leucocephala",
+                "Start": 17489,
+                "End": 17508,
+                "MatchType": "Exact",
+                "MatchedName": "Oxyura leucocephala (Scopoli, 1769)",
+                "MatchedCanonical": "Oxyura leucocephala",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pandion haliaetus",
+                "Name": "Pandion haliaetus",
+                "Start": 19593,
+                "End": 19610,
+                "MatchType": "Exact",
+                "MatchedName": "Pandion haliaetus (Linnaeus, 1758)",
+                "MatchedCanonical": "Pandion haliaetus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Milvus milvus",
+                "Name": "Milvus milvus",
+                "Start": 22792,
+                "End": 22805,
+                "MatchType": "Exact",
+                "MatchedName": "Milvus milvus (Linnaeus, 1758)",
+                "MatchedCanonical": "Milvus milvus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Neophron percnopterus",
+                "Name": "Neophron percnopterus",
+                "Start": 28227,
+                "End": 28248,
+                "MatchType": "Exact",
+                "MatchedName": "Neophron percnopterus (Linnaeus, 1758)",
+                "MatchedCanonical": "Neophron percnopterus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aegypius monachus",
+                "Name": "Aegypius monachus",
+                "Start": 32927,
+                "End": 32944,
+                "MatchType": "Exact",
+                "MatchedName": "Aegypius monachus (Linnaeus, 1766)",
+                "MatchedCanonical": "Aegypius monachus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aegyplus monachus",
+                "Name": "Aegyplus monachus",
+                "Start": 38842,
+                "End": 38859,
+                "MatchType": "Exact",
+                "MatchedName": "Aegyplus monachus",
+                "MatchedCanonical": "Aegyplus monachus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrao tetrix",
+                "Name": "Tetrao tetrix",
+                "Start": 40359,
+                "End": 40372,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao tetrix Linnaeus, 1758",
+                "MatchedCanonical": "Tetrao tetrix",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Otis tarda",
+                "Name": "Otis tarda",
+                "Start": 43568,
+                "End": 43578,
+                "MatchType": "Exact",
+                "MatchedName": "Otis tarda Linnaeus, 1758",
+                "MatchedCanonical": "Otis tarda",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Phalacrocorax pygmeus",
+                "Name": "Phalacrocorax pygmeus",
+                "Start": 48975,
+                "End": 48996,
+                "MatchType": "Exact",
+                "MatchedName": "Phalacrocorax pygmeus (Pallas, 1773)",
+                "MatchedCanonical": "Phalacrocorax pygmeus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Mergus merganser",
+                "Name": "Mergus merganser",
+                "Start": 57309,
+                "End": 57325,
+                "MatchType": "Exact",
+                "MatchedName": "Mergus merganser Linnaeus, 1758",
+                "MatchedCanonical": "Mergus merganser",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Accipiter brevipes",
+                "Name": "Accipiter brevipes",
+                "Start": 60566,
+                "End": 60584,
+                "MatchType": "Exact",
+                "MatchedName": "Accipiter brevipes (Severtzov, 1850)",
+                "MatchedCanonical": "Accipiter brevipes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila clanga",
+                "Name": "Aquila clanga",
+                "Start": 66000,
+                "End": 66013,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila clanga Pallas, 1811",
+                "MatchedCanonical": "Aquila clanga",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila heliaca",
+                "Name": "Aquila heliaca",
+                "Start": 68955,
+                "End": 68969,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila heliaca Savigny, 1809",
+                "MatchedCanonical": "Aquila heliaca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila  chrysaetos",
+                "Name": "Aquila chrysaetos",
+                "Start": 77150,
+                "End": 77168,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila chrysaetos (Linnaeus, 1758)",
+                "MatchedCanonical": "Aquila chrysaetos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila fasciatus",
+                "Name": "Aquila fasciatus",
+                "Start": 84149,
+                "End": 84165,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila fasciatus (Vieillot, 1822)",
+                "MatchedCanonical": "Aquila fasciatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hieraaetus pennatus",
+                "Name": "Hieraaetus pennatus",
+                "Start": 90153,
+                "End": 90172,
+                "MatchType": "Exact",
+                "MatchedName": "Hieraaetus pennatus (Gmelin, 1788)",
+                "MatchedCanonical": "Hieraaetus pennatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco naumanni",
+                "Name": "Falco naumanni",
+                "Start": 93313,
+                "End": 93327,
+                "MatchType": "Exact",
+                "MatchedName": "Falco naumanni J. G. Fleischer, 1818",
+                "MatchedCanonical": "Falco naumanni",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Falco biarmicus",
+                "Name": "Falco biarmicus",
+                "Start": 100763,
+                "End": 100778,
+                "MatchType": "Exact",
+                "MatchedName": "Falco biarmicus Temminck, 1825",
+                "MatchedCanonical": "Falco biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Falco cherrug",
+                "Name": "Falco cherrug",
+                "Start": 111792,
+                "End": 111805,
+                "MatchType": "Exact",
+                "MatchedName": "Falco cherrug J. E. Gray, 1834",
+                "MatchedCanonical": "Falco cherrug",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Porzana pusilla",
+                "Name": "Porzana pusilla",
+                "Start": 116682,
+                "End": 116697,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana pusilla (Pallas, 1776)",
+                "MatchedCanonical": "Porzana pusilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Tetrax tetrax",
+                "Name": "Tetrax tetrax",
+                "Start": 116984,
+                "End": 116997,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrax tetrax (Linnaeus, 1758)",
+                "MatchedCanonical": "Tetrax tetrax",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pluvialis apricaria",
+                "Name": "Pluvialis apricaria",
+                "Start": 124190,
+                "End": 124209,
+                "MatchType": "Exact",
+                "MatchedName": "Pluvialis apricaria (Linnaeus, 1758)",
+                "MatchedCanonical": "Pluvialis apricaria",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Charadrius alexandrinus",
+                "Name": "Charadrius alexandrinus",
+                "Start": 129976,
+                "End": 129999,
+                "MatchType": "Exact",
+                "MatchedName": "Charadrius alexandrinus Linnaeus, 1758",
+                "MatchedCanonical": "Charadrius alexandrinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Scolopax rusticola",
+                "Name": "Scolopax rusticola",
+                "Start": 138405,
+                "End": 138423,
+                "MatchType": "Exact",
+                "MatchedName": "Scolopax rusticola Linnaeus, 1758",
+                "MatchedCanonical": "Scolopax rusticola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Gallinago gallinago",
+                "Name": "Gallinago gallinago",
+                "Start": 141300,
+                "End": 141319,
+                "MatchType": "Exact",
+                "MatchedName": "Gallinago gallinago (Linnaeus, 1758)",
+                "MatchedCanonical": "Gallinago gallinago",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Numenius tenuirostris",
+                "Name": "Numenius tenuirostris",
+                "Start": 145189,
+                "End": 145210,
+                "MatchType": "Exact",
+                "MatchedName": "Numenius tenuirostris Vieillot, 1817",
+                "MatchedCanonical": "Numenius tenuirostris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Tringa totanus",
+                "Name": "Tringa totanus",
+                "Start": 149198,
+                "End": 149212,
+                "MatchType": "Exact",
+                "MatchedName": "Tringa totanus (Linnaeus, 1758)",
+                "MatchedCanonical": "Tringa totanus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Coracias garrulus",
+                "Name": "Coracias garrulus",
+                "Start": 153854,
+                "End": 153871,
+                "MatchType": "Exact",
+                "MatchedName": "Coracias garrulus Linnaeus, 1758",
+                "MatchedCanonical": "Coracias garrulus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Populus alba.",
+                "Name": "Populus alba",
+                "Start": 156251,
+                "End": 156264,
+                "MatchType": "Exact",
+                "MatchedName": "Populus alba L.",
+                "MatchedCanonical": "Populus alba",
+                "ClassificationPath": "domain|kingdom|subkingdom|phylum|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Eremophila alpestris",
+                "Name": "Eremophila alpestris",
+                "Start": 159087,
+                "End": 159107,
+                "MatchType": "Exact",
+                "MatchedName": "Eremophila alpestris (Linnaeus, 1758)",
+                "MatchedCanonical": "Eremophila alpestris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Acrocephalus melanopogon",
+                "Name": "Acrocephalus melanopogon",
+                "Start": 165113,
+                "End": 165137,
+                "MatchType": "Exact",
+                "MatchedName": "Acrocephalus melanopogon (Temminck, 1823)",
+                "MatchedCanonical": "Acrocephalus melanopogon",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Acrocephalus paludicola",
+                "Name": "Acrocephalus paludicola",
+                "Start": 169217,
+                "End": 169240,
+                "MatchType": "Exact",
+                "MatchedName": "Acrocephalus paludicola (Vieillot, 1817)",
+                "MatchedCanonical": "Acrocephalus paludicola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Podiceps nigricollis",
+                "Name": "Podiceps nigricollis",
+                "Start": 171544,
+                "End": 171564,
+                "MatchType": "Exact",
+                "MatchedName": "Podiceps nigricollis C. L. Brehm, 1831",
+                "MatchedCanonical": "Podiceps nigricollis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Ardea purpurea",
+                "Name": "Ardea purpurea",
+                "Start": 178658,
+                "End": 178672,
+                "MatchType": "Exact",
+                "MatchedName": "Ardea purpurea Linnaeus, 1766",
+                "MatchedCanonical": "Ardea purpurea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Casmerodius albus",
+                "Name": "Casmerodius albus",
+                "Start": 185378,
+                "End": 185395,
+                "MatchType": "Exact",
+                "MatchedName": "Casmerodius albus (Linnaeus, 1758)",
+                "MatchedCanonical": "Casmerodius albus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Ardeola ralloides",
+                "Name": "Ardeola ralloides",
+                "Start": 192614,
+                "End": 192631,
+                "MatchType": "Exact",
+                "MatchedName": "Ardeola ralloides (Scopoli, 1769)",
+                "MatchedCanonical": "Ardeola ralloides",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Botaurus stellaris",
+                "Name": "Botaurus stellaris",
+                "Start": 198698,
+                "End": 198716,
+                "MatchType": "Exact",
+                "MatchedName": "Botaurus stellaris (Linnaeus, 1758)",
+                "MatchedCanonical": "Botaurus stellaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Plegadis falcinellus",
+                "Name": "Plegadis falcinellus",
+                "Start": 205071,
+                "End": 205091,
+                "MatchType": "Exact",
+                "MatchedName": "Plegadis falcinellus (Linnaeus, 1766)",
+                "MatchedCanonical": "Plegadis falcinellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Platalea leucorodia",
+                "Name": "Platalea leucorodia",
+                "Start": 211158,
+                "End": 211177,
+                "MatchType": "Exact",
+                "MatchedName": "Platalea leucorodia Linnaeus, 1758",
+                "MatchedCanonical": "Platalea leucorodia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas strepera",
+                "Name": "Anas strepera",
+                "Start": 218375,
+                "End": 218388,
+                "MatchType": "Exact",
+                "MatchedName": "Anas strepera Linnaeus, 1758",
+                "MatchedCanonical": "Anas strepera",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Milvus migrans",
+                "Name": "Milvus migrans",
+                "Start": 218785,
+                "End": 218799,
+                "MatchType": "Exact",
+                "MatchedName": "Milvus migrans (Boddaert, 1783)",
+                "MatchedCanonical": "Milvus migrans",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Gyps fulvus",
+                "Name": "Gyps fulvus",
+                "Start": 224794,
+                "End": 224805,
+                "MatchType": "Exact",
+                "MatchedName": "Gyps fulvus (Hablizl, 1783)",
+                "MatchedCanonical": "Gyps fulvus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Circaetus gallicus",
+                "Name": "Circaetus gallicus",
+                "Start": 233689,
+                "End": 233707,
+                "MatchType": "Exact",
+                "MatchedName": "Circaetus gallicus (Gmelin, 1788)",
+                "MatchedCanonical": "Circaetus gallicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Circus aeruginosus",
+                "Name": "Circus aeruginosus",
+                "Start": 240683,
+                "End": 240701,
+                "MatchType": "Exact",
+                "MatchedName": "Circus aeruginosus (Linnaeus, 1758)",
+                "MatchedCanonical": "Circus aeruginosus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Circus pygargus",
+                "Name": "Circus pygargus",
+                "Start": 249562,
+                "End": 249577,
+                "MatchType": "Exact",
+                "MatchedName": "Circus pygargus (Linnaeus, 1758)",
+                "MatchedCanonical": "Circus pygargus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aquila pomarina",
+                "Name": "Aquila pomarina",
+                "Start": 256400,
+                "End": 256415,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila pomarina C. L. Brehm, 1831",
+                "MatchedCanonical": "Aquila pomarina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco eleonorae",
+                "Name": "Falco eleonorae",
+                "Start": 263319,
+                "End": 263334,
+                "MatchType": "Exact",
+                "MatchedName": "Falco eleonorae G\u00e9n\u00e9, 1839",
+                "MatchedCanonical": "Falco eleonorae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Tetrao urogallus",
+                "Name": "Tetrao urogallus",
+                "Start": 263619,
+                "End": 263635,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao urogallus Linnaeus, 1758",
+                "MatchedCanonical": "Tetrao urogallus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porzana parva",
+                "Name": "Porzana parva",
+                "Start": 271031,
+                "End": 271044,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana parva (Scopoli, 1769)",
+                "MatchedCanonical": "Porzana parva",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porzana porzana",
+                "Name": "Porzana porzana",
+                "Start": 276601,
+                "End": 276616,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana porzana (Linnaeus, 1766)",
+                "MatchedCanonical": "Porzana porzana",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Burhinus oedicnemus",
+                "Name": "Burhinus oedicnemus",
+                "Start": 283034,
+                "End": 283053,
+                "MatchType": "Exact",
+                "MatchedName": "Burhinus oedicnemus (Linnaeus, 1758)",
+                "MatchedCanonical": "Burhinus oedicnemus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pluvialis squatarola",
+                "Name": "Pluvialis squatarola",
+                "Start": 290750,
+                "End": 290770,
+                "MatchType": "Exact",
+                "MatchedName": "Pluvialis squatarola (Linnaeus, 1758)",
+                "MatchedCanonical": "Pluvialis squatarola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calidris alpina",
+                "Name": "Calidris alpina",
+                "Start": 297302,
+                "End": 297317,
+                "MatchType": "Exact",
+                "MatchedName": "Calidris alpina (Linnaeus, 1758)",
+                "MatchedCanonical": "Calidris alpina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Larus audouinii",
+                "Name": "Larus audouinii",
+                "Start": 304483,
+                "End": 304498,
+                "MatchType": "Exact",
+                "MatchedName": "Larus audouinii Payraudeau, 1826",
+                "MatchedCanonical": "Larus audouinii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Sterna caspia",
+                "Name": "Sterna caspia",
+                "Start": 309261,
+                "End": 309274,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna caspia Pallas, 1770",
+                "MatchedCanonical": "Sterna caspia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Sterna albifrons",
+                "Name": "Sterna albifrons",
+                "Start": 309639,
+                "End": 309655,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna albifrons Pallas, 1764",
+                "MatchedCanonical": "Sterna albifrons",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Luscinia svecica",
+                "Name": "Luscinia svecica",
+                "Start": 316631,
+                "End": 316647,
+                "MatchType": "Exact",
+                "MatchedName": "Luscinia svecica (Linnaeus, 1758)",
+                "MatchedCanonical": "Luscinia svecica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Phylloscopus bonelli",
+                "Name": "Phylloscopus bonelli",
+                "Start": 321003,
+                "End": 321023,
+                "MatchType": "Exact",
+                "MatchedName": "Phylloscopus bonelli (Vieillot, 1819)",
+                "MatchedCanonical": "Phylloscopus bonelli",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Panurus biarmicus",
+                "Name": "Panurus biarmicus",
+                "Start": 328648,
+                "End": 328665,
+                "MatchType": "Exact",
+                "MatchedName": "Panurus biarmicus (Linnaeus, 1758)",
+                "MatchedCanonical": "Panurus biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Puffinus yelkouan",
+                "Name": "Puffinus yelkouan",
+                "Start": 333982,
+                "End": 333999,
+                "MatchType": "Exact",
+                "MatchedName": "Puffinus yelkouan (Acerbi, 1827)",
+                "MatchedCanonical": "Puffinus yelkouan",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Egretta garzetta",
+                "Name": "Egretta garzetta",
+                "Start": 334269,
+                "End": 334285,
+                "MatchType": "Exact",
+                "MatchedName": "Egretta garzetta (Linnaeus, 1766)",
+                "MatchedCanonical": "Egretta garzetta",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Puffinus puffinus",
+                "Name": "Puffinus puffinus",
+                "Start": 334935,
+                "End": 334952,
+                "MatchType": "Exact",
+                "MatchedName": "Puffinus puffinus (Brunnich, 1764)",
+                "MatchedCanonical": "Puffinus puffinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rattus rattus",
+                "Name": "Rattus rattus",
+                "Start": 337061,
+                "End": 337074,
+                "MatchType": "Exact",
+                "MatchedName": "Rattus rattus (Linnaeus, 1758)",
+                "MatchedCanonical": "Rattus rattus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Ciconia nigra",
+                "Name": "Ciconia nigra",
+                "Start": 341191,
+                "End": 341204,
+                "MatchType": "Exact",
+                "MatchedName": "Ciconia nigra (Linnaeus, 1758)",
+                "MatchedCanonical": "Ciconia nigra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anser anser",
+                "Name": "Anser anser",
+                "Start": 345855,
+                "End": 345866,
+                "MatchType": "Exact",
+                "MatchedName": "Anser anser (Linnaeus, 1758)",
+                "MatchedCanonical": "Anser anser",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Netta rufina",
+                "Name": "Netta rufina",
+                "Start": 354231,
+                "End": 354243,
+                "MatchType": "Exact",
+                "MatchedName": "Netta rufina (Pallas, 1773)",
+                "MatchedCanonical": "Netta rufina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Haliaeetus albicilla",
+                "Name": "Haliaeetus albicilla",
+                "Start": 359984,
+                "End": 360004,
+                "MatchType": "Exact",
+                "MatchedName": "Haliaeetus albicilla (Linnaeus, 1758)",
+                "MatchedCanonical": "Haliaeetus albicilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco columbarius",
+                "Name": "Falco columbarius",
+                "Start": 365540,
+                "End": 365557,
+                "MatchType": "Exact",
+                "MatchedName": "Falco columbarius Linnaeus, 1758",
+                "MatchedCanonical": "Falco columbarius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Falco peregrinus",
+                "Name": "Falco peregrinus",
+                "Start": 370790,
+                "End": 370806,
+                "MatchType": "Exact",
+                "MatchedName": "Falco peregrinus Tunstall, 1771",
+                "MatchedCanonical": "Falco peregrinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Crex crex",
+                "Name": "Crex crex",
+                "Start": 378204,
+                "End": 378213,
+                "MatchType": "Exact",
+                "MatchedName": "Crex crex (Linnaeus, 1758)",
+                "MatchedCanonical": "Crex crex",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Haematopus ostralegus",
+                "Name": "Haematopus ostralegus",
+                "Start": 385628,
+                "End": 385649,
+                "MatchType": "Exact",
+                "MatchedName": "Haematopus ostralegus Linnaeus, 1758",
+                "MatchedCanonical": "Haematopus ostralegus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Himantopus himantopus",
+                "Name": "Himantopus himantopus",
+                "Start": 392737,
+                "End": 392758,
+                "MatchType": "Exact",
+                "MatchedName": "Himantopus himantopus (Linnaeus, 1758)",
+                "MatchedCanonical": "Himantopus himantopus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Lymnocryptes minimus",
+                "Name": "Lymnocryptes minimus",
+                "Start": 405523,
+                "End": 405543,
+                "MatchType": "Exact",
+                "MatchedName": "Lymnocryptes minimus (Br\u00fcnnich, 1764)",
+                "MatchedCanonical": "Lymnocryptes minimus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Numenius phaeopus",
+                "Name": "Numenius phaeopus",
+                "Start": 405836,
+                "End": 405853,
+                "MatchType": "Exact",
+                "MatchedName": "Numenius phaeopus (Linnaeus, 1758)",
+                "MatchedCanonical": "Numenius phaeopus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Numenius arquata",
+                "Name": "Numenius arquata",
+                "Start": 411572,
+                "End": 411588,
+                "MatchType": "Exact",
+                "MatchedName": "Numenius arquata (Linnaeus, 1758)",
+                "MatchedCanonical": "Numenius arquata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Actitis hypoleucos",
+                "Name": "Actitis hypoleucos",
+                "Start": 418173,
+                "End": 418191,
+                "MatchType": "Exact",
+                "MatchedName": "Actitis hypoleucos (Linnaeus, 1758)",
+                "MatchedCanonical": "Actitis hypoleucos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Columba oenas",
+                "Name": "Columba oenas",
+                "Start": 423737,
+                "End": 423750,
+                "MatchType": "Exact",
+                "MatchedName": "Columba oenas Linnaeus, 1758",
+                "MatchedCanonical": "Columba oenas",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Columba palumbus",
+                "Name": "Columba palumbus",
+                "Start": 428143,
+                "End": 428159,
+                "MatchType": "Exact",
+                "MatchedName": "Columba palumbus Linnaeus, 1758",
+                "MatchedCanonical": "Columba palumbus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Glaucidium passerinum",
+                "Name": "Glaucidium passerinum",
+                "Start": 430386,
+                "End": 430407,
+                "MatchType": "Exact",
+                "MatchedName": "Glaucidium passerinum (Linnaeus, 1758)",
+                "MatchedCanonical": "Glaucidium passerinum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Melanocorypha calandra",
+                "Name": "Melanocorypha calandra",
+                "Start": 436227,
+                "End": 436249,
+                "MatchType": "Exact",
+                "MatchedName": "Melanocorypha calandra (Linnaeus, 1766)",
+                "MatchedCanonical": "Melanocorypha calandra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calandrella brachydactyla",
+                "Name": "Calandrella brachydactyla",
+                "Start": 441172,
+                "End": 441197,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella brachydactyla (Leisler, 1814)",
+                "MatchedCanonical": "Calandrella brachydactyla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Riparia riparia",
+                "Name": "Riparia riparia",
+                "Start": 446618,
+                "End": 446633,
+                "MatchType": "Exact",
+                "MatchedName": "Riparia riparia (Linnaeus, 1758)",
+                "MatchedCanonical": "Riparia riparia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            }
+        ]
+    },
+    "llm_extraction_info": {},
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "conservation_status",
+                "description": "The regional conservation status. This is often a two-letter code.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            }
+        ]
+    },
+    "manual_verification_info": {}
+}

@@ -1,0 +1,4286 @@
+{
+    "report_timestamp": "2025-09-01T15:43:10.990627",
+    "pdf_info": {
+        "file_name": "lrcompletoparaweb_tcm30-207942.pdf",
+        "extracted_text_char_count": 2184035
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 4050,
+        "total_species_identified_initial_filter": 332,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 234,
+        "final_species_list": [
+            {
+                "Verbatim": "Gavia immer",
+                "Name": "Gavia immer",
+                "Start": 22,
+                "End": 33,
+                "MatchType": "Exact",
+                "MatchedName": "Gavia immer (Br\u00fcnnich, 1764)",
+                "MatchedCanonical": "Gavia immer",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Podiceps nigricollis",
+                "Name": "Podiceps nigricollis",
+                "Start": 5865,
+                "End": 5885,
+                "MatchType": "Exact",
+                "MatchedName": "Podiceps nigricollis C. L. Brehm, 1831",
+                "MatchedCanonical": "Podiceps nigricollis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Podiceps cristatus,",
+                "Name": "Podiceps cristatus",
+                "Start": 19167,
+                "End": 19186,
+                "MatchType": "Exact",
+                "MatchedName": "Podiceps cristatus (Linnaeus, 1758)",
+                "MatchedCanonical": "Podiceps cristatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Bulweria bulwerii",
+                "Name": "Bulweria bulwerii",
+                "Start": 26778,
+                "End": 26795,
+                "MatchType": "Exact",
+                "MatchedName": "Bulweria bulwerii (Jardine & Selby, 1828)",
+                "MatchedCanonical": "Bulweria bulwerii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Asio otus,",
+                "Name": "Asio otus",
+                "Start": 35725,
+                "End": 35735,
+                "MatchType": "Exact",
+                "MatchedName": "Asio otus (Linnaeus, 1758)",
+                "MatchedCanonical": "Asio otus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Larus cachinnans.",
+                "Name": "Larus cachinnans",
+                "Start": 35751,
+                "End": 35768,
+                "MatchType": "Exact",
+                "MatchedName": "Larus cachinnans Pallas, 1811",
+                "MatchedCanonical": "Larus cachinnans",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calonectris diomedea diomedea",
+                "Name": "Calonectris diomedea diomedea",
+                "Start": 38643,
+                "End": 38672,
+                "MatchType": "Exact",
+                "MatchedName": "Calonectris diomedea diomedea (Scopoli, 1769)",
+                "MatchedCanonical": "Calonectris diomedea diomedea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Bubo bubo",
+                "Name": "Bubo bubo",
+                "Start": 60601,
+                "End": 60610,
+                "MatchType": "Exact",
+                "MatchedName": "Bubo bubo (Linnaeus, 1758)",
+                "MatchedCanonical": "Bubo bubo",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Calonectris diomedea borealis",
+                "Name": "Calonectris diomedea borealis",
+                "Start": 63824,
+                "End": 63853,
+                "MatchType": "Exact",
+                "MatchedName": "Calonectris diomedea borealis (Cory, 1881)",
+                "MatchedCanonical": "Calonectris diomedea borealis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Puffinus puffinus",
+                "Name": "Puffinus puffinus",
+                "Start": 74328,
+                "End": 74345,
+                "MatchType": "Exact",
+                "MatchedName": "Puffinus puffinus (Br\u00fcnnich, 1764)",
+                "MatchedCanonical": "Puffinus puffinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Puffinus mauretanicus",
+                "Name": "Puffinus mauretanicus",
+                "Start": 81064,
+                "End": 81085,
+                "MatchType": "Exact",
+                "MatchedName": "Puffinus mauretanicus Lowe, 1921",
+                "MatchedCanonical": "Puffinus mauretanicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Balear nidifica",
+                "Name": "Balear nidifica",
+                "Start": 87202,
+                "End": 87217,
+                "MatchType": "Unverified",
+                "MatchedName": "Balear nidifica",
+                "MatchedCanonical": "Balear nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Puffinus assimilis baroli",
+                "Name": "Puffinus assimilis baroli",
+                "Start": 108890,
+                "End": 108915,
+                "MatchType": "Exact",
+                "MatchedName": "Puffinus assimilis baroli (Bonaparte, 1857)",
+                "MatchedCanonical": "Puffinus assimilis baroli",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pelagodroma marina hypoleuca",
+                "Name": "Pelagodroma marina hypoleuca",
+                "Start": 122920,
+                "End": 122948,
+                "MatchType": "Exact",
+                "MatchedName": "Pelagodroma marina hypoleuca (Webb, Berthelot & Moquin-Tandon, 1842)",
+                "MatchedCanonical": "Pelagodroma marina hypoleuca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pechialbo nidifica",
+                "Name": "Pechialbo nidifica",
+                "Start": 126639,
+                "End": 126657,
+                "MatchType": "Unverified",
+                "MatchedName": "Pechialbo nidifica",
+                "MatchedCanonical": "Pechialbo nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hydrobates pelagicus",
+                "Name": "Hydrobates pelagicus",
+                "Start": 133234,
+                "End": 133254,
+                "MatchType": "Exact",
+                "MatchedName": "Hydrobates pelagicus (Linnaeus, 1758)",
+                "MatchedCanonical": "Hydrobates pelagicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Esta colonia",
+                "Name": "Esta colonia",
+                "Start": 136213,
+                "End": 136225,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta colonia",
+                "MatchedCanonical": "Esta colonia",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Algunas medidas",
+                "Name": "Algunas medidas",
+                "Start": 144310,
+                "End": 144325,
+                "MatchType": "Unverified",
+                "MatchedName": "Algunas medidas",
+                "MatchedCanonical": "Algunas medidas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Oceanodroma castro",
+                "Name": "Oceanodroma castro",
+                "Start": 145964,
+                "End": 145982,
+                "MatchType": "Exact",
+                "MatchedName": "Oceanodroma castro (Harcourt, 1851)",
+                "MatchedCanonical": "Oceanodroma castro",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Verde nidifica",
+                "Name": "Verde nidifica",
+                "Start": 156001,
+                "End": 156015,
+                "MatchType": "Unverified",
+                "MatchedName": "Verde nidifica",
+                "MatchedCanonical": "Verde nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco eleonorae",
+                "Name": "Falco eleonorae",
+                "Start": 157138,
+                "End": 157153,
+                "MatchType": "Exact",
+                "MatchedName": "Falco eleonorae G\u00e9n\u00e9, 1839",
+                "MatchedCanonical": "Falco eleonorae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Phalacrocorax aristotelis aristotelis",
+                "Name": "Phalacrocorax aristotelis aristotelis",
+                "Start": 161391,
+                "End": 161428,
+                "MatchType": "Exact",
+                "MatchedName": "Phalacrocorax aristotelis aristotelis (Linnaeus, 1761)",
+                "MatchedCanonical": "Phalacrocorax aristotelis aristotelis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Rusia europea",
+                "Name": "Rusia europea",
+                "Start": 163146,
+                "End": 163159,
+                "MatchType": "Unverified",
+                "MatchedName": "Rusia europea",
+                "MatchedCanonical": "Rusia europea",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Phalacrocorax aristotelis desmarestii",
+                "Name": "Phalacrocorax aristotelis desmarestii",
+                "Start": 176130,
+                "End": 176167,
+                "MatchType": "Exact",
+                "MatchedName": "Phalacrocorax aristotelis desmarestii (Payraudeau, 1826)",
+                "MatchedCanonical": "Phalacrocorax aristotelis desmarestii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Botaurus stellaris",
+                "Name": "Botaurus stellaris",
+                "Start": 194894,
+                "End": 194912,
+                "MatchType": "Exact",
+                "MatchedName": "Botaurus stellaris (Linnaeus, 1758)",
+                "MatchedCanonical": "Botaurus stellaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Navarra datos",
+                "Name": "Navarra datos",
+                "Start": 211208,
+                "End": 211221,
+                "MatchType": "Unverified",
+                "MatchedName": "Navarra datos",
+                "MatchedCanonical": "Navarra datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ardeola ralloides",
+                "Name": "Ardeola ralloides",
+                "Start": 225769,
+                "End": 225786,
+                "MatchType": "Exact",
+                "MatchedName": "Ardeola ralloides (Scopoli, 1769)",
+                "MatchedCanonical": "Ardeola ralloides",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Ciconia nigra",
+                "Name": "Ciconia nigra",
+                "Start": 232091,
+                "End": 232104,
+                "MatchType": "Exact",
+                "MatchedName": "Ciconia nigra (Linnaeus, 1758)",
+                "MatchedCanonical": "Ciconia nigra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Existen varias",
+                "Name": "Existen varias",
+                "Start": 234440,
+                "End": 234454,
+                "MatchType": "Unverified",
+                "MatchedName": "Existen varias",
+                "MatchedCanonical": "Existen varias",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Toledo valle",
+                "Name": "Toledo valle",
+                "Start": 245447,
+                "End": 245459,
+                "MatchType": "Unverified",
+                "MatchedName": "Toledo valle",
+                "MatchedCanonical": "Toledo valle",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Plegadis falcinellus",
+                "Name": "Plegadis falcinellus",
+                "Start": 249691,
+                "End": 249711,
+                "MatchType": "Exact",
+                "MatchedName": "Plegadis falcinellus (Linnaeus, 1766)",
+                "MatchedCanonical": "Plegadis falcinellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Platalea leucorodia",
+                "Name": "Platalea leucorodia",
+                "Start": 262876,
+                "End": 262895,
+                "MatchType": "Exact",
+                "MatchedName": "Platalea leucorodia Linnaeus, 1758",
+                "MatchedCanonical": "Platalea leucorodia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Phoenicopterus ruber",
+                "Name": "Phoenicopterus ruber",
+                "Start": 283531,
+                "End": 283551,
+                "MatchType": "Exact",
+                "MatchedName": "Phoenicopterus ruber Linnaeus, 1758",
+                "MatchedCanonical": "Phoenicopterus ruber",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anser fabalis rossicus",
+                "Name": "Anser fabalis rossicus",
+                "Start": 301312,
+                "End": 301334,
+                "MatchType": "Exact",
+                "MatchedName": "Anser fabalis rossicus Buturlin, 1933",
+                "MatchedCanonical": "Anser fabalis rossicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Campestre nidifica",
+                "Name": "Campestre nidifica",
+                "Start": 302384,
+                "End": 302402,
+                "MatchType": "Unverified",
+                "MatchedName": "Campestre nidifica",
+                "MatchedCanonical": "Campestre nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anser serrirostris rossicus",
+                "Name": "Anser serrirostris rossicus",
+                "Start": 316556,
+                "End": 316583,
+                "MatchType": "Exact",
+                "MatchedName": "Anser serrirostris rossicus Buturlin, 1933",
+                "MatchedCanonical": "Anser serrirostris rossicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Tadorna ferruginea",
+                "Name": "Tadorna ferruginea",
+                "Start": 316630,
+                "End": 316648,
+                "MatchType": "Exact",
+                "MatchedName": "Tadorna ferruginea (Pallas, 1764)",
+                "MatchedCanonical": "Tadorna ferruginea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Actualmente nidifica",
+                "Name": "Actualmente nidifica",
+                "Start": 317762,
+                "End": 317782,
+                "MatchType": "Unverified",
+                "MatchedName": "Actualmente nidifica",
+                "MatchedCanonical": "Actualmente nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Caza furtiva",
+                "Name": "Caza furtiva",
+                "Start": 327636,
+                "End": 327648,
+                "MatchType": "Unverified",
+                "MatchedName": "Caza furtiva",
+                "MatchedCanonical": "Caza furtiva",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tadorna tadorna",
+                "Name": "Tadorna tadorna",
+                "Start": 330380,
+                "End": 330395,
+                "MatchType": "Exact",
+                "MatchedName": "Tadorna tadorna (Linnaeus, 1758)",
+                "MatchedCanonical": "Tadorna tadorna",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas crecca",
+                "Name": "Anas crecca",
+                "Start": 345859,
+                "End": 345870,
+                "MatchType": "Exact",
+                "MatchedName": "Anas crecca Linnaeus, 1758",
+                "MatchedCanonical": "Anas crecca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Anas acuta",
+                "Name": "Anas acuta",
+                "Start": 367146,
+                "End": 367156,
+                "MatchType": "Exact",
+                "MatchedName": "Anas acuta Linnaeus, 1758",
+                "MatchedCanonical": "Anas acuta",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Estos datos",
+                "Name": "Estos datos",
+                "Start": 372644,
+                "End": 372655,
+                "MatchType": "Unverified",
+                "MatchedName": "Estos datos",
+                "MatchedCanonical": "Estos datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Esto confirma",
+                "Name": "Esto confirma",
+                "Start": 374137,
+                "End": 374150,
+                "MatchType": "Unverified",
+                "MatchedName": "Esto confirma",
+                "MatchedCanonical": "Esto confirma",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anas querquedula",
+                "Name": "Anas querquedula",
+                "Start": 380095,
+                "End": 380111,
+                "MatchType": "Exact",
+                "MatchedName": "Anas querquedula Linnaeus, 1758",
+                "MatchedCanonical": "Anas querquedula",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Carretona califica como",
+                "Name": "Carretona califica como",
+                "Start": 380715,
+                "End": 380738,
+                "MatchType": "Unverified",
+                "MatchedName": "Carretona califica como",
+                "MatchedCanonical": "Carretona califica como",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Este autor indica",
+                "Name": "Este autor indica",
+                "Start": 384194,
+                "End": 384211,
+                "MatchType": "Unverified",
+                "MatchedName": "Este autor indica",
+                "MatchedCanonical": "Este autor indica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anas clypeata",
+                "Name": "Anas clypeata",
+                "Start": 393416,
+                "End": 393429,
+                "MatchType": "Exact",
+                "MatchedName": "Anas clypeata Linnaeus, 1758",
+                "MatchedCanonical": "Anas clypeata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Marmaronetta angustirostris",
+                "Name": "Marmaronetta angustirostris",
+                "Start": 409287,
+                "End": 409314,
+                "MatchType": "Exact",
+                "MatchedName": "Marmaronetta angustirostris (M\u00e9n\u00e9tries, 1832)",
+                "MatchedCanonical": "Marmaronetta angustirostris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porphyrio porphyrio",
+                "Name": "Porphyrio porphyrio",
+                "Start": 431111,
+                "End": 431130,
+                "MatchType": "Exact",
+                "MatchedName": "Porphyrio porphyrio (Linnaeus, 1758)",
+                "MatchedCanonical": "Porphyrio porphyrio",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Netta rufina",
+                "Name": "Netta rufina",
+                "Start": 437499,
+                "End": 437511,
+                "MatchType": "Exact",
+                "MatchedName": "Netta rufina (Pallas, 1773)",
+                "MatchedCanonical": "Netta rufina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Esta medida,",
+                "Name": "Esta medida",
+                "Start": 464249,
+                "End": 464261,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta medida",
+                "MatchedCanonical": "Esta medida",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aythya nyroca",
+                "Name": "Aythya nyroca",
+                "Start": 467323,
+                "End": 467336,
+                "MatchType": "Exact",
+                "MatchedName": "Aythya nyroca (G\u00fcldenst\u00e4dt, 1770)",
+                "MatchedCanonical": "Aythya nyroca",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Oxyura leucocephala",
+                "Name": "Oxyura leucocephala",
+                "Start": 481401,
+                "End": 481420,
+                "MatchType": "Exact",
+                "MatchedName": "Oxyura leucocephala (Scopoli, 1769)",
+                "MatchedCanonical": "Oxyura leucocephala",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Elanus caeruleus",
+                "Name": "Elanus caeruleus",
+                "Start": 497410,
+                "End": 497426,
+                "MatchType": "Exact",
+                "MatchedName": "Elanus caeruleus (Desfontaines, 1789)",
+                "MatchedCanonical": "Elanus caeruleus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Milvus migrans",
+                "Name": "Milvus migrans",
+                "Start": 515146,
+                "End": 515160,
+                "MatchType": "Exact",
+                "MatchedName": "Milvus migrans (Boddaert, 1783)",
+                "MatchedCanonical": "Milvus migrans",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Milvus milvus",
+                "Name": "Milvus milvus",
+                "Start": 541118,
+                "End": 541131,
+                "MatchType": "Exact",
+                "MatchedName": "Milvus milvus (Linnaeus, 1758)",
+                "MatchedCanonical": "Milvus milvus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Censo nacional",
+                "Name": "Censo nacional",
+                "Start": 547440,
+                "End": 547454,
+                "MatchType": "Unverified",
+                "MatchedName": "Censo nacional",
+                "MatchedCanonical": "Censo nacional",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Real figura",
+                "Name": "Real figura",
+                "Start": 566774,
+                "End": 566785,
+                "MatchType": "Unverified",
+                "MatchedName": "Real figura",
+                "MatchedCanonical": "Real figura",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Gypaetus barbatus",
+                "Name": "Gypaetus barbatus",
+                "Start": 577994,
+                "End": 578011,
+                "MatchType": "Exact",
+                "MatchedName": "Gypaetus barbatus (Linnaeus, 1758)",
+                "MatchedCanonical": "Gypaetus barbatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Esta tendencia",
+                "Name": "Esta tendencia",
+                "Start": 582045,
+                "End": 582059,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta tendencia",
+                "MatchedCanonical": "Esta tendencia",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Neophron percnopterus majorensis",
+                "Name": "Neophron percnopterus majorensis",
+                "Start": 613938,
+                "End": 613970,
+                "MatchType": "Exact",
+                "MatchedName": "Neophron percnopterus majorensis Don\u00e1zar, Negro, Palacios, Gangoso, Godoy, Ceballos, Hiraldo & Capote, 2002",
+                "MatchedCanonical": "Neophron percnopterus majorensis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Corvus corax canariensis",
+                "Name": "Corvus corax canariensis",
+                "Start": 628806,
+                "End": 628830,
+                "MatchType": "Exact",
+                "MatchedName": "Corvus corax canariensis Hartert & O. Kleinschmidt, 1901",
+                "MatchedCanonical": "Corvus corax canariensis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Alectoris barbara.",
+                "Name": "Alectoris barbara",
+                "Start": 628918,
+                "End": 628936,
+                "MatchType": "Exact",
+                "MatchedName": "Alectoris barbara (Bonnaterre, 1790)",
+                "MatchedCanonical": "Alectoris barbara",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Aegypius monachus",
+                "Name": "Aegypius monachus",
+                "Start": 633648,
+                "End": 633665,
+                "MatchType": "Exact",
+                "MatchedName": "Aegypius monachus (Linnaeus, 1766)",
+                "MatchedCanonical": "Aegypius monachus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Negro anida",
+                "Name": "Negro anida",
+                "Start": 643880,
+                "End": 643891,
+                "MatchType": "Unverified",
+                "MatchedName": "Negro anida",
+                "MatchedCanonical": "Negro anida",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Circus pygargus",
+                "Name": "Circus pygargus",
+                "Start": 662660,
+                "End": 662675,
+                "MatchType": "Exact",
+                "MatchedName": "Circus pygargus (Linnaeus, 1758)",
+                "MatchedCanonical": "Circus pygargus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Cenizo califica como",
+                "Name": "Cenizo califica como",
+                "Start": 663255,
+                "End": 663275,
+                "MatchType": "Unverified",
+                "MatchedName": "Cenizo califica como",
+                "MatchedCanonical": "Cenizo califica como",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Francia datos",
+                "Name": "Francia datos",
+                "Start": 676259,
+                "End": 676272,
+                "MatchType": "Unverified",
+                "MatchedName": "Francia datos",
+                "MatchedCanonical": "Francia datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Caza furtiva problema",
+                "Name": "Caza furtiva problema",
+                "Start": 676954,
+                "End": 676975,
+                "MatchType": "Unverified",
+                "MatchedName": "Caza furtiva problema",
+                "MatchedCanonical": "Caza furtiva problema",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Existen suficientes datos",
+                "Name": "Existen suficientes datos",
+                "Start": 679475,
+                "End": 679500,
+                "MatchType": "Unverified",
+                "MatchedName": "Existen suficientes datos",
+                "MatchedCanonical": "Existen suficientes datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Accipiter nisus granti",
+                "Name": "Accipiter nisus granti",
+                "Start": 683100,
+                "End": 683122,
+                "MatchType": "Exact",
+                "MatchedName": "Accipiter nisus granti Sharpe, 1890",
+                "MatchedCanonical": "Accipiter nisus granti",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Ocasionalmente nidifica",
+                "Name": "Ocasionalmente nidifica",
+                "Start": 687275,
+                "End": 687298,
+                "MatchType": "Unverified",
+                "MatchedName": "Ocasionalmente nidifica",
+                "MatchedCanonical": "Ocasionalmente nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Serinus canarius",
+                "Name": "Serinus canarius",
+                "Start": 688580,
+                "End": 688596,
+                "MatchType": "Exact",
+                "MatchedName": "Serinus canarius",
+                "MatchedCanonical": "Serinus canarius",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Columba bollii",
+                "Name": "Columba bollii",
+                "Start": 688673,
+                "End": 688687,
+                "MatchType": "Exact",
+                "MatchedName": "Columba bollii Godman, 1872",
+                "MatchedCanonical": "Columba bollii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Columba junoniae,",
+                "Name": "Columba junoniae",
+                "Start": 690748,
+                "End": 690765,
+                "MatchType": "Exact",
+                "MatchedName": "Columba junoniae Hartert, 1916",
+                "MatchedCanonical": "Columba junoniae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Buteo buteo insularum",
+                "Name": "Buteo buteo insularum",
+                "Start": 692259,
+                "End": 692280,
+                "MatchType": "Exact",
+                "MatchedName": "Buteo buteo insularum Floericke, 1903",
+                "MatchedCanonical": "Buteo buteo insularum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Canarias nidifica",
+                "Name": "Canarias nidifica",
+                "Start": 692944,
+                "End": 692961,
+                "MatchType": "Unverified",
+                "MatchedName": "Canarias nidifica",
+                "MatchedCanonical": "Canarias nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aquila adalberti",
+                "Name": "Aquila adalberti",
+                "Start": 699856,
+                "End": 699872,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila adalberti C. L. Brehm, 1861",
+                "MatchedCanonical": "Aquila adalberti",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Toledo occidentales.",
+                "Name": "Toledo occidentales",
+                "Start": 713590,
+                "End": 713610,
+                "MatchType": "Unverified",
+                "MatchedName": "Toledo occidentales",
+                "MatchedCanonical": "Toledo occidentales",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aquila chrysaetos",
+                "Name": "Aquila chrysaetos",
+                "Start": 744300,
+                "End": 744317,
+                "MatchType": "Exact",
+                "MatchedName": "Aquila chrysaetos (Linnaeus, 1758)",
+                "MatchedCanonical": "Aquila chrysaetos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Elaborar planes",
+                "Name": "Elaborar planes",
+                "Start": 760007,
+                "End": 760022,
+                "MatchType": "Unverified",
+                "MatchedName": "Elaborar planes",
+                "MatchedCanonical": "Elaborar planes",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hieraaetus fasciatus",
+                "Name": "Hieraaetus fasciatus",
+                "Start": 760211,
+                "End": 760231,
+                "MatchType": "Exact",
+                "MatchedName": "Hieraaetus fasciatus (Vieillot, 1822)",
+                "MatchedCanonical": "Hieraaetus fasciatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pandion haliaetus",
+                "Name": "Pandion haliaetus",
+                "Start": 784504,
+                "End": 784521,
+                "MatchType": "Exact",
+                "MatchedName": "Pandion haliaetus (Linnaeus, 1758)",
+                "MatchedCanonical": "Pandion haliaetus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Haematopus ostralegus.",
+                "Name": "Haematopus ostralegus",
+                "Start": 800406,
+                "End": 800428,
+                "MatchType": "Exact",
+                "MatchedName": "Haematopus ostralegus Linnaeus, 1758",
+                "MatchedCanonical": "Haematopus ostralegus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco peregrinus",
+                "Name": "Falco peregrinus",
+                "Start": 800740,
+                "End": 800756,
+                "MatchType": "Exact",
+                "MatchedName": "Falco peregrinus Tunstall, 1771",
+                "MatchedCanonical": "Falco peregrinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Falco naumanni",
+                "Name": "Falco naumanni",
+                "Start": 805376,
+                "End": 805390,
+                "MatchType": "Exact",
+                "MatchedName": "Falco naumanni J. G. Fleischer, 1818",
+                "MatchedCanonical": "Falco naumanni",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Muchas colonias",
+                "Name": "Muchas colonias",
+                "Start": 817687,
+                "End": 817702,
+                "MatchType": "Unverified",
+                "MatchedName": "Muchas colonias",
+                "MatchedCanonical": "Muchas colonias",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco tinnunculus dacotiae",
+                "Name": "Falco tinnunculus dacotiae",
+                "Start": 823933,
+                "End": 823959,
+                "MatchType": "Exact",
+                "MatchedName": "Falco tinnunculus dacotiae E. Hartert, 1913",
+                "MatchedCanonical": "Falco tinnunculus dacotiae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Falco subbuteo",
+                "Name": "Falco subbuteo",
+                "Start": 838827,
+                "End": 838841,
+                "MatchType": "Exact",
+                "MatchedName": "Falco subbuteo Linnaeus, 1758",
+                "MatchedCanonical": "Falco subbuteo",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Corvus corone,",
+                "Name": "Corvus corone",
+                "Start": 845999,
+                "End": 846013,
+                "MatchType": "Exact",
+                "MatchedName": "Corvus corone Linnaeus, 1758",
+                "MatchedCanonical": "Corvus corone",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Passer domesticus",
+                "Name": "Passer domesticus",
+                "Start": 848949,
+                "End": 848966,
+                "MatchType": "Exact",
+                "MatchedName": "Passer domesticus (Linnaeus, 1758)",
+                "MatchedCanonical": "Passer domesticus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Desarrollar planes",
+                "Name": "Desarrollar planes",
+                "Start": 851825,
+                "End": 851843,
+                "MatchType": "Unverified",
+                "MatchedName": "Desarrollar planes",
+                "MatchedCanonical": "Desarrollar planes",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco pelegrinoides pelegrinoides",
+                "Name": "Falco pelegrinoides pelegrinoides",
+                "Start": 865575,
+                "End": 865608,
+                "MatchType": "Exact",
+                "MatchedName": "Falco pelegrinoides pelegrinoides Temminck, 1829",
+                "MatchedCanonical": "Falco pelegrinoides pelegrinoides",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Columba livia,",
+                "Name": "Columba livia",
+                "Start": 873349,
+                "End": 873363,
+                "MatchType": "Exact",
+                "MatchedName": "Columba livia J. F. Gmelin, 1789",
+                "MatchedCanonical": "Columba livia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lagopus mutus",
+                "Name": "Lagopus mutus",
+                "Start": 878580,
+                "End": 878593,
+                "MatchType": "Exact",
+                "MatchedName": "Lagopus mutus (Montin, 1781)",
+                "MatchedCanonical": "Lagopus mutus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pirineo oscense",
+                "Name": "Pirineo oscense",
+                "Start": 878842,
+                "End": 878857,
+                "MatchType": "Unverified",
+                "MatchedName": "Pirineo oscense",
+                "MatchedCanonical": "Pirineo oscense",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Cerdanya catalana",
+                "Name": "Cerdanya catalana",
+                "Start": 885023,
+                "End": 885040,
+                "MatchType": "Unverified",
+                "MatchedName": "Cerdanya catalana",
+                "MatchedCanonical": "Cerdanya catalana",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Alpino habita",
+                "Name": "Alpino habita",
+                "Start": 887766,
+                "End": 887779,
+                "MatchType": "Unverified",
+                "MatchedName": "Alpino habita",
+                "MatchedCanonical": "Alpino habita",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrao urogallus cantabricus",
+                "Name": "Tetrao urogallus cantabricus",
+                "Start": 893610,
+                "End": 893638,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao urogallus cantabricus Castroviejo, 1967",
+                "MatchedCanonical": "Tetrao urogallus cantabricus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pirineo navarro,",
+                "Name": "Pirineo navarro",
+                "Start": 894866,
+                "End": 894882,
+                "MatchType": "Unverified",
+                "MatchedName": "Pirineo navarro",
+                "MatchedCanonical": "Pirineo navarro",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrao urogallus aquitanicus",
+                "Name": "Tetrao urogallus aquitanicus",
+                "Start": 912543,
+                "End": 912571,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao urogallus aquitanicus C. Ingram, 1915",
+                "MatchedCanonical": "Tetrao urogallus aquitanicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Alectoris rufa",
+                "Name": "Alectoris rufa",
+                "Start": 932367,
+                "End": 932381,
+                "MatchType": "Exact",
+                "MatchedName": "Alectoris rufa (Linnaeus, 1758)",
+                "MatchedCanonical": "Alectoris rufa",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Perdix perdix hispaniensis",
+                "Name": "Perdix perdix hispaniensis",
+                "Start": 955891,
+                "End": 955917,
+                "MatchType": "Exact",
+                "MatchedName": "Perdix perdix hispaniensis Reichenow, 1892",
+                "MatchedCanonical": "Perdix perdix hispaniensis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pirineos orientales",
+                "Name": "Pirineos orientales",
+                "Start": 974162,
+                "End": 974181,
+                "MatchType": "Unverified",
+                "MatchedName": "Pirineos orientales",
+                "MatchedCanonical": "Pirineos orientales",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Coturnix coturnix",
+                "Name": "Coturnix coturnix",
+                "Start": 978878,
+                "End": 978895,
+                "MatchType": "Exact",
+                "MatchedName": "Coturnix coturnix (Linnaeus, 1758)",
+                "MatchedCanonical": "Coturnix coturnix",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Turnix sylvatica",
+                "Name": "Turnix sylvatica",
+                "Start": 1010681,
+                "End": 1010697,
+                "MatchType": "Exact",
+                "MatchedName": "Turnix sylvatica (Desfontaines, 1789)",
+                "MatchedCanonical": "Turnix sylvatica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porzana porzana",
+                "Name": "Porzana porzana",
+                "Start": 1015928,
+                "End": 1015943,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana porzana (Linnaeus, 1766)",
+                "MatchedCanonical": "Porzana porzana",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porzana parva",
+                "Name": "Porzana parva",
+                "Start": 1024353,
+                "End": 1024366,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana parva (Scopoli, 1769)",
+                "MatchedCanonical": "Porzana parva",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Porzana pusilla",
+                "Name": "Porzana pusilla",
+                "Start": 1031278,
+                "End": 1031293,
+                "MatchType": "Exact",
+                "MatchedName": "Porzana pusilla (Pallas, 1776)",
+                "MatchedCanonical": "Porzana pusilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Existen datos",
+                "Name": "Existen datos",
+                "Start": 1034582,
+                "End": 1034595,
+                "MatchType": "Unverified",
+                "MatchedName": "Existen datos",
+                "MatchedCanonical": "Existen datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Fulica cristata",
+                "Name": "Fulica cristata",
+                "Start": 1039738,
+                "End": 1039753,
+                "MatchType": "Exact",
+                "MatchedName": "Fulica cristata J. F. Gmelin, 1789",
+                "MatchedCanonical": "Fulica cristata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Focha moruna",
+                "Name": "Focha moruna",
+                "Start": 1056706,
+                "End": 1056718,
+                "MatchType": "Unverified",
+                "MatchedName": "Focha moruna",
+                "MatchedCanonical": "Focha moruna",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Promover medidas",
+                "Name": "Promover medidas",
+                "Start": 1057168,
+                "End": 1057184,
+                "MatchType": "Unverified",
+                "MatchedName": "Promover medidas",
+                "MatchedCanonical": "Promover medidas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrax tetrax",
+                "Name": "Tetrax tetrax",
+                "Start": 1059650,
+                "End": 1059663,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrax tetrax (Linnaeus, 1758)",
+                "MatchedCanonical": "Tetrax tetrax",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Juana datos",
+                "Name": "Juana datos",
+                "Start": 1080026,
+                "End": 1080037,
+                "MatchType": "Unverified",
+                "MatchedName": "Juana datos",
+                "MatchedCanonical": "Juana datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chlamydotis undulata fuertaventurae",
+                "Name": "Chlamydotis undulata fuertaventurae",
+                "Start": 1092023,
+                "End": 1092058,
+                "MatchType": "Exact",
+                "MatchedName": "Chlamydotis undulata fuertaventurae (Rothschild & E. Hartert, 1894)",
+                "MatchedCanonical": "Chlamydotis undulata fuertaventurae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Otis tarda",
+                "Name": "Otis tarda",
+                "Start": 1105570,
+                "End": 1105580,
+                "MatchType": "Exact",
+                "MatchedName": "Otis tarda Linnaeus, 1758",
+                "MatchedCanonical": "Otis tarda",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Madrid datos",
+                "Name": "Madrid datos",
+                "Start": 1113832,
+                "End": 1113844,
+                "MatchType": "Unverified",
+                "MatchedName": "Madrid datos",
+                "MatchedCanonical": "Madrid datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Esta corriente",
+                "Name": "Esta corriente",
+                "Start": 1123798,
+                "End": 1123812,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta corriente",
+                "MatchedCanonical": "Esta corriente",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ebro nidifica",
+                "Name": "Ebro nidifica",
+                "Start": 1138179,
+                "End": 1138192,
+                "MatchType": "Unverified",
+                "MatchedName": "Ebro nidifica",
+                "MatchedCanonical": "Ebro nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Burhinus oedicnemus distinctus",
+                "Name": "Burhinus oedicnemus distinctus",
+                "Start": 1163313,
+                "End": 1163343,
+                "MatchType": "Exact",
+                "MatchedName": "Burhinus oedicnemus distinctus (Bannerman, 1914)",
+                "MatchedCanonical": "Burhinus oedicnemus distinctus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Burhinus oedicnemus insularum",
+                "Name": "Burhinus oedicnemus insularum",
+                "Start": 1178340,
+                "End": 1178369,
+                "MatchType": "Exact",
+                "MatchedName": "Burhinus oedicnemus insularum (Sassi, 1908)",
+                "MatchedCanonical": "Burhinus oedicnemus insularum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Cursorius cursor",
+                "Name": "Cursorius cursor",
+                "Start": 1189254,
+                "End": 1189270,
+                "MatchType": "Exact",
+                "MatchedName": "Cursorius cursor (Latham, 1787)",
+                "MatchedCanonical": "Cursorius cursor",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Glareola pratincola",
+                "Name": "Glareola pratincola",
+                "Start": 1203423,
+                "End": 1203442,
+                "MatchType": "Exact",
+                "MatchedName": "Glareola pratincola (Linnaeus, 1766)",
+                "MatchedCanonical": "Glareola pratincola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Tringa totanus.",
+                "Name": "Tringa totanus",
+                "Start": 1213228,
+                "End": 1213243,
+                "MatchType": "Exact",
+                "MatchedName": "Tringa totanus (Linnaeus, 1758)",
+                "MatchedCanonical": "Tringa totanus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Charadrius alexandrinus",
+                "Name": "Charadrius alexandrinus",
+                "Start": 1215873,
+                "End": 1215896,
+                "MatchType": "Exact",
+                "MatchedName": "Charadrius alexandrinus Linnaeus, 1758",
+                "MatchedCanonical": "Charadrius alexandrinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Charadrius morinellus",
+                "Name": "Charadrius morinellus",
+                "Start": 1235411,
+                "End": 1235432,
+                "MatchType": "Exact",
+                "MatchedName": "Charadrius morinellus Linnaeus, 1758",
+                "MatchedCanonical": "Charadrius morinellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Gallinago gallinago",
+                "Name": "Gallinago gallinago",
+                "Start": 1242878,
+                "End": 1242897,
+                "MatchType": "Exact",
+                "MatchedName": "Gallinago gallinago (Linnaeus, 1758)",
+                "MatchedCanonical": "Gallinago gallinago",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Limosa limosa",
+                "Name": "Limosa limosa",
+                "Start": 1257494,
+                "End": 1257507,
+                "MatchType": "Exact",
+                "MatchedName": "Limosa limosa (Linnaeus, 1758)",
+                "MatchedCanonical": "Limosa limosa",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Nava nidifica",
+                "Name": "Nava nidifica",
+                "Start": 1262905,
+                "End": 1262918,
+                "MatchType": "Unverified",
+                "MatchedName": "Nava nidifica",
+                "MatchedCanonical": "Nava nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Numenius arquata",
+                "Name": "Numenius arquata",
+                "Start": 1264590,
+                "End": 1264606,
+                "MatchType": "Exact",
+                "MatchedName": "Numenius arquata (Linnaeus, 1758)",
+                "MatchedCanonical": "Numenius arquata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Daimiel nidifica",
+                "Name": "Daimiel nidifica",
+                "Start": 1281526,
+                "End": 1281542,
+                "MatchType": "Unverified",
+                "MatchedName": "Daimiel nidifica",
+                "MatchedCanonical": "Daimiel nidifica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Larus genei,",
+                "Name": "Larus genei",
+                "Start": 1286198,
+                "End": 1286210,
+                "MatchType": "Exact",
+                "MatchedName": "Larus genei Br\u00e8me, 1839",
+                "MatchedCanonical": "Larus genei",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Gelochelidon nilotica,",
+                "Name": "Gelochelidon nilotica",
+                "Start": 1287768,
+                "End": 1287790,
+                "MatchType": "Exact",
+                "MatchedName": "Gelochelidon nilotica (J. F. Gmelin, 1789)",
+                "MatchedCanonical": "Gelochelidon nilotica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Valenciana salinas",
+                "Name": "Valenciana salinas",
+                "Start": 1290164,
+                "End": 1290182,
+                "MatchType": "Unverified",
+                "MatchedName": "Valenciana salinas",
+                "MatchedCanonical": "Valenciana salinas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Larus audouinii",
+                "Name": "Larus audouinii",
+                "Start": 1305055,
+                "End": 1305070,
+                "MatchType": "Exact",
+                "MatchedName": "Larus audouinii Payraudeau, 1826",
+                "MatchedCanonical": "Larus audouinii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rissa tridactyla",
+                "Name": "Rissa tridactyla",
+                "Start": 1324659,
+                "End": 1324675,
+                "MatchType": "Exact",
+                "MatchedName": "Rissa tridactyla (Linnaeus, 1758)",
+                "MatchedCanonical": "Rissa tridactyla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Valenciana albufera",
+                "Name": "Valenciana albufera",
+                "Start": 1343589,
+                "End": 1343608,
+                "MatchType": "Unverified",
+                "MatchedName": "Valenciana albufera",
+                "MatchedCanonical": "Valenciana albufera",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sterna sandvicensis",
+                "Name": "Sterna sandvicensis",
+                "Start": 1351416,
+                "End": 1351435,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna sandvicensis Latham, 1787",
+                "MatchedCanonical": "Sterna sandvicensis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Sterna hirundo,",
+                "Name": "Sterna hirundo",
+                "Start": 1357766,
+                "End": 1357781,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna hirundo Linnaeus, 1758",
+                "MatchedCanonical": "Sterna hirundo",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Recurvirostra avosetta.",
+                "Name": "Recurvirostra avosetta",
+                "Start": 1357827,
+                "End": 1357850,
+                "MatchType": "Exact",
+                "MatchedName": "Recurvirostra avosetta Linnaeus, 1758",
+                "MatchedCanonical": "Recurvirostra avosetta",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Negro inverna,",
+                "Name": "Negro inverna",
+                "Start": 1358813,
+                "End": 1358827,
+                "MatchType": "Unverified",
+                "MatchedName": "Negro inverna",
+                "MatchedCanonical": "Negro inverna",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sterna albifrons",
+                "Name": "Sterna albifrons",
+                "Start": 1381992,
+                "End": 1382008,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna albifrons Pallas, 1764",
+                "MatchedCanonical": "Sterna albifrons",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Sterna antillarum",
+                "Name": "Sterna antillarum",
+                "Start": 1383173,
+                "End": 1383190,
+                "MatchType": "Exact",
+                "MatchedName": "Sterna antillarum (R. Lesson, 1847)",
+                "MatchedCanonical": "Sterna antillarum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Poblaciones interiores",
+                "Name": "Poblaciones interiores",
+                "Start": 1384799,
+                "End": 1384821,
+                "MatchType": "Unverified",
+                "MatchedName": "Poblaciones interiores",
+                "MatchedCanonical": "Poblaciones interiores",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chlidonias hybridus",
+                "Name": "Chlidonias hybridus",
+                "Start": 1396621,
+                "End": 1396640,
+                "MatchType": "Exact",
+                "MatchedName": "Chlidonias hybridus (Pallas, 1811)",
+                "MatchedCanonical": "Chlidonias hybridus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Larus ridibundus",
+                "Name": "Larus ridibundus",
+                "Start": 1402689,
+                "End": 1402705,
+                "MatchType": "Exact",
+                "MatchedName": "Larus ridibundus Linnaeus, 1766",
+                "MatchedCanonical": "Larus ridibundus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Chlidonias niger",
+                "Name": "Chlidonias niger",
+                "Start": 1411180,
+                "End": 1411196,
+                "MatchType": "Exact",
+                "MatchedName": "Chlidonias niger (Linnaeus, 1758)",
+                "MatchedCanonical": "Chlidonias niger",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Alca torda",
+                "Name": "Alca torda",
+                "Start": 1424708,
+                "End": 1424718,
+                "MatchType": "Exact",
+                "MatchedName": "Alca torda Linnaeus, 1758",
+                "MatchedCanonical": "Alca torda",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Sisargas datos",
+                "Name": "Sisargas datos",
+                "Start": 1432603,
+                "End": 1432617,
+                "MatchType": "Unverified",
+                "MatchedName": "Sisargas datos",
+                "MatchedCanonical": "Sisargas datos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Uria aalge ibericus,",
+                "Name": "Uria aalge ibericus",
+                "Start": 1443189,
+                "End": 1443209,
+                "MatchType": "Exact",
+                "MatchedName": "Uria aalge ibericus Bernis, 1948",
+                "MatchedCanonical": "Uria aalge ibericus",
+                "ClassificationPath": "unranked|kingdom|phylum|subphylum|infraphylum|megaclass|superclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pterocles orientalis",
+                "Name": "Pterocles orientalis",
+                "Start": 1443341,
+                "End": 1443361,
+                "MatchType": "Exact",
+                "MatchedName": "Pterocles orientalis (Linnaeus, 1758)",
+                "MatchedCanonical": "Pterocles orientalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pterocles alchata.",
+                "Name": "Pterocles alchata",
+                "Start": 1460930,
+                "End": 1460948,
+                "MatchType": "Exact",
+                "MatchedName": "Pterocles alchata (Linnaeus, 1766)",
+                "MatchedCanonical": "Pterocles alchata",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Columba oenas",
+                "Name": "Columba oenas",
+                "Start": 1488784,
+                "End": 1488797,
+                "MatchType": "Exact",
+                "MatchedName": "Columba oenas Linnaeus, 1758",
+                "MatchedCanonical": "Columba oenas",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Pirineos occidentales",
+                "Name": "Pirineos occidentales",
+                "Start": 1490896,
+                "End": 1490917,
+                "MatchType": "Unverified",
+                "MatchedName": "Pirineos occidentales",
+                "MatchedCanonical": "Pirineos occidentales",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Como migrante",
+                "Name": "Como migrante",
+                "Start": 1492348,
+                "End": 1492361,
+                "MatchType": "Unverified",
+                "MatchedName": "Como migrante",
+                "MatchedCanonical": "Como migrante",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pirineos centrales",
+                "Name": "Pirineos centrales",
+                "Start": 1493180,
+                "End": 1493198,
+                "MatchType": "Unverified",
+                "MatchedName": "Pirineos centrales",
+                "MatchedCanonical": "Pirineos centrales",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Esta paloma",
+                "Name": "Esta paloma",
+                "Start": 1524223,
+                "End": 1524234,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta paloma",
+                "MatchedCanonical": "Esta paloma",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Streptopelia turtur",
+                "Name": "Streptopelia turtur",
+                "Start": 1547069,
+                "End": 1547088,
+                "MatchType": "Exact",
+                "MatchedName": "Streptopelia turtur (Linnaeus, 1758)",
+                "MatchedCanonical": "Streptopelia turtur",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mancha conquense",
+                "Name": "Mancha conquense",
+                "Start": 1557570,
+                "End": 1557586,
+                "MatchType": "Unverified",
+                "MatchedName": "Mancha conquense",
+                "MatchedCanonical": "Mancha conquense",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Presenta altas",
+                "Name": "Presenta altas",
+                "Start": 1561364,
+                "End": 1561378,
+                "MatchType": "Unverified",
+                "MatchedName": "Presenta altas",
+                "MatchedCanonical": "Presenta altas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Canarias habita",
+                "Name": "Canarias habita",
+                "Start": 1566748,
+                "End": 1566763,
+                "MatchType": "Unverified",
+                "MatchedName": "Canarias habita",
+                "MatchedCanonical": "Canarias habita",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ocupa pinares",
+                "Name": "Ocupa pinares",
+                "Start": 1566958,
+                "End": 1566971,
+                "MatchType": "Unverified",
+                "MatchedName": "Ocupa pinares",
+                "MatchedCanonical": "Ocupa pinares",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Otras medidas",
+                "Name": "Otras medidas",
+                "Start": 1577618,
+                "End": 1577631,
+                "MatchType": "Unverified",
+                "MatchedName": "Otras medidas",
+                "MatchedCanonical": "Otras medidas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tyto alba gracilirostris",
+                "Name": "Tyto alba gracilirostris",
+                "Start": 1580225,
+                "End": 1580249,
+                "MatchType": "Exact",
+                "MatchedName": "Tyto alba gracilirostris (E. J. O. Hartert, 1905)",
+                "MatchedCanonical": "Tyto alba gracilirostris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Fuerteventura contra",
+                "Name": "Fuerteventura contra",
+                "Start": 1592808,
+                "End": 1592828,
+                "MatchType": "Unverified",
+                "MatchedName": "Fuerteventura contra",
+                "MatchedCanonical": "Fuerteventura contra",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "\u201cCoruja lechuza",
+                "Name": "Coruja lechuza",
+                "Start": 1596562,
+                "End": 1596577,
+                "MatchType": "Unverified",
+                "MatchedName": "Coruja lechuza",
+                "MatchedCanonical": "Coruja lechuza",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Asio flammeus",
+                "Name": "Asio flammeus",
+                "Start": 1599260,
+                "End": 1599273,
+                "MatchType": "Exact",
+                "MatchedName": "Asio flammeus (Pontoppidan, 1763)",
+                "MatchedCanonical": "Asio flammeus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Aegolius funereus",
+                "Name": "Aegolius funereus",
+                "Start": 1610154,
+                "End": 1610171,
+                "MatchType": "Exact",
+                "MatchedName": "Aegolius funereus (Linnaeus, 1758)",
+                "MatchedCanonical": "Aegolius funereus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Apus caffer",
+                "Name": "Apus caffer",
+                "Start": 1624359,
+                "End": 1624370,
+                "MatchType": "Exact",
+                "MatchedName": "Apus caffer (M. H. K. Lichtenstein, 1823)",
+                "MatchedCanonical": "Apus caffer",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Hirundo daurica",
+                "Name": "Hirundo daurica",
+                "Start": 1629389,
+                "End": 1629404,
+                "MatchType": "Exact",
+                "MatchedName": "Hirundo daurica Laxmann, 1769",
+                "MatchedCanonical": "Hirundo daurica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Alcedo atthis",
+                "Name": "Alcedo atthis",
+                "Start": 1632156,
+                "End": 1632169,
+                "MatchType": "Exact",
+                "MatchedName": "Alcedo atthis (Linnaeus, 1758)",
+                "MatchedCanonical": "Alcedo atthis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Coracias garrulus",
+                "Name": "Coracias garrulus",
+                "Start": 1645816,
+                "End": 1645833,
+                "MatchType": "Exact",
+                "MatchedName": "Coracias garrulus Linnaeus, 1758",
+                "MatchedCanonical": "Coracias garrulus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Jynx torquilla",
+                "Name": "Jynx torquilla",
+                "Start": 1657589,
+                "End": 1657603,
+                "MatchType": "Exact",
+                "MatchedName": "Jynx torquilla Linnaeus, 1758",
+                "MatchedCanonical": "Jynx torquilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Dendrocopos major thanneri",
+                "Name": "Dendrocopos major thanneri",
+                "Start": 1670843,
+                "End": 1670869,
+                "MatchType": "Exact",
+                "MatchedName": "Dendrocopos major thanneri le Roi, 1911",
+                "MatchedCanonical": "Dendrocopos major thanneri",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Dendrocopos major canariensis",
+                "Name": "Dendrocopos major canariensis",
+                "Start": 1674832,
+                "End": 1674861,
+                "MatchType": "Exact",
+                "MatchedName": "Dendrocopos major canariensis (A. F. Koenig, 1889)",
+                "MatchedCanonical": "Dendrocopos major canariensis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Dendrocopos medius",
+                "Name": "Dendrocopos medius",
+                "Start": 1683411,
+                "End": 1683429,
+                "MatchType": "Exact",
+                "MatchedName": "Dendrocopos medius (Linnaeus, 1758)",
+                "MatchedCanonical": "Dendrocopos medius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Dendrocopos leucotos",
+                "Name": "Dendrocopos leucotos",
+                "Start": 1703957,
+                "End": 1703977,
+                "MatchType": "Exact",
+                "MatchedName": "Dendrocopos leucotos (Bechstein, 1802)",
+                "MatchedCanonical": "Dendrocopos leucotos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Chersophilus duponti",
+                "Name": "Chersophilus duponti",
+                "Start": 1716392,
+                "End": 1716412,
+                "MatchType": "Exact",
+                "MatchedName": "Chersophilus duponti (Vieillot, 1824)",
+                "MatchedCanonical": "Chersophilus duponti",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calandrella brachydactyla",
+                "Name": "Calandrella brachydactyla",
+                "Start": 1739494,
+                "End": 1739519,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella brachydactyla (Leisler, 1814)",
+                "MatchedCanonical": "Calandrella brachydactyla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calandrella cinerea,",
+                "Name": "Calandrella cinerea",
+                "Start": 1740723,
+                "End": 1740743,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella cinerea (Gmelin, 1789)",
+                "MatchedCanonical": "Calandrella cinerea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Calandrella rufescens apetzii",
+                "Name": "Calandrella rufescens apetzii",
+                "Start": 1759805,
+                "End": 1759834,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella rufescens apetzii (A. E. Brehm, 1857)",
+                "MatchedCanonical": "Calandrella rufescens apetzii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Calandrella rufescens rufescens",
+                "Name": "Calandrella rufescens rufescens",
+                "Start": 1779851,
+                "End": 1779882,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella rufescens rufescens (Vieillot, 1819)",
+                "MatchedCanonical": "Calandrella rufescens rufescens",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Canarias elabora",
+                "Name": "Canarias elabora",
+                "Start": 1783805,
+                "End": 1783821,
+                "MatchType": "Unverified",
+                "MatchedName": "Canarias elabora",
+                "MatchedCanonical": "Canarias elabora",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Calandrella rufescens polatzeki",
+                "Name": "Calandrella rufescens polatzeki",
+                "Start": 1795628,
+                "End": 1795659,
+                "MatchType": "Exact",
+                "MatchedName": "Calandrella rufescens polatzeki Hartert, 1904",
+                "MatchedCanonical": "Calandrella rufescens polatzeki",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Cercotrichas galactotes",
+                "Name": "Cercotrichas galactotes",
+                "Start": 1807122,
+                "End": 1807145,
+                "MatchType": "Exact",
+                "MatchedName": "Cercotrichas galactotes (Temminck, 1820)",
+                "MatchedCanonical": "Cercotrichas galactotes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Phoenicurus phoenicurus",
+                "Name": "Phoenicurus phoenicurus",
+                "Start": 1819908,
+                "End": 1819931,
+                "MatchType": "Exact",
+                "MatchedName": "Phoenicurus phoenicurus (Linnaeus, 1758)",
+                "MatchedCanonical": "Phoenicurus phoenicurus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Todo apunta",
+                "Name": "Todo apunta",
+                "Start": 1820472,
+                "End": 1820483,
+                "MatchType": "Unverified",
+                "MatchedName": "Todo apunta",
+                "MatchedCanonical": "Todo apunta",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Real califica como",
+                "Name": "Real califica como",
+                "Start": 1820704,
+                "End": 1820722,
+                "MatchType": "Unverified",
+                "MatchedName": "Real califica como",
+                "MatchedCanonical": "Real califica como",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Oenanthe hispanica",
+                "Name": "Oenanthe hispanica",
+                "Start": 1840648,
+                "End": 1840666,
+                "MatchType": "Exact",
+                "MatchedName": "Oenanthe hispanica (Linnaeus, 1758)",
+                "MatchedCanonical": "Oenanthe hispanica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Locustella luscinioides",
+                "Name": "Locustella luscinioides",
+                "Start": 1862789,
+                "End": 1862812,
+                "MatchType": "Exact",
+                "MatchedName": "Locustella luscinioides (Savi, 1824)",
+                "MatchedCanonical": "Locustella luscinioides",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Paseriforme palustre",
+                "Name": "Paseriforme palustre",
+                "Start": 1863635,
+                "End": 1863655,
+                "MatchType": "Unverified",
+                "MatchedName": "Paseriforme palustre",
+                "MatchedCanonical": "Paseriforme palustre",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Acrocephalus melanopogon",
+                "Name": "Acrocephalus melanopogon",
+                "Start": 1874294,
+                "End": 1874318,
+                "MatchType": "Exact",
+                "MatchedName": "Acrocephalus melanopogon (Temminck, 1823)",
+                "MatchedCanonical": "Acrocephalus melanopogon",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "IKA menor",
+                "Name": "Ika menor",
+                "Start": 1881417,
+                "End": 1881426,
+                "MatchType": "Unverified",
+                "MatchedName": "Ika menor",
+                "MatchedCanonical": "Ika menor",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Acrocephalus paludicola",
+                "Name": "Acrocephalus paludicola",
+                "Start": 1897539,
+                "End": 1897562,
+                "MatchType": "Exact",
+                "MatchedName": "Acrocephalus paludicola (Vieillot, 1817)",
+                "MatchedCanonical": "Acrocephalus paludicola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Hippolais pallida",
+                "Name": "Hippolais pallida",
+                "Start": 1908140,
+                "End": 1908157,
+                "MatchType": "Exact",
+                "MatchedName": "Hippolais pallida (Hemprich & Ehrenberg, 1833)",
+                "MatchedCanonical": "Hippolais pallida",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Panurus biarmicus",
+                "Name": "Panurus biarmicus",
+                "Start": 1920652,
+                "End": 1920669,
+                "MatchType": "Exact",
+                "MatchedName": "Panurus biarmicus (Linnaeus, 1758)",
+                "MatchedCanonical": "Panurus biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Parus caeruleus degener",
+                "Name": "Parus caeruleus degener",
+                "Start": 1941690,
+                "End": 1941713,
+                "MatchType": "Exact",
+                "MatchedName": "Parus caeruleus degener Hartert, 1901",
+                "MatchedCanonical": "Parus caeruleus degener",
+                "ClassificationPath": "kingdom|phylum|class|subclass|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Parus caeruleus palmensis",
+                "Name": "Parus caeruleus palmensis",
+                "Start": 1954747,
+                "End": 1954772,
+                "MatchType": "Exact",
+                "MatchedName": "Parus caeruleus palmensis",
+                "MatchedCanonical": "Parus caeruleus palmensis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Parus caeruleus ombriosus",
+                "Name": "Parus caeruleus ombriosus",
+                "Start": 1960778,
+                "End": 1960803,
+                "MatchType": "Exact",
+                "MatchedName": "Parus caeruleus ombriosus",
+                "MatchedCanonical": "Parus caeruleus ombriosus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lanius minor",
+                "Name": "Lanius minor",
+                "Start": 1965727,
+                "End": 1965739,
+                "MatchType": "Exact",
+                "MatchedName": "Lanius minor Gmelin, 1788",
+                "MatchedCanonical": "Lanius minor",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Pica pica,",
+                "Name": "Pica pica",
+                "Start": 1974791,
+                "End": 1974801,
+                "MatchType": "Exact",
+                "MatchedName": "Pica pica (Linnaeus, 1758)",
+                "MatchedCanonical": "Pica pica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Lanius meridionalis.",
+                "Name": "Lanius meridionalis",
+                "Start": 1978043,
+                "End": 1978063,
+                "MatchType": "Exact",
+                "MatchedName": "Lanius meridionalis Temminck, 1820",
+                "MatchedCanonical": "Lanius meridionalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Lanius senator,",
+                "Name": "Lanius senator",
+                "Start": 1991090,
+                "End": 1991105,
+                "MatchType": "Exact",
+                "MatchedName": "Lanius senator Linnaeus, 1758",
+                "MatchedCanonical": "Lanius senator",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Lanius excubitor,",
+                "Name": "Lanius excubitor",
+                "Start": 1997204,
+                "End": 1997221,
+                "MatchType": "Exact",
+                "MatchedName": "Lanius excubitor Linnaeus, 1758",
+                "MatchedCanonical": "Lanius excubitor",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Dicha tendencia",
+                "Name": "Dicha tendencia",
+                "Start": 2004166,
+                "End": 2004181,
+                "MatchType": "Unverified",
+                "MatchedName": "Dicha tendencia",
+                "MatchedCanonical": "Dicha tendencia",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pyrrhocorax pyrrhocorax erythroramphus",
+                "Name": "Pyrrhocorax pyrrhocorax erythroramphus",
+                "Start": 2015603,
+                "End": 2015641,
+                "MatchType": "Exact",
+                "MatchedName": "Pyrrhocorax pyrrhocorax erythroramphus (Vieillot, 1817)",
+                "MatchedCanonical": "Pyrrhocorax pyrrhocorax erythroramphus",
+                "ClassificationPath": "domain|kingdom|subkingdom|unranked|infrakingdom|phylum|subphylum|infraphylum|superclass|unranked|unranked|superclass|unranked|unranked|unranked|unranked|class|subclass|infraclass|parvclass|unranked|superorder|order|suborder|infraorder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Existen datos para",
+                "Name": "Existen datos para",
+                "Start": 2024201,
+                "End": 2024219,
+                "MatchType": "Unverified",
+                "MatchedName": "Existen datos para",
+                "MatchedCanonical": "Existen datos para",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Esta contradictoria",
+                "Name": "Esta contradictoria",
+                "Start": 2031305,
+                "End": 2031324,
+                "MatchType": "Unverified",
+                "MatchedName": "Esta contradictoria",
+                "MatchedCanonical": "Esta contradictoria",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pyrrhocorax pyrrhocorax barbarus",
+                "Name": "Pyrrhocorax pyrrhocorax barbarus",
+                "Start": 2042210,
+                "End": 2042242,
+                "MatchType": "Exact",
+                "MatchedName": "Pyrrhocorax pyrrhocorax barbarus Vaurie, 1954",
+                "MatchedCanonical": "Pyrrhocorax pyrrhocorax barbarus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Corvus frugilegus",
+                "Name": "Corvus frugilegus",
+                "Start": 2050384,
+                "End": 2050401,
+                "MatchType": "Exact",
+                "MatchedName": "Corvus frugilegus Linnaeus, 1758",
+                "MatchedCanonical": "Corvus frugilegus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Canarias supera",
+                "Name": "Canarias supera",
+                "Start": 2070680,
+                "End": 2070695,
+                "MatchType": "Unverified",
+                "MatchedName": "Canarias supera",
+                "MatchedCanonical": "Canarias supera",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Como medida indirecta",
+                "Name": "Como medida indirecta",
+                "Start": 2073517,
+                "End": 2073538,
+                "MatchType": "Unverified",
+                "MatchedName": "Como medida indirecta",
+                "MatchedCanonical": "Como medida indirecta",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Fringilla coelebs palmae",
+                "Name": "Fringilla coelebs palmae",
+                "Start": 2075287,
+                "End": 2075311,
+                "MatchType": "Exact",
+                "MatchedName": "Fringilla coelebs palmae Tristram, 1889",
+                "MatchedCanonical": "Fringilla coelebs palmae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Fringilla coelebs ombriosa",
+                "Name": "Fringilla coelebs ombriosa",
+                "Start": 2083837,
+                "End": 2083863,
+                "MatchType": "Exact",
+                "MatchedName": "Fringilla coelebs ombriosa Hartert, 1913",
+                "MatchedCanonical": "Fringilla coelebs ombriosa",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Fringilla teydea polatzeki",
+                "Name": "Fringilla teydea polatzeki",
+                "Start": 2093248,
+                "End": 2093274,
+                "MatchType": "Exact",
+                "MatchedName": "Fringilla teydea polatzeki Hartert, 1905",
+                "MatchedCanonical": "Fringilla teydea polatzeki",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Fringilla teydea teydea",
+                "Name": "Fringilla teydea teydea",
+                "Start": 2108592,
+                "End": 2108615,
+                "MatchType": "Exact",
+                "MatchedName": "Fringilla teydea teydea Webb, Berthelot & Moquin-Tandon, 1836",
+                "MatchedCanonical": "Fringilla teydea teydea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Bucanetes githagineus zedlitzi",
+                "Name": "Bucanetes githagineus zedlitzi",
+                "Start": 2114008,
+                "End": 2114038,
+                "MatchType": "Exact",
+                "MatchedName": "Bucanetes githagineus zedlitzi (Neumann, 1907)",
+                "MatchedCanonical": "Bucanetes githagineus zedlitzi",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Bucanetes githagineus amantum",
+                "Name": "Bucanetes githagineus amantum",
+                "Start": 2125451,
+                "End": 2125480,
+                "MatchType": "Exact",
+                "MatchedName": "Bucanetes githagineus amantum (Hartert, 1903)",
+                "MatchedCanonical": "Bucanetes githagineus amantum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Emberiza schoeniclus witherbyi",
+                "Name": "Emberiza schoeniclus witherbyi",
+                "Start": 2140867,
+                "End": 2140897,
+                "MatchType": "Exact",
+                "MatchedName": "Emberiza schoeniclus witherbyi von Jordans, 1923",
+                "MatchedCanonical": "Emberiza schoeniclus witherbyi",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Emberiza schoeniclus lusitanica",
+                "Name": "Emberiza schoeniclus lusitanica",
+                "Start": 2140900,
+                "End": 2140931,
+                "MatchType": "Exact",
+                "MatchedName": "Emberiza schoeniclus lusitanica Steinbacher, 1930",
+                "MatchedCanonical": "Emberiza schoeniclus lusitanica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Emberiza schoeniclus schoeniclus",
+                "Name": "Emberiza schoeniclus schoeniclus",
+                "Start": 2148714,
+                "End": 2148746,
+                "MatchType": "Exact",
+                "MatchedName": "Emberiza schoeniclus schoeniclus (Linnaeus, 1758)",
+                "MatchedCanonical": "Emberiza schoeniclus schoeniclus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Halia\u00ebtus albicilla",
+                "Name": "Halia\u00ebtus albicilla",
+                "Start": 2155603,
+                "End": 2155622,
+                "MatchType": "Exact",
+                "MatchedName": "Haliaetus albicilla (L.)",
+                "MatchedCanonical": "Haliaetus albicilla",
+                "ClassificationPath": "kingdom|phylum|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Haliaeetus albicilla",
+                "Name": "Haliaeetus albicilla",
+                "Start": 2156801,
+                "End": 2156821,
+                "MatchType": "Exact",
+                "MatchedName": "Haliaeetus albicilla (Linnaeus, 1758)",
+                "MatchedCanonical": "Haliaeetus albicilla",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Falco biarmicus",
+                "Name": "Falco biarmicus",
+                "Start": 2156955,
+                "End": 2156970,
+                "MatchType": "Exact",
+                "MatchedName": "Falco biarmicus Temminck, 1825",
+                "MatchedCanonical": "Falco biarmicus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Bonasa bonasia",
+                "Name": "Bonasa bonasia",
+                "Start": 2158860,
+                "End": 2158874,
+                "MatchType": "Exact",
+                "MatchedName": "Bonasa bonasia (Linnaeus, 1758)",
+                "MatchedCanonical": "Bonasa bonasia",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Tetrao tetrix",
+                "Name": "Tetrao tetrix",
+                "Start": 2160680,
+                "End": 2160693,
+                "MatchType": "Exact",
+                "MatchedName": "Tetrao tetrix Linnaeus, 1758",
+                "MatchedCanonical": "Tetrao tetrix",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Alectoris graeca saxatilis",
+                "Name": "Alectoris graeca saxatilis",
+                "Start": 2161701,
+                "End": 2161727,
+                "MatchType": "Exact",
+                "MatchedName": "Alectoris graeca saxatilis (Bechstein, 1805)",
+                "MatchedCanonical": "Alectoris graeca saxatilis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Anthropoides virgo",
+                "Name": "Anthropoides virgo",
+                "Start": 2162410,
+                "End": 2162428,
+                "MatchType": "Exact",
+                "MatchedName": "Anthropoides virgo (Linnaeus, 1758)",
+                "MatchedCanonical": "Anthropoides virgo",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Grus grus",
+                "Name": "Grus grus",
+                "Start": 2163678,
+                "End": 2163687,
+                "MatchType": "Exact",
+                "MatchedName": "Grus grus (Linnaeus, 1758)",
+                "MatchedCanonical": "Grus grus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Haematopus meadewaldoi",
+                "Name": "Haematopus meadewaldoi",
+                "Start": 2164337,
+                "End": 2164359,
+                "MatchType": "Exact",
+                "MatchedName": "Haematopus meadewaldoi Bannerman, 1913",
+                "MatchedCanonical": "Haematopus meadewaldoi",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Saxicola dacotiae murielae",
+                "Name": "Saxicola dacotiae murielae",
+                "Start": 2165084,
+                "End": 2165110,
+                "MatchType": "Exact",
+                "MatchedName": "Saxicola dacotiae murielae Bannerman, 1913",
+                "MatchedCanonical": "Saxicola dacotiae murielae",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Acanthis cannabina harterti",
+                "Name": "Acanthis cannabina harterti",
+                "Start": 2165915,
+                "End": 2165942,
+                "MatchType": "Exact",
+                "MatchedName": "Acanthis cannabina harterti",
+                "MatchedCanonical": "Acanthis cannabina harterti",
+                "ClassificationPath": ""
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "mistral:instruct",
+        "context_chars_before": 0,
+        "context_chars_after": 800,
+        "total_examples_provided": 4,
+        "examples_used": [
+            {
+                "input": "En Peligro Cr\u00edtico; CR A3ace+4ace; B2ab(ii,iii,iv,v); E",
+                "output": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "explainer": "Sometimes, the criteria portion is a long combination of letters, numbers and roman numerals. Extract it fully. "
+            },
+            {
+                "input": "(RE?)",
+                "output": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": ""
+                },
+                "explainer": null
+            },
+            {
+                "input": "Vulnerable; VU [CR B2b(iii,v)c(iii,iv); C2a(i)+b; D]",
+                "output": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "explainer": "in ambiguous cases, use only first statusCode, disregard text in square brackets."
+            },
+            {
+                "input": "En Peligro Cr\u00edtico; CR D (poblaci\u00f3n de Canarias)\nCR B1abc(i,ii,iii,iv); C2a(i,ii)b; (poblaci\u00f3n visitante: Pen\u00ednsula)",
+                "output": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1abc(i,ii,iii,iv); C2a(i,ii)b"
+                },
+                "explainer": "we are interested in continental (Pen\u00ednsula) data"
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 234,
+        "runtime_seconds": 411.770384311676,
+        "total_input_tokens": 427098,
+        "total_output_tokens": 16612,
+        "extraction_results_summary": {
+            "NF": 62,
+            "VU": 51,
+            "EN": 38,
+            "NT": 28,
+            "CR": 26,
+            "RE": 9,
+            "Vulnerable": 5,
+            "DD": 4,
+            "NT D2": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Gavia immer",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Podiceps nigricollis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D1]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Podiceps cristatus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit conservation status or criteria found for 'Podiceps cristatus' in the provided text."
+            },
+            {
+                "species": "Bulweria bulwerii",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(ii,iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Asio otus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for the species 'Asio otus'."
+            },
+            {
+                "species": "Larus cachinnans",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2ab(ii,iii,iv,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Calonectris diomedea diomedea",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A3cde"
+                },
+                "notes": null
+            },
+            {
+                "species": "Bubo bubo",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any information about the regional conservation status or criteria for Bubo bubo."
+            },
+            {
+                "species": "Calonectris diomedea borealis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A3d+4d"
+                },
+                "notes": null
+            },
+            {
+                "species": "Puffinus puffinus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(ii,iii)"
+                },
+                "notes": "The regional conservation status for Puffinus puffinus in the Canary Islands is Endangered (EN) with criteria B2ab(ii,iii). The text mentions that it is critically endangered but the specific regional IUCN category used is B2ab(ii,iii). There are no data available about its status on La Gomera, El Hierro or La Palma."
+            },
+            {
+                "species": "Puffinus mauretanicus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Balear nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific conservation status or criteria for the species 'Balear nidifica'."
+            },
+            {
+                "species": "Puffinus assimilis baroli",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(i,ii,iii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Pelagodroma marina hypoleuca",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Pechialbo nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific information about the regional conservation status or criteria for Pechialbo nidifica."
+            },
+            {
+                "species": "Hydrobates pelagicus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2e; B2ab"
+                },
+                "notes": null
+            },
+            {
+                "species": "Esta colonia",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": null
+            },
+            {
+                "species": "Algunas medidas",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Oceanodroma castro",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(ii,iii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Verde nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for 'Verde nidifica'."
+            },
+            {
+                "species": "Falco eleonorae",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "VU D1"
+                },
+                "notes": "The regional conservation status is NT (Near Threatened) based on the IUCN criteria VU D1."
+            },
+            {
+                "species": "Phalacrocorax aristotelis aristotelis",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A4ae; B2ab(iii,v)c(iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Rusia europea",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Rusia europea in Spain."
+            },
+            {
+                "species": "Phalacrocorax aristotelis desmarestii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The text mentions a potential decrease in some areas, but the data provided does not allow for a precise regional status or criteria."
+            },
+            {
+                "species": "Botaurus stellaris",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(i)b"
+                },
+                "notes": null
+            },
+            {
+                "species": "Navarra datos",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Ardeola ralloides",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "B2ac(iv); c.D1"
+                },
+                "notes": "The species is classified as Near Threatened (NT) and the criteria used are B2ac(iv) and c.D1."
+            },
+            {
+                "species": "Ciconia nigra",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The regional conservation status is Vulnerable (VU) and the criteria used in the assessment are D1."
+            },
+            {
+                "species": "Existen varias",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for 'Existen varias' in the specified regions."
+            },
+            {
+                "species": "Toledo valle",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Plegadis falcinellus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1+2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Platalea leucorodia",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Phoenicopterus ruber",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D2]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Anser fabalis rossicus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2ac; B2ab(ii,iv,v); C2a(i); D"
+                },
+                "notes": "The species is critically endangered and has a small population in Zamora that disappeared during the winter of 2000/2001. There have been isolated and occasional sightings in other areas over the last 25 years."
+            },
+            {
+                "species": "Campestre nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "A. f. fabalis y A. f. rossicus"
+                },
+                "notes": "The text mentions five subspecies, but only two (A. f. fabalis and A. f. rossicus) are present as nidificantes e invernantes habituales en Europa. The status of the other three subspecies is not specified for 'Campestre nidifica'."
+            },
+            {
+                "species": "Anser serrirostris rossicus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1abc(i,ii,iii,iv); C2a(i,ii)b"
+                },
+                "notes": "The data refers to the continental (Pen\u00ednsula) population."
+            },
+            {
+                "species": "Tadorna ferruginea",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1abc(i,ii,iii,iv); C2a(i,ii)b"
+                },
+                "notes": null
+            },
+            {
+                "species": "Actualmente nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a regional conservation status or criteria for 'Actualmente nidifica' in the specified region."
+            },
+            {
+                "species": "Caza furtiva",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific conservation status or criteria mentioned for 'Caza furtiva'."
+            },
+            {
+                "species": "Tadorna tadorna",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NT [VU D1]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Anas crecca",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Anas acuta",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment."
+            },
+            {
+                "species": "Estos datos",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Esto confirma",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific regional conservation status or criteria for 'Esto confirma'."
+            },
+            {
+                "species": "Anas querquedula",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific criteria for the regional assessment."
+            },
+            {
+                "species": "Carretona califica como",
+                "data": {
+                    "statusCodeVerbatim": "Vulnerable",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the Vulnerable status."
+            },
+            {
+                "species": "Este autor indica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific regional conservation status or criteria for 'Este autor indica'."
+            },
+            {
+                "species": "Anas clypeata",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D1]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Marmaronetta angustirostris",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(ii)b"
+                },
+                "notes": "The regional conservation status is CR (Critically Endangered). The criteria used in the assessment are C2a(ii)b."
+            },
+            {
+                "species": "Porphyrio porphyrio",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific conservation status or criteria were mentioned for the species 'Porphyrio porphyrio' in the provided text."
+            },
+            {
+                "species": "Netta rufina",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2abc(iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Esta medida",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(ii,iii,iv,v); C2a(ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Aythya nyroca",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2ab(iii,v); C2a(i,ii)"
+                },
+                "notes": "The species is Critically Endangered (CR) with status criteria B2ab(iii,v) and C2a(i,ii). The text mentions a global status of D but we are only interested in regional data."
+            },
+            {
+                "species": "Oxyura leucocephala",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A3ce"
+                },
+                "notes": "The species is classified as Endangered (EN) with the criteria A3ce."
+            },
+            {
+                "species": "Elanus caeruleus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "D1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Milvus migrans",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "VU C1"
+                },
+                "notes": "The text mentions multiple threat assessments, but the latest regional IUCN based category is NT."
+            },
+            {
+                "species": "Milvus milvus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2ab+4ab"
+                },
+                "notes": "The text mentions 'En Peligro; EN A2ab+4ab', which corresponds to the IUCN category 'Endangered'. The criteria portion is a long combination of letters, numbers and roman numerals. Extract it fully."
+            },
+            {
+                "species": "Censo nacional",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Real figura",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "123"
+                },
+                "notes": "The value '123' is an extrapolated number of potential deaths due to shooting during the national census in 1994. It does not represent a formal IUCN conservation status."
+            },
+            {
+                "species": "Gypaetus barbatus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "D"
+                },
+                "notes": null
+            },
+            {
+                "species": "Esta tendencia",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Neophron percnopterus majorensis",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(ii)"
+                },
+                "notes": "The species is critically endangered, with a very low reproductive success rate. The status criteria provided is the most recent one available."
+            },
+            {
+                "species": "Corvus corax canariensis",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A4abcd; B1ab (i,ii,iii,iv,v); C1+C2a(i)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Alectoris barbara",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions a potential threat, but no regional conservation status is explicitly stated."
+            },
+            {
+                "species": "Aegypius monachus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The regional conservation status for Aegypius monachus in Castilla-La Mancha is Vulnerable (VU) with the criteria C1."
+            },
+            {
+                "species": "Negro anida",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for Negro anida in the specified region."
+            },
+            {
+                "species": "Circus pygargus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The species is Vulnerable due to the disadvantage conferred by nesting in cereal, which leads to unsustainable loss of chicks due to mechanization of harvest in many zones."
+            },
+            {
+                "species": "Cenizo califica como",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Francia datos",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Caza furtiva problema",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Existen suficientes datos",
+                "data": {
+                    "statusCodeVerbatim": "Vulnerable",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No quantitative data provided for the Iberian Peninsula, but it is logical to assume that the effect would be similar. This trend could potentially become an important limiting factor in the future."
+            },
+            {
+                "species": "Accipiter nisus granti",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species is Vulnerable, with the D1 criteria."
+            },
+            {
+                "species": "Ocasionalmente nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide information about the regional conservation status or criteria for 'Ocasionalmente nidifica'."
+            },
+            {
+                "species": "Serinus canarius",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any information about the regional conservation status or criteria for Serinus canarius."
+            },
+            {
+                "species": "Columba bollii",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "B2ab(iii)c"
+                },
+                "notes": null
+            },
+            {
+                "species": "Columba junoniae",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(iii)+B2ab(iii)"
+                },
+                "notes": "The species is listed as Endangered (EN) with criteria B1ab(iii)+B2ab(iii). The text does not provide further information about the global conservation status."
+            },
+            {
+                "species": "Buteo buteo insularum",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "D1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Canarias nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No sufficient information provided to establish a regional conservation status or criteria."
+            },
+            {
+                "species": "Aquila adalberti",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "C1+C2a(i)"
+                },
+                "notes": "The text mentions 'En Peligro; EN C1+C2a(i)'. The IUCN code for Critically Endangered is 'CR', but the regional status is 'EN'."
+            },
+            {
+                "species": "Toledo occidentales",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific information about the conservation status or criteria for 'Toledo occidentales'."
+            },
+            {
+                "species": "Aquila chrysaetos",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "C1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Elaborar planes",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a conservation status or criteria for the species 'Elaborar planes'."
+            },
+            {
+                "species": "Hieraaetus fasciatus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The regional conservation status is 'En Peligro' (EN), but the IUCN code C1 was explicitly mentioned."
+            },
+            {
+                "species": "Pandion haliaetus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": "The status is Critically Endangered (CR) in the region. The criteria used are A3ace+4ace; B2ab(ii,iii,iv,v); E."
+            },
+            {
+                "species": "Haematopus ostralegus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Falco peregrinus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for the species 'Falco peregrinus'."
+            },
+            {
+                "species": "Falco naumanni",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A3c"
+                },
+                "notes": "The status is based on the most recent information available, which suggests a possible global stabilization with significant regional differences. However, the text does not provide specific criteria for this regional assessment."
+            },
+            {
+                "species": "Muchas colonias",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status criteria for 'Muchas colonias' in the given context."
+            },
+            {
+                "species": "Falco tinnunculus dacotiae",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Falco subbuteo",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The text mentions multiple regional threat assessments, but the latest one used is NT C1."
+            },
+            {
+                "species": "Corvus corone",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific conservation status information was found for 'Corvus corone' in the provided text."
+            },
+            {
+                "species": "Passer domesticus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria found in the text."
+            },
+            {
+                "species": "Desarrollar planes",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "VU D1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Falco pelegrinoides pelegrinoides",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The regional conservation status is 'En Peligro' (EN), but no specific criteria were provided."
+            },
+            {
+                "species": "Columba livia",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific conservation status or criteria for 'Columba livia' in the requested scope."
+            },
+            {
+                "species": "Lagopus mutus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C2a(ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Pirineo oscense",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Pirineo oscense."
+            },
+            {
+                "species": "Cerdanya catalana",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v)"
+                },
+                "notes": "The reproduction success seems to have decreased significantly in the last years. The current status is based on this information."
+            },
+            {
+                "species": "Alpino habita",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific conservation status or criteria for 'Alpino habita' in the given region."
+            },
+            {
+                "species": "Tetrao urogallus cantabricus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "c.A2ac; B1ab(i,ii,iii,iv,v); C2a(i)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Pirineo navarro",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific conservation status or criteria for Pirineo navarro."
+            },
+            {
+                "species": "Tetrao urogallus aquitanicus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "C2a(ii)"
+                },
+                "notes": "The regional conservation status is 'Endangered' (EN) and the criteria used in the assessment is C2a(ii). The population is estimated at 1.378 mature individuals in the Pyrenean central-eastern region, with a decline of approximately 27% over the last 15 years."
+            },
+            {
+                "species": "Alectoris rufa",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "pendiente negativa significativa que representa un declive pr\u00f3ximo al 20% en relaci\u00f3n al \u00edndice de abundancia del primer a\u00f1o del programa"
+                },
+                "notes": "The statusCodeVerbatim is based on the significant negative trend, which represents a decline close to 20%. The criteria portion is not explicitly stated as a combination of letters and numbers, so it is marked as 'NF'."
+            },
+            {
+                "species": "Perdix perdix hispaniensis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The text mentions 'Vulnerable; VU C1', so the statusCodeVerbatim is 'VU' and the statusCriteria is 'C1'. No other criteria were provided."
+            },
+            {
+                "species": "Pirineos orientales",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for 'Pirineos orientales'."
+            },
+            {
+                "species": "Coturnix coturnix",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "Data insufficient; only local data from Teruel, Madrid, Castilla-La Mancha and Canarias are provided. No regional conservation status or criteria could be extracted."
+            },
+            {
+                "species": "Turnix sylvatica",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "D"
+                },
+                "notes": "The regional conservation status for Spain is Critically Endangered (CR), but the criteria code could not be determined as it was not explicitly stated."
+            },
+            {
+                "species": "Porzana porzana",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "Datos Insuficientes; DD indicates insufficient data for the regional conservation status."
+            },
+            {
+                "species": "Porzana parva",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific regional conservation status or criteria for Porzana parva in Spain."
+            },
+            {
+                "species": "Porzana pusilla",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Porzana pusilla."
+            },
+            {
+                "species": "Existen datos",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": null
+            },
+            {
+                "species": "Fulica cristata",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(ii)+2b"
+                },
+                "notes": null
+            },
+            {
+                "species": "Focha moruna",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": null
+            },
+            {
+                "species": "Promover medidas",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any information about the conservation status of 'Promover medidas'."
+            },
+            {
+                "species": "Tetrax tetrax",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c+3c+4c"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Juana datos",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Chlamydotis undulata fuertaventurae",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,ii,iv,v)+2ab(i,ii,iii,iv,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Otis tarda",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A4c"
+                },
+                "notes": "The status criteria is based on the latest regional IUCN category."
+            },
+            {
+                "species": "Madrid datos",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Esta corriente",
+                "data": {
+                    "statusCodeVerbatim": "Vulnerable",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific conservation status code or criteria for 'Esta corriente'."
+            },
+            {
+                "species": "Ebro nidifica",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment."
+            },
+            {
+                "species": "Burhinus oedicnemus distinctus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,iv)+2ab(i,ii,iii,iv); C2a(i)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Burhinus oedicnemus insularum",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(ii,iii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Cursorius cursor",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,v)+2ab(i,ii,iii,v)"
+                },
+                "notes": "The species is listed as Endangered (EN) with the criteria B1ab(i,ii,iii,v)+2ab(i,ii,iii,v). The regional conservation status is based on the IUCN categories."
+            },
+            {
+                "species": "Glareola pratincola",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2ac?; C1+2b"
+                },
+                "notes": null
+            },
+            {
+                "species": "Tringa totanus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Charadrius alexandrinus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "VU [EN B2ab(ii,iii,v)c(ii,iv)]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Charadrius morinellus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "CR B1bc(iv); C2a(i,ii)+b; D; c.CR C1"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Gallinago gallinago",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "D"
+                },
+                "notes": "The regional conservation status for Gallinago gallinago in Spain is Endangered (EN) with the criteria D."
+            },
+            {
+                "species": "Limosa limosa",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions a global status of 'Vulnerable', but we are asked to extract the regional conservation status. The regional status is not explicitly stated in this text."
+            },
+            {
+                "species": "Nava nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any information about the regional conservation status or criteria for 'Nava nidifica'."
+            },
+            {
+                "species": "Numenius arquata",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "CR B1ac(ii,iii,iv)+2ac(ii,iii,iv); D"
+                },
+                "notes": null
+            },
+            {
+                "species": "Daimiel nidifica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific regional conservation status or criteria for 'Daimiel nidifica'."
+            },
+            {
+                "species": "Larus genei",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Gelochelidon nilotica",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B1ac(iii,iv)+2ac(iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Valenciana salinas",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Larus audouinii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Rissa tridactyla",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Valenciana albufera",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Sterna sandvicensis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "VU D2"
+                },
+                "notes": "The species is classified as Near Threatened (NT) at a regional level, with the criteria VU D2. The population in Iberia represents only 4% of the European and an even smaller percentage of the global population, which may suggest a potential rescue effect from populations outside Iberia."
+            },
+            {
+                "species": "Sterna hirundo",
+                "data": {
+                    "statusCodeVerbatim": "NT D2",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Recurvirostra avosetta",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific information about the regional conservation status or criteria for 'Recurvirostra avosetta'."
+            },
+            {
+                "species": "Negro inverna",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific conservation status or criteria for 'Negro inverna'."
+            },
+            {
+                "species": "Sterna albifrons",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "C1+2b"
+                },
+                "notes": null
+            },
+            {
+                "species": "Sterna antillarum",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific conservation status or criteria for the 'Sterna antillarum' species in this region."
+            },
+            {
+                "species": "Poblaciones interiores",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific regional conservation status or criteria for 'Poblaciones interiores'."
+            },
+            {
+                "species": "Chlidonias hybridus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ac(ii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Larus ridibundus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Larus ridibundus."
+            },
+            {
+                "species": "Chlidonias niger",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "D"
+                },
+                "notes": "The text mentions that the species is Endangered (EN), but it does not provide specific criteria. The 'D' code refers to the IUCN category for species with a declining population."
+            },
+            {
+                "species": "Alca torda",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific information about the regional conservation status or criteria for 'Alca torda'."
+            },
+            {
+                "species": "Sisargas datos",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Uria aalge ibericus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No concrete evidence of the existence of 'Uria aalge ibericus' has been found."
+            },
+            {
+                "species": "Pterocles orientalis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c+3c+4c; C1"
+                },
+                "notes": "The population in Spain continental should be around 10,000-15,000 individuals and the Canarian population is estimated to be between 400-1,000 individuals. The species has experienced a decline of more than 30% over the last twenty years, which may be even higher in peripheral populations."
+            },
+            {
+                "species": "Pterocles alchata",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c+3c+4c"
+                },
+                "notes": "The status is 'Vulnerable' and the criteria are 'A2c', '3c' and '4c'. The text mentions a decline in the last five years, but no specific percentage is given."
+            },
+            {
+                "species": "Columba oenas",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment."
+            },
+            {
+                "species": "Pirineos occidentales",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Pirineos occidentales."
+            },
+            {
+                "species": "Como migrante",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit information about the regional conservation status or criteria for 'Como migrante'."
+            },
+            {
+                "species": "Pirineos centrales",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "1.000-10.000 pp.; Grolleau & Berthelot, 1995"
+                },
+                "notes": "The text mentions a range for the population size but does not provide a specific conservation status code."
+            },
+            {
+                "species": "Esta paloma",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Esta paloma."
+            },
+            {
+                "species": "Streptopelia turtur",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2acd"
+                },
+                "notes": "The species has experienced a moderate decline (between 20-50%) between 1970-1990, but the data for this trend are 'escasos o incompletos'."
+            },
+            {
+                "species": "Mancha conquense",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": "The species is experiencing a strong decline due to habitat destruction."
+            },
+            {
+                "species": "Presenta altas",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit regional conservation status or criteria for 'Presenta altas'."
+            },
+            {
+                "species": "Canarias habita",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for 'Canarias habita'."
+            },
+            {
+                "species": "Ocupa pinares",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific regional conservation status or criteria for 'Ocupa pinares'."
+            },
+            {
+                "species": "Otras medidas",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Tyto alba gracilirostris",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Fuerteventura contra",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "Brodifacoum"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Fuerteventura contra."
+            },
+            {
+                "species": "Coruja lechuza",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Asio flammeus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D1]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Aegolius funereus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D1]"
+                },
+                "notes": "The status is based on the information available at the end of the 90s. The exact criteria used for this assessment are not specified."
+            },
+            {
+                "species": "Apus caffer",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a specific regional IUCN status criteria for Apus caffer."
+            },
+            {
+                "species": "Hirundo daurica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for Hirundo daurica."
+            },
+            {
+                "species": "Alcedo atthis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2ac"
+                },
+                "notes": "The species is classified as Near Threatened (NT) and the criteria used in the regional assessment is A2ac."
+            },
+            {
+                "species": "Coracias garrulus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Jynx torquilla",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text indicates that the species is Data Deficient (DD) due to a lack of precise information on population trends."
+            },
+            {
+                "species": "Dendrocopos major thanneri",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1+2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Dendrocopos major canariensis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Dendrocopos medius",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The status is uncertain due to lack of information available."
+            },
+            {
+                "species": "Dendrocopos leucotos",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment."
+            },
+            {
+                "species": "Chersophilus duponti",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(ii,iii)"
+                },
+                "notes": "The species is considered Endangered (EN) with criteria B2ab(ii,iii). The population size is estimated to be around 13,000 individuals."
+            },
+            {
+                "species": "Calandrella brachydactyla",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c+3c+4c"
+                },
+                "notes": null
+            },
+            {
+                "species": "Calandrella cinerea",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a regional conservation status or criteria for 'Calandrella cinerea' in Spain."
+            },
+            {
+                "species": "Calandrella rufescens apetzii",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "B2b(ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Calandrella rufescens rufescens",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A4abc; B1ab(i,ii,iii,iv,v)+2ab(i,ii,iii,iv,v); C1+2a(i, ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Canarias elabora",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit information about the regional conservation status or criteria for 'Canarias elabora'."
+            },
+            {
+                "species": "Calandrella rufescens polatzeki",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,iv,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Cercotrichas galactotes",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2c"
+                },
+                "notes": "The regional conservation status is 'EN A2c'. The text mentions a potential decline of up to 50% due to habitat loss and agricultural changes, but no specific criteria are provided for this assessment."
+            },
+            {
+                "species": "Phoenicurus phoenicurus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2ac"
+                },
+                "notes": "The text mentions 'Vulnerable; VU A2ac', but no specific regional IUCN code is provided. The global IUCN code for the species is VU, so we use that."
+            },
+            {
+                "species": "Todo apunta",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions a regional decline in the species' population, but no specific conservation status or criteria are provided."
+            },
+            {
+                "species": "Real califica como",
+                "data": {
+                    "statusCodeVerbatim": "Vulnerable",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the Vulnerable status."
+            },
+            {
+                "species": "Oenanthe hispanica",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2ac"
+                },
+                "notes": "The species is Near Threatened (NT) with criteria A2ac. The text mentions a potential decline, but no specific quantification or threshold was provided."
+            },
+            {
+                "species": "Locustella luscinioides",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "B2ab(ii,iii,v); C1"
+                },
+                "notes": null
+            },
+            {
+                "species": "Paseriforme palustre",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3ace+4ace; B2ab(ii,iii,iv,v); E"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Acrocephalus melanopogon",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(iii,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Ika menor",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit conservation status or criteria found for Ika menor in the provided text."
+            },
+            {
+                "species": "Acrocephalus paludicola",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "Z2c+3c"
+                },
+                "notes": null
+            },
+            {
+                "species": "Hippolais pallida",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The text mentions a regional status of 'Casi Amenazado', but the IUCN code for this is NT. The criteria portion D1 was extracted."
+            },
+            {
+                "species": "Panurus biarmicus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU B2ab(ii,v)]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Parus caeruleus degener",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,iv,v)+2ab(i,ii,iii,iv,v)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Parus caeruleus palmensis",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)"
+                },
+                "notes": "The species is listed as Endangered (EN) with the criteria B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv). The regional conservation status is based on IUCN codes."
+            },
+            {
+                "species": "Parus caeruleus ombriosus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,v)+ 2ab(i,ii,iii,iv)"
+                },
+                "notes": "The species is listed as Endangered (EN) with the criteria B1ab(i,ii,iii,v)+ 2ab(i,ii,iii,iv). The text mentions that it is susceptible to human activities and stochastic events, and its future is uncertain. However, no specific population estimates are provided."
+            },
+            {
+                "species": "Lanius minor",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(i)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Pica pica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit information about the regional conservation status or criteria for 'Pica pica'."
+            },
+            {
+                "species": "Lanius meridionalis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2bc"
+                },
+                "notes": null
+            },
+            {
+                "species": "Lanius senator",
+                "data": {
+                    "statusCodeVerbatim": "Vulnerable",
+                    "statusCriteria": "19701990"
+                },
+                "notes": "The text provides the status for the period 1970-1990, but no current regional IUCN category is explicitly stated."
+            },
+            {
+                "species": "Lanius excubitor",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species is currently Near Threatened (NT) with the criteria A2a."
+            },
+            {
+                "species": "Dicha tendencia",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a regional conservation status or criteria for 'Dicha tendencia' in the specified region."
+            },
+            {
+                "species": "Pyrrhocorax pyrrhocorax erythroramphus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2ac+3ac+4ac"
+                },
+                "notes": null
+            },
+            {
+                "species": "Existen datos para",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific regional conservation status or criteria for the species 'Existen datos para'."
+            },
+            {
+                "species": "Esta contradictoria",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment of 'Esta contradictoria'."
+            },
+            {
+                "species": "Pyrrhocorax pyrrhocorax barbarus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(iii); C2a(ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Corvus frugilegus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": null
+            },
+            {
+                "species": "Canarias supera",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific information about the regional conservation status or criteria for 'Canarias supera'."
+            },
+            {
+                "species": "Como medida indirecta",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a clear regional conservation status or criteria for 'Como medida indirecta'."
+            },
+            {
+                "species": "Fringilla coelebs palmae",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Fringilla coelebs ombriosa",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iii,v)+2ab(i,ii,iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Fringilla teydea polatzeki",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1ab(ii,v); C2a(ii)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Fringilla teydea teydea",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D2"
+                },
+                "notes": null
+            },
+            {
+                "species": "Bucanetes githagineus zedlitzi",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "[VU D1]"
+                },
+                "notes": null
+            },
+            {
+                "species": "Bucanetes githagineus amantum",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1b(i,ii,iii,iv,v)c(iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Emberiza schoeniclus witherbyi",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iv,v)+2ab(i,ii,iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Emberiza schoeniclus lusitanica",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,ii,iv,v)+2ab(i,ii,iii,iv)"
+                },
+                "notes": null
+            },
+            {
+                "species": "Emberiza schoeniclus schoeniclus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2ac+3c"
+                },
+                "notes": null
+            },
+            {
+                "species": "Halia\u00ebtus albicilla",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific conservation status or criteria for 'Halia\u00ebtus albicilla' in the given region."
+            },
+            {
+                "species": "Haliaeetus albicilla",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide a current regional conservation status for Haliaeetus albicilla."
+            },
+            {
+                "species": "Falco biarmicus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific criteria for the regional assessment."
+            },
+            {
+                "species": "Bonasa bonasia",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any reliable information about the regional conservation status criteria for Bonasa bonasia in Spain."
+            },
+            {
+                "species": "Tetrao tetrix",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The distribution of this species in Spain is unknown, and no current data are available."
+            },
+            {
+                "species": "Alectoris graeca saxatilis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": ""
+                },
+                "notes": "The species' status in Spain is unknown."
+            },
+            {
+                "species": "Anthropoides virgo",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": ""
+                },
+                "notes": "The text does not provide a clear conservation status or criteria for Anthropoides virgo in Spain."
+            },
+            {
+                "species": "Grus grus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": ""
+                },
+                "notes": "No regional conservation status criteria were found."
+            },
+            {
+                "species": "Haematopus meadewaldoi",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any information about the regional conservation status or criteria for Haematopus meadewaldoi."
+            },
+            {
+                "species": "Saxicola dacotiae murielae",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": ""
+                },
+                "notes": null
+            },
+            {
+                "species": "Acanthis cannabina harterti",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": ""
+                },
+                "notes": "The text mentions 'Taxones extinguidos a nivel mundial (EX) y regional (RE)' which indicates that the species is regionally extinct. No criteria were provided."
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

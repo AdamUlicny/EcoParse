@@ -1,0 +1,2221 @@
+{
+    "report_timestamp": "2025-09-04T17:31:27.051946",
+    "pdf_info": {
+        "file_name": "PRT_Mammalia_2023.pdf",
+        "extracted_text_char_count": 524151
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 1389,
+        "total_species_identified_initial_filter": 160,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 118,
+        "final_species_list": [
+            {
+                "Verbatim": "Erinaceus europaeus",
+                "Name": "Erinaceus europaeus",
+                "Start": 2732,
+                "End": 2751,
+                "MatchType": "Unverified",
+                "MatchedName": "Erinaceus europaeus",
+                "MatchedCanonical": "Erinaceus europaeus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sorex minutus",
+                "Name": "Sorex minutus",
+                "Start": 5739,
+                "End": 5752,
+                "MatchType": "Unverified",
+                "MatchedName": "Sorex minutus",
+                "MatchedCanonical": "Sorex minutus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Crocidura russula),",
+                "Name": "Crocidura russula",
+                "Start": 9378,
+                "End": 9398,
+                "MatchType": "Unverified",
+                "MatchedName": "Crocidura russula",
+                "MatchedCanonical": "Crocidura russula",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sorex granarius",
+                "Name": "Sorex granarius",
+                "Start": 13369,
+                "End": 13384,
+                "MatchType": "Unverified",
+                "MatchedName": "Sorex granarius",
+                "MatchedCanonical": "Sorex granarius",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Neomys anomalus",
+                "Name": "Neomys anomalus",
+                "Start": 14782,
+                "End": 14797,
+                "MatchType": "Unverified",
+                "MatchedName": "Neomys anomalus",
+                "MatchedCanonical": "Neomys anomalus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Neomys milleri",
+                "Name": "Neomys milleri",
+                "Start": 14908,
+                "End": 14922,
+                "MatchType": "Unverified",
+                "MatchedName": "Neomys milleri",
+                "MatchedCanonical": "Neomys milleri",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Galemys pyrenaicus)",
+                "Name": "Galemys pyrenaicus",
+                "Start": 15522,
+                "End": 15542,
+                "MatchType": "Unverified",
+                "MatchedName": "Galemys pyrenaicus",
+                "MatchedCanonical": "Galemys pyrenaicus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Crocidura suaveolens",
+                "Name": "Crocidura suaveolens",
+                "Start": 24657,
+                "End": 24677,
+                "MatchType": "Unverified",
+                "MatchedName": "Crocidura suaveolens",
+                "MatchedCanonical": "Crocidura suaveolens",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Suncus etruscus",
+                "Name": "Suncus etruscus",
+                "Start": 32339,
+                "End": 32354,
+                "MatchType": "Unverified",
+                "MatchedName": "Suncus etruscus",
+                "MatchedCanonical": "Suncus etruscus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Neovison vison),",
+                "Name": "Neovison vison",
+                "Start": 37693,
+                "End": 37710,
+                "MatchType": "Unverified",
+                "MatchedName": "Neovison vison",
+                "MatchedCanonical": "Neovison vison",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Talpa occidentalis",
+                "Name": "Talpa occidentalis",
+                "Start": 42389,
+                "End": 42407,
+                "MatchType": "Unverified",
+                "MatchedName": "Talpa occidentalis",
+                "MatchedCanonical": "Talpa occidentalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Rhinolophus ferrumequinum",
+                "Name": "Rhinolophus ferrumequinum",
+                "Start": 46833,
+                "End": 46858,
+                "MatchType": "Unverified",
+                "MatchedName": "Rhinolophus ferrumequinum",
+                "MatchedCanonical": "Rhinolophus ferrumequinum",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Rhinolophus hipposideros",
+                "Name": "Rhinolophus hipposideros",
+                "Start": 52328,
+                "End": 52352,
+                "MatchType": "Unverified",
+                "MatchedName": "Rhinolophus hipposideros",
+                "MatchedCanonical": "Rhinolophus hipposideros",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Rhinolophus euryale",
+                "Name": "Rhinolophus euryale",
+                "Start": 59299,
+                "End": 59318,
+                "MatchType": "Unverified",
+                "MatchedName": "Rhinolophus euryale",
+                "MatchedCanonical": "Rhinolophus euryale",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Rhinolophus mehelyi",
+                "Name": "Rhinolophus mehelyi",
+                "Start": 62694,
+                "End": 62713,
+                "MatchType": "Unverified",
+                "MatchedName": "Rhinolophus mehelyi",
+                "MatchedCanonical": "Rhinolophus mehelyi",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis bechsteinii",
+                "Name": "Myotis bechsteinii",
+                "Start": 68201,
+                "End": 68219,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis bechsteinii",
+                "MatchedCanonical": "Myotis bechsteinii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis myotis",
+                "Name": "Myotis myotis",
+                "Start": 73701,
+                "End": 73714,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis myotis",
+                "MatchedCanonical": "Myotis myotis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Miniopterus schreibersii.",
+                "Name": "Miniopterus schreibersii",
+                "Start": 79231,
+                "End": 79256,
+                "MatchType": "Unverified",
+                "MatchedName": "Miniopterus schreibersii",
+                "MatchedCanonical": "Miniopterus schreibersii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis blythii",
+                "Name": "Myotis blythii",
+                "Start": 79257,
+                "End": 79271,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis blythii",
+                "MatchedCanonical": "Myotis blythii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis nattereri",
+                "Name": "Myotis nattereri",
+                "Start": 81817,
+                "End": 81833,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis nattereri",
+                "MatchedCanonical": "Myotis nattereri",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis escalerai",
+                "Name": "Myotis escalerai",
+                "Start": 84825,
+                "End": 84841,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis escalerai",
+                "MatchedCanonical": "Myotis escalerai",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis emarginatus",
+                "Name": "Myotis emarginatus",
+                "Start": 90895,
+                "End": 90913,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis emarginatus",
+                "MatchedCanonical": "Myotis emarginatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis mystacinus",
+                "Name": "Myotis mystacinus",
+                "Start": 94365,
+                "End": 94382,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis mystacinus",
+                "MatchedCanonical": "Myotis mystacinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis daubentonii",
+                "Name": "Myotis daubentonii",
+                "Start": 102188,
+                "End": 102206,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis daubentonii",
+                "MatchedCanonical": "Myotis daubentonii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pipistrellus pipistrellus",
+                "Name": "Pipistrellus pipistrellus",
+                "Start": 107376,
+                "End": 107401,
+                "MatchType": "Unverified",
+                "MatchedName": "Pipistrellus pipistrellus",
+                "MatchedCanonical": "Pipistrellus pipistrellus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pipistrellus kuhlii",
+                "Name": "Pipistrellus kuhlii",
+                "Start": 112297,
+                "End": 112316,
+                "MatchType": "Unverified",
+                "MatchedName": "Pipistrellus kuhlii",
+                "MatchedCanonical": "Pipistrellus kuhlii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pipistrellus pygmaeus",
+                "Name": "Pipistrellus pygmaeus",
+                "Start": 117208,
+                "End": 117229,
+                "MatchType": "Unverified",
+                "MatchedName": "Pipistrellus pygmaeus",
+                "MatchedCanonical": "Pipistrellus pygmaeus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hypsugo savii",
+                "Name": "Hypsugo savii",
+                "Start": 122711,
+                "End": 122724,
+                "MatchType": "Unverified",
+                "MatchedName": "Hypsugo savii",
+                "MatchedCanonical": "Hypsugo savii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Nyctalus leisleri",
+                "Name": "Nyctalus leisleri",
+                "Start": 127769,
+                "End": 127786,
+                "MatchType": "Unverified",
+                "MatchedName": "Nyctalus leisleri",
+                "MatchedCanonical": "Nyctalus leisleri",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Nyctalus noctula",
+                "Name": "Nyctalus noctula",
+                "Start": 133570,
+                "End": 133586,
+                "MatchType": "Unverified",
+                "MatchedName": "Nyctalus noctula",
+                "MatchedCanonical": "Nyctalus noctula",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Nyctalus lasiopterus",
+                "Name": "Nyctalus lasiopterus",
+                "Start": 139175,
+                "End": 139195,
+                "MatchType": "Unverified",
+                "MatchedName": "Nyctalus lasiopterus",
+                "MatchedCanonical": "Nyctalus lasiopterus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Eptesicus serotinus",
+                "Name": "Eptesicus serotinus",
+                "Start": 144324,
+                "End": 144343,
+                "MatchType": "Unverified",
+                "MatchedName": "Eptesicus serotinus",
+                "MatchedCanonical": "Eptesicus serotinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Eptesicus isabellinus,",
+                "Name": "Eptesicus isabellinus",
+                "Start": 146801,
+                "End": 146823,
+                "MatchType": "Unverified",
+                "MatchedName": "Eptesicus isabellinus",
+                "MatchedCanonical": "Eptesicus isabellinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Barbastella barbastellus",
+                "Name": "Barbastella barbastellus",
+                "Start": 154656,
+                "End": 154680,
+                "MatchType": "Unverified",
+                "MatchedName": "Barbastella barbastellus",
+                "MatchedCanonical": "Barbastella barbastellus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Plecotus auritus",
+                "Name": "Plecotus auritus",
+                "Start": 159561,
+                "End": 159577,
+                "MatchType": "Unverified",
+                "MatchedName": "Plecotus auritus",
+                "MatchedCanonical": "Plecotus auritus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Plecotus austriacus",
+                "Name": "Plecotus austriacus",
+                "Start": 164946,
+                "End": 164965,
+                "MatchType": "Unverified",
+                "MatchedName": "Plecotus austriacus",
+                "MatchedCanonical": "Plecotus austriacus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tadarida teniotis",
+                "Name": "Tadarida teniotis",
+                "Start": 176932,
+                "End": 176949,
+                "MatchType": "Unverified",
+                "MatchedName": "Tadarida teniotis",
+                "MatchedCanonical": "Tadarida teniotis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lepus granatensis",
+                "Name": "Lepus granatensis",
+                "Start": 182942,
+                "End": 182959,
+                "MatchType": "Unverified",
+                "MatchedName": "Lepus granatensis",
+                "MatchedCanonical": "Lepus granatensis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Oryctolagus cuniculus",
+                "Name": "Oryctolagus cuniculus",
+                "Start": 188293,
+                "End": 188314,
+                "MatchType": "Unverified",
+                "MatchedName": "Oryctolagus cuniculus",
+                "MatchedCanonical": "Oryctolagus cuniculus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sciurus vulgaris",
+                "Name": "Sciurus vulgaris",
+                "Start": 193973,
+                "End": 193989,
+                "MatchType": "Unverified",
+                "MatchedName": "Sciurus vulgaris",
+                "MatchedCanonical": "Sciurus vulgaris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Sciurus carolinensis),",
+                "Name": "Sciurus carolinensis",
+                "Start": 194460,
+                "End": 194483,
+                "MatchType": "Unverified",
+                "MatchedName": "Sciurus carolinensis",
+                "MatchedCanonical": "Sciurus carolinensis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Arvicola sapidus",
+                "Name": "Arvicola sapidus",
+                "Start": 198308,
+                "End": 198324,
+                "MatchType": "Unverified",
+                "MatchedName": "Arvicola sapidus",
+                "MatchedCanonical": "Arvicola sapidus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Rattus norvegicus)",
+                "Name": "Rattus norvegicus",
+                "Start": 198671,
+                "End": 198690,
+                "MatchType": "Unverified",
+                "MatchedName": "Rattus norvegicus",
+                "MatchedCanonical": "Rattus norvegicus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus cabrerae",
+                "Name": "Microtus cabrerae",
+                "Start": 204035,
+                "End": 204052,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus cabrerae",
+                "MatchedCanonical": "Microtus cabrerae",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus arvalis",
+                "Name": "Microtus arvalis",
+                "Start": 207211,
+                "End": 207227,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus arvalis",
+                "MatchedCanonical": "Microtus arvalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus agrestis,",
+                "Name": "Microtus agrestis",
+                "Start": 208960,
+                "End": 208978,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus agrestis",
+                "MatchedCanonical": "Microtus agrestis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus rozianus,",
+                "Name": "Microtus rozianus",
+                "Start": 209046,
+                "End": 209064,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus rozianus",
+                "MatchedCanonical": "Microtus rozianus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus lusitanicus",
+                "Name": "Microtus lusitanicus",
+                "Start": 215372,
+                "End": 215392,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus lusitanicus",
+                "MatchedCanonical": "Microtus lusitanicus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Microtus duodecimcostatus",
+                "Name": "Microtus duodecimcostatus",
+                "Start": 219170,
+                "End": 219195,
+                "MatchType": "Unverified",
+                "MatchedName": "Microtus duodecimcostatus",
+                "MatchedCanonical": "Microtus duodecimcostatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chionomys nivalis",
+                "Name": "Chionomys nivalis",
+                "Start": 223776,
+                "End": 223793,
+                "MatchType": "Unverified",
+                "MatchedName": "Chionomys nivalis",
+                "MatchedCanonical": "Chionomys nivalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Apodemus sylvaticus",
+                "Name": "Apodemus sylvaticus",
+                "Start": 228328,
+                "End": 228347,
+                "MatchType": "Unverified",
+                "MatchedName": "Apodemus sylvaticus",
+                "MatchedCanonical": "Apodemus sylvaticus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mus domesticus",
+                "Name": "Mus domesticus",
+                "Start": 230387,
+                "End": 230401,
+                "MatchType": "Unverified",
+                "MatchedName": "Mus domesticus",
+                "MatchedCanonical": "Mus domesticus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mus musculus",
+                "Name": "Mus musculus",
+                "Start": 230510,
+                "End": 230522,
+                "MatchType": "Unverified",
+                "MatchedName": "Mus musculus",
+                "MatchedCanonical": "Mus musculus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Mus spretus)",
+                "Name": "Mus spretus",
+                "Start": 231893,
+                "End": 231906,
+                "MatchType": "Unverified",
+                "MatchedName": "Mus spretus",
+                "MatchedCanonical": "Mus spretus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Genetta genetta)",
+                "Name": "Genetta genetta",
+                "Start": 235942,
+                "End": 235959,
+                "MatchType": "Unverified",
+                "MatchedName": "Genetta genetta",
+                "MatchedCanonical": "Genetta genetta",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Martes foina)",
+                "Name": "Martes foina",
+                "Start": 235971,
+                "End": 235985,
+                "MatchType": "Unverified",
+                "MatchedName": "Martes foina",
+                "MatchedCanonical": "Martes foina",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Eliomys quercinus",
+                "Name": "Eliomys quercinus",
+                "Start": 242416,
+                "End": 242433,
+                "MatchType": "Unverified",
+                "MatchedName": "Eliomys quercinus",
+                "MatchedCanonical": "Eliomys quercinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Elyomys quercinus",
+                "Name": "Elyomys quercinus",
+                "Start": 244393,
+                "End": 244410,
+                "MatchType": "Unverified",
+                "MatchedName": "Elyomys quercinus",
+                "MatchedCanonical": "Elyomys quercinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Balaenoptera acutorostrata",
+                "Name": "Balaenoptera acutorostrata",
+                "Start": 247531,
+                "End": 247557,
+                "MatchType": "Unverified",
+                "MatchedName": "Balaenoptera acutorostrata",
+                "MatchedCanonical": "Balaenoptera acutorostrata",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Balaenoptera physalus",
+                "Name": "Balaenoptera physalus",
+                "Start": 252930,
+                "End": 252951,
+                "MatchType": "Unverified",
+                "MatchedName": "Balaenoptera physalus",
+                "MatchedCanonical": "Balaenoptera physalus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Kogia breviceps",
+                "Name": "Kogia breviceps",
+                "Start": 257901,
+                "End": 257916,
+                "MatchType": "Unverified",
+                "MatchedName": "Kogia breviceps",
+                "MatchedCanonical": "Kogia breviceps",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Physeter macrocephalus",
+                "Name": "Physeter macrocephalus",
+                "Start": 261506,
+                "End": 261528,
+                "MatchType": "Unverified",
+                "MatchedName": "Physeter macrocephalus",
+                "MatchedCanonical": "Physeter macrocephalus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mesoplodon bidens",
+                "Name": "Mesoplodon bidens",
+                "Start": 265545,
+                "End": 265562,
+                "MatchType": "Unverified",
+                "MatchedName": "Mesoplodon bidens",
+                "MatchedCanonical": "Mesoplodon bidens",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mesoplodon densirostris",
+                "Name": "Mesoplodon densirostris",
+                "Start": 269160,
+                "End": 269183,
+                "MatchType": "Unverified",
+                "MatchedName": "Mesoplodon densirostris",
+                "MatchedCanonical": "Mesoplodon densirostris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mesoplodon mirus",
+                "Name": "Mesoplodon mirus",
+                "Start": 273286,
+                "End": 273302,
+                "MatchType": "Unverified",
+                "MatchedName": "Mesoplodon mirus",
+                "MatchedCanonical": "Mesoplodon mirus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ziphius cavirostris",
+                "Name": "Ziphius cavirostris",
+                "Start": 277059,
+                "End": 277078,
+                "MatchType": "Unverified",
+                "MatchedName": "Ziphius cavirostris",
+                "MatchedCanonical": "Ziphius cavirostris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Phocoena phocoena",
+                "Name": "Phocoena phocoena",
+                "Start": 281682,
+                "End": 281699,
+                "MatchType": "Unverified",
+                "MatchedName": "Phocoena phocoena",
+                "MatchedCanonical": "Phocoena phocoena",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Grampus griseus",
+                "Name": "Grampus griseus",
+                "Start": 287192,
+                "End": 287207,
+                "MatchType": "Unverified",
+                "MatchedName": "Grampus griseus",
+                "MatchedCanonical": "Grampus griseus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Delphinus delphis",
+                "Name": "Delphinus delphis",
+                "Start": 291682,
+                "End": 291699,
+                "MatchType": "Unverified",
+                "MatchedName": "Delphinus delphis",
+                "MatchedCanonical": "Delphinus delphis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Globicephala melaena.",
+                "Name": "Globicephala melaena",
+                "Start": 294784,
+                "End": 294805,
+                "MatchType": "Unverified",
+                "MatchedName": "Globicephala melaena",
+                "MatchedCanonical": "Globicephala melaena",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Globicephala melas",
+                "Name": "Globicephala melas",
+                "Start": 297219,
+                "End": 297237,
+                "MatchType": "Unverified",
+                "MatchedName": "Globicephala melas",
+                "MatchedCanonical": "Globicephala melas",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Globicephala macrorhynchus",
+                "Name": "Globicephala macrorhynchus",
+                "Start": 297267,
+                "End": 297293,
+                "MatchType": "Unverified",
+                "MatchedName": "Globicephala macrorhynchus",
+                "MatchedCanonical": "Globicephala macrorhynchus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tursiops truncatus",
+                "Name": "Tursiops truncatus",
+                "Start": 302272,
+                "End": 302290,
+                "MatchType": "Unverified",
+                "MatchedName": "Tursiops truncatus",
+                "MatchedCanonical": "Tursiops truncatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Stenella coeruleoalba",
+                "Name": "Stenella coeruleoalba",
+                "Start": 307803,
+                "End": 307824,
+                "MatchType": "Unverified",
+                "MatchedName": "Stenella coeruleoalba",
+                "MatchedCanonical": "Stenella coeruleoalba",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Orcinus orca",
+                "Name": "Orcinus orca",
+                "Start": 312492,
+                "End": 312504,
+                "MatchType": "Unverified",
+                "MatchedName": "Orcinus orca",
+                "MatchedCanonical": "Orcinus orca",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Stenella frontalis",
+                "Name": "Stenella frontalis",
+                "Start": 317135,
+                "End": 317153,
+                "MatchType": "Unverified",
+                "MatchedName": "Stenella frontalis",
+                "MatchedCanonical": "Stenella frontalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Vulpes vulpes",
+                "Name": "Vulpes vulpes",
+                "Start": 321314,
+                "End": 321327,
+                "MatchType": "Unverified",
+                "MatchedName": "Vulpes vulpes",
+                "MatchedCanonical": "Vulpes vulpes",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Canis lupus",
+                "Name": "Canis lupus",
+                "Start": 326545,
+                "End": 326556,
+                "MatchType": "Unverified",
+                "MatchedName": "Canis lupus",
+                "MatchedCanonical": "Canis lupus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ursus arctos",
+                "Name": "Ursus arctos",
+                "Start": 333218,
+                "End": 333230,
+                "MatchType": "Unverified",
+                "MatchedName": "Ursus arctos",
+                "MatchedCanonical": "Ursus arctos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mustela erminea",
+                "Name": "Mustela erminea",
+                "Start": 339031,
+                "End": 339046,
+                "MatchType": "Unverified",
+                "MatchedName": "Mustela erminea",
+                "MatchedCanonical": "Mustela erminea",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mustela nivalis",
+                "Name": "Mustela nivalis",
+                "Start": 344797,
+                "End": 344812,
+                "MatchType": "Unverified",
+                "MatchedName": "Mustela nivalis",
+                "MatchedCanonical": "Mustela nivalis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mustela furo",
+                "Name": "Mustela furo",
+                "Start": 349318,
+                "End": 349330,
+                "MatchType": "Unverified",
+                "MatchedName": "Mustela furo",
+                "MatchedCanonical": "Mustela furo",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mustela putorius",
+                "Name": "Mustela putorius",
+                "Start": 350823,
+                "End": 350839,
+                "MatchType": "Unverified",
+                "MatchedName": "Mustela putorius",
+                "MatchedCanonical": "Mustela putorius",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Martes martes",
+                "Name": "Martes martes",
+                "Start": 361642,
+                "End": 361655,
+                "MatchType": "Unverified",
+                "MatchedName": "Martes martes",
+                "MatchedCanonical": "Martes martes",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Meles meles",
+                "Name": "Meles meles",
+                "Start": 367640,
+                "End": 367651,
+                "MatchType": "Unverified",
+                "MatchedName": "Meles meles",
+                "MatchedCanonical": "Meles meles",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lutra lutra",
+                "Name": "Lutra lutra",
+                "Start": 372961,
+                "End": 372972,
+                "MatchType": "Unverified",
+                "MatchedName": "Lutra lutra",
+                "MatchedCanonical": "Lutra lutra",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Lynx pardinus)",
+                "Name": "Lynx pardinus",
+                "Start": 379707,
+                "End": 379722,
+                "MatchType": "Unverified",
+                "MatchedName": "Lynx pardinus",
+                "MatchedCanonical": "Lynx pardinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Herpestes ichneumon",
+                "Name": "Herpestes ichneumon",
+                "Start": 384154,
+                "End": 384173,
+                "MatchType": "Unverified",
+                "MatchedName": "Herpestes ichneumon",
+                "MatchedCanonical": "Herpestes ichneumon",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Felis silvestris",
+                "Name": "Felis silvestris",
+                "Start": 389767,
+                "End": 389783,
+                "MatchType": "Unverified",
+                "MatchedName": "Felis silvestris",
+                "MatchedCanonical": "Felis silvestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sus scrofa",
+                "Name": "Sus scrofa",
+                "Start": 402034,
+                "End": 402044,
+                "MatchType": "Unverified",
+                "MatchedName": "Sus scrofa",
+                "MatchedCanonical": "Sus scrofa",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Cervus elaphus",
+                "Name": "Cervus elaphus",
+                "Start": 407140,
+                "End": 407154,
+                "MatchType": "Unverified",
+                "MatchedName": "Cervus elaphus",
+                "MatchedCanonical": "Cervus elaphus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Capreolus capreolus",
+                "Name": "Capreolus capreolus",
+                "Start": 412257,
+                "End": 412276,
+                "MatchType": "Unverified",
+                "MatchedName": "Capreolus capreolus",
+                "MatchedCanonical": "Capreolus capreolus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Capra pyrenaica",
+                "Name": "Capra pyrenaica",
+                "Start": 417382,
+                "End": 417397,
+                "MatchType": "Unverified",
+                "MatchedName": "Capra pyrenaica",
+                "MatchedCanonical": "Capra pyrenaica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis alcathoe",
+                "Name": "Myotis alcathoe",
+                "Start": 420406,
+                "End": 420421,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis alcathoe",
+                "MatchedCanonical": "Myotis alcathoe",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis crypticus",
+                "Name": "Myotis crypticus",
+                "Start": 428065,
+                "End": 428081,
+                "MatchType": "Unverified",
+                "MatchedName": "Myotis crypticus",
+                "MatchedCanonical": "Myotis crypticus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pipistrellus nathusii",
+                "Name": "Pipistrellus nathusii",
+                "Start": 432882,
+                "End": 432903,
+                "MatchType": "Unverified",
+                "MatchedName": "Pipistrellus nathusii",
+                "MatchedCanonical": "Pipistrellus nathusii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Arvicola terrestris",
+                "Name": "Arvicola terrestris",
+                "Start": 433891,
+                "End": 433910,
+                "MatchType": "Unverified",
+                "MatchedName": "Arvicola terrestris",
+                "MatchedCanonical": "Arvicola terrestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Arvicola scherman",
+                "Name": "Arvicola scherman",
+                "Start": 436358,
+                "End": 436375,
+                "MatchType": "Unverified",
+                "MatchedName": "Arvicola scherman",
+                "MatchedCanonical": "Arvicola scherman",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Eubalaena glacialis",
+                "Name": "Eubalaena glacialis",
+                "Start": 439379,
+                "End": 439398,
+                "MatchType": "Unverified",
+                "MatchedName": "Eubalaena glacialis",
+                "MatchedCanonical": "Eubalaena glacialis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Balaenoptera borealis",
+                "Name": "Balaenoptera borealis",
+                "Start": 442190,
+                "End": 442211,
+                "MatchType": "Unverified",
+                "MatchedName": "Balaenoptera borealis",
+                "MatchedCanonical": "Balaenoptera borealis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Balaenoptera edeni",
+                "Name": "Balaenoptera edeni",
+                "Start": 444717,
+                "End": 444735,
+                "MatchType": "Unverified",
+                "MatchedName": "Balaenoptera edeni",
+                "MatchedCanonical": "Balaenoptera edeni",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Balaenoptera musculus",
+                "Name": "Balaenoptera musculus",
+                "Start": 447398,
+                "End": 447419,
+                "MatchType": "Unverified",
+                "MatchedName": "Balaenoptera musculus",
+                "MatchedCanonical": "Balaenoptera musculus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Megaptera novaengliae",
+                "Name": "Megaptera novaengliae",
+                "Start": 450655,
+                "End": 450676,
+                "MatchType": "Unverified",
+                "MatchedName": "Megaptera novaengliae",
+                "MatchedCanonical": "Megaptera novaengliae",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Megaptera novaeangliae",
+                "Name": "Megaptera novaeangliae",
+                "Start": 450718,
+                "End": 450740,
+                "MatchType": "Unverified",
+                "MatchedName": "Megaptera novaeangliae",
+                "MatchedCanonical": "Megaptera novaeangliae",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lagenodelphis hosei",
+                "Name": "Lagenodelphis hosei",
+                "Start": 455927,
+                "End": 455946,
+                "MatchType": "Unverified",
+                "MatchedName": "Lagenodelphis hosei",
+                "MatchedCanonical": "Lagenodelphis hosei",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lagenorhynchus acutus",
+                "Name": "Lagenorhynchus acutus",
+                "Start": 458305,
+                "End": 458326,
+                "MatchType": "Unverified",
+                "MatchedName": "Lagenorhynchus acutus",
+                "MatchedCanonical": "Lagenorhynchus acutus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lagenorhynchus albirostris",
+                "Name": "Lagenorhynchus albirostris",
+                "Start": 460983,
+                "End": 461009,
+                "MatchType": "Unverified",
+                "MatchedName": "Lagenorhynchus albirostris",
+                "MatchedCanonical": "Lagenorhynchus albirostris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pseudorca crassidens",
+                "Name": "Pseudorca crassidens",
+                "Start": 463431,
+                "End": 463451,
+                "MatchType": "Unverified",
+                "MatchedName": "Pseudorca crassidens",
+                "MatchedCanonical": "Pseudorca crassidens",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Kogia sima",
+                "Name": "Kogia sima",
+                "Start": 465815,
+                "End": 465825,
+                "MatchType": "Unverified",
+                "MatchedName": "Kogia sima",
+                "MatchedCanonical": "Kogia sima",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mesoplodon europaeus",
+                "Name": "Mesoplodon europaeus",
+                "Start": 468063,
+                "End": 468083,
+                "MatchType": "Unverified",
+                "MatchedName": "Mesoplodon europaeus",
+                "MatchedCanonical": "Mesoplodon europaeus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Halichoerus grypus",
+                "Name": "Halichoerus grypus",
+                "Start": 470995,
+                "End": 471013,
+                "MatchType": "Unverified",
+                "MatchedName": "Halichoerus grypus",
+                "MatchedCanonical": "Halichoerus grypus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Phoca vitulina",
+                "Name": "Phoca vitulina",
+                "Start": 474896,
+                "End": 474910,
+                "MatchType": "Unverified",
+                "MatchedName": "Phoca vitulina",
+                "MatchedCanonical": "Phoca vitulina",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Erignathus barbatus",
+                "Name": "Erignathus barbatus",
+                "Start": 477713,
+                "End": 477732,
+                "MatchType": "Unverified",
+                "MatchedName": "Erignathus barbatus",
+                "MatchedCanonical": "Erignathus barbatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Cystophora cristata",
+                "Name": "Cystophora cristata",
+                "Start": 480455,
+                "End": 480474,
+                "MatchType": "Unverified",
+                "MatchedName": "Cystophora cristata",
+                "MatchedCanonical": "Cystophora cristata",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pusa hispida",
+                "Name": "Pusa hispida",
+                "Start": 483253,
+                "End": 483265,
+                "MatchType": "Unverified",
+                "MatchedName": "Pusa hispida",
+                "MatchedCanonical": "Pusa hispida",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Rattus rattus",
+                "Name": "Rattus rattus",
+                "Start": 486494,
+                "End": 486507,
+                "MatchType": "Unverified",
+                "MatchedName": "Rattus rattus",
+                "MatchedCanonical": "Rattus rattus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Dama dama",
+                "Name": "Dama dama",
+                "Start": 498509,
+                "End": 498518,
+                "MatchType": "Unverified",
+                "MatchedName": "Dama dama",
+                "MatchedCanonical": "Dama dama",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ovis ammon",
+                "Name": "Ovis ammon",
+                "Start": 499513,
+                "End": 499523,
+                "MatchType": "Unverified",
+                "MatchedName": "Ovis ammon",
+                "MatchedCanonical": "Ovis ammon",
+                "ClassificationPath": ""
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "llama3.1:8b-instruct-fp16",
+        "context_chars_before": 0,
+        "context_chars_after": 0,
+        "total_examples_provided": 3,
+        "examples_used": [
+            {
+                "input": "Categoria\nPOUCO PREOCUPANTE \u2013 LC ",
+                "output": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "explainer": "not all statusCodeVerbatim have statusCriteria. use NF in those cases."
+            },
+            {
+                "input": "Categoria\nN\u00c3O APLIC\u00c1VEL \u2013 NA",
+                "output": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "explainer": "instead of NA use NF"
+            },
+            {
+                "input": "Categoria\nEM PERIGO - EN B2 ab(i,ii,v)",
+                "output": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2 ab(i,ii,v)"
+                },
+                "explainer": null
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 118,
+        "runtime_seconds": 246.251202583313,
+        "total_input_tokens": 135058,
+        "total_output_tokens": 6229,
+        "extraction_results_summary": {
+            "LC": 42,
+            "OCAS": 18,
+            "VU": 15,
+            "EN": 11,
+            "DD": 10,
+            "IND": 6,
+            "CR": 4,
+            "NT": 4,
+            "NF": 2,
+            "RES": 2,
+            "RE": 1,
+            "NE": 1,
+            "NA": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Erinaceus europaeus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Sorex minutus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2 ab(i,ii,v)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Crocidura russula",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Sorex granarius",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2be"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Neomys anomalus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Neomys milleri",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species 'Neomys milleri' is not mentioned in the provided text chunk. The text only discusses Neomys anomalus."
+            },
+            {
+                "species": "Galemys pyrenaicus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2 a+b(ii, iii)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Crocidura suaveolens",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B1ab(i,iv)+2ab(ii,iv)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Suncus etruscus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Neovison vison",
+                "data": {
+                    "statusCodeVerbatim": "RES",
+                    "statusCriteria": "NA"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Talpa occidentalis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rhinolophus ferrumequinum",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rhinolophus hipposideros",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rhinolophus euryale",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(iii,iv)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rhinolophus mehelyi",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A3(b)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis bechsteinii",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "Esp\u00e9cie com popula\u00e7\u00e3o estimada em menos de 10 000 indiv\u00edduos adultos e \u00c1rea de Ocupa\u00e7\u00e3o reduzida."
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis myotis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C2a(i)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Miniopterus schreibersii",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3(b)+4(a,b)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis blythii",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A3(b)+4(a,b)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis nattereri",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species 'Myotis nattereri' is mentioned in passing, but no specific conservation status or criteria are provided for it."
+            },
+            {
+                "species": "Myotis escalerai",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis emarginatus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(iii,iv)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis mystacinus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis daubentonii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pipistrellus pipistrellus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pipistrellus kuhlii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pipistrellus pygmaeus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Hypsugo savii",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Nyctalus leisleri",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Nyctalus noctula",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD"
+                },
+                "notes": "The species has insufficient information for a regional assessment."
+            },
+            {
+                "species": "Nyctalus lasiopterus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "INFORMA\u00c7\u00c3O INSUFICIENTE"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Eptesicus serotinus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Eptesicus isabellinus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Barbastella barbastellus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Plecotus auritus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species is listed as 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD' which translates to 'Insufficient information - DD'. The criteria for this status are not explicitly mentioned, so it's marked as NF."
+            },
+            {
+                "species": "Plecotus austriacus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A3(b)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Tadarida teniotis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Lepus granatensis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b; A3b; A4b"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Oryctolagus cuniculus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Sciurus vulgaris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Sciurus carolinensis",
+                "data": {},
+                "notes": "No text context found."
+            },
+            {
+                "species": "Arvicola sapidus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2bc"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rattus norvegicus",
+                "data": {
+                    "statusCodeVerbatim": "RES",
+                    "statusCriteria": "NA"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Microtus cabrerae",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Microtus arvalis",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "Distribui\u00e7\u00e3o marginal em Portugal, coincidente com o limite sudoeste da distribui\u00e7\u00e3o da esp\u00e9cie."
+                },
+                "notes": ""
+            },
+            {
+                "species": "Microtus agrestis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "Although Microtus agrestis is mentioned, the text primarily discusses its distinction from Microtus rozianus. The conservation status for Microtus agrestis could not be explicitly determined."
+            },
+            {
+                "species": "Microtus rozianus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Microtus lusitanicus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Microtus duodecimcostatus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Chionomys nivalis",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "Presen\u00e7a confirmada muito recente e restrita a um \u00fanico local (Barros et al. 2016)."
+                },
+                "notes": "The species is listed as DD due to insufficient information, with the only confirmed presence being very recent and restricted to a single location."
+            },
+            {
+                "species": "Apodemus sylvaticus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mus domesticus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mus musculus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mus spretus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Genetta genetta",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Martes foina",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Eliomys quercinus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Elyomys quercinus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Balaenoptera acutorostrata",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C2a(ii)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Balaenoptera physalus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A1d"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Kogia breviceps",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "DD"
+                },
+                "notes": "The species is listed as 'Indeterminada' and 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD', indicating insufficient information for a proper evaluation."
+            },
+            {
+                "species": "Physeter macrocephalus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "INFORMA\u00c7\u00c3O INSUFICIENTE"
+                },
+                "notes": "The conservation status of Physeter macrocephalus is listed as 'DD' (Data Deficient) due to insufficient information for evaluating the risk of extinction, particularly regarding population size and trends."
+            },
+            {
+                "species": "Mesoplodon bidens",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "DD"
+                },
+                "notes": "The species is listed as 'Indeterminada' and 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD', indicating insufficient information for a proper evaluation of the risk of extinction."
+            },
+            {
+                "species": "Mesoplodon densirostris",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "DD"
+                },
+                "notes": "The species is listed as 'Indeterminada' with a category of 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD'. The conservation status and criteria are based on this information."
+            },
+            {
+                "species": "Mesoplodon mirus",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "DD"
+                },
+                "notes": "The species is listed as 'Indeterminada' and 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD', indicating insufficient information for a proper evaluation."
+            },
+            {
+                "species": "Ziphius cavirostris",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species is listed as 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD' which translates to 'INSUFFICIENT INFORMATION \u2013 DD'. The criteria codes are not explicitly mentioned, so I used 'NF' for statusCriteria."
+            },
+            {
+                "species": "Phocoena phocoena",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2d+3d+4d"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Grampus griseus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "Popula\u00e7\u00e3o inferior a 1000 indiv\u00edduos maturos."
+                },
+                "notes": ""
+            },
+            {
+                "species": "Delphinus delphis",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A3D"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Globicephala melaena",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Globicephala melas",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species Globicephala melas is mentioned in the context of regional conservation status, but no specific criteria are provided. The 'Fatores de Amea\u00e7a' section mentions global threats, which do not apply to this field."
+            },
+            {
+                "species": "Globicephala macrorhynchus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NA"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Tursiops truncatus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Stenella coeruleoalba",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Orcinus orca",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C2a(i,ii), D"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Stenella frontalis",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "DD"
+                },
+                "notes": "The species is listed as 'Indeterminada' and 'INFORMA\u00c7\u00c3O INSUFICIENTE \u2013 DD' due to lack of information for evaluating the risk of extinction."
+            },
+            {
+                "species": "Vulpes vulpes",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Canis lupus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "D"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Ursus arctos",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "Hist/Ind"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mustela erminea",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "INFORMA\u00c7\u00c3O INSUFICIENTE"
+                },
+                "notes": "The species is listed as DD (Data Deficient) due to insufficient information, and the status criteria is INFORMA\u00c7\u00c3O INSUFICIENTE which translates to 'insufficient information' in English."
+            },
+            {
+                "species": "Mustela nivalis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mustela furo",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2bcde+3bcde+4bcde"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mustela putorius",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2bcde+3bcde+4bcde"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Martes martes",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B1ab(iii)+2ab(iii); D1"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Meles meles",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Lutra lutra",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Lynx pardinus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2 ab(i,ii,v)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Herpestes ichneumon",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Felis silvestris",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "C1+2a(i); D)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Sus scrofa",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Cervus elaphus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Capreolus capreolus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Capra pyrenaica",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis alcathoe",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Myotis crypticus",
+                "data": {
+                    "statusCodeVerbatim": "IND",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pipistrellus nathusii",
+                "data": {
+                    "statusCodeVerbatim": "NE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species is listed as 'N\u00c3O AVALIADO' (Not Evaluated) and the text mentions that its presence in Portugal lacks confirmation, but it does not provide a specific conservation status or criteria."
+            },
+            {
+                "species": "Arvicola terrestris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Arvicola scherman",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Eubalaena glacialis",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Ocasional \u2013 Ocas' which is translated to 'OCAS'. However, the criteria codes are not explicitly mentioned."
+            },
+            {
+                "species": "Balaenoptera borealis",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Balaenoptera edeni",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Balaenoptera musculus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Megaptera novaengliae",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Ocasional \u2013 Ocas' which is translated to 'Occasional \u2013 Occas', but it does not provide a clear IUCN code. Therefore, the values are set to NF."
+            },
+            {
+                "species": "Megaptera novaeangliae",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Ocasional \u2013 Ocas' which is translated to 'OCAS'. However, the criteria for this status are not explicitly mentioned."
+            },
+            {
+                "species": "Lagenodelphis hosei",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'Ocasional \u2013 Ocas' which is likely a typo or abbreviation for OCAS, but the criteria are not explicitly stated."
+            },
+            {
+                "species": "Lagenorhynchus acutus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Lagenorhynchus albirostris",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pseudorca crassidens",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Kogia sima",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Mesoplodon europaeus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Halichoerus grypus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Phoca vitulina",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Erignathus barbatus",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Cystophora cristata",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Pusa hispida",
+                "data": {
+                    "statusCodeVerbatim": "OCAS",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Rattus rattus",
+                "data": {
+                    "statusCodeVerbatim": "NA",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly states 'N\u00c3O APLIC\u00c1VEL \u2013 NA' for the category, which translates to 'Not Applicable'. However, it also mentions that the species is not indigenous and has a global distribution. The regional conservation status is not explicitly stated, but based on the provided information, we can infer that it might be 'NA' due to its non-indigenous nature."
+            },
+            {
+                "species": "Dama dama",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Ovis ammon",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": ""
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

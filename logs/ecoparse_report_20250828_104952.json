@@ -1,0 +1,1078 @@
+{
+    "report_timestamp": "2025-08-28T10:49:52.073321",
+    "pdf_info": {
+        "file_name": "Crvena_knjiga_sisavaca_WEB.pdf",
+        "extracted_text_char_count": 138287
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 239,
+        "total_species_identified_initial_filter": 61,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 55,
+        "final_species_list": [
+            {
+                "Verbatim": "Rhinolophus mehely",
+                "Name": "Rhinolophus mehely",
+                "Start": 45,
+                "End": 63,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus mehely",
+                "MatchedCanonical": "Rhinolophus mehely",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Spermophilus citellus",
+                "Name": "Spermophilus citellus",
+                "Start": 5303,
+                "End": 5324,
+                "MatchType": "Exact",
+                "MatchedName": "Spermophilus citellus (Linnaeus, 1766)",
+                "MatchedCanonical": "Spermophilus citellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Nannospalax leucodon",
+                "Name": "Nannospalax leucodon",
+                "Start": 6173,
+                "End": 6193,
+                "MatchType": "Exact",
+                "MatchedName": "Nannospalax leucodon (Nordmann, 1840)",
+                "MatchedCanonical": "Nannospalax leucodon",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mustela lutreola",
+                "Name": "Mustela lutreola",
+                "Start": 8081,
+                "End": 8097,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela lutreola (Linnaeus, 1761)",
+                "MatchedCanonical": "Mustela lutreola",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "(Mustela vison).",
+                "Name": "Mustela vison",
+                "Start": 8583,
+                "End": 8599,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela vison Schreber, 1777",
+                "MatchedCanonical": "Mustela vison",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Monachus monachus",
+                "Name": "Monachus monachus",
+                "Start": 12344,
+                "End": 12361,
+                "MatchType": "Exact",
+                "MatchedName": "Monachus monachus (Hermann, 1779)",
+                "MatchedCanonical": "Monachus monachus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "(Monachus tropicalis)",
+                "Name": "Monachus tropicalis",
+                "Start": 13073,
+                "End": 13094,
+                "MatchType": "Exact",
+                "MatchedName": "Monachus tropicalis (Gray, 1850)",
+                "MatchedCanonical": "Monachus tropicalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Castor fiber",
+                "Name": "Castor fiber",
+                "Start": 15774,
+                "End": 15786,
+                "MatchType": "Exact",
+                "MatchedName": "Castor fiber Linnaeus, 1758",
+                "MatchedCanonical": "Castor fiber",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Lynx lynx",
+                "Name": "Lynx lynx",
+                "Start": 19038,
+                "End": 19047,
+                "MatchType": "Exact",
+                "MatchedName": "Lynx lynx (Linnaeus, 1758)",
+                "MatchedCanonical": "Lynx lynx",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rupicapra rupicapra",
+                "Name": "Rupicapra rupicapra",
+                "Start": 23081,
+                "End": 23100,
+                "MatchType": "Exact",
+                "MatchedName": "Rupicapra rupicapra (Linnaeus, 1758)",
+                "MatchedCanonical": "Rupicapra rupicapra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Martes foina,",
+                "Name": "Martes foina",
+                "Start": 30061,
+                "End": 30074,
+                "MatchType": "Exact",
+                "MatchedName": "Martes foina (Erxleben, 1777)",
+                "MatchedCanonical": "Martes foina",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Myotis capaccinii",
+                "Name": "Myotis capaccinii",
+                "Start": 33039,
+                "End": 33056,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) capaccinii (Bonaparte, 1837)",
+                "MatchedCanonical": "Myotis capaccinii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Miniopterus schreibersii",
+                "Name": "Miniopterus schreibersii",
+                "Start": 35337,
+                "End": 35361,
+                "MatchType": "Exact",
+                "MatchedName": "Miniopterus schreibersii (Kuhl, 1817)",
+                "MatchedCanonical": "Miniopterus schreibersii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "(Miniopterus schreibersi).",
+                "Name": "Miniopterus schreibersi",
+                "Start": 38763,
+                "End": 38789,
+                "MatchType": "Exact",
+                "MatchedName": "Miniopterus schreibersi (Kuhl, 1817)",
+                "MatchedCanonical": "Miniopterus schreibersi",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Tursiops truncatus",
+                "Name": "Tursiops truncatus",
+                "Start": 42263,
+                "End": 42281,
+                "MatchType": "Exact",
+                "MatchedName": "Tursiops truncatus (Montagu, 1821)",
+                "MatchedCanonical": "Tursiops truncatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus blasii",
+                "Name": "Rhinolophus blasii",
+                "Start": 48775,
+                "End": 48793,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus blasii Peters, 1867",
+                "MatchedCanonical": "Rhinolophus blasii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus euryale",
+                "Name": "Rhinolophus euryale",
+                "Start": 50710,
+                "End": 50729,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus euryale Blasius, 1853",
+                "MatchedCanonical": "Rhinolophus euryale",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Myotis bechsteinii",
+                "Name": "Myotis bechsteinii",
+                "Start": 54861,
+                "End": 54879,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) bechsteinii (Kuhl, 1817)",
+                "MatchedCanonical": "Myotis bechsteinii",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Barbastella barbastellus",
+                "Name": "Barbastella barbastellus",
+                "Start": 57677,
+                "End": 57701,
+                "MatchType": "Exact",
+                "MatchedName": "Barbastella barbastellus (Schreber, 1774)",
+                "MatchedCanonical": "Barbastella barbastellus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus \u2424kolombatovici",
+                "Name": "Plecotus kolombatovici",
+                "Start": 59592,
+                "End": 59615,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus kolombatovici Dulic, 1980",
+                "MatchedCanonical": "Plecotus kolombatovici",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus austriacus ssp. kolombatovici,",
+                "Name": "Plecotus austriacus ssp. kolombatovici",
+                "Start": 62365,
+                "End": 62404,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus austriacus kolombatovici Dulic, 1980",
+                "MatchedCanonical": "Plecotus austriacus kolombatovici",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus macrobullaris",
+                "Name": "Plecotus macrobullaris",
+                "Start": 64533,
+                "End": 64555,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus macrobullaris Kuzyakin, 1965",
+                "MatchedCanonical": "Plecotus macrobullaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus alpinus",
+                "Name": "Plecotus alpinus",
+                "Start": 64577,
+                "End": 64593,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus alpinus Kiefer & Veith, 2002",
+                "MatchedCanonical": "Plecotus alpinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Plecotus microdontus",
+                "Name": "Plecotus microdontus",
+                "Start": 64614,
+                "End": 64634,
+                "MatchType": "Exact",
+                "MatchedName": "Plecotus microdontus Spitzinberger, 2002",
+                "MatchedCanonical": "Plecotus microdontus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Myotis dasycneme",
+                "Name": "Myotis dasycneme",
+                "Start": 66339,
+                "End": 66355,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) dasycneme (Boie, 1825)",
+                "MatchedCanonical": "Myotis dasycneme",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Nyctalus lasiopterus",
+                "Name": "Nyctalus lasiopterus",
+                "Start": 71220,
+                "End": 71240,
+                "MatchType": "Exact",
+                "MatchedName": "Nyctalus lasiopterus (Schreber, 1780)",
+                "MatchedCanonical": "Nyctalus lasiopterus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Dinaromys bogdanovi",
+                "Name": "Dinaromys bogdanovi",
+                "Start": 72706,
+                "End": 72725,
+                "MatchType": "Exact",
+                "MatchedName": "Dinaromys bogdanovi (Martino, 1922)",
+                "MatchedCanonical": "Dinaromys bogdanovi",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "(Mustela nivalis),",
+                "Name": "Mustela nivalis",
+                "Start": 77031,
+                "End": 77049,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela nivalis Linnaeus, 1766",
+                "MatchedCanonical": "Mustela nivalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Delphinus delphinus",
+                "Name": "Delphinus delphinus",
+                "Start": 77387,
+                "End": 77406,
+                "MatchType": "Exact",
+                "MatchedName": "Delphinus delphinus",
+                "MatchedCanonical": "Delphinus delphinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Delphinus delphis).",
+                "Name": "Delphinus delphis",
+                "Start": 79855,
+                "End": 79875,
+                "MatchType": "Exact",
+                "MatchedName": "Delphinus delphis Linnaeus, 1758",
+                "MatchedCanonical": "Delphinus delphis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Lutra lutra",
+                "Name": "Lutra lutra",
+                "Start": 79910,
+                "End": 79921,
+                "MatchType": "Exact",
+                "MatchedName": "Lutra lutra (Linnaeus, 1758)",
+                "MatchedCanonical": "Lutra lutra",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Neomys anomalus",
+                "Name": "Neomys anomalus",
+                "Start": 87255,
+                "End": 87270,
+                "MatchType": "Exact",
+                "MatchedName": "Neomys anomalus Cabrera, 1907",
+                "MatchedCanonical": "Neomys anomalus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Neomys fodiens",
+                "Name": "Neomys fodiens",
+                "Start": 89448,
+                "End": 89462,
+                "MatchType": "Exact",
+                "MatchedName": "Neomys fodiens (Pennant, 1771)",
+                "MatchedCanonical": "Neomys fodiens",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus ferrumequinum",
+                "Name": "Rhinolophus ferrumequinum",
+                "Start": 92096,
+                "End": 92121,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus ferrumequinum (Schreber, 1774)",
+                "MatchedCanonical": "Rhinolophus ferrumequinum",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Rhinolophus hipposideros",
+                "Name": "Rhinolophus hipposideros",
+                "Start": 93320,
+                "End": 93344,
+                "MatchType": "Exact",
+                "MatchedName": "Rhinolophus hipposideros (Bechstein, 1800)",
+                "MatchedCanonical": "Rhinolophus hipposideros",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|genus|species"
+            },
+            {
+                "Verbatim": "Myotis emarginatus",
+                "Name": "Myotis emarginatus",
+                "Start": 97506,
+                "End": 97524,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Chrysopteron) emarginatus (E. Geoffroy, 1806)",
+                "MatchedCanonical": "Myotis emarginatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Myotis myotis",
+                "Name": "Myotis myotis",
+                "Start": 100280,
+                "End": 100293,
+                "MatchType": "Exact",
+                "MatchedName": "Myotis (Myotis) myotis (Borkhausen, 1797)",
+                "MatchedCanonical": "Myotis myotis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Nyctalus leisleri",
+                "Name": "Nyctalus leisleri",
+                "Start": 102994,
+                "End": 103011,
+                "MatchType": "Exact",
+                "MatchedName": "Nyctalus leisleri (Kuhl, 1817)",
+                "MatchedCanonical": "Nyctalus leisleri",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|tribe|genus|species"
+            },
+            {
+                "Verbatim": "Sciurus vulgaris",
+                "Name": "Sciurus vulgaris",
+                "Start": 105261,
+                "End": 105277,
+                "MatchType": "Exact",
+                "MatchedName": "Sciurus (Sciurus) vulgaris Linnaeus, 1758",
+                "MatchedCanonical": "Sciurus vulgaris",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|tribe|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "Cricetus cricetus",
+                "Name": "Cricetus cricetus",
+                "Start": 107887,
+                "End": 107904,
+                "MatchType": "Exact",
+                "MatchedName": "Cricetus cricetus (Linnaeus, 1758)",
+                "MatchedCanonical": "Cricetus cricetus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "(Vulpes vulpes),",
+                "Name": "Vulpes vulpes",
+                "Start": 109290,
+                "End": 109306,
+                "MatchType": "Exact",
+                "MatchedName": "Vulpes vulpes (Linnaeus, 1758)",
+                "MatchedCanonical": "Vulpes vulpes",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "(Putorius putorius)",
+                "Name": "Putorius putorius",
+                "Start": 109312,
+                "End": 109331,
+                "MatchType": "Exact",
+                "MatchedName": "Putorius putorius (Linnaeus, 1758)",
+                "MatchedCanonical": "Putorius putorius",
+                "ClassificationPath": "unranked|kingdom|phylum|subphylum|infraphylum|megaclass|class|subclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "(Mustela erminea).",
+                "Name": "Mustela erminea",
+                "Start": 109341,
+                "End": 109359,
+                "MatchType": "Exact",
+                "MatchedName": "Mustela erminea Linnaeus, 1758",
+                "MatchedCanonical": "Mustela erminea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Chionomys nivalis",
+                "Name": "Chionomys nivalis",
+                "Start": 110258,
+                "End": 110275,
+                "MatchType": "Exact",
+                "MatchedName": "Chionomys nivalis (Martins, 1842)",
+                "MatchedCanonical": "Chionomys nivalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Micromys minutus",
+                "Name": "Micromys minutus",
+                "Start": 111725,
+                "End": 111741,
+                "MatchType": "Exact",
+                "MatchedName": "Micromys minutus (Pallas, 1771)",
+                "MatchedCanonical": "Micromys minutus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Mus spicilegus",
+                "Name": "Mus spicilegus",
+                "Start": 113282,
+                "End": 113296,
+                "MatchType": "Exact",
+                "MatchedName": "Mus (Mus) spicilegus Pet\u00e9nyi, 1882",
+                "MatchedCanonical": "Mus spicilegus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|subgenus|species"
+            },
+            {
+                "Verbatim": "(Eliomys quercinus,",
+                "Name": "Eliomys quercinus",
+                "Start": 115400,
+                "End": 115419,
+                "MatchType": "Exact",
+                "MatchedName": "Eliomys quercinus (Linnaeus, 1766)",
+                "MatchedCanonical": "Eliomys quercinus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Glis glis).",
+                "Name": "Glis glis",
+                "Start": 115420,
+                "End": 115431,
+                "MatchType": "Exact",
+                "MatchedName": "Glis glis (Linnaeus, 1766)",
+                "MatchedCanonical": "Glis glis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Dryomys nitedula",
+                "Name": "Dryomys nitedula",
+                "Start": 116487,
+                "End": 116503,
+                "MatchType": "Exact",
+                "MatchedName": "Dryomys nitedula (Pallas, 1778)",
+                "MatchedCanonical": "Dryomys nitedula",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Rattus rattus.",
+                "Name": "Rattus rattus",
+                "Start": 118209,
+                "End": 118223,
+                "MatchType": "Exact",
+                "MatchedName": "Rattus rattus (Linnaeus, 1758)",
+                "MatchedCanonical": "Rattus rattus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|superfamily|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Muscardinus avellanarius",
+                "Name": "Muscardinus avellanarius",
+                "Start": 121873,
+                "End": 121897,
+                "MatchType": "Exact",
+                "MatchedName": "Muscardinus avellanarius (Linnaeus, 1758)",
+                "MatchedCanonical": "Muscardinus avellanarius",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Canis lupus",
+                "Name": "Canis lupus",
+                "Start": 123180,
+                "End": 123191,
+                "MatchType": "Exact",
+                "MatchedName": "Canis lupus Linnaeus, 1758",
+                "MatchedCanonical": "Canis lupus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Ursus arctos",
+                "Name": "Ursus arctos",
+                "Start": 129481,
+                "End": 129493,
+                "MatchType": "Exact",
+                "MatchedName": "Ursus arctos Linnaeus, 1758",
+                "MatchedCanonical": "Ursus arctos",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|genus|species"
+            },
+            {
+                "Verbatim": "Lepus europaeus",
+                "Name": "Lepus europaeus",
+                "Start": 134515,
+                "End": 134530,
+                "MatchType": "Exact",
+                "MatchedName": "Lepus europaeus Pallas, 1778",
+                "MatchedCanonical": "Lepus europaeus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Myoxus glis",
+                "Name": "Myoxus glis",
+                "Start": 135248,
+                "End": 135259,
+                "MatchType": "Exact",
+                "MatchedName": "Myoxus glis (Linnaeus, 1766)",
+                "MatchedCanonical": "Myoxus glis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|subclass|infraclass|order|suborder|family|subfamily|genus|species"
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "mistral-nemo:12b-instruct-2407-q8_0",
+        "context_chars_before": 0,
+        "context_chars_after": 250,
+        "total_examples_provided": 2,
+        "examples_used": [
+            {
+                "input": "Regionalna kategorija ugro`enosti: LC",
+                "output": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "explainer": "statusCodeVerbatim is ALWAYS after \"Regionalna kategorija ugro`enosti:\" \n"
+            },
+            {
+                "input": "Regionalna kategorija ugro`enosti: VU: A2c; B2b(iii)",
+                "output": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c; B2b(iii)"
+                },
+                "explainer": "\"Regionalna\" means Regional. statusCriteria is after statusCodeVerbatim."
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 55,
+        "runtime_seconds": 125.23195934295654,
+        "total_input_tokens": 50485,
+        "total_output_tokens": 3670,
+        "extraction_results_summary": {
+            "NF": 21,
+            "NT": 8,
+            "DD": 7,
+            "LC": 6,
+            "VU": 5,
+            "RE": 3,
+            "EN": 3,
+            "CR": 1,
+            "NE": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Rhinolophus mehely",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Rhinolophus mehely' but does not provide any assessment criteria."
+            },
+            {
+                "species": "Spermophilus citellus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria were found for 'Spermophilus citellus' in the provided text."
+            },
+            {
+                "species": "Nannospalax leucodon",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'RE' as the regional category of threat for Nannospalax leucodon, but no criteria are provided."
+            },
+            {
+                "species": "Mustela lutreola",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for the regional status 'RE'."
+            },
+            {
+                "species": "Mustela vison",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria mentioned for 'Mustela vison'."
+            },
+            {
+                "species": "Monachus monachus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2b(iv,v)"
+                },
+                "notes": "The text explicitly mentions 'CR' and 'B2b(iv,v)' for the regional category of Monachus monachus."
+            },
+            {
+                "species": "Monachus tropicalis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any explicit regional conservation status or criteria for 'Monachus tropicalis'."
+            },
+            {
+                "species": "Castor fiber",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for the regional status 'NT'."
+            },
+            {
+                "species": "Lynx lynx",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Regionalna kategorija ugro`enosti: (RE) NT', but no criteria are provided."
+            },
+            {
+                "species": "Rupicapra rupicapra",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Regionalna kategorija ugro`enosti: (RE) NT' for R. rupicapra, but no criteria codes are provided."
+            },
+            {
+                "species": "Martes foina",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria found for 'Martes foina'."
+            },
+            {
+                "species": "Myotis capaccinii",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2a, b(iii)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Miniopterus schreibersii",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any explicit regional conservation status or criteria for 'Miniopterus schreibersii'."
+            },
+            {
+                "species": "Miniopterus schreibersi",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any explicit regional conservation status or criteria for 'Miniopterus schreibersi'."
+            },
+            {
+                "species": "Tursiops truncatus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2, C2a(i)"
+                },
+                "notes": "The text explicitly mentions 'Regionalna kategorija ugro\u017eenosti: EN: A2, C2a(i)' for Tursiops truncatus."
+            },
+            {
+                "species": "Rhinolophus blasii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2b(iv)"
+                },
+                "notes": "The text explicitly mentions 'Rhinolophus blasii' and provides a regional conservation status of VU with criteria B2b(iv)."
+            },
+            {
+                "species": "Rhinolophus euryale",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "5.1; 9.5; 9.9; 10"
+                },
+                "notes": "Status codes are explicitly mentioned in the text for 'Rhinolophus euryale'."
+            },
+            {
+                "species": "Myotis bechsteinii",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2c; B2b(iii)"
+                },
+                "notes": ""
+            },
+            {
+                "species": "Barbastella barbastellus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Barbastella barbastellus' but does not provide any assessment criteria."
+            },
+            {
+                "species": "Plecotus kolombatovici",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2c"
+                },
+                "notes": "The text explicitly mentions that 'Plecotus kolombatovici' is a rare European bat species and is protected by law, indicating an endangered status (EN) based on criterion A2c."
+            },
+            {
+                "species": "Plecotus austriacus ssp. kolombatovici",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any regional conservation status or criteria for 'Plecotus austriacus ssp. kolombatovici'."
+            },
+            {
+                "species": "Plecotus macrobullaris",
+                "data": {
+                    "statusCodeVerbatim": "NE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status was explicitly stated for 'Plecotus macrobullaris'."
+            },
+            {
+                "species": "Plecotus alpinus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for 'Plecotus alpinus'. Using 'DD' as the regional status code is based on its mention in the text."
+            },
+            {
+                "species": "Plecotus microdontus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria provided for the regional status 'DD'."
+            },
+            {
+                "species": "Myotis dasycneme",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria mentioned for 'Myotis dasycneme'."
+            },
+            {
+                "species": "Nyctalus lasiopterus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for the regional status 'DD'."
+            },
+            {
+                "species": "Dinaromys bogdanovi",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Dinaromys bogdanovi' but does not provide any regional conservation status or criteria."
+            },
+            {
+                "species": "Mustela nivalis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria found for 'Mustela nivalis'."
+            },
+            {
+                "species": "Delphinus delphinus",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text explicitly mentions 'Delphinus delphinus' but does not provide any assessment criteria."
+            },
+            {
+                "species": "Delphinus delphis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide any explicit regional conservation status or criteria for Delphinus delphis."
+            },
+            {
+                "species": "Lutra lutra",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for 'Vulnerable' status."
+            },
+            {
+                "species": "Neomys anomalus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria provided for the regional status 'NT'."
+            },
+            {
+                "species": "Neomys fodiens",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for 'Neomys fodiens'."
+            },
+            {
+                "species": "Rhinolophus ferrumequinum",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide any explicit regional conservation status or criteria for 'Rhinolophus ferrumequinum'."
+            },
+            {
+                "species": "Rhinolophus hipposideros",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria were found for 'Rhinolophus hipposideros' in the provided text."
+            },
+            {
+                "species": "Myotis emarginatus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria explicitly mentioned for 'Myotis emarginatus'."
+            },
+            {
+                "species": "Myotis myotis",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide any explicit regional conservation status or criteria for 'Myotis myotis'."
+            },
+            {
+                "species": "Nyctalus leisleri",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria mentioned for Nyctalus leisleri."
+            },
+            {
+                "species": "Sciurus vulgaris",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit status criteria provided for 'Sciurus vulgaris'."
+            },
+            {
+                "species": "Cricetus cricetus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit status criteria provided for 'Cricetus cricetus'."
+            },
+            {
+                "species": "Vulpes vulpes",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional criteria provided for 'Vulpes vulpes'. Using 'NT' based on global status."
+            },
+            {
+                "species": "Putorius putorius",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for 'Putorius putorius'."
+            },
+            {
+                "species": "Mustela erminea",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional criteria provided for 'Mustela erminea'."
+            },
+            {
+                "species": "Chionomys nivalis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status criteria provided for 'Chionomys nivalis'."
+            },
+            {
+                "species": "Micromys minutus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria mentioned for 'Micromys minutus'."
+            },
+            {
+                "species": "Mus spicilegus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status criteria were explicitly mentioned for 'Mus spicilegus'."
+            },
+            {
+                "species": "Eliomys quercinus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "1.3.3; 5.1; 8.1"
+                },
+                "notes": "The status code 'VU' and criteria are explicitly stated for 'Eliomys quercinus'."
+            },
+            {
+                "species": "Glis glis",
+                "data": {
+                    "statusCodeVerbatim": "DD",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text mentions 'IUCN razlozi ugro`enosti' but does not provide specific codes for Glis glis."
+            },
+            {
+                "species": "Dryomys nitedula",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria explicitly stated for 'Dryomys nitedula'."
+            },
+            {
+                "species": "Rattus rattus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria found for Rattus rattus in the given text."
+            },
+            {
+                "species": "Muscardinus avellanarius",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No regional conservation status or criteria explicitly mentioned for 'Muscardinus avellanarius'."
+            },
+            {
+                "species": "Canis lupus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria were found for 'Canis lupus' in the provided text."
+            },
+            {
+                "species": "Ursus arctos",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No explicit regional conservation status or criteria mentioned for 'Ursus arctos'."
+            },
+            {
+                "species": "Lepus europaeus",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for the regional status 'LC'."
+            },
+            {
+                "species": "Myoxus glis",
+                "data": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "notes": "No specific criteria mentioned for the regional status."
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

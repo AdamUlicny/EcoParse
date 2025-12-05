@@ -1,0 +1,1536 @@
+{
+    "report_timestamp": "2025-09-08T16:08:03.783048",
+    "pdf_info": {
+        "file_name": "CLPP_2020_fin.pdf",
+        "extracted_text_char_count": 297737
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 274,
+        "total_species_identified_initial_filter": 87,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 81,
+        "final_species_list": [
+            {
+                "Verbatim": "Mergus serrator",
+                "Name": "Mergus serrator",
+                "Start": 3958,
+                "End": 3973,
+                "MatchType": "Unverified",
+                "MatchedName": "Mergus serrator",
+                "MatchedCanonical": "Mergus serrator",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrax tetrax",
+                "Name": "Tetrax tetrax",
+                "Start": 4017,
+                "End": 4030,
+                "MatchType": "Unverified",
+                "MatchedName": "Tetrax tetrax",
+                "MatchedCanonical": "Tetrax tetrax",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Otis tarda",
+                "Name": "Otis tarda",
+                "Start": 10441,
+                "End": 10451,
+                "MatchType": "Unverified",
+                "MatchedName": "Otis tarda",
+                "MatchedCanonical": "Otis tarda",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Burhinus oedicnemus",
+                "Name": "Burhinus oedicnemus",
+                "Start": 13860,
+                "End": 13879,
+                "MatchType": "Unverified",
+                "MatchedName": "Burhinus oedicnemus",
+                "MatchedCanonical": "Burhinus oedicnemus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pluvialis apricaria",
+                "Name": "Pluvialis apricaria",
+                "Start": 13936,
+                "End": 13955,
+                "MatchType": "Unverified",
+                "MatchedName": "Pluvialis apricaria",
+                "MatchedCanonical": "Pluvialis apricaria",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Calidris alpina schinzii",
+                "Name": "Calidris alpina schinzii",
+                "Start": 16983,
+                "End": 17007,
+                "MatchType": "Unverified",
+                "MatchedName": "Calidris alpina schinzii",
+                "MatchedCanonical": "Calidris alpina schinzii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lymnocryptes minimus",
+                "Name": "Lymnocryptes minimus",
+                "Start": 20413,
+                "End": 20433,
+                "MatchType": "Unverified",
+                "MatchedName": "Lymnocryptes minimus",
+                "MatchedCanonical": "Lymnocryptes minimus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hydrocoloeus minutus",
+                "Name": "Hydrocoloeus minutus",
+                "Start": 24294,
+                "End": 24314,
+                "MatchType": "Unverified",
+                "MatchedName": "Hydrocoloeus minutus",
+                "MatchedCanonical": "Hydrocoloeus minutus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chroicocephalus ridibundus.",
+                "Name": "Chroicocephalus ridibundus",
+                "Start": 25202,
+                "End": 25229,
+                "MatchType": "Unverified",
+                "MatchedName": "Chroicocephalus ridibundus",
+                "MatchedCanonical": "Chroicocephalus ridibundus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Gavia arctica",
+                "Name": "Gavia arctica",
+                "Start": 27250,
+                "End": 27263,
+                "MatchType": "Unverified",
+                "MatchedName": "Gavia arctica",
+                "MatchedCanonical": "Gavia arctica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ardea purpurea",
+                "Name": "Ardea purpurea",
+                "Start": 30750,
+                "End": 30764,
+                "MatchType": "Unverified",
+                "MatchedName": "Ardea purpurea",
+                "MatchedCanonical": "Ardea purpurea",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Hieraaetus pennatus",
+                "Name": "Hieraaetus pennatus",
+                "Start": 33508,
+                "End": 33527,
+                "MatchType": "Unverified",
+                "MatchedName": "Hieraaetus pennatus",
+                "MatchedCanonical": "Hieraaetus pennatus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco naumanni",
+                "Name": "Falco naumanni",
+                "Start": 35994,
+                "End": 36008,
+                "MatchType": "Unverified",
+                "MatchedName": "Falco naumanni",
+                "MatchedCanonical": "Falco naumanni",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco vespertinus",
+                "Name": "Falco vespertinus",
+                "Start": 38744,
+                "End": 38761,
+                "MatchType": "Unverified",
+                "MatchedName": "Falco vespertinus",
+                "MatchedCanonical": "Falco vespertinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lanius senator",
+                "Name": "Lanius senator",
+                "Start": 42254,
+                "End": 42268,
+                "MatchType": "Unverified",
+                "MatchedName": "Lanius senator",
+                "MatchedCanonical": "Lanius senator",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Monticola saxatilis",
+                "Name": "Monticola saxatilis",
+                "Start": 45416,
+                "End": 45435,
+                "MatchType": "Unverified",
+                "MatchedName": "Monticola saxatilis",
+                "MatchedCanonical": "Monticola saxatilis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Falco peregrinus)",
+                "Name": "Falco peregrinus",
+                "Start": 48585,
+                "End": 48602,
+                "MatchType": "Unverified",
+                "MatchedName": "Falco peregrinus",
+                "MatchedCanonical": "Falco peregrinus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Loxia pytyopsittacus",
+                "Name": "Loxia pytyopsittacus",
+                "Start": 49029,
+                "End": 49049,
+                "MatchType": "Unverified",
+                "MatchedName": "Loxia pytyopsittacus",
+                "MatchedCanonical": "Loxia pytyopsittacus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Loxia curvirostra",
+                "Name": "Loxia curvirostra",
+                "Start": 50392,
+                "End": 50409,
+                "MatchType": "Unverified",
+                "MatchedName": "Loxia curvirostra",
+                "MatchedCanonical": "Loxia curvirostra",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Mareca penelope",
+                "Name": "Mareca penelope",
+                "Start": 56516,
+                "End": 56531,
+                "MatchType": "Unverified",
+                "MatchedName": "Mareca penelope",
+                "MatchedCanonical": "Mareca penelope",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anas acuta",
+                "Name": "Anas acuta",
+                "Start": 60112,
+                "End": 60122,
+                "MatchType": "Unverified",
+                "MatchedName": "Anas acuta",
+                "MatchedCanonical": "Anas acuta",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Limosa limosa",
+                "Name": "Limosa limosa",
+                "Start": 63614,
+                "End": 63627,
+                "MatchType": "Unverified",
+                "MatchedName": "Limosa limosa",
+                "MatchedCanonical": "Limosa limosa",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Calidris pugnax",
+                "Name": "Calidris pugnax",
+                "Start": 67352,
+                "End": 67367,
+                "MatchType": "Unverified",
+                "MatchedName": "Calidris pugnax",
+                "MatchedCanonical": "Calidris pugnax",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tringa glareola",
+                "Name": "Tringa glareola",
+                "Start": 67436,
+                "End": 67451,
+                "MatchType": "Unverified",
+                "MatchedName": "Tringa glareola",
+                "MatchedCanonical": "Tringa glareola",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Thalasseus sandvicensis",
+                "Name": "Thalasseus sandvicensis",
+                "Start": 71369,
+                "End": 71392,
+                "MatchType": "Unverified",
+                "MatchedName": "Thalasseus sandvicensis",
+                "MatchedCanonical": "Thalasseus sandvicensis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Circaetus gallicus",
+                "Name": "Circaetus gallicus",
+                "Start": 78256,
+                "End": 78274,
+                "MatchType": "Unverified",
+                "MatchedName": "Circaetus gallicus",
+                "MatchedCanonical": "Circaetus gallicus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Clanga clanga",
+                "Name": "Clanga clanga",
+                "Start": 81739,
+                "End": 81752,
+                "MatchType": "Unverified",
+                "MatchedName": "Clanga clanga",
+                "MatchedCanonical": "Clanga clanga",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Circus cyaneus",
+                "Name": "Circus cyaneus",
+                "Start": 85096,
+                "End": 85110,
+                "MatchType": "Unverified",
+                "MatchedName": "Circus cyaneus",
+                "MatchedCanonical": "Circus cyaneus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Coracias garrulus",
+                "Name": "Coracias garrulus",
+                "Start": 89035,
+                "End": 89052,
+                "MatchType": "Unverified",
+                "MatchedName": "Coracias garrulus",
+                "MatchedCanonical": "Coracias garrulus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lanius minor",
+                "Name": "Lanius minor",
+                "Start": 89131,
+                "End": 89143,
+                "MatchType": "Unverified",
+                "MatchedName": "Lanius minor",
+                "MatchedCanonical": "Lanius minor",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tichodroma muraria",
+                "Name": "Tichodroma muraria",
+                "Start": 92443,
+                "End": 92461,
+                "MatchType": "Unverified",
+                "MatchedName": "Tichodroma muraria",
+                "MatchedCanonical": "Tichodroma muraria",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lyrurus tetrix",
+                "Name": "Lyrurus tetrix",
+                "Start": 95918,
+                "End": 95932,
+                "MatchType": "Unverified",
+                "MatchedName": "Lyrurus tetrix",
+                "MatchedCanonical": "Lyrurus tetrix",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Charadrius hiaticula",
+                "Name": "Charadrius hiaticula",
+                "Start": 99681,
+                "End": 99701,
+                "MatchType": "Unverified",
+                "MatchedName": "Charadrius hiaticula",
+                "MatchedCanonical": "Charadrius hiaticula",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Vanellus vanellus",
+                "Name": "Vanellus vanellus",
+                "Start": 106855,
+                "End": 106872,
+                "MatchType": "Unverified",
+                "MatchedName": "Vanellus vanellus",
+                "MatchedCanonical": "Vanellus vanellus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Numenius arquata",
+                "Name": "Numenius arquata",
+                "Start": 110234,
+                "End": 110250,
+                "MatchType": "Unverified",
+                "MatchedName": "Numenius arquata",
+                "MatchedCanonical": "Numenius arquata",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Gallinago media",
+                "Name": "Gallinago media",
+                "Start": 110305,
+                "End": 110320,
+                "MatchType": "Unverified",
+                "MatchedName": "Gallinago media",
+                "MatchedCanonical": "Gallinago media",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ichthyaetus melanocephalus",
+                "Name": "Ichthyaetus melanocephalus",
+                "Start": 117369,
+                "End": 117395,
+                "MatchType": "Unverified",
+                "MatchedName": "Ichthyaetus melanocephalus",
+                "MatchedCanonical": "Ichthyaetus melanocephalus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aquila chrysaetos",
+                "Name": "Aquila chrysaetos",
+                "Start": 117452,
+                "End": 117469,
+                "MatchType": "Unverified",
+                "MatchedName": "Aquila chrysaetos",
+                "MatchedCanonical": "Aquila chrysaetos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Asio flammeus",
+                "Name": "Asio flammeus",
+                "Start": 121426,
+                "End": 121439,
+                "MatchType": "Unverified",
+                "MatchedName": "Asio flammeus",
+                "MatchedCanonical": "Asio flammeus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Strix nebulosa",
+                "Name": "Strix nebulosa",
+                "Start": 128608,
+                "End": 128622,
+                "MatchType": "Unverified",
+                "MatchedName": "Strix nebulosa",
+                "MatchedCanonical": "Strix nebulosa",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Turdus iliacus",
+                "Name": "Turdus iliacus",
+                "Start": 132432,
+                "End": 132446,
+                "MatchType": "Unverified",
+                "MatchedName": "Turdus iliacus",
+                "MatchedCanonical": "Turdus iliacus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tadorna tadorna",
+                "Name": "Tadorna tadorna",
+                "Start": 132562,
+                "End": 132577,
+                "MatchType": "Unverified",
+                "MatchedName": "Tadorna tadorna",
+                "MatchedCanonical": "Tadorna tadorna",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Netta rufina",
+                "Name": "Netta rufina",
+                "Start": 136210,
+                "End": 136222,
+                "MatchType": "Unverified",
+                "MatchedName": "Netta rufina",
+                "MatchedCanonical": "Netta rufina",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aythya ferina",
+                "Name": "Aythya ferina",
+                "Start": 140060,
+                "End": 140073,
+                "MatchType": "Unverified",
+                "MatchedName": "Aythya ferina",
+                "MatchedCanonical": "Aythya ferina",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chroicocepalus ridibundus,",
+                "Name": "Chroicocepalus ridibundus",
+                "Start": 142875,
+                "End": 142901,
+                "MatchType": "Unverified",
+                "MatchedName": "Chroicocepalus ridibundus",
+                "MatchedCanonical": "Chroicocepalus ridibundus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aythya nyroca",
+                "Name": "Aythya nyroca",
+                "Start": 143901,
+                "End": 143914,
+                "MatchType": "Unverified",
+                "MatchedName": "Aythya nyroca",
+                "MatchedCanonical": "Aythya nyroca",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aythya fuligula,",
+                "Name": "Aythya fuligula",
+                "Start": 147112,
+                "End": 147128,
+                "MatchType": "Unverified",
+                "MatchedName": "Aythya fuligula",
+                "MatchedCanonical": "Aythya fuligula",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Spatula querquedula",
+                "Name": "Spatula querquedula",
+                "Start": 147401,
+                "End": 147420,
+                "MatchType": "Unverified",
+                "MatchedName": "Spatula querquedula",
+                "MatchedCanonical": "Spatula querquedula",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Spatula clypeata",
+                "Name": "Spatula clypeata",
+                "Start": 150996,
+                "End": 151012,
+                "MatchType": "Unverified",
+                "MatchedName": "Spatula clypeata",
+                "MatchedCanonical": "Spatula clypeata",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Coturnix coturnix",
+                "Name": "Coturnix coturnix",
+                "Start": 154345,
+                "End": 154362,
+                "MatchType": "Unverified",
+                "MatchedName": "Coturnix coturnix",
+                "MatchedCanonical": "Coturnix coturnix",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Coturnix japonica.",
+                "Name": "Coturnix japonica",
+                "Start": 157501,
+                "End": 157519,
+                "MatchType": "Unverified",
+                "MatchedName": "Coturnix japonica",
+                "MatchedCanonical": "Coturnix japonica",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tetrao urogallus",
+                "Name": "Tetrao urogallus",
+                "Start": 158308,
+                "End": 158324,
+                "MatchType": "Unverified",
+                "MatchedName": "Tetrao urogallus",
+                "MatchedCanonical": "Tetrao urogallus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Podiceps grisegena",
+                "Name": "Podiceps grisegena",
+                "Start": 161841,
+                "End": 161859,
+                "MatchType": "Unverified",
+                "MatchedName": "Podiceps grisegena",
+                "MatchedCanonical": "Podiceps grisegena",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Podiceps nigricollis",
+                "Name": "Podiceps nigricollis",
+                "Start": 165102,
+                "End": 165122,
+                "MatchType": "Unverified",
+                "MatchedName": "Podiceps nigricollis",
+                "MatchedCanonical": "Podiceps nigricollis",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Streptopelia turtur",
+                "Name": "Streptopelia turtur",
+                "Start": 168735,
+                "End": 168754,
+                "MatchType": "Unverified",
+                "MatchedName": "Streptopelia turtur",
+                "MatchedCanonical": "Streptopelia turtur",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Crex crex",
+                "Name": "Crex crex",
+                "Start": 172234,
+                "End": 172243,
+                "MatchType": "Unverified",
+                "MatchedName": "Crex crex",
+                "MatchedCanonical": "Crex crex",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Gallinago gallinago",
+                "Name": "Gallinago gallinago",
+                "Start": 179480,
+                "End": 179499,
+                "MatchType": "Unverified",
+                "MatchedName": "Gallinago gallinago",
+                "MatchedCanonical": "Gallinago gallinago",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Larus canus",
+                "Name": "Larus canus",
+                "Start": 186568,
+                "End": 186579,
+                "MatchType": "Unverified",
+                "MatchedName": "Larus canus",
+                "MatchedCanonical": "Larus canus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Sternula albifrons",
+                "Name": "Sternula albifrons",
+                "Start": 186645,
+                "End": 186663,
+                "MatchType": "Unverified",
+                "MatchedName": "Sternula albifrons",
+                "MatchedCanonical": "Sternula albifrons",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chlidonias niger",
+                "Name": "Chlidonias niger",
+                "Start": 190186,
+                "End": 190202,
+                "MatchType": "Unverified",
+                "MatchedName": "Chlidonias niger",
+                "MatchedCanonical": "Chlidonias niger",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Chlidonias leucopterus",
+                "Name": "Chlidonias leucopterus",
+                "Start": 197204,
+                "End": 197226,
+                "MatchType": "Unverified",
+                "MatchedName": "Chlidonias leucopterus",
+                "MatchedCanonical": "Chlidonias leucopterus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Pandion haliaetus",
+                "Name": "Pandion haliaetus",
+                "Start": 200608,
+                "End": 200625,
+                "MatchType": "Unverified",
+                "MatchedName": "Pandion haliaetus",
+                "MatchedCanonical": "Pandion haliaetus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Circus pygargus",
+                "Name": "Circus pygargus",
+                "Start": 200685,
+                "End": 200700,
+                "MatchType": "Unverified",
+                "MatchedName": "Circus pygargus",
+                "MatchedCanonical": "Circus pygargus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Corvus frugilegus",
+                "Name": "Corvus frugilegus",
+                "Start": 211379,
+                "End": 211396,
+                "MatchType": "Unverified",
+                "MatchedName": "Corvus frugilegus",
+                "MatchedCanonical": "Corvus frugilegus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Acrocephalus paludicola",
+                "Name": "Acrocephalus paludicola",
+                "Start": 214960,
+                "End": 214983,
+                "MatchType": "Unverified",
+                "MatchedName": "Acrocephalus paludicola",
+                "MatchedCanonical": "Acrocephalus paludicola",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anthus campestris",
+                "Name": "Anthus campestris",
+                "Start": 215055,
+                "End": 215072,
+                "MatchType": "Unverified",
+                "MatchedName": "Anthus campestris",
+                "MatchedCanonical": "Anthus campestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Emberiza hortulana",
+                "Name": "Emberiza hortulana",
+                "Start": 218228,
+                "End": 218246,
+                "MatchType": "Unverified",
+                "MatchedName": "Emberiza hortulana",
+                "MatchedCanonical": "Emberiza hortulana",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Cygnus cygnus",
+                "Name": "Cygnus cygnus",
+                "Start": 225688,
+                "End": 225701,
+                "MatchType": "Unverified",
+                "MatchedName": "Cygnus cygnus",
+                "MatchedCanonical": "Cygnus cygnus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Tringa totanus",
+                "Name": "Tringa totanus",
+                "Start": 229498,
+                "End": 229512,
+                "MatchType": "Unverified",
+                "MatchedName": "Tringa totanus",
+                "MatchedCanonical": "Tringa totanus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Botaurus stellaris",
+                "Name": "Botaurus stellaris",
+                "Start": 233196,
+                "End": 233214,
+                "MatchType": "Unverified",
+                "MatchedName": "Botaurus stellaris",
+                "MatchedCanonical": "Botaurus stellaris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Milvus migrans",
+                "Name": "Milvus migrans",
+                "Start": 239758,
+                "End": 239772,
+                "MatchType": "Unverified",
+                "MatchedName": "Milvus migrans",
+                "MatchedCanonical": "Milvus migrans",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Aegolius funereus",
+                "Name": "Aegolius funereus",
+                "Start": 243402,
+                "End": 243419,
+                "MatchType": "Unverified",
+                "MatchedName": "Aegolius funereus",
+                "MatchedCanonical": "Aegolius funereus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Bubo bubo",
+                "Name": "Bubo bubo",
+                "Start": 247010,
+                "End": 247019,
+                "MatchType": "Unverified",
+                "MatchedName": "Bubo bubo",
+                "MatchedCanonical": "Bubo bubo",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Picoides tridactylus",
+                "Name": "Picoides tridactylus",
+                "Start": 247086,
+                "End": 247106,
+                "MatchType": "Unverified",
+                "MatchedName": "Picoides tridactylus",
+                "MatchedCanonical": "Picoides tridactylus",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "(Luscinia megarhynchos).",
+                "Name": "Luscinia megarhynchos",
+                "Start": 251284,
+                "End": 251308,
+                "MatchType": "Unverified",
+                "MatchedName": "Luscinia megarhynchos",
+                "MatchedCanonical": "Luscinia megarhynchos",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Luscinia luscinia",
+                "Name": "Luscinia luscinia",
+                "Start": 254083,
+                "End": 254100,
+                "MatchType": "Unverified",
+                "MatchedName": "Luscinia luscinia",
+                "MatchedCanonical": "Luscinia luscinia",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Ficedula hypoleuca",
+                "Name": "Ficedula hypoleuca",
+                "Start": 254164,
+                "End": 254182,
+                "MatchType": "Unverified",
+                "MatchedName": "Ficedula hypoleuca",
+                "MatchedCanonical": "Ficedula hypoleuca",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Saxicola rubetra",
+                "Name": "Saxicola rubetra",
+                "Start": 257292,
+                "End": 257308,
+                "MatchType": "Unverified",
+                "MatchedName": "Saxicola rubetra",
+                "MatchedCanonical": "Saxicola rubetra",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Prunella collaris",
+                "Name": "Prunella collaris",
+                "Start": 260884,
+                "End": 260901,
+                "MatchType": "Unverified",
+                "MatchedName": "Prunella collaris",
+                "MatchedCanonical": "Prunella collaris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Anthus spinoletta",
+                "Name": "Anthus spinoletta",
+                "Start": 264783,
+                "End": 264800,
+                "MatchType": "Unverified",
+                "MatchedName": "Anthus spinoletta",
+                "MatchedCanonical": "Anthus spinoletta",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Motacilla citreola",
+                "Name": "Motacilla citreola",
+                "Start": 272066,
+                "End": 272084,
+                "MatchType": "Unverified",
+                "MatchedName": "Motacilla citreola",
+                "MatchedCanonical": "Motacilla citreola",
+                "ClassificationPath": ""
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "granite3.3:8b",
+        "context_chars_before": 0,
+        "context_chars_after": 250,
+        "total_examples_provided": 1,
+        "examples_used": [
+            {
+                "input": "NT D1",
+                "output": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "D1"
+                },
+                "explainer": "statusCodeVerbatim is followed by statusCriteria. "
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 81,
+        "runtime_seconds": 174.04010248184204,
+        "total_input_tokens": 95098,
+        "total_output_tokens": 7387,
+        "extraction_results_summary": {
+            "VU": 24,
+            "NF": 19,
+            "RE": 17,
+            "CR": 12,
+            "EN": 7,
+            "CR(PE)": 1,
+            "NT": 1
+        },
+        "full_extraction_results": [
+            {
+                "species": "Mergus serrator",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is specified as 'regionally extinct' (RE). No specific criteria codes are mentioned for this assessment."
+            },
+            {
+                "species": "Tetrax tetrax",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is identified as 'regionally extinct' (RE), with no specific criteria code provided."
+            },
+            {
+                "species": "Otis tarda",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The status 'RE' (Regional) was directly mentioned for Otis tarda in the text chunk, indicating a regional conservation status without further criteria specified."
+            },
+            {
+                "species": "Burhinus oedicnemus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'RE', with no further criteria provided."
+            },
+            {
+                "species": "Pluvialis apricaria",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is marked as 'RE', indicating it is rare in the region. No specific criteria codes are provided for this assessment."
+            },
+            {
+                "species": "Calidris alpina schinzii",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species is categorized regionally as 'RE' (Regionally Extinct) due to its absence from breeding grounds in Poland and a strong population decline across the Baltic region. There are no specific criteria codes mentioned for this assessment."
+            },
+            {
+                "species": "Lymnocryptes minimus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'RE', indicating it's Regional Extinct. No specific criteria codes are provided in the text."
+            },
+            {
+                "species": "Hydrocoloeus minutus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'RE' (Endangered) due to lack of breeding records since 2002, with no subsequent confirmations. The criteria for this assessment are not detailed in the provided text."
+            },
+            {
+                "species": "Chroicocephalus ridibundus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species 'Chroicocephalus ridibundus' (Little Ringed Plover) is not mentioned in the provided text chunk. The text discusses another species, 'Mewa ma\u0142a' (Hydrocoloeus minutus), and its conservation status."
+            },
+            {
+                "species": "Gavia arctica",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'RE', with no further criteria provided."
+            },
+            {
+                "species": "Ardea purpurea",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional status is categorized as 'Regionally Extinct' (RE) due to the absence of breeding records for over a decade, although it's noted that the species might return as a breeder in the future given suitable conditions."
+            },
+            {
+                "species": "Hieraaetus pennatus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'RE', indicating it's a rare or endangered species within its region. No specific criteria codes are provided in the text."
+            },
+            {
+                "species": "Falco naumanni",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is explicitly stated as 'regionally extinct (RE)' with no further criteria provided."
+            },
+            {
+                "species": "Falco vespertinus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' conservation status is classified as regionally Endangered (RE) based on the last confirmed breeding record in Poland dating back to 1942 with no subsequent observations suggesting ongoing breeding. The criteria for this assessment are not explicitly mentioned."
+            },
+            {
+                "species": "Lanius senator",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is indicated as 'RE', with no specific criteria codes provided in the text."
+            },
+            {
+                "species": "Monticola saxatilis",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is indicated as 'RE', with no specific criteria code provided in the text."
+            },
+            {
+                "species": "Falco peregrinus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species 'Falco peregrinus' (Peregrine Falcon) is assessed as VU (Vulnerable) under the regional criteria D1, indicating a high risk of extinction in the wild due to very small population size and area of occupancy."
+            },
+            {
+                "species": "Loxia pytyopsittacus",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is indicated as 'RE', which stands for 'Regionally Extinct'. No specific criteria codes are mentioned in the text."
+            },
+            {
+                "species": "Loxia curvirostra",
+                "data": {
+                    "statusCodeVerbatim": "RE",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species' regional conservation status is indicated as 'RE', which stands for 'Regionally Extinct'. No specific criteria codes are mentioned in the text."
+            },
+            {
+                "species": "Mareca penelope",
+                "data": {
+                    "statusCodeVerbatim": "CR(PE)",
+                    "statusCriteria": "B2ab(v); D1"
+                },
+                "notes": "The species Mareca penelope is assessed with a critical regional conservation status (CR(PE)) based on population parameters and range. The criteria used in this assessment are B2ab(v) for population size and decline, and D1 for its very small geographic range."
+            },
+            {
+                "species": "Anas acuta",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria for Anas acuta."
+            },
+            {
+                "species": "Limosa limosa",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "None, all fields extracted as per rules."
+            },
+            {
+                "species": "Calidris pugnax",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1ab(v)+B2ab(v); D1"
+                },
+                "notes": "None, values extracted as per instructions."
+            },
+            {
+                "species": "Tringa glareola",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2ab(v); C2a(i,ii); D1"
+                },
+                "notes": "The species' conservation status is determined by its critically small population size, fragmented habitat, declining trend, and vulnerability to climate change impacts such as warming and drying springs, reduced winter precipitation, and soil moisture depletion leading to torf moisture loss."
+            },
+            {
+                "species": "Thalasseus sandvicensis",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1ac(iv)+B2ac(iv)"
+                },
+                "notes": "The species 'Thalasseus sandvicensis' is assessed as Critically Endangered (CR) based on the criteria B1ac(iv) and B2ac(iv), indicating extremely small population size and area of occupancy, respectively."
+            },
+            {
+                "species": "Circaetus gallicus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C1+C2a(i)"
+                },
+                "notes": "The species Circaetus gallicus is assessed as 'Critically Endangered' (CR) with criteria C1 (it is the only population in the world) and C2a(i) (it has experienced a drastic population reduction)."
+            },
+            {
+                "species": "Clanga clanga",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C1+C2a(i,ii); D1"
+                },
+                "notes": "None, all values extracted as per rules."
+            },
+            {
+                "species": "Circus cyaneus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1ab(v)+B2ab(v); D1"
+                },
+                "notes": "No additional notes required as all requested values are extracted."
+            },
+            {
+                "species": "Coracias garrulus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "C1+C2a(i,ii); D1"
+                },
+                "notes": "The species' conservation status is given as Critically Endangered (CR) with criteria C1+C2a(i,ii); D1 indicating a very small population and partitioning into subpopulations. The species is highly susceptible to threats due to its migration patterns across Mediterranean countries, specifically vulnerable in the southwestern African region where it winters."
+            },
+            {
+                "species": "Lanius minor",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B2ab(v); D1"
+                },
+                "notes": "The species Lanius minor is assessed as Critically Endangered (CR) with the status criteria B2ab(v); D1, indicating a very small population size and a continuing decline."
+            },
+            {
+                "species": "Tichodroma muraria",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "B1ab(v)+B2ab(v); C2a(i,ii)"
+                },
+                "notes": "The species is assessed as Critically Endangered (CR) based on its small and fragmented range (EOO) and area of occupancy (AOO), with fewer than 1 locality. The criteria used in this assessment are B1ab(v)+B2ab(v) for population size and demographic trend, and C2a(i,ii) for the extent and quality of habitat."
+            },
+            {
+                "species": "Lyrurus tetrix",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(v); C1+C2a(i)"
+                },
+                "notes": "The status code 'EN' (Endangered) and criteria 'B2ab(v); C1+C2a(i)' were extracted based on the specified conditions for Lyrurus tetrix, indicating it is endangered due to a restricted and fragmented range with low population size and decline."
+            },
+            {
+                "species": "Charadrius hiaticula",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(v); C1"
+                },
+                "notes": "The species 'Charadrius hiaticula' is classified as Endangered (EN) based on the regional assessment. The criteria used in this assessment are B2ab(v) for population size and decline, and C1 for its small and fragmented range."
+            },
+            {
+                "species": "Vanellus vanellus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' regional conservation status is EN (Endangered), with the criteria code A2a indicating a population reduction of more than 50% within the last three generations, primarily due to habitat loss and disturbance from both domestic livestock and other birds."
+            },
+            {
+                "species": "Numenius arquata",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2b; C1"
+                },
+                "notes": "The species' conservation status is given as EN (Endangered) with criteria A2b and C1."
+            },
+            {
+                "species": "Gallinago media",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "A2a; C1"
+                },
+                "notes": "The species is categorized as 'Endangered' (EN) based on the regional assessment criteria A2a and C1."
+            },
+            {
+                "species": "Ichthyaetus melanocephalus",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The species' conservation status is determined to be Endangered (EN) based on the criteria C1, indicating that the species's area of occupancy qualifies as small and its population size is very small or declining."
+            },
+            {
+                "species": "Aquila chrysaetos",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit IUCN status codes or criteria for Aquila chrysaetos. It discusses the species' range and population dynamics without specifying a regional conservation status or criteria."
+            },
+            {
+                "species": "Asio flammeus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "AOO,P"
+                },
+                "notes": "The species is assessed as Critically Endangered (CR) due to very low population size and small area of occupancy (AOO) with significant fluctuations in population parameters."
+            },
+            {
+                "species": "Strix nebulosa",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific IUCN status codes or criteria for Strix nebulosa. The species is mentioned in the context of discussing habitat fragmentation and climate change impacts on its environment but no explicit conservation status details are given."
+            },
+            {
+                "species": "Turdus iliacus",
+                "data": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The species Turdus iliacus is assessed as Critically Endangered (CR) based on the regional criteria of a severely restricted range and a drastic population decline over the past decade."
+            },
+            {
+                "species": "Tadorna tadorna",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(v); D1"
+                },
+                "notes": "The species is assessed as Vulnerable (VU) based on criteria B2ab(v) and D1."
+            },
+            {
+                "species": "Netta rufina",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species Netta rufina, also known as the Great Crested Grebe, is listed under the regional category VU (Vulnerable) with criteria D1, indicating a small and fragmented area of occupancy in Poland without additional conditions for restricted distribution or population decline."
+            },
+            {
+                "species": "Aythya ferina",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The species' status is determined to be Vulnerable (VU) based on criteria C1, indicating that the species qualifies for a threatened category due to its population size and decline."
+            },
+            {
+                "species": "Chroicocepalus ridibundus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text provided does not contain specific information about Chroicocepalus ridibundus. It discusses Aythya ferina (G\u0142owienka) instead, focusing on its conservation status in Poland without mentioning Chroicocepalus ridibundus."
+            },
+            {
+                "species": "Aythya nyroca",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species' conservation status is indicated as VU (Vulnerable) with criteria code D1, suggesting a small population size and area of occupancy."
+            },
+            {
+                "species": "Aythya fuligula",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk provided does not contain specific conservation status information for Aythya fuligula. The species mentioned in the bottom section is Aythya nyroca (Podgorza\u0142ka), and while Aythya fuligula (Czernica) is also mentioned, no regional conservation status or criteria are explicitly detailed."
+            },
+            {
+                "species": "Spatula querquedula",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "C1"
+                },
+                "notes": "The species 'Spatula querquedula' is assessed as Vulnerable (VU) based on the criteria C1, which pertains to population size and decline."
+            },
+            {
+                "species": "Spatula clypeata",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The species' conservation status is determined to be VU (Vulnerable) based on the criteria A2b, indicating a population decline of more than 45% in the last ten years."
+            },
+            {
+                "species": "Coturnix coturnix",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' status is determined by a decline of 60% in the last 10 years, exceeding the threshold for 'Vulnerable' (VU) according to the criteria A2a."
+            },
+            {
+                "species": "Coturnix japonica",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text provided does not contain specific information about Coturnix japonica, also known as the Japanese Quail. It discusses another species, Coturnix coturnix (the Common Quail), and its conservation status under the IUCN Red List Categories and Criteria. There is no direct mention or assessment of Coturnix japonica in the given text chunk."
+            },
+            {
+                "species": "Tetrao urogallus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species' conservation status is explicitly mentioned as VU (Vulnerable) with criteria code D1, indicating that the species qualifies for this category based on its population size."
+            },
+            {
+                "species": "Podiceps grisegena",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b"
+                },
+                "notes": "The species' regional conservation status is VU (Vulnerable) based on the criteria A2b, indicating that the species qualifies for a threat category due to population size and decline."
+            },
+            {
+                "species": "Podiceps nigricollis",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' conservation status is given as VU (Vulnerable) with criteria A2a, indicating it qualifies for this category based on a population size or decline of at least 20% within the last 10 years or three generations."
+            },
+            {
+                "species": "Streptopelia turtur",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species is identified as Vulnerable (VU) with criteria code A2a, indicating a sharp population reduction of 33% over the past decade due to factors like illegal hunting and habitat fragmentation."
+            },
+            {
+                "species": "Crex crex",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The status criteria A2a indicates that the species qualifies as Vulnerable (VU) based on a population reduction of more than 50% over the past 10 years."
+            },
+            {
+                "species": "Gallinago gallinago",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' status is determined by a population reduction of 34% over the last decade, qualifying it as Vulnerable (VU) under the A2 criteria."
+            },
+            {
+                "species": "Larus canus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2b; C1"
+                },
+                "notes": "The species Larus canus is assigned the regional conservation status VU (Vulnerable) based on the criteria A2b and C1, as indicated in the provided text chunk."
+            },
+            {
+                "species": "Sternula albifrons",
+                "data": {
+                    "statusCodeVerbatim": "EN",
+                    "statusCriteria": "B2ab(v)"
+                },
+                "notes": "The species is assessed as Endangered (EN) under the B2ab(v) criteria due to a small and fragmented range, and a declining population trend."
+            },
+            {
+                "species": "Chlidonias niger",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria codes for Chlidonias niger."
+            },
+            {
+                "species": "Chlidonias leucopterus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(v)c(iv); C2b"
+                },
+                "notes": "The status 'VU' (Vulnerable) and criteria 'B2ab(v)c(iv); C2b' were extracted based on the text's description of the species' declining population, small range, and fragmented habitat."
+            },
+            {
+                "species": "Pandion haliaetus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "D1"
+                },
+                "notes": "The species' status is explicitly mentioned as 'VU D1'. No additional criteria are provided in the text."
+            },
+            {
+                "species": "Circus pygargus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' conservation status is given as VU (Vulnerable) with criteria A2a, based on the provided text."
+            },
+            {
+                "species": "Corvus frugilegus",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "None, all fields extracted as per rules."
+            },
+            {
+                "species": "Acrocephalus paludicola",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "B2ab(iii)"
+                },
+                "notes": "The species' conservation status is given as VU (Vulnerable) with criteria B2ab(iii), indicating it does not meet the population reduction criterion but faces other threats such as habitat loss and intensive land use."
+            },
+            {
+                "species": "Anthus campestris",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria codes for Anthus campestris. The species is mentioned in the context of habitat loss and pesticide use, but no specific regional IUCN status or criteria are explicitly stated."
+            },
+            {
+                "species": "Emberiza hortulana",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' status is determined as Vulnerable (VU) due to a significant population decline of 33% over the last 10 years in Poland. The criteria code A2a indicates this decline is attributed to a restricted range and small population size."
+            },
+            {
+                "species": "Cygnus cygnus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide specific regional conservation status or criteria for Cygnus cygnus."
+            },
+            {
+                "species": "Tringa totanus",
+                "data": {
+                    "statusCodeVerbatim": "NT",
+                    "statusCriteria": "A2a; D1"
+                },
+                "notes": "The species status is classified as 'Near Threatened' (NT) based on criteria A2a and D1, indicating a significant population decline and very small population size respectively."
+            },
+            {
+                "species": "Botaurus stellaris",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria for Botaurus stellaris. The species is mentioned in the context of population dynamics and threats like habitat degradation and weather impacts, but specific IUCN codes or criteria are absent."
+            },
+            {
+                "species": "Milvus migrans",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide specific IUCN status codes or criteria for Milvus migrans. Therefore, both 'statusCodeVerbatim' and 'statusCriteria' are marked as 'NF'."
+            },
+            {
+                "species": "Aegolius funereus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide specific IUCN status codes or criteria for Aegolius funereus. The species is mentioned in the context of discussing threats to its population, such as timber harvesting impacts and a decline in prey availability, but no explicit regional conservation status or criteria are given."
+            },
+            {
+                "species": "Bubo bubo",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide specific regional conservation status or criteria for Bubo bubo. Therefore, both 'statusCodeVerbatim' and 'statusCriteria' are marked as 'NF'."
+            },
+            {
+                "species": "Picoides tridactylus",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria for Picoides tridactylus. The species is mentioned in the context of discussing its population dynamics and threats, but no specific IUCN status code or criteria are given."
+            },
+            {
+                "species": "Luscinia megarhynchos",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide specific conservation status or criteria for Luscinia megarhynchos. The species mentioned is Luscinia luscinia, not Luscinia megarhynchos."
+            },
+            {
+                "species": "Luscinia luscinia",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "None, values extracted as per instructions."
+            },
+            {
+                "species": "Ficedula hypoleuca",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' status is determined by a significant population decline (-32%) over the last 10 years, qualifying it as Vulnerable (VU) under the regional criteria A2a."
+            },
+            {
+                "species": "Saxicola rubetra",
+                "data": {
+                    "statusCodeVerbatim": "VU",
+                    "statusCriteria": "A2a"
+                },
+                "notes": "The species' conservation status is determined to be Vulnerable (VU) based on a significant population decline (-35%) over the past 10 years, qualifying it as endangered under the specified criteria A2a."
+            },
+            {
+                "species": "Prunella collaris",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The provided text does not explicitly mention the IUCN status or criteria for Prunella collaris. Therefore, both 'statusCodeVerbatim' and 'statusCriteria' are marked as 'NF'."
+            },
+            {
+                "species": "Anthus spinoletta",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text does not provide explicit conservation status or criteria for Anthus spinoletta. The species is mentioned in the context of discussing its population dynamics and threats, but no specific IUCN status code or criteria are explicitly stated."
+            },
+            {
+                "species": "Motacilla citreola",
+                "data": {
+                    "statusCodeVerbatim": "NF",
+                    "statusCriteria": "NF"
+                },
+                "notes": "The text chunk does not provide specific conservation status or criteria for Motacilla citreola. Therefore, both 'statusCodeVerbatim' and 'statusCriteria' are marked as 'NF'."
+            }
+        ]
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}

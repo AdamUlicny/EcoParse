@@ -1,0 +1,297 @@
+{
+    "report_timestamp": "2025-09-01T12:54:42.081294",
+    "pdf_info": {
+        "file_name": "NLD_Animalia_Amphibians_2023.pdf",
+        "extracted_text_char_count": 92940
+    },
+    "gnfinder_info": {
+        "url_used": "http://localhost:4040/api/v1/find",
+        "total_names_identified_raw": 28,
+        "total_species_identified_initial_filter": 24,
+        "taxonomic_filter_applied": true,
+        "total_species_identified_final_filter": 22,
+        "final_species_list": [
+            {
+                "Verbatim": "Salamandra salamandra ssp. terrestris",
+                "Name": "Salamandra salamandra ssp. terrestris",
+                "Start": 2531,
+                "End": 2568,
+                "MatchType": "Exact",
+                "MatchedName": "Salamandra salamandra terrestris",
+                "MatchedCanonical": "Salamandra salamandra terrestris",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Triturus cristatus",
+                "Name": "Triturus cristatus",
+                "Start": 9853,
+                "End": 9871,
+                "MatchType": "Exact",
+                "MatchedName": "Triturus cristatus (Laurenti, 1768)",
+                "MatchedCanonical": "Triturus cristatus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lissotriton helveticus ssp. helveticus",
+                "Name": "Lissotriton helveticus ssp. helveticus",
+                "Start": 15217,
+                "End": 15255,
+                "MatchType": "Exact",
+                "MatchedName": "Lissotriton helveticus helveticus (Razoumovsky, 1789)",
+                "MatchedCanonical": "Lissotriton helveticus helveticus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Alytes obstetricans ssp. obstetricans",
+                "Name": "Alytes obstetricans ssp. obstetricans",
+                "Start": 19290,
+                "End": 19327,
+                "MatchType": "Exact",
+                "MatchedName": "Alytes obstetricans obstetricans",
+                "MatchedCanonical": "Alytes obstetricans obstetricans",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Bombina variegata ssp. variegata",
+                "Name": "Bombina variegata ssp. variegata",
+                "Start": 23540,
+                "End": 23572,
+                "MatchType": "Exact",
+                "MatchedName": "Bombina variegata variegata",
+                "MatchedCanonical": "Bombina variegata variegata",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pelobates fuscus",
+                "Name": "Pelobates fuscus",
+                "Start": 29829,
+                "End": 29845,
+                "MatchType": "Exact",
+                "MatchedName": "Pelobates fuscus (Laurenti, 1768)",
+                "MatchedCanonical": "Pelobates fuscus",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Hyla arborea",
+                "Name": "Hyla arborea",
+                "Start": 36435,
+                "End": 36447,
+                "MatchType": "Exact",
+                "MatchedName": "Hyla arborea (Linnaeus, 1758)",
+                "MatchedCanonical": "Hyla arborea",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Ichthyosaura alpestris ssp. alpestris",
+                "Name": "Ichthyosaura alpestris ssp. alpestris",
+                "Start": 41842,
+                "End": 41879,
+                "MatchType": "Exact",
+                "MatchedName": "Ichthyosaura alpestris subsp. alpestris",
+                "MatchedCanonical": "Ichthyosaura alpestris subsp. alpestris",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Lissotriton vulgaris ssp. vulgaris",
+                "Name": "Lissotriton vulgaris ssp. vulgaris",
+                "Start": 43364,
+                "End": 43398,
+                "MatchType": "Exact",
+                "MatchedName": "Lissotriton vulgaris vulgaris",
+                "MatchedCanonical": "Lissotriton vulgaris vulgaris",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Bufo bufo ssp. bufo",
+                "Name": "Bufo bufo ssp. bufo",
+                "Start": 44574,
+                "End": 44593,
+                "MatchType": "Exact",
+                "MatchedName": "Bufo bufo bufo (Linnaeus, 1758)",
+                "MatchedCanonical": "Bufo bufo bufo",
+                "ClassificationPath": "domain|kingdom|subkingdom|unranked|infrakingdom|phylum|subphylum|infraphylum|superclass|unranked|unranked|superclass|class|subclass|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Epidalea calamita",
+                "Name": "Epidalea calamita",
+                "Start": 48381,
+                "End": 48398,
+                "MatchType": "Exact",
+                "MatchedName": "Epidalea calamita (Laurenti, 1768)",
+                "MatchedCanonical": "Epidalea calamita",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rana arvalis ssp. arvalis",
+                "Name": "Rana arvalis ssp. arvalis",
+                "Start": 50716,
+                "End": 50741,
+                "MatchType": "Exact",
+                "MatchedName": "Rana arvalis arvalis Nilsson, 1842",
+                "MatchedCanonical": "Rana arvalis arvalis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|genus|species"
+            },
+            {
+                "Verbatim": "Rana temporaria ssp. temporaria",
+                "Name": "Rana temporaria ssp. temporaria",
+                "Start": 53146,
+                "End": 53177,
+                "MatchType": "Exact",
+                "MatchedName": "Rana temporaria temporaria",
+                "MatchedCanonical": "Rana temporaria temporaria",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Pelophylax lessonae ssp. lessonae",
+                "Name": "Pelophylax lessonae ssp. lessonae",
+                "Start": 54626,
+                "End": 54659,
+                "MatchType": "Exact",
+                "MatchedName": "Pelophylax lessonae lessonae",
+                "MatchedCanonical": "Pelophylax lessonae lessonae",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|genus|species|species|subspecies"
+            },
+            {
+                "Verbatim": "Pelophylax ridibundus ssp. ridibundus",
+                "Name": "Pelophylax ridibundus ssp. ridibundus",
+                "Start": 58634,
+                "End": 58671,
+                "MatchType": "Exact",
+                "MatchedName": "Pelophylax ridibundus ridibundus",
+                "MatchedCanonical": "Pelophylax ridibundus ridibundus",
+                "ClassificationPath": "kingdom|phylum|subphylum|class|order|family|genus|species|species|subspecies"
+            },
+            {
+                "Verbatim": "Zootoca vivipara ssp. vivipara",
+                "Name": "Zootoca vivipara ssp. vivipara",
+                "Start": 60247,
+                "End": 60277,
+                "MatchType": "Exact",
+                "MatchedName": "Zootoca vivipara vivipara (Lichtenstein, 1823)",
+                "MatchedCanonical": "Zootoca vivipara vivipara",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Podarcis muralis ssp. brongniardii",
+                "Name": "Podarcis muralis ssp. brongniardii",
+                "Start": 64973,
+                "End": 65007,
+                "MatchType": "Exact",
+                "MatchedName": "Podarcis muralis ssp. brongniardii",
+                "MatchedCanonical": "Podarcis muralis subsp. brongniardii",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Coronella austriaca ssp. austriaca",
+                "Name": "Coronella austriaca ssp. austriaca",
+                "Start": 72517,
+                "End": 72551,
+                "MatchType": "Exact",
+                "MatchedName": "Coronella austriaca subsp. austriaca",
+                "MatchedCanonical": "Coronella austriaca subsp. austriaca",
+                "ClassificationPath": ""
+            },
+            {
+                "Verbatim": "Natrix helvetica ssp. helvetica",
+                "Name": "Natrix helvetica ssp. helvetica",
+                "Start": 77651,
+                "End": 77682,
+                "MatchType": "Exact",
+                "MatchedName": "Natrix helvetica helvetica (Lac\u00e9p\u00e8de, 1789)",
+                "MatchedCanonical": "Natrix helvetica helvetica",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|superfamily|family|subfamily|genus|species|subspecies"
+            },
+            {
+                "Verbatim": "Vipera berus ssp. berus",
+                "Name": "Vipera berus ssp. berus",
+                "Start": 81622,
+                "End": 81645,
+                "MatchType": "Exact",
+                "MatchedName": "Vipera berus subsp. berus (LINNAEUS 1758)",
+                "MatchedCanonical": "Vipera berus subsp. berus",
+                "ClassificationPath": "kingdom|"
+            },
+            {
+                "Verbatim": "Anguis fragilis",
+                "Name": "Anguis fragilis",
+                "Start": 86717,
+                "End": 86732,
+                "MatchType": "Exact",
+                "MatchedName": "Anguis fragilis Linnaeus, 1758",
+                "MatchedCanonical": "Anguis fragilis",
+                "ClassificationPath": "domain|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|order|unranked|family|subfamily|genus|species"
+            },
+            {
+                "Verbatim": "Lacerta agilis ssp. agilis",
+                "Name": "Lacerta agilis ssp. agilis",
+                "Start": 87755,
+                "End": 87781,
+                "MatchType": "Exact",
+                "MatchedName": "Lacerta agilis subsp. agilis Linnaeus 1758",
+                "MatchedCanonical": "Lacerta agilis subsp. agilis",
+                "ClassificationPath": ""
+            }
+        ]
+    },
+    "llm_extraction_info": {
+        "method": "Text-based",
+        "provider": "Ollama",
+        "model": "mistral:instruct",
+        "context_chars_before": 0,
+        "context_chars_after": 1500,
+        "total_examples_provided": 2,
+        "examples_used": [
+            {
+                "input": "IUCN-criteria: critically endangered (A2be, C1)",
+                "output": {
+                    "statusCodeVerbatim": "CR",
+                    "statusCriteria": "A2be, C1"
+                },
+                "explainer": "We are looking exclusively for data mentioned after \"IUCN-Criteria\""
+            },
+            {
+                "input": "IUCN Nederland 2023: least concern",
+                "output": {
+                    "statusCodeVerbatim": "LC",
+                    "statusCriteria": "NF"
+                },
+                "explainer": "some species are missing \"IUCN criteria\" instead take data from \"IUCN Nederland 2023\" in those cases"
+            }
+        ],
+        "concurrent_requests_used": 1,
+        "total_species_assessed": 0,
+        "runtime_seconds": 35.507349729537964,
+        "total_input_tokens": 0,
+        "total_output_tokens": 0,
+        "extraction_results_summary": {},
+        "full_extraction_results": []
+    },
+    "project_config_used": {
+        "project_name": "Default Threat Status Assessment",
+        "project_description": "Extracts regional conservation status for species based on standard IUCN codes.",
+        "data_fields": [
+            {
+                "name": "statusCodeVerbatim",
+                "description": "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories.",
+                "validation_values": [
+                    "RE",
+                    "CR",
+                    "EN",
+                    "VU",
+                    "NT",
+                    "LC",
+                    "DD",
+                    "NF"
+                ]
+            },
+            {
+                "name": "statusCriteria",
+                "description": "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
+            }
+        ]
+    },
+    "manual_verification_info": {
+        "run": false,
+        "full_results": []
+    }
+}
