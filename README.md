@@ -9,7 +9,7 @@ Unlike rigid scraping scripts, EcoParse is fully configurable. You can define ex
 ## Key Features
 
 -   **Configurable Data Extraction**: Define any data field you need (e.g., "Habitat", "Diet", "Wingspan") in a simple YAML configuration file.
--   **Multiple LLM Backends**: Supports Google Gemini via API (paid tier) and local models via Ollama.
+-   **Multiple LLM Backends**: Supports Google Gemini, OpenRouter via API, and local models via Ollama.
 -   **Advanced Species Identification**: Integrates with GNfinder and uses robust filtering to accurately identify species and subspecies, resolving nested names (e.g., preferring "Falco peregrinus pelegrinoides" over "Falco peregrinus" when both are found and nested).
 -   **Interactive UI**: An easy-to-use web interface built with Streamlit to manage the entire workflow, from PDF upload to result analysis.
 -   **Context-Aware Analysis**: Provides the LLM with either surrounding text chunks or full-page images for context.
@@ -64,7 +64,15 @@ For **Gemini API** (recommended for most users):
 > [!NOTE]
 > Google provides a 3 month free trial of the paid tier. Get it if you want to test EcoParse with Gemini.
 > Free tier is heavily rate limited and will not work well with EcoParse in the current implementation.
-> Use the free tier only for a quick test.
+> Use the free tier (no trial) only for a quick test.
+
+For **OpenRouter** (access multiple AI providers with one API key):
+- Get your API key at [OpenRouter](https://openrouter.ai/)
+- Enter the key in the EcoParse interface
+- Select from a variety of models from different providers
+> [!NOTE]
+> OpenRouter offers pay-as-you-go pricing and some free models for testing.
+
 
 For **Ollama** (local LLMs):
 - Install Ollama on your host system: [ollama.ai](https://ollama.ai/)

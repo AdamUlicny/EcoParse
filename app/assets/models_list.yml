@@ -26,10 +26,26 @@ ollama_models:
 
 # Gemini Models
 gemini_models:
-  - name: "gemini-2.5-flash-latest"
-    description: "Latest Gemini 2.5 Flash model"
-  - name: "gemini-2.5-flash-lite-latest"
-    description: "Latest Gemini 2.5 Flash Lite model"
-  - name: "gemini-2.5-pro-latest" 
-    description: "Latest Gemini 2.5 Pro model"
+  - name: "gemini-2.5-flash"
+    description: "Gemini 2.5 Flash model"
+  - name: "gemini-2.5-flash-lite"
+    description: "Gemini 2.5 Flash Lite model"
+  - name: "gemini-2.5-pro" 
+    description: "Gemini 2.5 Pro model"
   
+# OpenRouter Models
+openrouter_models:
+  - name: "google/gemini-2.5-flash"
+    description: "Google: Gemini 2.5 Flash"
+  - name: "google/gemini-2.5-flash-lite"
+    description: "Google: Gemini 2.5 Flash Lite"
+  - name: "google/gemini-2.5-pro"
+    description: "Google: Gemini 2.5 Pro"
+  - name: "qwen/qwen3-235b-a22b-2507"
+    description: "Qwen: Qwen 3 Instruct 235B A22B 2507"
+  - name: "qwen/qwen3-next-80b-a3b-instruct"
+    description: "Qwen: Qwen 3 Next 80B A3B Instruct"
+  - name: "meta-llama/llama-3.3-70b-instruct"
+    description: "Meta: Llama 3.3 70B Instruct"
+  - name: "mistralai/mixtral-8x22b-instruct"
+    description: "Mistral: Mixtral 8x22B Instruct"

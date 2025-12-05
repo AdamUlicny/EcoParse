@@ -173,10 +173,24 @@ def display():
             formatted_examples.append("\n".join(example_parts))
 
         examples_text = "\n\n---\n\n".join(formatted_examples)
+        # Determine API key and model based on provider
+        api_key = ""
+        model = ""
+        
+        if st.session_state.llm_provider == "Google Gemini":
+            api_key = st.session_state.google_api_key
+            model = st.session_state.google_model
+        elif st.session_state.llm_provider == "OpenRouter":
+            api_key = st.session_state.openrouter_api_key
+            model = st.session_state.openrouter_model
+        else: # Ollama
+            api_key = "" # Ollama doesn't usually use API key
+            model = st.session_state.ollama_model
+
         llm_config = {
             "provider": st.session_state.llm_provider,
-            "api_key": st.session_state.google_api_key,
-            "model": st.session_state.google_model if st.session_state.llm_provider == "Google Gemini" else st.session_state.ollama_model,
+            "api_key": api_key,
+            "model": model,
             "ollama_url": st.session_state.ollama_url,
             "concurrent_requests": st.session_state.concurrent_requests
         }
