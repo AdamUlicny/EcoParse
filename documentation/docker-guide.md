@@ -1,122 +1,97 @@
 # Docker Installation Guide
 
-This guide provides detailed information about running EcoParse using Docker.
+This guide helps you run EcoParse easily using Docker. Docker allows you to run the application without installing Python or complex dependencies on your computer.
 
-## Quick Start
+## Prerequisites
+
+Before you begin, you need two things:
+
+1.  **Docker Desktop**: Download and install it from [docker.com](https://www.docker.com/products/docker-desktop/).
+    *   *Note: After installing, open "Docker Desktop" to make sure it is running.*
+2.  **EcoParse Code**: You should have this folder on your computer.
+
+---
+
+## Option 1: The Easy Way (Windows)
+
+We have created a simple script to handle everything for you.
+
+1.  Open the **EcoParse** folder in File Explorer.
+2.  Double-click the file named `run_docker.bat`.
+3.  Terminal will open. It will:
+    *   Build the application (this takes a few minutes the first time).
+    *   Start the server.
+4.  Once you see a message saying the server is running, open your web browser and go to:
+    *   [http://localhost:8501](http://localhost:8501)
+
+To stop the application, just close the terminal window.
+
+---
+
+## Option 2: The Manual Way (Mac/Linux/Windows)
+
+If you prefer using the command line or are on Mac/Linux, follow these steps.
+
+### 1. Open a Terminal
+*   **Windows**: Right-click inside the EcoParse folder and select "Open in Terminal" (or use PowerShell/Command Prompt).
+*   **Mac/Linux**: Open your terminal and navigate to the EcoParse folder.
+
+### 2. Build the Application
+Type this command and press Enter:
 
 ```bash
-# Clone the repository
-git clone https://github.com/AdamUlicny/EcoParse.git
-cd EcoParse
-
-# Build and run with Docker
-bash build_docker.sh
-```
-
-## What the Docker Setup Includes
-
-The Docker container automatically handles:
-- **Python 3.9** runtime environment
-- **GNfinder** binary installation and configuration  
-- **All Python dependencies** from `pyproject.toml`
-- **Port configuration** for both EcoParse (8501) and GNfinder (4040)
-- **Background services** - GNfinder starts automatically
-
-## Manual Docker Commands
-
-If you prefer to run Docker commands manually:
-
-```bash
-# Build the Docker image
 docker build -t ecoparse-app .
-
-# Run the container with port forwarding
-docker run -p 8501:8501 -p 4040:4040 ecoparse-app
-
-# Run in detached mode (background)
-docker run -d -p 8501:8501 -p 4040:4040 ecoparse-app
-
-# View running containers
-docker ps
-
-# Stop the container
-docker stop <container_id>
 ```
 
-## LLM Configuration with Docker
-
-### Using Gemini API
-- No additional setup required
-- Enter your API key in the EcoParse web interface
-- Get your key at: https://aistudio.google.com/
-
-### Using Ollama (Local LLMs)
-When using Docker, Ollama must run on your **host machine** (not in the container):
+### 3. Run the Application
+Type this command and press Enter:
 
 ```bash
-# On your host machine (outside Docker):
-# 1. Install Ollama
-curl -fsSL https://ollama.ai/install.sh | sh
-
-# 2. Pull a model
-ollama pull llama3
-
-# 3. Start Ollama service
-ollama serve
+docker run -p 8501:8501 -p 4040:4040 ecoparse-app
 ```
 
-EcoParse in Docker will connect to Ollama on your host machine via `host.docker.internal` (automatic).
+You can now access the app at [http://localhost:8501](http://localhost:8501).
+
+---
+
+## AI Model Setup (Optional)
+
+EcoParse uses AI to analyze data. You have three choices:
+
+### A. Use Google Gemini (Easiest)
+1.  Get a free API key from [Google AI Studio](https://aistudio.google.com/).
+2.  Enter this key in the EcoParse settings on the web page.
+3.  No extra installation is needed!
+
+### B. Use OpenRouter (Access to many models)
+1.  Get an API key from [OpenRouter](https://openrouter.ai/).
+2.  Enter this key in the EcoParse settings on the web page.
+3.  This gives you access to models like GPT-4, Claude 3, Llama 3, etc.
+
+### C. Use Local Models (Ollama)
+If you want to run AI models on your own computer (free, but requires a powerful computer):
+
+1.  Download and install **Ollama** from [ollama.com](https://ollama.com).
+2.  Open your terminal/command prompt and run:
+    ```bash
+    ollama pull llama3
+    ollama serve
+    ```
+3.  EcoParse will automatically connect to it.
+
+---
 
 ## Troubleshooting
 
-### Common Issues
+**"Docker is not running" error**
+*   Make sure you have opened the **Docker Desktop** application. Look for the little whale icon in your taskbar.
 
-**Port conflicts:**
-```bash
-# Check if ports are in use
-lsof -i :8501
-lsof -i :4040
+**The web page won't load**
+*   Wait a few seconds. The first time it starts, it might take a moment.
+*   Check the black terminal window for any error messages.
 
-# Use different ports if needed
-docker run -p 8502:8501 -p 4041:4040 ecoparse-app
-```
+**Port already in use**
+*   If you see an error about "port 8501", it means EcoParse might already be running in another window. Close other Docker windows and try again.
 
-**Container won't start:**
-```bash
-# Check Docker logs
-docker logs <container_id>
-
-# Rebuild the image
-docker build --no-cache -t ecoparse-app .
-```
-
-**Can't access the application:**
-- Ensure Docker is running: `docker --version`
-- Check container status: `docker ps`
-- Verify ports are correctly mapped: `docker port <container_id>`
-- Try accessing `http://127.0.0.1:8501` instead of `localhost:8501`
-
-**Ollama connection issues:**
-- Ensure Ollama is running on host: `ollama list`
-- Check Ollama is accessible: `curl http://localhost:11434/api/tags`
-- On Linux, you may need to configure Ollama to bind to all interfaces:
-  ```bash
-  # Set environment variable before starting Ollama
-  export OLLAMA_HOST=0.0.0.0:11434
-  ollama serve
-  ```
-
-## Updating EcoParse
-
-To update to the latest version:
-
-```bash
-# Pull latest changes
-git pull origin main
-
-# Rebuild Docker image
-docker build --no-cache -t ecoparse-app .
-
-# Run updated container
-docker run -p 8501:8501 -p 4040:4040 ecoparse-app
-``` 
+**Updating the App**
+*   If you download a new version of EcoParse, just run the `run_docker.bat` script again. It will automatically update the system.
