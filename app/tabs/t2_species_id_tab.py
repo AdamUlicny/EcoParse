@@ -174,14 +174,19 @@ def display():
                 with col2:
                     # Provide helpful examples based on selected rank
                     examples = {
-                        "kingdom": "e.g., 'Plantae', 'Animalia', 'Fungi'",
-                        "phylum": "e.g., 'Chordata' (vertebrates), 'Tracheophyta' (vascular plants), 'Arthropoda' (insects/spiders)",
-                        "class": "e.g., 'Aves' (birds), 'Mammalia' (mammals), 'Magnoliopsida' (flowering plants)",
-                        "order": "e.g., 'Primates', 'Carnivora', 'Passeriformes'", 
-                        "family": "e.g., 'Felidae' (cats), 'Rosaceae' (roses)"
+                        "kingdom": "e.g., 'Plantae', 'Animalia'",
+                        "phylum": "e.g., 'Chordata', 'Arthropoda'",
+                        "class": "e.g., 'Amphibia, Reptilia, Aves, Mammalia' (Tetrapods)",
+                        "order": "e.g., 'Primates, Carnivora'", 
+                        "family": "e.g., 'Felidae, Canidae'"
                     }
-                    placeholder_text = examples.get(rank, "Enter taxon name")
-                    name = st.text_input(f"Taxon Name ({placeholder_text})", "Any", key="tax_name")
+                    placeholder_text = examples.get(rank, "Enter taxon name(s)")
+                    name = st.text_input(
+                        f"Taxon Name(s) ({placeholder_text})", 
+                        "Any", 
+                        key="tax_name",
+                        help="You can enter a single name (e.g. 'Aves') or multiple comma-separated names to create a custom group (e.g. 'Amphibia, Reptilia, Aves, Mammalia' for Tetrapods)."
+                    )
 
                 # GBIF verification options
                 st.markdown("**GBIF Verification Options:**")

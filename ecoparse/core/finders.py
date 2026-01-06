@@ -26,7 +26,7 @@ import csv
 import io
 from pathlib import Path
 from typing import Dict, Optional
-from pygbif import species as gbif_species
+
 import time
 import streamlit as st
 import re
@@ -66,6 +66,14 @@ def send_text_to_gnfinder(text: str, gnfinder_url: str, offline_mode: bool = Fal
     """
     # Clean text of extraction artifacts that might confuse GnFinder
     cleaned_text = _clean_text_for_gnfinder(text)
+    
+    # DEBUG: Dump cleaned text to verify what GNfinder receives
+    try:
+        with open("last_gnfinder_input_dump.txt", "w", encoding="utf-8") as f:
+            f.write(cleaned_text)
+        print(f"DEBUG: Dumped cleaned text to {os.path.abspath('last_gnfinder_input_dump.txt')}")
+    except Exception as e:
+        print(f"DEBUG: Failed to dump text: {e}")
     
     # Route to CLI if offline mode is enabled (workaround for broken API)
     if offline_mode:
@@ -224,19 +232,21 @@ def _clean_text_for_gnfinder(text: str) -> str:
     
     # Remove common extraction artifacts
     text = re.sub(r'^\s*(?:Page \d+|CONTENT|TABLES?|FIGURES?|APPENDIX|REFERENCES)\s*$', '', text, flags=re.MULTILINE | re.IGNORECASE)
-    text = re.sub(r'^\s*(?:Table|Figure|Fig\.)\s+\d+[^\n]*$', '', text, flags=re.MULTILINE | re.IGNORECASE)
+
     text = re.sub(r'\b(?:PDF|DOI|URL|HTTP|WWW)\b[^\s]*', '', text, flags=re.IGNORECASE)
     
     # Clean up excessive whitespace and special characters
-    text = re.sub(r'\s+', ' ', text)  # Multiple spaces to single space
-    text = re.sub(r'\n\s*\n\s*\n', '\n\n', text)  # Multiple newlines to double newline
+    # Preserve newlines to maintain document structure (headers, lists)
+    text = re.sub(r'[ \t]+', ' ', text)  # Collapse horizontal whitespace
+    text = re.sub(r'\n\s*\n+', '\n\n', text)  # Normalize paragraph breaks
     
     # Remove problematic characters that might cause encoding issues
     text = re.sub(r'[^\w\s\.\,\;\:\!\?\(\)\[\]\-\'\"]', ' ', text)
     
     # Clean up parentheses and brackets content that might confuse parsing
-    text = re.sub(r'\([^)]{50,}\)', '', text)  # Remove very long parenthetical content
-    text = re.sub(r'\[[^\]]{50,}\]', '', text)  # Remove very long bracketed content
+    # DISABLED: Caused massive data loss if brackets were unbalanced or spanned pages
+    # text = re.sub(r'\([^)]{50,}\)', '', text)  
+    # text = re.sub(r'\[[^\]]{50,}\]', '', text)
     
     return text.strip()
 
@@ -404,7 +414,7 @@ def get_higher_taxonomy(species_name: str, include_fuzzy: bool = True, include_h
     """
     Retrieves taxonomic hierarchy from GBIF for a given species.
     
-    Queries the Global Biodiversity Information Facility (GBIF) taxonomic
+    Queries the GBIF taxonomic
     backbone to obtain higher-level taxonomic classification. Results are
     cached for 24 hours to minimize API calls and improve performance.
     
@@ -426,15 +436,60 @@ def get_higher_taxonomy(species_name: str, include_fuzzy: bool = True, include_h
     - 24-hour TTL balances data freshness with performance
     - Reduces load on GBIF servers during batch processing
     """
+
     try:
-        response = gbif_species.name_backbone(name=species_name, rank='SPECIES', strict=False)
+        # Retry mechanism to handle transient network issues or API timeouts
+        max_retries = 3
+        response_json = None
         
-        if not response or response.get('matchType') == 'NONE':
+        for attempt in range(max_retries):
+            try:
+                # Use direct requests to GBIF API to avoid pygbif issues and allow better control
+                # Remove rank='SPECIES' constraint to reduce false negatives
+                params = {
+                    'name': species_name,
+                    'strict': False,
+                    'verbose': True, # Get alternatives
+                }
+                
+                api_response = requests.get("https://api.gbif.org/v1/species/match", params=params, timeout=10)
+                
+                if api_response.status_code == 200:
+                    response_json = api_response.json()
+                    break
+                else:
+                    if attempt == max_retries - 1:
+                        print(f"GBIF API error: {api_response.status_code}")
+                        return None
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    print(f"Error querying GBIF for {species_name} after {max_retries} attempts: {e}")
+                    return None
+                time.sleep(1)
+
+        if not response_json:
             return None
             
-        match_type = response.get('matchType')
-        rank = response.get('rank')
-        status = response.get('status')
+        match_type = response_json.get('matchType')
+        
+        # Handle cases where matchType is NONE but there are alternatives (e.g. homonyms)
+        # Coronella austriaca (Snake) vs Coronella austriaca (Foraminifera)
+        if match_type == 'NONE' and 'alternatives' in response_json:
+            alternatives = response_json.get('alternatives', [])
+            if alternatives:
+                # Sort by confidence (descending)
+                alternatives.sort(key=lambda x: x.get('confidence', 0), reverse=True)
+                # Take the best match
+                response_json = alternatives[0]
+                match_type = response_json.get('matchType')
+                # Log that we used an alternative
+                # print(f"Used alternative for {species_name}: {response_json.get('scientificName')} ({match_type})")
+
+        if match_type == 'NONE':
+            return None
+
+        rank = response_json.get('rank')
+        status = response_json.get('status')
         
         # Determine if we should accept this match based on user preferences
         accept_match = False
@@ -452,17 +507,17 @@ def get_higher_taxonomy(species_name: str, include_fuzzy: bool = True, include_h
             
         if accept_match:
             return {
-                'kingdom': response.get('kingdom'),
-                'phylum': response.get('phylum'),
-                'class': response.get('class'),
-                'order': response.get('order'),
-                'family': response.get('family'),
-                'genus': response.get('genus'),
-                'species': response.get('species'),
+                'kingdom': response_json.get('kingdom'),
+                'phylum': response_json.get('phylum'),
+                'class': response_json.get('class'),
+                'order': response_json.get('order'),
+                'family': response_json.get('family'),
+                'genus': response_json.get('genus'),
+                'species': response_json.get('species'),
                 'match_type': match_type,
                 'rank': rank,
                 'status': status,
-                'confidence': response.get('confidence', 0)
+                'confidence': response_json.get('confidence', 0)
             }
         return None
     except Exception as e:
@@ -527,7 +582,11 @@ def filter_by_taxonomy(df: pd.DataFrame, rank: str, name: str, include_fuzzy: bo
             else:
                 # Check taxonomic match
                 actual_rank_value = taxonomy.get(rank)
-                if isinstance(actual_rank_value, str) and actual_rank_value.lower() == name.lower():
+                
+                # Support multiple values (comma-separated)
+                target_names = [n.strip().lower() for n in name.split(',')]
+                
+                if isinstance(actual_rank_value, str) and actual_rank_value.lower() in target_names:
                     include_species = True
         elif include_unverified:
             # Species has no GBIF verification but user wants to include unverified
