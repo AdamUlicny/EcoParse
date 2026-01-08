@@ -19,7 +19,10 @@ Adjust the settings to ensure the relevant info is captured.
 2.  **Preview**: Click the **Preview Chunk** button.
     *   **Goal**: Adjust the length until you see both the species name *and* the target data (e.g., threat code) in the preview window. The rule should cover all species cases safely.
 
-![Screenshot of chunk preview tool](placeholder_chunk_preview)
+![Screenshot of chunk settings](img/chunk_settings.png)
+![Screenshot of chunk preview tool](img/chunk_preview.png)
+
+> **Tip**: The chunk preview above looks good. The species name is visible and the target data is also visible. This is not the case for all documents. Sometimes the information is spread across multiple lines or columns. In those cases, **image mode** is a better choice. If you are using image chunks, make sure to select a model that supports image input.
 
 ## 5.3 Service and Model Selection
 Select the AI provider and model to perform the extraction.
@@ -29,7 +32,7 @@ Select the AI provider and model to perform the extraction.
 
 ### Recommended Models
 *   **Gemini**: `Gemini 2.5 flash-lite` or `Gemini 3 Flash` (Good balance of speed/quality).
-*   **OpenRouter / Ollama**: `Qwen Instruct` is currently the best performing choice for this task.
+*   **OpenRouter / Ollama**: `Qwen Instruct` is currently the best performing choice for text tasks. Gemini flash-lite works well for image based extraction. 
 *   **Model selection**: You can input your own model name if you believe it is better suited for the task. Current model selection is based on internal benchmarks, but might not account for certain languages or future developments. Model name must be in the correct format as listed on the service's website. 
 
-![Screenshot of model selection dropdown](placeholder_model_selection)
+![Screenshot of model selection](img/model_selector.png)

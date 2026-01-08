@@ -54,7 +54,7 @@ You can now access the app at [http://localhost:8501](http://localhost:8501).
 
 ---
 
-## AI Model Setup (Optional)
+## AI Model Setup 
 
 EcoParse uses AI to analyze data. You have three choices:
 

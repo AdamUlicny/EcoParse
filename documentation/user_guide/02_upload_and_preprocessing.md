@@ -5,7 +5,7 @@ This step prepares your document for extraction by converting the PDF into raw t
 ## 2.1 File Upload
 Start by uploading your target `.pdf` file in **Tab 1**.
 
-![Screenshot of the file upload interface](placeholder_upload_interface)
+![Screenshot of the file upload interface](img/upload_img.png)
 
 ## 2.2 Select Page Range
 After uploading, it is highly recommended to select a specific page range for processing.
@@ -22,4 +22,4 @@ EcoParse offers multiple text extraction approaches to handle various file encod
 
 > **Note:** Some languages or older PDFs may require trying different extraction methods to get the best result.
 
-![Example of extracted text preview](placeholder_text_extraction_preview)
+![Example of extracted text preview](img/text_img.png)

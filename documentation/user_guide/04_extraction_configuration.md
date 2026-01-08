@@ -5,7 +5,7 @@ This tab controls *what* data is extracted and *how* the AI understands the docu
 ## 4.1 Configuration
 For most standard Redlist use cases, the extraction fields are pre-defined (e.g., Threat Code, Criteria).
 
-*   **Custom Data**: If you need to extract different fields, you can modify the `config.yml` file which defines the data schema.
+> **Custom Data**: If you need to extract different fields, you can modify the `config.yml` file which defines the data schema. If running EcoParse from Docker, make sure to rebuild the docker image after modifying the config file.
 
 ## 4.2 Few-Shot Examples (Crucial Step)
 To ensure high accuracy, especially for documents in different languages or with unique layouts, you should provide **Few-Shot Examples**.
@@ -16,4 +16,4 @@ To ensure high accuracy, especially for documents in different languages or with
 
 > **Tip**: Supplying examples significantly improves results by "teaching" the AI the specific pattern of your document.
 
-![Screenshot of few-shot example input area](placeholder_few_shot_examples)
+![Screenshot of few-shot example input area](img/examples.png)
