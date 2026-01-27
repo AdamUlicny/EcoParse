@@ -54,8 +54,9 @@ def initialize_session():
     # Configuration defaults
     defaults = {
         'gnfinder_url': "http://localhost:4040/api/v1/find",
-        'llm_provider': "Google Gemini", 
+        'llm_provider': "OpenRouter", 
         'google_api_key': "",
+        'openrouter_model': "gemini-2.5-flash-lite",
         'google_model': "gemini-2.5-flash-lite",
         'ollama_model': "mistral:instruct",
         'ollama_url': "http://localhost:11434",

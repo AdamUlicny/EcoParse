@@ -602,34 +602,63 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
 def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) -> Dict[str, List[bytes]]:
     """
     Generates page images for species mentions in PDF documents.
+    Optimized to render each page at most once.
     """
-    species_pages = {}
-    species_images = {}
-    
+    species_images: Dict[str, List[bytes]] = {}
+    if species_df.empty:
+        return species_images
+
     pdf_buffer.seek(0)
     
     try:
         doc = fitz.open(stream=pdf_buffer.read(), filetype="pdf")
+        
+        # 1. Map Species -> Set of Page Indices
+        species_pages: Dict[str, set] = {}
+        unique_species_full_list = set(species_df["Name"].unique())
+        
+        # We also need a reverse map: Page Index -> List[Species] to know who needs which page
+        page_to_species: Dict[int, List[str]] = {}
 
+        # Scan text once to find locations
         for i, page in enumerate(doc):
             page_text = page.get_text("text") or ""
+            # Normalize once per page
             normalized_page_text = normalize_text_for_search(page_text)
             
-            for species_name in species_df["Name"].unique():
+            # Check for all species on this page
+            # Optimization: could use Aho-Corasick for massive lists, but regex loop is okay for typical usage
+            for species_name in unique_species_full_list:
+                # Use word boundary check
                 if re.search(r'\b' + re.escape(species_name) + r'\b', normalized_page_text, re.IGNORECASE):
+                    if i not in page_to_species:
+                        page_to_species[i] = []
+                    page_to_species[i].append(species_name)
+                    
                     if species_name not in species_pages:
                         species_pages[species_name] = set()
                     species_pages[species_name].add(i)
+
+        # 2. Render Required Pages (Inverted Index Strategy)
+        # We only render pages that are actually needed by at least one species
+        rendered_pages: Dict[int, bytes] = {}
         
-        for species_name, page_indices in species_pages.items():
+        for page_num in page_to_species.keys():
+            page = doc.load_page(page_num)
+            pix = page.get_pixmap(dpi=150)
+            rendered_pages[page_num] = pix.tobytes("png")
+
+        # 3. Construct Result Dictionary
+        for species_name in species_pages.keys():
             images = []
-            for page_num in sorted(list(page_indices)):
-                page = doc.load_page(page_num)
-                pix = page.get_pixmap(dpi=150)
-                images.append(pix.tobytes("png"))
+            # Sort pages to maintain order
+            for page_num in sorted(list(species_pages[species_name])):
+                if page_num in rendered_pages:
+                    images.append(rendered_pages[page_num])
             species_images[species_name] = images
             
         return species_images
+
     except Exception as e:
         print(f"Error processing PDF for page images: {e}")
         return {}

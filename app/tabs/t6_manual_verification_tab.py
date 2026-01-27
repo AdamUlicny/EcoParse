@@ -92,27 +92,90 @@ def display():
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        st.markdown("**Text Context**")
-        with st.container(height=500, border=False):
-            context_chunks = current_item.get('context_chunks', [])
-            if not context_chunks:
-                st.warning("No text context is available for this item. It might have been an image-based extraction or an error occurred.")
-            else:
-                # Get all dynamic field values for highlighting
-                terms_to_find = [species_name] + [str(v) for v in current_item.get('data', {}).values() if v]
-                
-                total_found_count = 0
-                
-                for i, chunk in enumerate(context_chunks):
-                    st.markdown(f"--- **Context Chunk {i+1}** ---")
-                    from app.ui_helpers import highlight_text_in_chunk
-                    highlighted_chunk, found_count = highlight_text_in_chunk(chunk, terms_to_find)
+        # Determine extraction type to set smart default
+        context_chunks = current_item.get('context_chunks', [])
+        is_image_based = (
+            len(context_chunks) == 1 and 
+            "Image-based extraction does not use text chunks" in context_chunks[0]
+        )
+        
+        # Default to Images (index 1) if image-based, otherwise Text (index 0)
+        default_index = 1 if is_image_based else 0
+
+        # Context View Selector
+        view_mode = st.radio(
+            "Context View", 
+            ["Text Context", "Document Images"], 
+            index=default_index,
+            horizontal=True,
+            label_visibility="collapsed",
+            key=f"view_mode_{index}"
+        )
+
+        if view_mode == "Text Context":
+            st.markdown("**Text Context**")
+            with st.container(height=500, border=False):
+                context_chunks = current_item.get('context_chunks', [])
+                if not context_chunks:
+                    st.warning("No text context is available for this item. It might have been an image-based extraction or an error occurred.")
+                else:
+                    # Get all dynamic field values for highlighting
+                    terms_to_find = [species_name] + [str(v) for v in current_item.get('data', {}).values() if v]
                     
-                    st.markdown(highlighted_chunk, unsafe_allow_html=True)
-                    total_found_count += found_count
-                
-                if total_found_count == 0:
-                    st.info("None of the extracted data fields could be highlighted in the provided text chunks.")
+                    total_found_count = 0
+                    
+                    for i, chunk in enumerate(context_chunks):
+                        st.markdown(f"--- **Context Chunk {i+1}** ---")
+                        from app.ui_helpers import highlight_text_in_chunk
+                        highlighted_chunk, found_count = highlight_text_in_chunk(chunk, terms_to_find)
+                        
+                        st.markdown(highlighted_chunk, unsafe_allow_html=True)
+                        total_found_count += found_count
+                    
+                    if total_found_count == 0:
+                        st.info("None of the extracted data fields could be highlighted in the provided text chunks.")
+        
+        else:
+            # Document Images View
+            st.markdown("**Document Images**")
+            with st.container(height=500, border=False):
+                pdf_file = getattr(st.session_state, 'pdf_buffer', None)
+                if not pdf_file:
+                    st.error("PDF file not found in session. Please upload the PDF again.")
+                else:
+                    # Generate/Fetch images on the fly
+                    # We create a temporary single-row DataFrame for this species
+                    temp_df = pd.DataFrame([{"Name": species_name}])
+                    
+                    with st.spinner(f"Generating page images for {species_name}..."):
+                        try:
+                            # Use our optimized function
+                            # Note: Function expects io.BytesIO, so we wrap the bytes if needed
+                            # But st.session_state.pdf_file is usually UploadedFile which behaves like BytesIO, 
+                            # or we might need to seek(0).
+                            # Let's ensure we work with a copy or handle it carefully.
+                            
+                            # Create a fresh buffer to avoid messing with the main file pointer if used elsewhere concurrently?
+                            # Actually, get_species_page_images does seek(0) anyway.
+                            # But let's check if pdf_file is bytes or file-like.
+                            if isinstance(pdf_file, bytes):
+                                buffer_to_use = io.BytesIO(pdf_file)
+                            else:
+                                buffer_to_use = pdf_file
+                                
+                            images_dict = get_species_page_images(buffer_to_use, temp_df)
+                            images = images_dict.get(species_name, [])
+                            
+                            if not images:
+                                st.warning(f"No pages found containing '{species_name}'.")
+                            else:
+                                st.success(f"Found {len(images)} page(s) with '{species_name}'.")
+                                for i, img_bytes in enumerate(images):
+                                    st.image(img_bytes, caption=f"Page Image {i+1}", use_container_width=True)
+                                    st.divider()
+                                    
+                        except Exception as e:
+                            st.error(f"Error generating images: {e}")
 
 
 

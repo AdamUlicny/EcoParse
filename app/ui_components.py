@@ -14,32 +14,11 @@ def setup_sidebar():
     st.header("⚙️ Global Configuration")
 
     st.text_input("GNfinder URL", key="gnfinder_url")
-    st.selectbox("LLM Provider", ["Google Gemini", "Ollama", "OpenRouter"], key="llm_provider")
+    st.selectbox("LLM Provider", ["OpenRouter", "Google Gemini", "Ollama"], key="llm_provider")
     st.markdown("---")
 
     is_gemini = st.session_state.llm_provider == "Google Gemini"
     is_openrouter = st.session_state.llm_provider == "OpenRouter"
-
-    # Gemini Settings
-    st.subheader("Google Gemini Settings")
-    st.text_input(
-        "Google API Key",
-        type="password",
-        key="google_api_key",
-        disabled=not is_gemini,
-        help="Required for Google Gemini."
-    )
-    
-    models_data = load_models_config()
-    gemini_models = models_data.get("gemini_models", [])
-    
-    final_gemini = create_model_selector("Gemini", gemini_models, not is_gemini)
-    if final_gemini:
-        st.session_state.google_model = final_gemini
-    elif "google_model" not in st.session_state:
-        st.session_state.google_model = ""
-
-    st.markdown("---")
 
     # OpenRouter Settings
     st.subheader("OpenRouter Settings")
@@ -51,6 +30,7 @@ def setup_sidebar():
         help="Required for OpenRouter."
     )
     
+    models_data = load_models_config()
     openrouter_models = models_data.get("openrouter_models", [])
     final_openrouter = create_model_selector("OpenRouter", openrouter_models, not is_openrouter)
     if final_openrouter:
@@ -60,6 +40,27 @@ def setup_sidebar():
 
     st.markdown("---")
 
+    # Gemini Settings
+    st.subheader("Google Gemini Settings")
+    st.text_input(
+        "Google API Key",
+        type="password",
+        key="google_api_key",
+        disabled=not is_gemini,
+        help="Required for Google Gemini."
+    )
+    
+    gemini_models = models_data.get("gemini_models", [])
+    
+    final_gemini = create_model_selector("Gemini", gemini_models, not is_gemini)
+    if final_gemini:
+        st.session_state.google_model = final_gemini
+    elif "google_model" not in st.session_state:
+        st.session_state.google_model = ""
+
+    st.markdown("---")
+
+   
     # Ollama Settings
     st.subheader("Ollama Settings")
     st.text_input(

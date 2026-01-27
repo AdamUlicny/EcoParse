@@ -185,7 +185,7 @@ def display():
                         f"Taxon Name(s) ({placeholder_text})", 
                         "Any", 
                         key="tax_name",
-                        help="You can enter a single name (e.g. 'Aves') or multiple comma-separated names to create a custom group (e.g. 'Amphibia, Reptilia, Aves, Mammalia' for Tetrapods)."
+                        help="You can enter a single name (e.g. 'Aves') or multiple comma-separated names to create a custom group (e.g. 'Testudines, Squamata, Crocodylia, Sphenodontia' for Reptiles)."
                     )
 
                 # GBIF verification options
