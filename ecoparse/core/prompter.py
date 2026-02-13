@@ -6,12 +6,6 @@ interactions in species data extraction tasks. It implements systematic
 prompt engineering strategies to ensure consistent, accurate, and structured
 outputs from various LLM providers.
 
-Scientific Purpose:
-- Standardizes LLM interactions for biodiversity data extraction
-- Implements prompt engineering best practices for scientific accuracy
-- Ensures reproducible and consistent extraction results
-- Supports both text-based and vision-based extraction workflows
-
 Key Design Principles:
 - Explicit output formatting requirements
 - Mandatory field completion (using "NF" for missing data)
@@ -109,48 +103,62 @@ def get_default_text_prompt(species_name: str, text_chunk: str, data_fields_sche
     """
     return f"""
 <PERSONA>
-You are a precise scientific data extractor.
+You are a precise scientific data extractor. You extract ONLY formally stated values, never inferred from narrative.
 </PERSONA>
 
 <TASK_DEFINITION>
-For the species '{species_name}', extract the required data fields from the following text chunk.
+For '{species_name}', extract data fields from the text below. 
 
-Text Chunk for Analysis:
+Text Chunk:
 ---
 {text_chunk}
 ---
+</TASK_DEFINITION>
 
-**EXTRACTION RULES**
-1. Extract ONLY the values requested in the instruction or examples. Ignore all other scopes, years, or regions.
-2. If the requested scope/year is not found, use "NF" for all fields.
-3. Only extract information explicitly about '{species_name}'. If it is only mentioned in passing, all fields = "NF".
-4. Do NOT copy, infer, or adapt data from other species or from examples.
+<CRITICAL_RULES>
+**FORMAL vs NARRATIVE DATA:**
+- **FORMAL**: Explicit codes, values, or designations directly assigned to '{species_name}' (e.g., "Status: VU", "Category: Endangered", a dedicated assessment table row).
+- **NARRATIVE**: Descriptive text that implies something about '{species_name}' but provides no formal value (e.g., "is expanding", "is threatened", "is common").
 
+**EXTRACT ONLY FORMAL DATA.** If no formal value exists for a field, use "NF" – even if narrative text implies a status.
+
+**OWNERSHIP CHECK:**
+1. Is '{species_name}' the PRIMARY SUBJECT of structured data in this text?
+   - YES: Extract from '{species_name}''s data only.
+   - NO (mentioned in another entity's context, e.g., "uses nests of {species_name}"): ALL fields = "NF".
+
+2. Does the text contain FORMAL values for the requested fields?
+   - YES: Extract them.
+   - NO (only narrative descriptions): ALL fields = "NF".
+</CRITICAL_RULES>
 
 <EXAMPLES>
-Examples illustrate the output format only. Never use them as a source of values.
 {examples_text if examples_text else "No examples provided."}
 </EXAMPLES>
 
 <OUTPUT_REQUIREMENTS>
-Your output MUST be a JSON list containing exactly one JSON object.  
-Do not include any text outside this JSON.  
-The JSON MUST be valid and parseable.
-If controlled vocabulary is provided for a field, do not use any other placeholders.
+Output a JSON list with exactly one object. No text outside the JSON.
 
-**JSON Schema:**
+**Schema:**
 {{
   "species": "{species_name}",
   "data": {{ ... }},
-  "notes": "Explanation only if values are missing or ambiguous."
+  "notes": "Brief explanation of data source or why NF.",
+  "review_flag": "OK | CHECK | NF"
 }}
+
+**review_flag:**
+- `OK`: Formal data clearly found for '{species_name}'.
+- `CHECK`: Ambiguous (narrative only, role unclear, uncertain attribution).
+- `NF`: All fields "NF".
 
 {data_fields_schema}
 
-**OUTPUT RULES**
-1. Include all schema fields in 'data'. If no value is found, use "NF".
-2. Output valid JSON only; no extra keys or text outside the JSON.
-3. Use 'notes' only to explain ambiguities or reasons for "NF"; do not place data values there.
+**RULES**
+1. Extract ONLY formal/explicit values. Never infer from narrative.
+2. If '{species_name}' is mentioned in another entity's context, all fields = "NF".
+3. If no formal data exists for a field, use "NF".
+4. Set review_flag to "CHECK" if extraction relies on any interpretation.
 """
 
 
@@ -185,47 +193,65 @@ def get_default_image_prompt(species_name: str, data_fields_schema: str, example
     """
     return f"""
 <PERSONA>
-You are an expert scientific data extractor. Your task is to accurately extract specific pieces of information for a given species from the provided page image(s).
+You are an expert scientific data extractor. You extract ONLY formal/structured values, never inferred from narrative.
 </PERSONA>
 
-<TASK_DEFINITION>
-For the species '{species_name}', analyze the provided image(s) and extract the required data fields. Pay close attention to all text, tables, and figures.
-</TASK_DEFINITION>
+<DOCUMENT_FORMATS>
+Documents may contain species data in various layouts:
+- **Dedicated pages**: One species per page with header and assessment section.
+- **Tables**: Multiple species in rows; each row contains one species' data.
+- **Multi-section pages**: Several species listed sequentially in paragraphs or blocks.
+- **Mixed**: Combinations of the above.
+</DOCUMENT_FORMATS>
+
+<CRITICAL_RULES>
+**FORMAL vs NARRATIVE DATA:**
+- **FORMAL**: Explicit codes, values, or designations in structured format (e.g., status boxes, table cells, labeled fields like "Status: VU").
+- **NARRATIVE**: Descriptive text implying something (e.g., "is expanding", "is threatened", "is common") WITHOUT providing a formal code/value.
+
+**EXTRACT ONLY FORMAL DATA.** Narrative descriptions ≠ formal values. Use "NF" if only narrative exists.
+
+**OWNERSHIP CHECK:**
+1. Does '{species_name}' have its OWN formal data (dedicated row, section, status box)?
+   - YES → Extract from that section ONLY.
+   - NO (mentioned in another entity's text, e.g., "uses nests of {species_name}") → ALL fields = "NF".
+
+2. Are the values FORMAL (explicit codes/designations) or NARRATIVE (implied from text)?
+   - FORMAL → Extract.
+   - NARRATIVE only → "NF".
+</CRITICAL_RULES>
 
 <EXAMPLES>
-Use these examples to understand the context and desired output format:
 {examples_text if examples_text else "No examples provided."}
 </EXAMPLES>
 
 <OUTPUT_REQUIREMENTS>
-Your output MUST be a JSON list containing exactly one JSON object.  
-Do not include any text outside this JSON.  
-The JSON MUST be valid and parseable.
+Output a JSON list with exactly one object. No text outside the JSON.
 
-**JSON Schema:**
+**Schema:**
 {{
   "species": "{species_name}",
   "data": {{ ... }},
-  "notes": "Any comments on the extraction process or if data is not found."
+  "notes": "State: ASSESSED (source location) or MENTIONED ONLY (why NF). Note if only narrative was found.",
+  "review_flag": "OK | CHECK | NF"
 }}
 
-{data_fields_schema}
+**review_flag:**
+- `OK`: Formal data clearly found in dedicated section/row.
+- `CHECK`: Ambiguous (narrative only, role unclear, uncertain attribution).
+- `NF`: All fields "NF".
 
----
-**CONTEXT**
-Not all species will have complete data available in the text. Use the 'NF' placeholder where information is missing.
-Some species are mentioned in passing, not actually being assessed in the text. Also use 'NF' for those cases.
-NEVER invent or infer information.
----
-**VISUAL ANALYSIS RULES:**
-1. **ALWAYS POPULATE ALL DATA FIELDS:** Every field in the schema under 'data' MUST be present, even if its value is "NF".
-2. **MANDATORY 'NF' FOR MISSING DATA:** If you cannot find the information for a field in the image, you MUST use the exact string "NF". Do not omit the field, leave it blank, or use null.
-3. **NO GUESSING OR INFERENCE:** Do not invent or infer values. Only extract values explicitly present in the image.
-4. **NOTES ARE ONLY FOR EXPLANATION:** The 'notes' field is for describing ambiguities or reasons for "NF". It must never contain data values that belong in 'data'.
-5. **STRICT SCHEMA COMPLIANCE:** The JSON must strictly match the schema. No extra keys or formatting variations are allowed.
-6. **VALID JSON ONLY:** Your response must be syntactically correct JSON and nothing else.
----
+{data_fields_schema}
 </OUTPUT_REQUIREMENTS>
+
+<RULES>
+1. **FORMAL ONLY**: Extract explicit values. Never infer from narrative descriptions.
+2. **NO CROSS-CONTAMINATION**: Data from adjacent rows/sections belongs to OTHER entities.
+3. **MENTIONED = NF**: If '{species_name}' has no dedicated formal data, all fields = "NF".
+4. **NARRATIVE = NF**: If only descriptive text exists (no formal codes), all fields = "NF".
+5. **CHECK IF DOUBT**: Use "CHECK" flag if any interpretation was required.
+6. **VALID JSON ONLY**.
+</RULES>
 """
 
 def get_default_verification_prompt(species_data_list_for_llm: str, data_fields_schema: str) -> str:

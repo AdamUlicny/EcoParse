@@ -31,6 +31,7 @@ class SpeciesData(BaseModel):
     species: str = Field(..., description="The full scientific name of the species.")
     data: Dict[str, Any] = Field(..., description="A dictionary of extracted data fields and their corresponding values.")
     notes: Optional[str] = Field(None, description="Any notes or issues from the LLM regarding this extraction (e.g., if data was ambiguous or not found).")
+    review_flag: str = Field("CHECK", description="Review priority: OK (clear extraction), CHECK (ambiguous, needs review), NF (all fields missing)")
     
 class ExtractionResultList(RootModel):
     """

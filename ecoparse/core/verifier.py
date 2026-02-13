@@ -6,12 +6,6 @@ results using large language models. It implements a two-stage verification proc
 where LLMs re-examine source documents to validate previously extracted data,
 enabling systematic quality control and accuracy assessment.
 
-Scientific Purpose:
-- Automated quality control for large-scale extraction workflows
-- Accuracy assessment and error detection in extraction results
-- Ground truth dataset generation for method validation
-- Systematic identification of extraction biases and errors
-
 Verification Strategy:
 - Independent re-extraction minimizes confirmation bias
 - Separation of extraction and comparison logic reduces LLM interpretation errors
@@ -197,7 +191,7 @@ class Verifier:
             for item in species_results_chunk:
                 species_name = item.get('species', 'Unknown')
                 data_dict = item.get('data', {})
-                species_data_for_llm_prompt.append(f"Species: {species_name}, Expected Data: {json.dumps(data_dict)}")
+                species_data_for_llm_prompt.append(f"Species: {species_name}, Expected Data: {json.dumps(data_dict, ensure_ascii=False)}")
             species_list_str_for_prompt = "\n".join(species_data_for_llm_prompt)
 
             # Generate comprehensive verification prompt

@@ -24,6 +24,8 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+if not exist logs mkdir logs
+
 echo.
 echo Starting EcoParse...
 echo.
@@ -32,6 +34,6 @@ echo.
 echo Press Ctrl+C to stop the server.
 echo.
 
-docker run -p 8501:8501 -p 4040:4040 ecoparse-app
+docker run -p 8501:8501 -p 4040:4040 -v "%cd%/logs":/app/logs ecoparse-app
 
 pause

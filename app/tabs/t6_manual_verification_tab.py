@@ -33,15 +33,49 @@ def display():
     # Initialize the verification queue from extraction results if it's empty
     verification_queue = getattr(st.session_state, 'verification_queue', [])
     if extraction_results and not verification_queue:
-        st.session_state.verification_queue = extraction_results.copy()
+        # Sort by review_flag priority: CHECK first, then NF, then OK
+        flag_priority = {'CHECK': 0, 'NF': 1, 'OK': 2}
+        sorted_results = sorted(
+            extraction_results, 
+            key=lambda x: flag_priority.get(x.get('review_flag', 'CHECK'), 0)
+        )
+        st.session_state.verification_queue = sorted_results.copy()
         st.session_state.verification_current_index = 0
         st.session_state.manual_verification_results = []
 
-    total_items = len(st.session_state.verification_queue)
+    # --- Flag Filter ---
+    filter_col1, filter_col2, filter_col3 = st.columns([1, 1, 2])
+    with filter_col1:
+        flag_filter = st.selectbox(
+            "Filter by Flag",
+            ["All", "CHECK", "NF", "OK"],
+            index=0,
+            key="flag_filter"
+        )
+    
+    # Apply filter to queue
+    full_queue = getattr(st.session_state, 'verification_queue', [])
+    if flag_filter != "All":
+        filtered_queue = [item for item in full_queue if item.get('review_flag', 'CHECK') == flag_filter]
+    else:
+        filtered_queue = full_queue
+    
+    with filter_col2:
+        # Show counts
+        check_count = sum(1 for item in full_queue if item.get('review_flag', 'CHECK') == 'CHECK')
+        nf_count = sum(1 for item in full_queue if item.get('review_flag') == 'NF')
+        ok_count = sum(1 for item in full_queue if item.get('review_flag') == 'OK')
+        st.markdown(f"**Flags:** 🔍 CHECK: {check_count} | ❌ NF: {nf_count} | ✅ OK: {ok_count}")
+
+    total_items = len(filtered_queue)
     index = st.session_state.verification_current_index
 
+    # Ensure index is valid for filtered queue
     if index >= total_items:
-        st.success("All items have been verified!")
+        if total_items == 0:
+            st.info(f"No items match the '{flag_filter}' filter.")
+            return
+        st.success("All filtered items have been verified!")
         st.balloons()
         if st.session_state.manual_verification_results:
             # Flatten the results before displaying
@@ -49,6 +83,7 @@ def display():
             for result in st.session_state.manual_verification_results:
                 flat_record = {
                     'species': result.get('species'),
+                    'review_flag': result.get('review_flag', 'CHECK'),
                     'status': result.get('status')
                 }
                 # Unpack the 'data' dictionary into top-level keys
@@ -63,11 +98,13 @@ def display():
             # Reorder columns to a more logical sequence if desired
             if not final_df.empty:
                 cols = final_df.columns.tolist()
-                # Move species and status to the front
+                # Move species and review_flag to the front
                 if 'species' in cols:
                     cols.insert(0, cols.pop(cols.index('species')))
+                if 'review_flag' in cols:
+                    cols.insert(1, cols.pop(cols.index('review_flag')))
                 if 'status' in cols:
-                    cols.insert(1, cols.pop(cols.index('status')))
+                    cols.insert(2, cols.pop(cols.index('status')))
                 # Move notes to the end
                 if 'notes' in cols:
                     cols.append(cols.pop(cols.index('notes')))
@@ -84,10 +121,15 @@ def display():
 
     st.progress((index + 1) / total_items, text=f"Verifying item {index + 1} of {total_items}")
     
-    current_item = st.session_state.verification_queue[index]
+    current_item = filtered_queue[index]
     species_name = current_item.get('species', 'N/A')
+    review_flag = current_item.get('review_flag', 'CHECK')
     
-    st.subheader(f"Species: `{species_name}`")
+    # Flag badge styling
+    flag_colors = {'OK': '🟢', 'CHECK': '🟡', 'NF': '🔴'}
+    flag_badge = flag_colors.get(review_flag, '⚪')
+    
+    st.subheader(f"{flag_badge} Species: `{species_name}`")
     
     col1, col2 = st.columns([2, 1])
 
@@ -222,6 +264,7 @@ def display():
     if nav_cols[1].button("✅ Confirm", type="primary", use_container_width=True):
         result_to_save = {
             "species": species_name,
+            "review_flag": review_flag,
             "data": edited_data,
             "notes": edited_notes,
             "status": "Verified"

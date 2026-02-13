@@ -6,12 +6,6 @@ workflow, performance metrics, and results. These reports are essential for
 scientific reproducibility, performance analysis, and quality assessment of
 automated biodiversity data extraction.
 
-Scientific Purpose:
-- Documents complete methodology and parameters for reproducibility
-- Tracks performance metrics for algorithm optimization
-- Provides structured output for downstream analysis and publication
-- Enables systematic comparison of different extraction approaches
-
 Report Components:
 - Document processing statistics
 - Species identification pipeline results  

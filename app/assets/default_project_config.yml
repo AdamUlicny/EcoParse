@@ -4,8 +4,8 @@ project_description: "Extracts regional conservation status for species based on
 # Define the specific pieces of data you want to extract for each species.
 data_fields:
   - name: "statusCodeVerbatim"
-    description: "The REGIONAL conservation status. This is often a two-letter code. DO NOT confuse with the 'Global status'. Preferably use IUCN codes. If text mentions multiple threat assessments, extract the latest regional iucn based categories."
-    validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF"]
+    description: "The REGIONAL conservation status. Ensure this applies SPECIFICALLY to the target species and not a mentioned interaction partner (e.g. nest provider). DO NOT confuse with the 'Global status'. Preferably use IUCN codes."
+    validation_values: ["RE", "CR", "EN", "VU", "NT", "LC", "DD", "NF", "LR/nt", "LR/lc","LR/cd", "NE", "EX"]
   - name: "statusCriteria"
     description: "The criteria codes (e.g., A2c, B1ab(iii,v), C2a(i) or C2a(ii)b or C1 and other similar iterations) used in the regional assessment. Extract them exactly as written. If none are present, return 'NF'."
 # Optional: You can override the default prompts here if needed.

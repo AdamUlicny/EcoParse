@@ -160,7 +160,7 @@ def display():
         # Prepare extraction configuration
         formatted_examples = []
         for ex in st.session_state.prompt_examples:
-            output_json_string = json.dumps(ex['output'], indent=2)
+            output_json_string = json.dumps(ex['output'], indent=2, ensure_ascii=False)
             
             example_parts = [
                 f"Input:\n{ex['input']}",
@@ -186,6 +186,11 @@ def display():
         else: # Ollama
             api_key = "" # Ollama doesn't usually use API key
             model = st.session_state.ollama_model
+
+        # --- VALIDATION CHECK: ENSURE MODEL IS SELECTED ---
+        if not model:
+            st.error(f"⚠️ No model selected for provider '{st.session_state.llm_provider}'. Please check 'Settings' tab.")
+            return
 
         llm_config = {
             "provider": st.session_state.llm_provider,
@@ -296,12 +301,10 @@ def display():
                     extraction_completed = len(all_results) >= len(species_to_process)
                     extraction_stopped = not st.session_state.extraction_running
                     
-                    if extraction_completed:
-                        # Extraction completed successfully - clear all flags
-                        st.session_state.extraction_running = False
-                        st.session_state.extraction_paused = False
-                        
-                        report_context = {
+                    # --- Report Generation Context ---
+                    # Common context used for both complete and partial reports
+                    if all_results:
+                         report_context = {
                             "pdf_name": st.session_state.pdf_name,
                             "full_text": st.session_state.full_text,
                             "text_extraction_method": getattr(st.session_state, 'extraction_method_used', 'standard'),
@@ -323,6 +326,11 @@ def display():
                             "project_config": st.session_state.project_config,
                             "manual_verification_results": st.session_state.manual_verification_results
                         }
+
+                    if extraction_completed:
+                        # Extraction completed successfully - clear all flags
+                        st.session_state.extraction_running = False
+                        st.session_state.extraction_paused = False
                         
                         report_path = generate_report(report_context)
                         st.session_state.last_report_path = report_path
@@ -336,9 +344,12 @@ def display():
                         st.session_state.extraction_running = False
                         st.session_state.extraction_paused = False
                         
+                        # Save partial report
+                        report_path = generate_report(report_context)
+
                         progress_bar.empty()
                         status_text.empty()
-                        st.warning(f"Extraction stopped. Partial results saved ({len(all_results)} species processed).")
+                        st.warning(f"Extraction stopped. Partial results saved ({len(all_results)} species processed) to `{report_path}`.")
                         st.info("Partial results are available in the 'View Results' tab.")
                     
                     elif extraction_stopped:

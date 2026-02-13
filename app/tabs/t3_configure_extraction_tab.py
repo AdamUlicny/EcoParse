@@ -56,7 +56,7 @@ def display():
         
         # Add "Load Examples from Past Log" functionality
         with st.expander("📂 Load Examples from Past Log", expanded=False):
-            log_files = glob.glob("/home/adam/EcoParse/logs/ecoparse_report_*.json")
+            log_files = glob.glob("logs/ecoparse_report_*.json")
             log_files.sort(reverse=True)  # Most recent first
             
             if not log_files:
@@ -103,7 +103,7 @@ def display():
                                     st.markdown(f"**Example {i+1} - INPUT:**")
                                     st.code(example['input'][:200] + ("..." if len(example['input']) > 200 else ""))
                                     st.markdown("**OUTPUT:**")
-                                    st.code(json.dumps(example['output'], indent=2), language='json')
+                                    st.code(json.dumps(example['output'], indent=2, ensure_ascii=False), language='json')
                                     if example.get('explainer'):
                                         st.markdown("**EXPLAINER:**")
                                         st.code(example['explainer'][:100] + ("..." if len(example['explainer']) > 100 else ""))
@@ -177,7 +177,7 @@ def display():
                 st.markdown(f"**INPUT:**\n```\n{example['input']}\n```")
                 # Display the output dictionary as a formatted JSON string
                 st.markdown("**OUTPUT:**")
-                st.code(json.dumps(example['output'], indent=2), language='json')
+                st.code(json.dumps(example['output'], indent=2, ensure_ascii=False), language='json')
                 # Display the explainer only if it exists
                 if example.get('explainer'):
                     st.markdown(f"**EXPLAINER:**\n```\n{example['explainer']}\n```")
