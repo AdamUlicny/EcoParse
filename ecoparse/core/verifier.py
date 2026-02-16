@@ -29,7 +29,7 @@ from google.genai import types
 from pydantic import ValidationError, TypeAdapter
 
 from .models import SimplifiedVerificationResponseList
-from .prompter import get_default_verification_prompt
+import ecoparse.core.prompter as prompter
 
 # Pydantic adapter for parsing LLM verification responses
 verification_response_list_adapter = TypeAdapter(SimplifiedVerificationResponseList)
@@ -195,7 +195,7 @@ class Verifier:
             species_list_str_for_prompt = "\n".join(species_data_for_llm_prompt)
 
             # Generate comprehensive verification prompt
-            full_prompt_text = get_default_verification_prompt(
+            full_prompt_text = prompter.get_default_verification_prompt(
                 species_data_list_for_llm=species_list_str_for_prompt,
                 data_fields_schema=self.data_fields_schema
             )
@@ -310,3 +310,225 @@ class Verifier:
         flat_result['overall_match'] = False
         flat_result['notes'] = message
         return flat_result
+
+    def generate_dynamic_rubric(self, llm_model_name: str, examples: List[Dict[str, Any]] = None) -> str:
+        """
+        Generates a project-specific verification rubric using an LLM.
+        """
+        try:
+            # Prepare the meta-prompt
+            rubric_prompt = prompter.generate_verification_rubric_prompt(
+                self.data_fields_schema, 
+                examples
+            )
+            
+            # Use the configured provider (assuming Gemini for rubric generation for now as it's quick/cheap)
+            # Or use OpenRouter if strictly requested. For simplicity, we use Gemini if available, 
+            # or we can use the same client as verification if passed.
+            
+            if "gemini" in llm_model_name.lower() or "google" in llm_model_name.lower():
+                 client = genai.Client(api_key=self.llm_config["api_key"])
+                 response = client.models.generate_content(
+                    model=llm_model_name, contents=rubric_prompt
+                 )
+                 return response.text
+            
+            # TODO: Add OpenRouter support for Rubric Gen if needed. 
+            # For now, returning a default strict rubric if not Gemini, 
+            # OR we can just implement the OpenRouter call here too.
+            
+            return "1. Check for valid data types.\n2. Ensure no narrative text is extracted as formal data.\n3. Verify 'NF' is used correctly."
+            
+        except Exception as e:
+            print(f"Error generating rubric: {e}")
+            return "1. Check for valid data types.\n2. Ensure no narrative text is extracted as formal data.\n3. Verify 'NF' is used correctly."
+
+    def verify_species_batch_openrouter(
+        self,
+        species_results_chunk: List[Dict[str, Any]],
+        pdf_base64: str,
+        llm_model_name: str,
+        verification_rubric: str,
+        examples: List[Dict[str, Any]] = None,
+        species_page_map: Dict[str, List[int]] = None
+    ) -> Tuple[List[Dict[str, Any]], int, int]:
+        """
+        Performs batch verification using OpenRouter with full PDF context and dynamic rubric.
+        """
+        if not species_results_chunk: return [], 0, 0
+        
+        # Helper to format error safely
+        def _err(item, type_str, msg):
+             return self._format_error_result(item, type_str, msg)
+
+        import requests
+        
+        try:
+            # 1. Prepare Prompt
+            species_data_for_llm_prompt = []
+            for item in species_results_chunk:
+                species_name = item.get('species', 'Unknown')
+                data_dict = item.get('data', {})
+                
+                # Add page hint if available
+                page_hint = ""
+                if species_page_map and species_name in species_page_map:
+                    pages = species_page_map[species_name]
+                    if pages:
+                        page_hint = f" (Likely on Page {', '.join(map(str, sorted(list(set(pages)))))})"
+
+                # We interpret "expected" as the data we currently have
+                # Standard conversion to JSON string
+                species_data_for_llm_prompt.append(f"Species: {species_name}{page_hint}, Expected Data: {json.dumps(data_dict, ensure_ascii=False)}")
+            
+            species_list_str = "\n".join(species_data_for_llm_prompt)
+            
+            # Format examples
+            examples_text = ""
+            if examples:
+                for i, ex in enumerate(examples[:3]): # Limit to 3
+                    examples_text += f"Example {i+1}:\nInput: {ex.get('input', '')[:200]}...\nOutput: {json.dumps(ex.get('output', {}))}\n\n"
+            
+            # Get default rules
+            extraction_rules = prompter.get_general_extraction_rules()
+
+            full_prompt = prompter.get_openrouter_verification_prompt(
+                species_list_str, 
+                verification_rubric, 
+                examples_text, 
+                extraction_rules
+            )
+            
+            # 2. Prepare API Request
+            headers = {
+                "Authorization": f"Bearer {self.llm_config['api_key']}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://ecoparse.app", # Optional
+                "X-Title": "EcoParse" # Optional
+            }
+            
+            messages = [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": full_prompt
+                        },
+                        {
+                            "type": "file",
+                            "file": {
+                                "type": "pdf", 
+                                "filename": "document.pdf",
+                                "file_data": f"data:application/pdf;base64,{pdf_base64}"
+                            }
+                        }
+                    ]
+                }
+            ]
+            
+            payload = {
+                "model": llm_model_name,
+                "messages": messages,
+                "response_format": {"type": "json_object"}
+            }
+            
+            # 3. Call API
+            response = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=120 # PDF processing might take time
+            )
+            
+            if response.status_code != 200:
+                print(f"OpenRouter API Error: {response.text}")
+                return [_err(item, "APIError", f"Status {response.status_code}: {response.text}") for item in species_results_chunk], 0, 0
+            
+            result_json = response.json()
+            
+            # 4. Parse Usage
+            usage = result_json.get("usage", {})
+            input_tokens = usage.get("prompt_tokens", 0)
+            output_tokens = usage.get("completion_tokens", 0)
+            
+            # 5. Parse Content
+            if not result_json.get('choices'):
+                 return [_err(item, "APIError", "No choices in response") for item in species_results_chunk], input_tokens, output_tokens
+                 
+            content = result_json['choices'][0]['message']['content']
+            
+            # Attempt to parse JSON list
+            try:
+                verified_items = json.loads(content)
+                if isinstance(verified_items, dict):
+                    # Handle case where LLM returns a wrapper object like {"species": [...]}
+                    if "species" in verified_items and isinstance(verified_items["species"], list):
+                        verified_items = verified_items["species"]
+                    # Or just a single object
+                    elif "species" in verified_items: # Single item
+                        verified_items = [verified_items]
+                        
+                if not isinstance(verified_items, list):
+                    verified_items = [verified_items]
+            except json.JSONDecodeError:
+                # Try simple repair or fail
+                print(f"JSON Parse Error: {content[:100]}...")
+                return [_err(item, "JSONError", "Malformed JSON from LLM") for item in species_results_chunk], input_tokens, output_tokens
+                
+            # 6. Process Results
+            processed_results = []
+            
+            results_map = {str(item.get('species', '')).lower(): item for item in verified_items if isinstance(item, dict)}
+            
+            for original in species_results_chunk:
+                s_name = original.get('species', 'Unknown')
+                verified_match = results_map.get(str(s_name).lower())
+                
+                flat_result = {"species": s_name}
+                
+                if verified_match:
+                    # New Schema: { verification_status, confidence_score, issue_description, corrected_data }
+                    status = verified_match.get("verification_status", "FLAGGED")
+                    conf = verified_match.get("confidence_score", 0)
+                    issue = verified_match.get("issue_description", "")
+                    corrections = verified_match.get("corrected_data", {})
+                    
+                    flat_result['overall_match'] = (status == "OK")
+                    flat_result['verification_status'] = status
+                    flat_result['confidence_score'] = conf
+                    flat_result['notes'] = issue
+                    
+                    # Populate field-level columns
+                    original_data = original.get('data', {})
+                    for k, v in original_data.items():
+                        flat_result[f"{k}_expected"] = v
+                        if status == "OK":
+                            flat_result[f"{k}_verified"] = True
+                            flat_result[f"{k}_found"] = v
+                            flat_result[f"{k}_status"] = "Match"
+                        elif status == "NF":
+                             flat_result[f"{k}_verified"] = False
+                             flat_result[f"{k}_found"] = "NF"
+                             flat_result[f"{k}_status"] = "NotFound"
+                        else:
+                            # FLAGGED
+                            if k in corrections:
+                                flat_result[f"{k}_verified"] = False
+                                flat_result[f"{k}_found"] = corrections[k]
+                                flat_result[f"{k}_status"] = "Correction"
+                            else:
+                                flat_result[f"{k}_verified"] = True # Field itself not corrected
+                                flat_result[f"{k}_found"] = v
+                                flat_result[f"{k}_status"] = "Match"
+                                
+                else:
+                    flat_result = _err(original, "ResponseMissing", "Species not found in verification response")
+                
+                processed_results.append(flat_result)
+                
+            return processed_results, input_tokens, output_tokens
+            
+        except Exception as e:
+            print(f"OpenRouter Verification Error: {e}")
+            return [_err(item, "SystemError", str(e)) for item in species_results_chunk], 0, 0

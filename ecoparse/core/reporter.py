@@ -117,7 +117,9 @@ def generate_report(report_context: Dict[str, Any]) -> Optional[str]:
         # Document processing information
         "pdf_info": {
             "file_name": report_context.get('pdf_name', 'N/A'),
-            "extracted_text_char_count": len(report_context.get('full_text', ''))
+            "extracted_text_char_count": len(report_context.get('full_text', '')),
+            "trim_start_page": report_context.get("trim_start_page"),
+            "trim_end_page": report_context.get("trim_end_page")
         },
         
         # Species identification pipeline results

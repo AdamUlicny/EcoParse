@@ -6,6 +6,9 @@ Handles document upload, page range selection, and text extraction.
 
 import streamlit as st
 import pandas as pd
+import json
+import glob
+import os
 from ecoparse.core.sourcetext import trim_pdf_pages, extract_text_from_pdf
 from app.session import reset_session 
 from app.ui_messages import show_loaded_session_complete, show_method_change_success
@@ -37,11 +40,88 @@ def display_loaded_session_view():
     
     uploaded_file = st.file_uploader("Upload PDF for context", type="pdf", key="pdf_for_loaded_session")
     if uploaded_file:
-        st.session_state.pdf_buffer = uploaded_file.getvalue()
-        st.success(f"PDF '{uploaded_file.name}' loaded for context features.")
+        # Check if we should auto-trim
+        trim_start = st.session_state.get('trim_start_page')
+        trim_end = st.session_state.get('trim_end_page')
+        
+        if trim_start and trim_end:
+             try:
+                with st.spinner(f"Auto-trimming PDF to pages {trim_start}-{trim_end} as per log..."):
+                    dataset_buffer = io.BytesIO(uploaded_file.getvalue())
+                    trimmed = trim_pdf_pages(dataset_buffer, int(trim_start), int(trim_end))
+                    if trimmed:
+                        st.session_state.pdf_buffer = trimmed.getvalue()
+                        # Extract text for page mapping
+                        st.session_state.full_text = extract_text_from_pdf(trimmed, method=st.session_state.get('extraction_method_used', 'standard'))
+                        st.success(f"PDF '{uploaded_file.name}' loaded, trimmed, and text extracted.")
+                    else:
+                        st.session_state.pdf_buffer = uploaded_file.getvalue()
+                        # Extract text for page mapping
+                        st.session_state.full_text = extract_text_from_pdf(io.BytesIO(uploaded_file.getvalue()), method=st.session_state.get('extraction_method_used', 'standard'))
+                        st.warning(f"Failed to auto-trim PDF. Loaded full document '{uploaded_file.name}'.")
+             except Exception as e:
+                 st.session_state.pdf_buffer = uploaded_file.getvalue()
+                 st.session_state.full_text = extract_text_from_pdf(io.BytesIO(uploaded_file.getvalue()), method=st.session_state.get('extraction_method_used', 'standard'))
+                 st.error(f"Error during auto-trim: {e}. Loaded full document.")
+        else:
+            st.session_state.pdf_buffer = uploaded_file.getvalue()
+            st.session_state.full_text = extract_text_from_pdf(io.BytesIO(uploaded_file.getvalue()), method=st.session_state.get('extraction_method_used', 'standard'))
+            st.success(f"PDF '{uploaded_file.name}' loaded for context features (Full Document).")
 
 def display_new_session_view():
     """Display interface for starting a new extraction session with PDF upload."""
+    
+    # --- LOAD FROM LOG SECTION ---
+    with st.expander("📂 Load Previous Session from Log", expanded=False):
+        st.markdown("Restore extraction results and settings from a saved execution log.")
+        
+        log_files = glob.glob("logs/ecoparse_report_*.json")
+        # Sort by modification time, newest first
+        log_files.sort(key=os.path.getmtime, reverse=True)
+        
+        if not log_files:
+            st.info("No log files found.")
+        else:
+            selected_log = st.selectbox("Select Log File", log_files, format_func=lambda x: os.path.basename(x))
+            
+            if st.button("Load Selected Session"):
+                try:
+                    with open(selected_log, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    
+                    # Reset current session
+                    reset_session()
+                    
+                    # Restore Data
+                    # Restore Data
+                    st.session_state.extraction_results = data.get("llm_extraction_info", {}).get("full_extraction_results", [])
+                    st.session_state.project_config = data.get("project_config_used", {})
+                    st.session_state.prompt_examples = data.get("llm_extraction_info", {}).get("examples_used", [])
+                    st.session_state.pdf_name = data.get("pdf_info", {}).get("file_name", "Unknown PDF")
+                    
+                    # Restore Species Lists (Fix for Tab 2)
+                    gnfinder_info = data.get("gnfinder_info", {})
+                    if "final_species_list" in gnfinder_info:
+                        species_list = gnfinder_info["final_species_list"]
+                        st.session_state.species_df_final = pd.DataFrame(species_list)
+                        st.session_state.species_df_initial = st.session_state.species_df_final.copy()
+                        st.session_state.gnfinder_results_raw = {"names": []} # Dummy to prevent errors if checked
+                    
+                    # Restore Trim Info if available
+                    pdf_info = data.get("pdf_info", {})
+                    st.session_state.trim_start_page = pdf_info.get("trim_start_page")
+                    st.session_state.trim_end_page = pdf_info.get("trim_end_page")
+
+                    # Set Flag
+                    st.session_state.session_loaded_from_report = True
+                    st.success(f"Session loaded from {os.path.basename(selected_log)}")
+                    st.rerun()
+                    
+                except Exception as e:
+                    st.error(f"Error loading session: {e}")
+
+    st.divider()
+
     st.subheader("Start a New Session by Uploading a PDF")
     
     def on_pdf_upload():
@@ -90,6 +170,9 @@ def display_new_session_view():
                                 st.session_state.pdf_buffer = trimmed_buffer.getvalue() 
                                 st.session_state.full_text = extract_text_from_pdf(trimmed_buffer, method=extraction_method)
                                 st.session_state.extraction_method_used = extraction_method
+                                # Save trim info for reporting
+                                st.session_state.trim_start_page = start_page
+                                st.session_state.trim_end_page = end_page
                                 show_method_change_success(extraction_method, len(st.session_state.full_text))
                                 st.rerun()
                             else:

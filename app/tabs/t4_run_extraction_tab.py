@@ -324,7 +324,9 @@ def display():
                             "total_input_tokens": st.session_state.total_input_tokens,
                             "total_output_tokens": st.session_state.total_output_tokens,
                             "project_config": st.session_state.project_config,
-                            "manual_verification_results": st.session_state.manual_verification_results
+                            "manual_verification_results": st.session_state.manual_verification_results,
+                            "trim_start_page": getattr(st.session_state, 'trim_start_page', None),
+                            "trim_end_page": getattr(st.session_state, 'trim_end_page', None)
                         }
 
                     if extraction_completed:

@@ -28,7 +28,19 @@ def display():
     if st.session_state.session_loaded_from_report:
         show_loaded_session_complete("Species identification")
         st.markdown("Species list used for extraction:")
-        display_df_and_download(st.session_state.species_df_final, "Final Species List", "final_species_list", "species_id_loaded")
+        if not st.session_state.get("species_df_final") is None:
+             display_df_and_download(st.session_state.species_df_final, "Final Species List", "final_species_list", "species_id_loaded")
+        else:
+             # Populate if missing but results exist
+             if st.session_state.get("extraction_results"):
+                 loaded_species = [item['species'] for item in st.session_state.extraction_results]
+                 # Create simple DF
+                 st.session_state.species_df_final = pd.DataFrame({'Name': loaded_species, 'MatchType': ['Loaded'] * len(loaded_species)})
+                 st.session_state.species_df_initial = st.session_state.species_df_final.copy()
+                 display_df_and_download(st.session_state.species_df_final, "Final Species List", "final_species_list", "species_id_loaded")
+             else:
+                 st.warning("No species list found in loaded session.")
+
     elif not st.session_state.get('full_text'):
         show_prerequisite_warning("1. Upload PDF")
     else:

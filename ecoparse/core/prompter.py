@@ -333,3 +333,115 @@ The JSON MUST be valid and parseable.
 ---
 </OUTPUT_REQUIREMENTS>
 """
+
+def generate_verification_rubric_prompt(data_fields_schema: str, prompt_examples: List[Dict[str, Any]] = None) -> str:
+    """
+    Generates a meta-prompt to create a strict verification rubric.
+    
+    Asks an LLM to review the extraction schema and examples to create 
+    a checklist for verified extraction accuracy.
+    """
+    examples_context = ""
+    if prompt_examples:
+        examples_context = "Here are examples of correct extraction input/output:\n"
+        for i, ex in enumerate(prompt_examples[:3]): # Limit to first 3 to save tokens
+             examples_context += f"Example {i+1}:\nInput: {ex.get('input', '')[:200]}...\nOutput: {json.dumps(ex.get('output', {}))}\n\n"
+
+    return f"""
+<TASK>
+You are a QA Specialist for a scientific data extraction project.
+Your goal is to create a "Verification Rubric" (a checklist of rules) that another analyst will use to verify if data extracted from a PDF is correct.
+
+Based ONLY on the schema and examples below, write a set of 5-10 strict Yes/No rules or checks to validate data.
+Focus on:
+1. Data type/format correctness (e.g., is it a number? is it one of the allowed values?).
+2. Distinction between "Formal" data (tables, codes) vs "Narrative" (text descriptions).
+3. Handling of "NF" (Not Found).
+
+<SCHEMA>
+{data_fields_schema}
+</SCHEMA>
+
+<EXAMPLES>
+{examples_context}
+</EXAMPLES>
+
+<OUTPUT_FORMAT>
+Return ONLY the rubric text as a bulleted list. No intro/outro.
+</OUTPUT_FORMAT>
+</TASK>
+"""
+
+def get_openrouter_verification_prompt(species_data_list_for_llm: str, verification_rubric: str, examples_text: str = "", extraction_rules: str = "") -> str:
+    """
+    Generates a prompt for OpenRouter/LLM verification using the dynamic rubric.
+    
+    Includes a "confidence_score" and "verification_status" in the output schema.
+    """
+    return f"""
+<PERSONA>
+You are a meticulous Data Verification Specialist. Your task is to verify results of species-specific extraction.
+</PERSONA>
+
+<TASK>
+For the provided species list, search the PDF (provided as context) and to the best of your ability, verify the provided "Expected Data".
+</TASK>
+
+<CONTEXT_EXAMPLES>
+Here are few-shot examples of correct extractions provided for the previous extraction run. Use these to understand the formatting and logic:
+{examples_text if examples_text else "No examples provided."}
+</CONTEXT_EXAMPLES>
+
+<EXTRACTION_RULES>
+Here are the general rules that were used to extract this data:
+{extraction_rules if extraction_rules else "No specific rules provided."}
+</EXTRACTION_RULES>
+
+<VERIFICATION_RUBRIC_AND_SCHEMA>
+This is the data we are looking for (Schema) and specific verification checks:
+{verification_rubric}
+</VERIFICATION_RUBRIC_AND_SCHEMA>
+
+<SPECIES_LIST_TO_VERIFY>
+{species_data_list_for_llm}
+</SPECIES_LIST_TO_VERIFY>
+
+<OUTPUT_REQUIREMENTS>
+Output a valid JSON list of objects. One object per species.
+
+**JSON Schema:**
+{{
+  "species": "Species Name",
+  "verification_status": "OK | FLAGGED | NF",
+  "confidence_score": 10, // Integer 1-10
+  "issue_description": "None" or "Description of error/ambiguity...",
+  "corrected_data": {{ "field_name": "Correct Value" }} // Only include fields that need correction. Empty if Status is OK.
+}}
+</OUTPUT_REQUIREMENTS>
+
+<CRITICAL_INSTRUCTIONS>
+- **OK**: Data matches the document and rules.
+- **FLAGGED**: Data is incorrect, missing, contradicts rules (e.g., narrative vs formal), or is ambiguous.
+- **NF**: Species or data not found.
+- If you are unsure (blurry text, conflicting info), set status to **FLAGGED** and confidence < 8.
+- Be accurate but allow for minor OCR or formatting discrepancies (e.g., "ssp." vs "subsp.").
+</CRITICAL_INSTRUCTIONS>
+"""
+
+def get_general_extraction_rules() -> str:
+    """
+    Returns the standard, streamlined extraction rules used in the main prompt.
+    """
+    return """
+<CRITICAL_RULES>
+**FORMAL vs NARRATIVE DATA:**
+- **FORMAL**: Explicit codes, values, or designations directly assigned to the species (e.g., "Status: VU", assessment table row).
+- **NARRATIVE**: Descriptive text that implies something but provides no formal value (e.g., "is expanding", "is threatened").
+- **EXTRACT ONLY FORMAL DATA.** If no formal value exists, use "NF".
+
+**OWNERSHIP CHECK:**
+1. Is the species the PRIMARY SUBJECT of structured data?
+   - YES: Extract.
+   - NO (mentioned in another entity's context): ALL fields = "NF".
+</CRITICAL_RULES>
+"""
