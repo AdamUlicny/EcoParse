@@ -498,8 +498,12 @@ def get_higher_taxonomy(species_name: str, include_fuzzy: bool = True, include_h
             accept_match = True
         elif match_type == 'FUZZY' and include_fuzzy:
             accept_match = True
-        elif match_type == 'HIGHERRANK' and include_higherrank:
-            accept_match = True
+        elif match_type == 'HIGHERRANK':
+            if include_higherrank:
+                accept_match = True
+            elif len(species_name.split()) >= 3:
+                # Always accept subspecies that get a higher rank match
+                accept_match = True
             
         # Additional checks for accepted taxonomic status
         if accept_match and status not in ['ACCEPTED', 'SYNONYM']:

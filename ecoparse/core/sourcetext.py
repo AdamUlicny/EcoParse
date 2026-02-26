@@ -472,18 +472,22 @@ def get_species_context_chunks(
     formatted_full_text = normalize_text_for_llm(full_text)
 
     for _, row in species_df.iterrows():
-        search_name = row["Name"]
-        if not search_name:
+        species_name = row["Name"]
+        if not species_name:
             continue
+            
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
 
         try:
             # Create flexible pattern that handles line breaks within species names
-            flexible_pattern = _create_flexible_species_pattern(search_name)
+            flexible_pattern = _create_flexible_species_pattern(search_target)
             pattern = re.compile(flexible_pattern, re.IGNORECASE | re.MULTILINE)
         except re.error:
             # Fallback to simple pattern if flexible pattern fails
             try:
-                pattern = re.compile(r'\b' + re.escape(search_name) + r'\b', re.IGNORECASE)
+                pattern = re.compile(r'\b' + re.escape(search_target) + r'\b', re.IGNORECASE)
             except re.error:
                 continue
 
@@ -497,12 +501,12 @@ def get_species_context_chunks(
             
             chunk = formatted_full_text[chunk_start:chunk_end]
             
-            if search_name not in species_chunks:
-                species_chunks[search_name] = []
+            if species_name not in species_chunks:
+                species_chunks[species_name] = []
             
             # Avoid adding duplicate chunks if the same context is found multiple times
-            if chunk not in species_chunks[search_name]:
-                species_chunks[search_name].append(chunk)
+            if chunk not in species_chunks[species_name]:
+                species_chunks[species_name].append(chunk)
 
     return species_chunks
 
@@ -527,16 +531,20 @@ def get_species_partial_page_chunks(full_text: str, species_df: pd.DataFrame, ch
     
     # For each species, find all pages where it's mentioned
     for _, row in species_df.iterrows():
-        search_name = row["Name"]
-        if not search_name:
+        species_name = row["Name"]
+        if not species_name:
             continue
             
-        species_chunks[search_name] = []
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
+            
+        species_chunks[species_name] = []
         
         # Check each page for this species
         for page_num, page_text in page_contents:
             # Case-insensitive search for species mentions
-            if search_name.lower() in page_text.lower():
+            if search_target.lower() in page_text.lower():
                 # Create partial page chunk
                 page_text_clean = page_text.strip()
                 
@@ -558,7 +566,7 @@ TOP SECTION:
 BOTTOM SECTION:
 {bottom_portion}"""
                 
-                species_chunks[search_name].append(partial_chunk)
+                species_chunks[species_name].append(partial_chunk)
     
     return species_chunks
 
@@ -583,19 +591,23 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
     
     # For each species, find all pages where it's mentioned
     for _, row in species_df.iterrows():
-        search_name = row["Name"]
-        if not search_name:
+        species_name = row["Name"]
+        if not species_name:
             continue
             
-        species_chunks[search_name] = []
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
+            
+        species_chunks[species_name] = []
         
         # Check each page for this species
         for page_num, page_text in page_contents:
             # Case-insensitive search for species mentions
-            if search_name.lower() in page_text.lower():
+            if search_target.lower() in page_text.lower():
                 # Add full page content as a chunk
                 full_page_chunk = f"=== PAGE {page_num} ===\n{page_text}"
-                species_chunks[search_name].append(full_page_chunk)
+                species_chunks[species_name].append(full_page_chunk)
     
     return species_chunks
 
@@ -615,7 +627,6 @@ def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) ->
         
         # 1. Map Species -> Set of Page Indices
         species_pages: Dict[str, set] = {}
-        unique_species_full_list = set(species_df["Name"].unique())
         
         # We also need a reverse map: Page Index -> List[Species] to know who needs which page
         page_to_species: Dict[int, List[str]] = {}
@@ -627,10 +638,14 @@ def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) ->
             normalized_page_text = normalize_text_for_search(page_text)
             
             # Check for all species on this page
-            # Optimization: could use Aho-Corasick for massive lists, but regex loop is okay for typical usage
-            for species_name in unique_species_full_list:
+            for _, row in species_df.iterrows():
+                species_name = row["Name"]
+                search_target = str(row.get("Verbatim", species_name))
+                if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+                    search_target = species_name
+                
                 # Use word boundary check
-                if re.search(r'\b' + re.escape(species_name) + r'\b', normalized_page_text, re.IGNORECASE):
+                if re.search(r'\b' + re.escape(search_target) + r'\b', normalized_page_text, re.IGNORECASE):
                     if i not in page_to_species:
                         page_to_species[i] = []
                     page_to_species[i].append(species_name)

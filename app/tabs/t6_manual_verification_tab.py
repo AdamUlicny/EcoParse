@@ -131,6 +131,22 @@ def display():
     
     st.subheader(f"{flag_badge} Species: `{species_name}`")
     
+    # Warning for subspecies
+    # Check if the current species is a binomial (2 words) and if there are trinomials starting with it.
+    current_words = species_name.split()
+    if len(current_words) == 2:
+        subspecies_present = []
+        for other_item in full_queue:
+            other_name = other_item.get('species', '')
+            if other_name != species_name and other_name.startswith(species_name + ' '):
+                subspecies_present.append(other_name)
+        
+        if subspecies_present:
+            subspecies_present = sorted(list(set(subspecies_present)))
+            count = len(subspecies_present)
+            subspecies_list_str = ', '.join(subspecies_present)
+            st.warning(f"⚠️ **Warning:** This species has {count} subspecies in the results! **{subspecies_list_str}**")
+    
     col1, col2 = st.columns([2, 1])
 
     with col1:
@@ -230,11 +246,16 @@ def display():
             field_config = next((f for f in st.session_state.project_config.get('data_fields', []) if f['name'] == field), None)
             
             if field_config and field_config.get('validation_values'):
-                options = field_config['validation_values']
+                options = list(field_config['validation_values'])
                 try:
                     current_index = options.index(value)
                 except (ValueError, TypeError):
-                    current_index = 0
+                    if value is not None and str(value).strip() != "":
+                        options.append(value)
+                        current_index = len(options) - 1
+                        st.warning(f"⚠️ **Note:** The extracted value `{value}` for `{field}` is not in your configured validation list. It has been temporarily added as an option to prevent data loss.")
+                    else:
+                        current_index = 0
                 edited_data[field] = st.selectbox(
                     label=f"**{field.replace('_', ' ').title()}**",
                     options=options,
