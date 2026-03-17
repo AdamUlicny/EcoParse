@@ -27,61 +27,82 @@ TETRAPOD_GROUPS = [
     ("order", "Crocodilia")
 ]
 
-def analyze_pdf_page_range_with_gemini(pdf_buffer: bytes, api_key: str) -> tuple[int, int]:
-    """Uses Gemini 2.5 Flash to identify the start and end pages of the assessment, trimming biblio."""
-    if not api_key:
-        raise ValueError("Gemini API key not configured")
+def analyze_pdf_page_range_with_llm(pdf_buffer: bytes, provider: str, api_key: str, model: str) -> tuple[int, int]:
+    """Uses LLM to identify the start and end pages of the assessment, trimming biblio."""
+    if not api_key and provider != "Ollama":
+        raise ValueError(f"{provider} API key not configured")
         
-    client = genai.Client(api_key=api_key)
-    
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
-        tmp.write(pdf_buffer)
-        tmp_path = tmp.name
-        
-    try:
-        # We upload the file using the files API for larger documents
-        gemini_file = client.files.upload(file=tmp_path, config={'mime_type': 'application/pdf'})
-        
-        while gemini_file.state.name == "PROCESSING":
-            time.sleep(2)
-            gemini_file = client.files.get(name=gemini_file.name)
-            
-        prompt = (
-            "Analyze this document. Identify the start and end page numbers of the main assessment content. "
-            "Tables with species and threats are often at the end of a document, but before or after the bibliography. "
-            "Please exclude the bibliography/references section if it occurs at the end. "
-            "Return ONLY a JSON object with 'start_page' and 'end_page' as integers. Note: these are actual page numbers, starting from 1."
-        )
-        
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=[gemini_file, prompt],
-            config={"response_mime_type": "application/json"}
-        )
-        
-        result = json.loads(response.text)
-        client.files.delete(name=gemini_file.name)
-        
-        num_pages = len(PdfReader(io.BytesIO(pdf_buffer)).pages)
-        start_page = max(1, result.get("start_page", 1))
-        end_page = min(num_pages, result.get("end_page", num_pages))
-        
-        return start_page, end_page
-    finally:
-        if os.path.exists(tmp_path):
-            os.remove(tmp_path)
-
-
-def generate_config_with_openrouter(context: str, api_key: str) -> dict:
-    """Uses OpenRouter to generate data_fields config.yml based on user context."""
-    if not api_key:
-        raise ValueError("OpenRouter API key not configured")
-        
-    client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=api_key,
+    prompt = (
+        "Analyze this document. Identify the start and end page numbers of the main assessment content.\n"
+        "Tables with species and threats are often at the end of a document, but before or after the bibliography.\n"
+        "Please exclude the bibliography/references section if it occurs at the end.\n"
+        "Return ONLY a JSON object with 'start_page' and 'end_page' as integers. Note: these are actual page numbers, starting from 1."
     )
+
+    if provider == "Google Gemini":
+        client = genai.Client(api_key=api_key)
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+            tmp.write(pdf_buffer)
+            tmp_path = tmp.name
+        try:
+            gemini_file = client.files.upload(file=tmp_path, config={'mime_type': 'application/pdf'})
+            while gemini_file.state.name == "PROCESSING":
+                time.sleep(2)
+                gemini_file = client.files.get(name=gemini_file.name)
+            response = client.models.generate_content(
+                model=model,
+                contents=[gemini_file, prompt],
+                config={"response_mime_type": "application/json"}
+            )
+            result = json.loads(response.text)
+            client.files.delete(name=gemini_file.name)
+        finally:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+    else:
+        reader = PdfReader(io.BytesIO(pdf_buffer))
+        num_pages = len(reader.pages)
+        first_pages_text = ""
+        for i in range(min(15, num_pages)):
+            first_pages_text += f"\n--- Page {i+1} ---\n{reader.pages[i].extract_text()}"
+        last_pages_text = ""
+        for i in range(max(0, num_pages-15), num_pages):
+            last_pages_text += f"\n--- Page {i+1} ---\n{reader.pages[i].extract_text()}"
+
+        llm_prompt = prompt + "\n\nHere is the text from the beginning of the document:\n" + first_pages_text + "\n\nHere is the text from the end of the document:\n" + last_pages_text
+        
+        if provider == "OpenRouter":
+            client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": llm_prompt}],
+                response_format={"type": "json_object"},
+                temperature=0.1
+            )
+            result = json.loads(response.choices[0].message.content)
+        elif provider == "Ollama":
+            import ollama
+            client = ollama.Client(host=api_key)
+            response = client.chat(
+                model=model,
+                messages=[{"role": "user", "content": llm_prompt}],
+                format="json",
+                options={"temperature": 0.1}
+            )
+            result = json.loads(response['message']['content'])
+        
+    num_pages = len(PdfReader(io.BytesIO(pdf_buffer)).pages)
+    start_page = max(1, result.get("start_page", 1))
+    end_page = min(num_pages, result.get("end_page", num_pages))
     
+    return start_page, end_page
+
+
+def generate_config_with_llm(context: str, provider: str, api_key: str, model: str) -> dict:
+    """Uses LLM to generate data_fields config.yml based on user context."""
+    if not api_key and provider != "Ollama":
+        raise ValueError(f"{provider} API key not configured")
+        
     prompt = f"""
 You are an expert at configuring ecological data extraction pipelines.
 The user wants to extract specific categories or assessments from documents.
@@ -97,13 +118,32 @@ data_fields:
     required: true
 """
     
-    response = client.chat.completions.create(
-        model="anthropic/claude-3.5-sonnet",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.1
-    )
-    
-    yaml_text = response.choices[0].message.content
+    if provider == "Google Gemini":
+        client = genai.Client(api_key=api_key)
+        response = client.models.generate_content(
+            model=model,
+            contents=[prompt],
+            config={"temperature": 0.1}
+        )
+        yaml_text = response.text
+    elif provider == "OpenRouter":
+        client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+        response = client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1
+        )
+        yaml_text = response.choices[0].message.content
+    elif provider == "Ollama":
+        import ollama
+        client = ollama.Client(host=api_key)
+        response = client.chat(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            options={"temperature": 0.1}
+        )
+        yaml_text = response['message']['content']
+        
     if yaml_text.startswith("```yaml"):
         yaml_text = yaml_text.split("\n", 1)[1]
     if yaml_text.startswith("```"):
@@ -114,12 +154,20 @@ data_fields:
     return yaml.safe_load(yaml_text)
 
 
-def run_agent_pipeline(pdf_buffer: bytes, context: str, openrouter_key: str, gemini_key: str, gnfinder_url: str, progress_callback=None) -> tuple[dict, list]:
+def run_agent_pipeline(
+    pdf_buffer: bytes, 
+    context: str, 
+    provider: str,
+    api_key: str,
+    model: str,
+    gnfinder_url: str, 
+    progress_callback=None
+) -> tuple[dict, list]:
     """Executes the full automated agent pipeline."""
     
     # 1. Page Range Analysis
-    if progress_callback: progress_callback("Analyzing PDF structure with Gemini 2.5 Flash...", 10)
-    start_page, end_page = analyze_pdf_page_range_with_gemini(pdf_buffer, gemini_key)
+    if progress_callback: progress_callback(f"Analyzing PDF structure with {provider}...", 10)
+    start_page, end_page = analyze_pdf_page_range_with_llm(pdf_buffer, provider, api_key, model)
     
     # Trim the PDF
     if progress_callback: progress_callback(f"Trimming PDF (Pages {start_page}-{end_page}) and Extracting Text...", 20)
@@ -127,8 +175,8 @@ def run_agent_pipeline(pdf_buffer: bytes, context: str, openrouter_key: str, gem
     full_text = extract_text_from_pdf(trimmed_buffer, method="PyMuPDF")
     
     # 2. Config Generation
-    if progress_callback: progress_callback("Generating extraction config via OpenRouter...", 30)
-    config = generate_config_with_openrouter(context, openrouter_key)
+    if progress_callback: progress_callback(f"Generating extraction config via {provider}...", 30)
+    config = generate_config_with_llm(context, provider, api_key, model)
     
     # 3. Species ID
     if progress_callback: progress_callback("Discovering Species with GNfinder...", 40)
@@ -161,14 +209,18 @@ def run_agent_pipeline(pdf_buffer: bytes, context: str, openrouter_key: str, gem
     species_list = final_species_df["Name"].tolist()
     
     # 5. Extraction
-    if progress_callback: progress_callback(f"Extracting data for {len(species_list)} species using Gemini 2.5 Flash...", 70)
+    if progress_callback: progress_callback(f"Extracting data for {len(species_list)} species using {provider}...", 70)
     
     llm_config = {
-        "provider": "Google Gemini",
-        "model": "gemini-2.5-flash",
-        "api_key": gemini_key,
+        "provider": provider,
+        "model": model,
         "concurrent_requests": 5
     }
+    
+    if provider == "Ollama":
+        llm_config["ollama_url"] = api_key
+    else:
+        llm_config["api_key"] = api_key
     
     extractor = Extractor(project_config=config, llm_config=llm_config)
     

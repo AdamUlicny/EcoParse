@@ -124,6 +124,7 @@ Text Chunk:
 
 **OWNERSHIP CHECK:**
 1. Is '{species_name}' the PRIMARY SUBJECT of structured data in this text?
+   - IMPORTANT: A name with an author/year citation appended (e.g., "{species_name} Linnaeus, 1758" or "{species_name} (Smith)") is the EXACT SAME species, NOT a subspecies. Do not reject them.
    - YES: Extract from '{species_name}''s data only.
    - NO (mentioned in another entity's context, e.g., "uses nests of {species_name}"): ALL fields = "NF".
 
@@ -213,6 +214,7 @@ Documents may contain species data in various layouts:
 
 **OWNERSHIP CHECK:**
 1. Does '{species_name}' have its OWN formal data (dedicated row, section, status box)?
+   - IMPORTANT: A name with an author/year citation appended (e.g., "{species_name} Linnaeus, 1758" or "{species_name} (Smith)") is the EXACT SAME species, NOT a subspecies. Do not reject them.
    - YES → Extract from that section ONLY.
    - NO (mentioned in another entity's text, e.g., "uses nests of {species_name}") → ALL fields = "NF".
 
@@ -441,6 +443,7 @@ def get_general_extraction_rules() -> str:
 
 **OWNERSHIP CHECK:**
 1. Is the species the PRIMARY SUBJECT of structured data?
+   - IMPORTANT: A name with an author/year citation appended (e.g., "Falco subbuteo Linnaeus, 1758" or "Falco subbuteo (Smith)") is the EXACT SAME species, NOT a subspecies. Do not reject them.
    - YES: Extract.
    - NO (mentioned in another entity's context): ALL fields = "NF".
 </CRITICAL_RULES>

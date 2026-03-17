@@ -401,10 +401,20 @@ def filter_initial_species(df: pd.DataFrame) -> pd.DataFrame:
             
     # Step 4: Filter the DataFrame, keeping only the rows whose canonical names
     # are NOT in our set of less-specific names to remove.
-    final_df = df_filtered[~df_filtered["MatchedCanonical"].isin(names_to_remove)]
+    final_df = df_filtered[~df_filtered["MatchedCanonical"].isin(names_to_remove)].copy()
+
+    # Preserve all Verbatims associated with each Name so chunks won't miss variations
+    agg_verbatims = final_df.groupby('Name')['Verbatim'].apply(
+        lambda x: '|||'.join(list(dict.fromkeys(str(v) for v in x if pd.notna(v) and str(v).strip())))
+    ).reset_index()
 
     # Step 5: Final de-duplication on the original 'Name' to ensure one result per verbatim find.
-    return final_df.drop_duplicates(subset=["Name"], keep="first").reset_index(drop=True)
+    final_df = final_df.drop_duplicates(subset=["Name"], keep="first").reset_index(drop=True)
+    
+    for _, row in agg_verbatims.iterrows():
+        final_df.loc[final_df['Name'] == row['Name'], 'Verbatim'] = row['Verbatim']
+        
+    return final_df
 
 # --- GBIF Taxonomic Validation Functions ---
 # GBIF provides authoritative taxonomic backbone data

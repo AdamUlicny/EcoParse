@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from app.session import get_llm_config
 from app.ui_components import display_df_and_download
 from app.agent.core import run_agent_pipeline
 import yaml
@@ -16,11 +15,20 @@ def display():
     st.info("This agent uses **OpenRouter** to construct a configuration based on your context, and **Gemini 2.5 Flash** to analyze the PDF pages and extract data using Image-based chunking.")
 
     # Requirements check
-    gemini_key = st.secrets.get("model_api_keys", {}).get("Google Gemini")
-    openrouter_key = st.secrets.get("model_api_keys", {}).get("OpenRouter")
+    provider = st.session_state.get("llm_provider", "OpenRouter")
     
-    if not gemini_key or not openrouter_key:
-        st.warning("Please ensure both Google Gemini and OpenRouter API keys are set in `secrets.toml` or the Settings sidebar to use the Agent Flow.")
+    if provider == "Google Gemini":
+        api_key = st.session_state.get("google_api_key")
+        model = st.session_state.get("google_model", "gemini-2.5-flash")
+    elif provider == "OpenRouter":
+        api_key = st.session_state.get("openrouter_api_key")
+        model = st.session_state.get("openrouter_model", "anthropic/claude-3.5-sonnet")
+    elif provider == "Ollama":
+        api_key = st.session_state.get("ollama_url", "http://localhost:11434")
+        model = st.session_state.get("ollama_model", "mistral:instruct")
+    
+    if not api_key:
+        st.warning(f"Please ensure the API key (or URL) for {provider} is set in the Settings sidebar to use the Agent Flow.")
         
     # Inputs
     uploaded_file = st.file_uploader("Upload PDF Document", type="pdf", key="agent_pdf_upload")
@@ -32,8 +40,8 @@ def display():
     )
     
     if st.button("Run automated extraction", type="primary", disabled=not (uploaded_file and user_context)):
-        if not (gemini_key and openrouter_key):
-            st.error("Missing API keys for Agent Flow.")
+        if not api_key:
+            st.error(f"Missing configuration for {provider}.")
             return
             
         st.session_state.agent_running = True
@@ -49,8 +57,9 @@ def display():
                 config, results = run_agent_pipeline(
                     pdf_buffer=uploaded_file.getvalue(),
                     context=user_context,
-                    openrouter_key=openrouter_key,
-                    gemini_key=gemini_key,
+                    provider=provider,
+                    api_key=api_key,
+                    model=model,
                     gnfinder_url=gnfinder_url,
                     progress_callback=ui_progress_callback
                 )
