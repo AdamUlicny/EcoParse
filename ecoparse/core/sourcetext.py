@@ -455,41 +455,6 @@ def _create_flexible_species_pattern(species_name: str) -> str:
     return flexible_separator.join(pattern_parts)
 
 
-def _get_compiled_search_patterns(species_df: pd.DataFrame) -> Dict[str, List[re.Pattern]]:
-    """Helper to pre-compile flexible search patterns for all species verbatims."""
-    species_search_targets = {}
-    for _, row in species_df.iterrows():
-        species_name = row["Name"]
-        if not species_name:
-            continue
-            
-        search_target_str = str(row.get("Verbatim", species_name))
-        if pd.isna(row.get("Verbatim")) or not search_target_str.strip() or search_target_str.lower() == 'nan':
-            search_targets = [species_name]
-        else:
-            search_targets = search_target_str.split('|||')
-            if not search_targets:
-                search_targets = [species_name]
-
-        patterns = []
-        for search_target in search_targets:
-            # Normalize to match normalized_page_text
-            search_target = unicodedata.normalize('NFKC', search_target)
-            try:
-                flexible_pattern = _create_flexible_species_pattern(search_target)
-                patterns.append(re.compile(flexible_pattern, re.IGNORECASE))
-            except re.error:
-                try:
-                    patterns.append(re.compile(r'(?<!\w)' + re.escape(search_target) + r'(?!\w)', re.IGNORECASE))
-                except re.error:
-                    pass
-        
-        if patterns:
-            species_search_targets[species_name] = patterns
-            
-    return species_search_targets
-
-
 def get_species_context_chunks(
     full_text: str, species_df: pd.DataFrame, context_before: int, context_after: int
 ) -> Dict[str, List[str]]:
@@ -511,42 +476,37 @@ def get_species_context_chunks(
         if not species_name:
             continue
             
-        search_target_str = str(row.get("Verbatim", species_name))
-        if pd.isna(row.get("Verbatim")) or not search_target_str.strip() or search_target_str.lower() == 'nan':
-            search_targets = [species_name]
-        else:
-            search_targets = search_target_str.split('|||')
-            if not search_targets:
-                search_targets = [species_name]
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
 
-        for search_target in search_targets:
+        try:
+            # Create flexible pattern that handles line breaks within species names
+            flexible_pattern = _create_flexible_species_pattern(search_target)
+            pattern = re.compile(flexible_pattern, re.IGNORECASE | re.MULTILINE)
+        except re.error:
+            # Fallback to simple pattern if flexible pattern fails
             try:
-                # Create flexible pattern that handles line breaks within species names
-                flexible_pattern = _create_flexible_species_pattern(search_target)
-                pattern = re.compile(flexible_pattern, re.IGNORECASE | re.MULTILINE)
+                pattern = re.compile(r'\b' + re.escape(search_target) + r'\b', re.IGNORECASE)
             except re.error:
-                # Fallback to simple pattern if flexible pattern fails
-                try:
-                    pattern = re.compile(r'(?<!\w)' + re.escape(search_target) + r'(?!\w)', re.IGNORECASE)
-                except re.error:
-                    continue
+                continue
 
-            for match in pattern.finditer(formatted_full_text):
-                match_start = match.start()
-                match_end = match.end()
+        for match in pattern.finditer(formatted_full_text):
+            match_start = match.start()
+            match_end = match.end()
 
-                # Extract context from formatted text (preserves structure for LLM)
-                chunk_start = max(0, match_start - context_before)
-                chunk_end = min(len(formatted_full_text), match_end + context_after)
-                
-                chunk = formatted_full_text[chunk_start:chunk_end]
-                
-                if species_name not in species_chunks:
-                    species_chunks[species_name] = []
-                
-                # Avoid adding duplicate chunks if the same context is found multiple times
-                if chunk not in species_chunks[species_name]:
-                    species_chunks[species_name].append(chunk)
+            # Extract context from formatted text (preserves structure for LLM)
+            chunk_start = max(0, match_start - context_before)
+            chunk_end = min(len(formatted_full_text), match_end + context_after)
+            
+            chunk = formatted_full_text[chunk_start:chunk_end]
+            
+            if species_name not in species_chunks:
+                species_chunks[species_name] = []
+            
+            # Avoid adding duplicate chunks if the same context is found multiple times
+            if chunk not in species_chunks[species_name]:
+                species_chunks[species_name].append(chunk)
 
     return species_chunks
 
@@ -568,28 +528,23 @@ def get_species_partial_page_chunks(full_text: str, species_df: pd.DataFrame, ch
             page_num = int(pages[i])
             page_text = pages[i + 1]
             page_contents.append((page_num, page_text))
-            
-    # Pre-compile patterns for each species to accurately find them
-    species_search_targets = _get_compiled_search_patterns(species_df)
     
-    # Initialize basic chunks map
-    for species_name in species_search_targets.keys():
+    # For each species, find all pages where it's mentioned
+    for _, row in species_df.iterrows():
+        species_name = row["Name"]
+        if not species_name:
+            continue
+            
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
+            
         species_chunks[species_name] = []
         
-    # For each species, find all pages where it's mentioned
-    for species_name, patterns in species_search_targets.items():
         # Check each page for this species
         for page_num, page_text in page_contents:
-            # Case-insensitive search on normalized page text
-            normalized_page_text = normalize_text_for_search(page_text)
-            
-            target_found = False
-            for pattern in patterns:
-                if pattern.search(normalized_page_text):
-                    target_found = True
-                    break
-                    
-            if target_found:
+            # Case-insensitive search for species mentions
+            if search_target.lower() in page_text.lower():
                 # Create partial page chunk
                 page_text_clean = page_text.strip()
                 
@@ -633,28 +588,23 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
             page_num = int(pages[i])
             page_text = pages[i + 1]
             page_contents.append((page_num, page_text))
-            
-    # Pre-compile patterns
-    species_search_targets = _get_compiled_search_patterns(species_df)
     
-    # Initialize basic chunks map
-    for species_name in species_search_targets.keys():
+    # For each species, find all pages where it's mentioned
+    for _, row in species_df.iterrows():
+        species_name = row["Name"]
+        if not species_name:
+            continue
+            
+        search_target = str(row.get("Verbatim", species_name))
+        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+            search_target = species_name
+            
         species_chunks[species_name] = []
         
-    # For each species, find all pages where it's mentioned
-    for species_name, patterns in species_search_targets.items():
         # Check each page for this species
         for page_num, page_text in page_contents:
-            # Case-insensitive search on normalized page text
-            normalized_page_text = normalize_text_for_search(page_text)
-            
-            target_found = False
-            for pattern in patterns:
-                if pattern.search(normalized_page_text):
-                    target_found = True
-                    break
-                    
-            if target_found:
+            # Case-insensitive search for species mentions
+            if search_target.lower() in page_text.lower():
                 # Add full page content as a chunk
                 full_page_chunk = f"=== PAGE {page_num} ===\n{page_text}"
                 species_chunks[species_name].append(full_page_chunk)
@@ -681,9 +631,6 @@ def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) ->
         # We also need a reverse map: Page Index -> List[Species] to know who needs which page
         page_to_species: Dict[int, List[str]] = {}
 
-        # Pre-compile patterns
-        species_search_targets = _get_compiled_search_patterns(species_df)
-
         # Scan text once to find locations
         for i, page in enumerate(doc):
             page_text = page.get_text("text") or ""
@@ -691,16 +638,14 @@ def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) ->
             normalized_page_text = normalize_text_for_search(page_text)
             
             # Check for all species on this page
-            for species_name, patterns in species_search_targets.items():
+            for _, row in species_df.iterrows():
+                species_name = row["Name"]
+                search_target = str(row.get("Verbatim", species_name))
+                if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+                    search_target = species_name
                 
-                # Check if ANY of the targets are found on the page
-                target_found = False
-                for pattern in patterns:
-                    if pattern.search(normalized_page_text):
-                        target_found = True
-                        break
-                        
-                if target_found:
+                # Use word boundary check
+                if re.search(r'\b' + re.escape(search_target) + r'\b', normalized_page_text, re.IGNORECASE):
                     if i not in page_to_species:
                         page_to_species[i] = []
                     page_to_species[i].append(species_name)
