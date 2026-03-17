@@ -15,6 +15,7 @@ sys.path.insert(0, str(project_root))
 import streamlit as st
 from app.session import initialize_session
 from app.ui_components import setup_sidebar
+from app.agent import gui as agent_gui
 from app.tabs import (
     t1_upload_pdf_tab,
     t2_species_id_tab,
@@ -38,7 +39,8 @@ with st.sidebar:
     setup_sidebar()
 
 # Create tabbed workflow interface
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    "0. Agent Workflow",
     "1. Upload PDF",
     "2. Identify Species", 
     "3. Configure Extraction",
@@ -50,6 +52,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
 ])
 
 # Display each workflow tab
+with tab0: agent_gui.display()
 with tab1: t1_upload_pdf_tab.display()
 with tab2: t2_species_id_tab.display()
 with tab3: t3_configure_extraction_tab.display()
