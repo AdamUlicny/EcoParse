@@ -114,6 +114,7 @@ def display_new_session_view():
 
                     # Set Flag
                     st.session_state.session_loaded_from_report = True
+                    st.session_state.last_report_path = selected_log
                     st.success(f"Session loaded from {os.path.basename(selected_log)}")
                     st.rerun()
                     
@@ -144,6 +145,7 @@ def display_new_session_view():
         st.info(f"**Current Document:** `{st.session_state.pdf_name}`")
         with st.expander("Process PDF and Extract Text", expanded=not st.session_state.full_text):
             st.markdown("Select a page range to focus the analysis, then click the button to extract text.")
+            st.info("💡 **Tip:** To optimize extraction performance and conserve API tokens, trim the PDF to exclude introductory material, indices, and the bibliography. Focus the extraction range specifically on the relevant Red List assessment pages.")
             
             try:
                 reader = PdfReader(io.BytesIO(st.session_state.pdf_buffer))

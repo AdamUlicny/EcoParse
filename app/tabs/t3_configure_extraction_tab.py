@@ -52,7 +52,7 @@ def display():
         st.markdown("---")
 
         st.subheader("Add Prompt Examples (Optional)")
-        st.markdown("Provide few-shot examples to guide the LLM. The output fields below are generated directly from your YAML configuration.")
+        st.info("💡 **Why use examples?** Providing just 1 or 2 examples of real text passages alongside their correct target outputs (few-shot learning) is the **single most effective way** to maximize extraction accuracy. Paste a sample sentence/paragraph and define the expected output fields below to guide the model.")
         
         # Add "Load Examples from Past Log" functionality
         with st.expander("📂 Load Examples from Past Log", expanded=False):

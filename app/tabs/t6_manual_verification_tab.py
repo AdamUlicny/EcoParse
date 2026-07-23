@@ -10,6 +10,29 @@ import pandas as pd
 from ecoparse.core.sourcetext import get_species_page_images
 from app.ui_components import display_df_and_download
 import io
+import os
+import json
+from pathlib import Path
+
+def save_verification_progress():
+    """Update the persistent JSON report file with current manual verification results."""
+    last_report_path = st.session_state.get('last_report_path')
+    if last_report_path and os.path.exists(last_report_path):
+        try:
+            with open(last_report_path, 'r', encoding='utf-8') as f:
+                report_data = json.load(f)
+            
+            # Update the manual verification info
+            report_data["manual_verification_info"] = {
+                "run": bool(st.session_state.manual_verification_results),
+                "full_results": st.session_state.manual_verification_results
+            }
+            
+            # Write back
+            with open(last_report_path, 'w', encoding='utf-8') as f:
+                json.dump(report_data, f, indent=4)
+        except Exception as e:
+            print(f"Error auto-saving verification progress: {e}")
 
 def display():
     """Main display function for manual verification tab."""
@@ -221,7 +244,11 @@ def display():
                             else:
                                 buffer_to_use = pdf_file
                                 
-                            images_dict = get_species_page_images(buffer_to_use, temp_df)
+                            images_dict = get_species_page_images(
+                                buffer_to_use, 
+                                temp_df, 
+                                full_text=st.session_state.get('full_text')
+                            )
                             images = images_dict.get(species_name, [])
                             
                             if not images:
@@ -295,6 +322,7 @@ def display():
         else:
             st.session_state.manual_verification_results.append(result_to_save)
         
+        save_verification_progress()
         st.session_state.verification_current_index += 1
         st.rerun()
 
@@ -305,5 +333,6 @@ def display():
         else:
             st.session_state.manual_verification_results.append(result_to_save)
             
+        save_verification_progress()
         st.session_state.verification_current_index += 1
         st.rerun()

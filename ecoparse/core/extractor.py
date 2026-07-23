@@ -186,7 +186,7 @@ class Extractor:
                     
                     # Report progress to callback function if provided
                     if update_callback:
-                        update_callback(completed_count, len(species_list))
+                        update_callback(completed_count, len(species_list), all_results)
         
         runtime = time.time() - start_time
         return all_results, runtime, total_input_tokens, total_output_tokens
@@ -207,11 +207,11 @@ class Extractor:
         
         # Standardized fallback results when context is unavailable
         no_context_result = (
-            {"species": species_name, "data": {}, "notes": "No text context found.", "context_chunks": []},
+            {"species": species_name, "data": {}, "notes": "No text context found.", "context_chunks": [], "review_flag": "NF"},
             0, 0
         )
         no_image_result = (
-            {"species": species_name, "data": {}, "notes": "No page images found.", "context_chunks": []},
+            {"species": species_name, "data": {}, "notes": "No page images found.", "context_chunks": [], "review_flag": "NF"},
             0, 0
         )
 
@@ -260,7 +260,8 @@ class Extractor:
             # Generate page images containing species information
             images = get_species_page_images(
                 context['pdf_buffer'],
-                context['species_df'][context['species_df']['Name'] == species_name]
+                context['species_df'][context['species_df']['Name'] == species_name],
+                full_text=context.get('full_text')
             ).get(species_name, [])
 
             if not images: return no_image_result

@@ -35,13 +35,11 @@ def display():
     if st.session_state.species_df_final.empty:
         show_prerequisite_warning("2. Identify Species")
         return
-
-    st.info(f"Ready to extract data for **{len(st.session_state.species_df_final)}** species.")
     
     st.subheader("Extraction Settings")
     col1, col2 = st.columns(2)
     with col1:
-        st.selectbox("Extraction Method", ["Text-based", "Image-based"], key="extraction_method")
+        st.selectbox("Extraction Method", ["Image-based", "Text-based"], key="extraction_method")
     with col2:
         st.number_input("Max Concurrent LLM Requests", 1, 50, key="concurrent_requests")
 
@@ -135,12 +133,6 @@ def display():
         st.markdown("---")
         st.subheader("⚡ Extraction Control")
         
-        # Show current status
-        progress = getattr(st.session_state, 'extraction_progress', 0)
-        total = getattr(st.session_state, 'extraction_total', 0)
-        
-        st.info(f"🔄 Extraction in progress: {progress}/{total} species completed")
-        
         # Simple stop button
         if st.button("⏹️ Stop Extraction", type="secondary"):
             st.session_state.extraction_running = False
@@ -154,6 +146,7 @@ def display():
         st.session_state.extraction_progress = 0
         st.session_state.extraction_total = len(st.session_state.species_df_final)
         st.session_state.extraction_runtime = 0
+        st.session_state.extraction_backup_timestamp = time.strftime('%Y%m%d_%H%M%S')
         st.session_state.total_input_tokens = 0
         st.session_state.total_output_tokens = 0
         
@@ -239,12 +232,47 @@ def display():
         # Check if we have the required state for extraction
         if hasattr(st.session_state, 'extractor') and hasattr(st.session_state, 'source_context'):
             progress_bar = st.progress(0, "Starting extraction...")
-            status_text = st.empty()
             
-            def update_progress(completed, total):
+            def update_progress(completed, total, current_results=None):
                 st.session_state.extraction_progress = completed
                 progress_bar.progress(completed / total, f"Processed {completed}/{total} species...")
-                status_text.text(f"Progress: {completed}/{total} species completed")
+                if current_results is not None:
+                    current_names = {res.get('species') for res in current_results}
+                    updated_results = [res for res in getattr(st.session_state, 'extraction_results', []) if res.get('species') not in current_names]
+                    updated_results.extend(current_results)
+                    st.session_state.extraction_results = updated_results
+                    
+                    try:
+                        backup_context = {
+                            "pdf_name": st.session_state.pdf_name,
+                            "full_text": st.session_state.full_text,
+                            "text_extraction_method": getattr(st.session_state, 'extraction_method_used', 'standard'),
+                            "gnfinder_url": st.session_state.gnfinder_url,
+                            "gnfinder_results_raw": st.session_state.gnfinder_results_raw,
+                            "species_df_initial": st.session_state.species_df_initial,
+                            "species_df_final": st.session_state.species_df_final,
+                            "extraction_method": st.session_state.extraction_method,
+                            "llm_provider": st.session_state.llm_provider,
+                            "llm_model": st.session_state.llm_config["model"],
+                            "context_before": source_context["context_before"] if source_context["extraction_method"] == "Text-based" else "N/A",
+                            "context_after": source_context["context_after"] if source_context["extraction_method"] == "Text-based" else "N/A",
+                            "prompt_examples": st.session_state.prompt_examples,
+                            "concurrent_requests": st.session_state.concurrent_requests,
+                            "extraction_results": st.session_state.extraction_results,
+                            "extraction_runtime": getattr(st.session_state, 'extraction_runtime', 0),
+                            "total_input_tokens": getattr(st.session_state, 'total_input_tokens', 0),
+                            "total_output_tokens": getattr(st.session_state, 'total_output_tokens', 0),
+                            "project_config": st.session_state.project_config,
+                            "manual_verification_results": st.session_state.manual_verification_results,
+                            "trim_start_page": getattr(st.session_state, 'trim_start_page', None),
+                            "trim_end_page": getattr(st.session_state, 'trim_end_page', None)
+                        }
+                        backup_ts = getattr(st.session_state, 'extraction_backup_timestamp', 'backup')
+                        backup_path = f"logs/ecoparse_report_{backup_ts}.json"
+                        generate_report(backup_context, custom_path=backup_path)
+                        st.session_state.last_report_path = backup_path
+                    except Exception as e:
+                        print(f"Error saving incremental backup: {e}")
             
             # Start extraction
             with st.spinner("LLM is processing..."):
@@ -329,15 +357,17 @@ def display():
                             "trim_end_page": getattr(st.session_state, 'trim_end_page', None)
                         }
 
+                    backup_ts = getattr(st.session_state, 'extraction_backup_timestamp', 'backup')
+                    backup_path = f"logs/ecoparse_report_{backup_ts}.json"
+
                     if extraction_completed:
                         # Extraction completed successfully - clear all flags
                         st.session_state.extraction_running = False
                         st.session_state.extraction_paused = False
                         
-                        report_path = generate_report(report_context)
+                        report_path = generate_report(report_context, custom_path=backup_path)
                         st.session_state.last_report_path = report_path
                         progress_bar.empty()
-                        status_text.empty()
                         st.success(f"Extraction complete! Report saved to `{report_path}`.")
                         st.info("Proceed to the 'View Results' or 'Reports' tab.")
                     
@@ -347,10 +377,10 @@ def display():
                         st.session_state.extraction_paused = False
                         
                         # Save partial report
-                        report_path = generate_report(report_context)
+                        report_path = generate_report(report_context, custom_path=backup_path)
+                        st.session_state.last_report_path = report_path
 
                         progress_bar.empty()
-                        status_text.empty()
                         st.warning(f"Extraction stopped. Partial results saved ({len(all_results)} species processed) to `{report_path}`.")
                         st.info("Partial results are available in the 'View Results' tab.")
                     
@@ -360,13 +390,11 @@ def display():
                         st.session_state.extraction_paused = False
                         
                         progress_bar.empty()
-                        status_text.empty()
                         st.warning("Extraction stopped. No results were generated.")
                     
                 except Exception as e:
                     st.session_state.extraction_running = False
                     progress_bar.empty()
-                    status_text.empty()
                     st.error(f"Extraction failed: {str(e)}")
             
             st.rerun()  # Refresh to show updated state

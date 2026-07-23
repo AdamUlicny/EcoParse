@@ -15,15 +15,37 @@ def create_model_selector(provider: str, models_list: list, is_disabled: bool = 
     """Create standardized model selector with custom option."""
     options = ["Select a model..."] + [m["name"] for m in models_list]
     
+    # Determine session state key
+    state_key = ""
+    if provider == "OpenRouter":
+        state_key = "openrouter_model"
+    elif provider == "Gemini":
+        state_key = "google_model"
+    elif provider == "Ollama":
+        state_key = "ollama_model"
+        
+    current_val = st.session_state.get(state_key) if state_key else None
+    
+    default_index = 0
+    is_custom = False
+    
+    if current_val:
+        if current_val in options:
+            default_index = options.index(current_val)
+        else:
+            is_custom = True
+            
     selected = st.selectbox(
         f"Select {provider} Model",
         options=options,
+        index=default_index,
         disabled=is_disabled,
         help=f"Choose from {provider} models or use custom option below."
     )
     
     use_custom = st.checkbox(
         f"Use custom {provider.lower()} model",
+        value=is_custom,
         disabled=is_disabled,
         help="Enter custom model name not in dropdown."
     )
@@ -31,6 +53,7 @@ def create_model_selector(provider: str, models_list: list, is_disabled: bool = 
     if use_custom:
         custom = st.text_input(
             f"Custom {provider} Model Name",
+            value=current_val if is_custom else "",
             disabled=is_disabled,
             help="Enter custom model name (e.g., 'custom-model')."
         )

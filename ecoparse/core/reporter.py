@@ -26,7 +26,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
-def generate_report(report_context: Dict[str, Any]) -> Optional[str]:
+def generate_report(report_context: Dict[str, Any], custom_path: Optional[str] = None) -> Optional[str]:
     """
     Compiles comprehensive extraction workflow report with performance metrics.
     
@@ -161,9 +161,12 @@ def generate_report(report_context: Dict[str, Any]) -> Optional[str]:
     }
     
     # --- REPORT PERSISTENCE ---
-    # Save report with timestamp for unique identification
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    report_path = Path("logs") / f"ecoparse_report_{timestamp}.json"
+    # Save report with timestamp for unique identification or use custom_path
+    if custom_path:
+        report_path = Path(custom_path)
+    else:
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        report_path = Path("logs") / f"ecoparse_report_{timestamp}.json"
     
     try:
         with open(report_path, 'w', encoding='utf-8') as f:

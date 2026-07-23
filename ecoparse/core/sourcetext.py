@@ -156,8 +156,9 @@ def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
                 # Method 1: Use simple text extraction first (often better for encoding)
                 simple_text = page.get_text()
                 if simple_text and any(ord(c) > 127 for c in simple_text):  # Contains non-ASCII
-                    # Add layout information as comment
-                    full_text += f"\n<!-- Page {page_num + 1}: {layout['columns']} columns detected -->\n"
+                    # Add standard page header and layout information as comment
+                    full_text += f"\n=== PAGE {page_num + 1} ===\n"
+                    full_text += f"<!-- Page {page_num + 1}: {layout['columns']} columns detected -->\n"
                     full_text += simple_text + "\n"
                     continue
             except:
@@ -170,8 +171,9 @@ def _extract_text_adaptive(pdf_file_buffer: io.BytesIO) -> str:
             if not blocks:
                 continue
             
-            # Add layout information as comment
-            full_text += f"\n<!-- Page {page_num + 1}: {layout['columns']} columns detected -->\n"
+            # Add standard page header and layout information as comment
+            full_text += f"\n=== PAGE {page_num + 1} ===\n"
+            full_text += f"<!-- Page {page_num + 1}: {layout['columns']} columns detected -->\n"
             
             if layout["strategy"] == "single_column":
                 # Standard extraction for single column
@@ -420,8 +422,11 @@ def _create_flexible_species_pattern(species_name: str) -> str:
     Creates a regex pattern that can match species names even when split across lines
     or surrounded by punctuation like parentheses.
     """
+    # Clean the species name of non-breaking spaces and GNfinder newline control symbols (\u2424, \u2425)
+    cleaned_name = species_name.replace('\u00a0', ' ').replace('\u2424', ' ').replace('\u2425', ' ')
+    
     # Split the species name into words
-    words = species_name.split()
+    words = cleaned_name.split()
     
     if len(words) == 1:
         # Single word - use flexible boundary matching that handles punctuation
@@ -611,7 +616,11 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
     
     return species_chunks
 
-def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) -> Dict[str, List[bytes]]:
+def get_species_page_images(
+    pdf_buffer: io.BytesIO, 
+    species_df: pd.DataFrame, 
+    full_text: Optional[str] = None
+) -> Dict[str, List[bytes]]:
     """
     Generates page images for species mentions in PDF documents.
     Optimized to render each page at most once.
@@ -632,27 +641,56 @@ def get_species_page_images(pdf_buffer: io.BytesIO, species_df: pd.DataFrame) ->
         page_to_species: Dict[int, List[str]] = {}
 
         # Scan text once to find locations
-        for i, page in enumerate(doc):
-            page_text = page.get_text("text") or ""
-            # Normalize once per page
-            normalized_page_text = normalize_text_for_search(page_text)
+        page_to_text: Dict[int, str] = {}
+        if full_text:
+            # Parse full_text for pages using either marker format
+            page_pattern = r'(?:=== PAGE (\d+) ===|<!-- Page (\d+):)'
+            markers = list(re.finditer(page_pattern, full_text))
+            for idx, marker in enumerate(markers):
+                p_num_str = marker.group(1) or marker.group(2)
+                if p_num_str:
+                    p_num = int(p_num_str)
+                    page_idx = p_num - 1
+                    # Ensure page index is valid for this document
+                    if 0 <= page_idx < len(doc):
+                        start_pos = marker.end()
+                        end_pos = markers[idx + 1].start() if idx + 1 < len(markers) else len(full_text)
+                        page_text = full_text[start_pos:end_pos]
+                        page_to_text[page_idx] = normalize_text_for_search(page_text)
+        
+        # Fallback to direct page text extraction from PDF if full_text was not provided
+        # or didn't yield any page texts
+        if not page_to_text:
+            for i, page in enumerate(doc):
+                page_text = page.get_text("text") or ""
+                page_to_text[i] = normalize_text_for_search(page_text)
+
+        # Check for all species on each page using a flexible pattern
+        for _, row in species_df.iterrows():
+            species_name = row["Name"]
+            search_target = str(row.get("Verbatim", species_name))
+            if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
+                search_target = species_name
             
-            # Check for all species on this page
-            for _, row in species_df.iterrows():
-                species_name = row["Name"]
-                search_target = str(row.get("Verbatim", species_name))
-                if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
-                    search_target = species_name
-                
-                # Use word boundary check
-                if re.search(r'\b' + re.escape(search_target) + r'\b', normalized_page_text, re.IGNORECASE):
-                    if i not in page_to_species:
-                        page_to_species[i] = []
-                    page_to_species[i].append(species_name)
+            try:
+                # Create flexible pattern that handles line breaks/whitespace within species names
+                flexible_pattern = _create_flexible_species_pattern(search_target)
+                pattern = re.compile(flexible_pattern, re.IGNORECASE)
+            except re.error:
+                try:
+                    pattern = re.compile(r'\b' + re.escape(search_target) + r'\b', re.IGNORECASE)
+                except re.error:
+                    continue
+
+            for page_idx, page_text in page_to_text.items():
+                if pattern.search(page_text):
+                    if page_idx not in page_to_species:
+                        page_to_species[page_idx] = []
+                    page_to_species[page_idx].append(species_name)
                     
                     if species_name not in species_pages:
                         species_pages[species_name] = set()
-                    species_pages[species_name].add(i)
+                    species_pages[species_name].add(page_idx)
 
         # 2. Render Required Pages (Inverted Index Strategy)
         # We only render pages that are actually needed by at least one species

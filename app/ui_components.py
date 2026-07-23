@@ -17,68 +17,58 @@ def setup_sidebar():
     st.selectbox("LLM Provider", ["OpenRouter", "Google Gemini", "Ollama"], key="llm_provider")
     st.markdown("---")
 
-    is_gemini = st.session_state.llm_provider == "Google Gemini"
     is_openrouter = st.session_state.llm_provider == "OpenRouter"
+    is_gemini = st.session_state.llm_provider == "Google Gemini"
+    is_ollama = st.session_state.llm_provider == "Ollama"
 
-    # OpenRouter Settings
-    st.subheader("OpenRouter Settings")
-    st.text_input(
-        "OpenRouter API Key",
-        type="password",
-        key="openrouter_api_key",
-        disabled=not is_openrouter,
-        help="Required for OpenRouter."
-    )
-    
     models_data = load_models_config()
-    openrouter_models = models_data.get("openrouter_models", [])
-    final_openrouter = create_model_selector("OpenRouter", openrouter_models, not is_openrouter)
-    if final_openrouter:
-        st.session_state.openrouter_model = final_openrouter
-    elif "openrouter_model" not in st.session_state:
-        st.session_state.openrouter_model = ""
 
-    st.markdown("---")
+    if is_openrouter:
+        # OpenRouter Settings
+        st.subheader("OpenRouter Settings")
+        st.text_input(
+            "OpenRouter API Key",
+            type="password",
+            key="openrouter_api_key",
+            help="Required for OpenRouter."
+        )
+        openrouter_models = models_data.get("openrouter_models", [])
+        final_openrouter = create_model_selector("OpenRouter", openrouter_models, False)
+        if final_openrouter:
+            st.session_state.openrouter_model = final_openrouter
+        elif "openrouter_model" not in st.session_state:
+            st.session_state.openrouter_model = ""
 
-    # Gemini Settings
-    st.subheader("Google Gemini Settings")
-    st.text_input(
-        "Google API Key",
-        type="password",
-        key="google_api_key",
-        disabled=not is_gemini,
-        help="Required for Google Gemini."
-    )
-    
-    gemini_models = models_data.get("gemini_models", [])
-    
-    final_gemini = create_model_selector("Gemini", gemini_models, not is_gemini)
-    if final_gemini:
-        st.session_state.google_model = final_gemini
-    elif "google_model" not in st.session_state:
-        st.session_state.google_model = ""
+    elif is_gemini:
+        # Gemini Settings
+        st.subheader("Google Gemini Settings")
+        st.text_input(
+            "Google API Key",
+            type="password",
+            key="google_api_key",
+            help="Required for Google Gemini."
+        )
+        gemini_models = models_data.get("gemini_models", [])
+        final_gemini = create_model_selector("Gemini", gemini_models, False)
+        if final_gemini:
+            st.session_state.google_model = final_gemini
+        elif "google_model" not in st.session_state:
+            st.session_state.google_model = ""
 
-    st.markdown("---")
-
-   
-    # Ollama Settings
-    st.subheader("Ollama Settings")
-    st.text_input(
-        "Ollama Host URL",
-        key="ollama_url",
-        disabled=is_gemini or is_openrouter,
-        help="Full URL of Ollama server (e.g., http://192.168.1.10:11434)."
-    )
-    
-    ollama_models = models_data.get("ollama_models", [])
-    final_ollama = create_model_selector("Ollama", ollama_models, is_gemini or is_openrouter)
-    
-    if final_ollama:
-        st.session_state.ollama_model = final_ollama
-    elif "ollama_model" not in st.session_state:
-        st.session_state.ollama_model = ""
-        
-    st.info("Ensure Ollama is running and model is downloaded when using Ollama.")
+    elif is_ollama:
+        # Ollama Settings
+        st.subheader("Ollama Settings")
+        st.text_input(
+            "Ollama Host URL",
+            key="ollama_url",
+            help="URL where Ollama is running (typically http://localhost:11434)"
+        )
+        ollama_models = models_data.get("ollama_models", [])
+        final_ollama = create_model_selector("Ollama", ollama_models, False)
+        if final_ollama:
+            st.session_state.ollama_model = final_ollama
+        elif "ollama_model" not in st.session_state:
+            st.session_state.ollama_model = ""
 
 def display_df_and_download(df: pd.DataFrame, title: str, file_prefix: str, context: str):
     """

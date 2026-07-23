@@ -30,6 +30,10 @@ from app.ui_components import display_df_and_download
 
 def display():
     st.header("Automated LLM Verification")
+    
+    st.warning("🚧 **Under Construction:** This automated verification feature is currently under construction and is disabled for production use.")
+    bypass = st.checkbox("Bypass Under Construction lock (development only)", value=False)
+    
     st.markdown("Verify the entire list of extracted species data against the full PDF by sending chunks of species to an LLM.")
     
     # Initialize session state for rubric
@@ -65,6 +69,7 @@ def display():
             "Species per Request (Chunk Size)",
             min_value=1, max_value=50, value=5 if is_openrouter else 10,
             key="verification_species_chunk_size",
+            disabled=not bypass,
             help="Smaller chunks are better for OpenRouter precision."
         )
     with col2:
@@ -72,6 +77,7 @@ def display():
             "Concurrent Requests",
             min_value=1, max_value=50, value=1,
             key="verification_concurrent_requests",
+            disabled=not bypass,
             help="Keep low to avoid rate limits."
         )
 
@@ -103,11 +109,11 @@ def display():
                 
                 col_start, col_end = st.columns(2)
                 with col_start:
-                    start_page = st.number_input("Start Page", 1, num_pages, 1, key="verify_trim_start_page_gemini")
+                    start_page = st.number_input("Start Page", 1, num_pages, 1, key="verify_trim_start_page_gemini", disabled=not bypass)
                 with col_end:
-                    end_page = st.number_input("End Page", 1, num_pages, num_pages, key="verify_trim_end_page_gemini")
+                    end_page = st.number_input("End Page", 1, num_pages, num_pages, key="verify_trim_end_page_gemini", disabled=not bypass)
 
-                if st.button("Trim and Prepare PDF", type="primary"):
+                if st.button("Trim and Prepare PDF", type="primary", disabled=not bypass):
                      with st.spinner("Trimming PDF..."):
                         trimmed_buffer = trim_pdf_pages(io.BytesIO(pdf_file_buffer_bytes), start_page, end_page)
                         
@@ -135,7 +141,7 @@ def display():
                 st.error(f"Error preparing PDF: {e}")
         else:
             st.success(f"✅ {ready_msg}")
-            if st.button("Reset / Choose Difference Range"):
+            if st.button("Reset / Choose Difference Range", disabled=not bypass):
                 if is_gemini:
                     st.session_state.uploaded_gemini_file_id = None
                 else:
@@ -149,7 +155,7 @@ def display():
         
         if not verification_rubric:
             st.info("Generate a specific rubric (checklist) for the LLM to follow based on your extraction schema.")
-            if st.button("Generate Rubric"):
+            if st.button("Generate Rubric", disabled=not bypass):
                  with st.spinner("Generating rubric..."):
                     llm_config = {"api_key": api_key}
                     verifier = Verifier(st.session_state.project_config, llm_config)
@@ -178,7 +184,7 @@ def display():
     extraction_results = getattr(st.session_state, 'extraction_results', [])
     
     if extraction_results and (st.session_state.get("uploaded_gemini_file_id") or st.session_state.get("verification_pdf_base64")):
-        if st.button("🚀 Start Verification"):
+        if st.button("🚀 Start Verification", disabled=not bypass):
              # Reset counters
             st.session_state.total_verification_input_tokens = 0
             st.session_state.total_verification_output_tokens = 0
@@ -260,7 +266,7 @@ def display():
 
     # --- CLEANUP (Gemini Only) ---
     if is_gemini and st.session_state.get("uploaded_gemini_file_id"):
-        if st.button("Delete File from Gemini"):
+        if st.button("Delete File from Gemini", disabled=not bypass):
              client = genai.Client(api_key=api_key)
              client.files.delete(st.session_state.uploaded_gemini_file_id)
              st.session_state.uploaded_gemini_file_id = None
