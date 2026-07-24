@@ -417,6 +417,23 @@ def normalize_text_for_llm(text: str) -> str:
     return text.strip()
 
 
+def normalize_search_target(verbatim, species_name: str) -> str:
+    """Normalizes the verbatim search target using same rules as text normalization to handle line breaks/hyphenation."""
+    target = str(verbatim)
+    if pd.isna(verbatim) or not target.strip() or target.lower() == 'nan':
+        target = species_name
+    
+    # Replace GNfinder newline symbols with actual newlines for replacement regex
+    target = target.replace('\u2424', '\n').replace('\u2425', '\n')
+    # Remove hyphenated line breaks
+    target = re.sub(r'-\s*\n\s*', '', target)
+    # Replace single newlines with space
+    target = target.replace('\n', ' ')
+    # Collapse multiple whitespaces
+    target = re.sub(r'\s+', ' ', target)
+    return target.strip()
+
+
 def _create_flexible_species_pattern(species_name: str) -> str:
     """
     Creates a regex pattern that can match species names even when split across lines
@@ -481,9 +498,7 @@ def get_species_context_chunks(
         if not species_name:
             continue
             
-        search_target = str(row.get("Verbatim", species_name))
-        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
-            search_target = species_name
+        search_target = normalize_search_target(row.get("Verbatim"), species_name)
 
         try:
             # Create flexible pattern that handles line breaks within species names
@@ -540,9 +555,7 @@ def get_species_partial_page_chunks(full_text: str, species_df: pd.DataFrame, ch
         if not species_name:
             continue
             
-        search_target = str(row.get("Verbatim", species_name))
-        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
-            search_target = species_name
+        search_target = normalize_search_target(row.get("Verbatim"), species_name)
             
         species_chunks[species_name] = []
         
@@ -600,9 +613,7 @@ def get_species_full_page_chunks(full_text: str, species_df: pd.DataFrame) -> Di
         if not species_name:
             continue
             
-        search_target = str(row.get("Verbatim", species_name))
-        if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
-            search_target = species_name
+        search_target = normalize_search_target(row.get("Verbatim"), species_name)
             
         species_chunks[species_name] = []
         
@@ -668,9 +679,7 @@ def get_species_page_images(
         # Check for all species on each page using a flexible pattern
         for _, row in species_df.iterrows():
             species_name = row["Name"]
-            search_target = str(row.get("Verbatim", species_name))
-            if pd.isna(row.get("Verbatim")) or not search_target.strip() or search_target.lower() == 'nan':
-                search_target = species_name
+            search_target = normalize_search_target(row.get("Verbatim"), species_name)
             
             try:
                 # Create flexible pattern that handles line breaks/whitespace within species names

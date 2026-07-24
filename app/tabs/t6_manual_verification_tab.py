@@ -219,48 +219,53 @@ def display():
         else:
             # Document Images View
             st.markdown("**Document Images**")
-            with st.container(height=500, border=False):
-                pdf_file = getattr(st.session_state, 'pdf_buffer', None)
-                if not pdf_file:
-                    st.error("PDF file not found in session. Please upload the PDF again.")
-                else:
-                    # Generate/Fetch images on the fly
-                    # We create a temporary single-row DataFrame for this species
-                    temp_df = pd.DataFrame([{"Name": species_name}])
-                    
-                    with st.spinner(f"Generating page images for {species_name}..."):
-                        try:
-                            # Use our optimized function
-                            # Note: Function expects io.BytesIO, so we wrap the bytes if needed
-                            # But st.session_state.pdf_file is usually UploadedFile which behaves like BytesIO, 
-                            # or we might need to seek(0).
-                            # Let's ensure we work with a copy or handle it carefully.
+            pdf_file = getattr(st.session_state, 'pdf_buffer', None)
+            if not pdf_file:
+                st.error("PDF file not found in session. Please upload the PDF again.")
+            else:
+                # Generate/Fetch images on the fly
+                # We create a temporary single-row DataFrame for this species
+                temp_df = pd.DataFrame([{"Name": species_name}])
+                
+                with st.spinner(f"Generating page images for {species_name}..."):
+                    try:
+                        # Use our optimized function
+                        # Note: Function expects io.BytesIO, so we wrap the bytes if needed
+                        # But st.session_state.pdf_file is usually UploadedFile which behaves like BytesIO, 
+                        # or we might need to seek(0).
+                        # Let's ensure we work with a copy or handle it carefully.
+                        
+                        # Create a fresh buffer to avoid messing with the main file pointer if used elsewhere concurrently?
+                        # Actually, get_species_page_images does seek(0) anyway.
+                        # But let's check if pdf_file is bytes or file-like.
+                        if isinstance(pdf_file, bytes):
+                            buffer_to_use = io.BytesIO(pdf_file)
+                        else:
+                            buffer_to_use = pdf_file
                             
-                            # Create a fresh buffer to avoid messing with the main file pointer if used elsewhere concurrently?
-                            # Actually, get_species_page_images does seek(0) anyway.
-                            # But let's check if pdf_file is bytes or file-like.
-                            if isinstance(pdf_file, bytes):
-                                buffer_to_use = io.BytesIO(pdf_file)
-                            else:
-                                buffer_to_use = pdf_file
-                                
-                            images_dict = get_species_page_images(
-                                buffer_to_use, 
-                                temp_df, 
-                                full_text=st.session_state.get('full_text')
-                            )
-                            images = images_dict.get(species_name, [])
+                        images_dict = get_species_page_images(
+                            buffer_to_use, 
+                            temp_df, 
+                            full_text=st.session_state.get('full_text')
+                        )
+                        images = images_dict.get(species_name, [])
+                        
+                        if not images:
+                            st.warning(f"No pages found containing '{species_name}'.")
+                        else:
+                            st.success(f"Found {len(images)} page(s) with '{species_name}'.")
                             
-                            if not images:
-                                st.warning(f"No pages found containing '{species_name}'.")
+                            # Display images using tabs if multiple to prevent squeezing/miniatures
+                            if len(images) == 1:
+                                st.image(images[0], caption="Page Image", use_container_width=True)
                             else:
-                                st.success(f"Found {len(images)} page(s) with '{species_name}'.")
+                                tabs = st.tabs([f"Page {i+1}" for i in range(len(images))])
                                 for i, img_bytes in enumerate(images):
-                                    st.image(img_bytes, caption=f"Page Image {i+1}", use_container_width=True)
-                                    st.divider()
-                                    
-                        except Exception as e:
-                            st.error(f"Error generating images: {e}")
+                                    with tabs[i]:
+                                        st.image(img_bytes, caption=f"Page Image {i+1}", use_container_width=True)
+                                        
+                    except Exception as e:
+                        st.error(f"Error generating images: {e}")
 
 
 
@@ -269,10 +274,27 @@ def display():
         
         edited_data = {}
         
-        for field, value in current_item.get('data', {}).items():
-            field_config = next((f for f in st.session_state.project_config.get('data_fields', []) if f['name'] == field), None)
+        # Always display all fields defined in the project configuration
+        data_fields = st.session_state.project_config.get('data_fields', [])
+        if not data_fields:
+            # Fallback to default project configuration if the loaded config lacks data_fields
+            import yaml
+            from pathlib import Path
+            try:
+                default_config_path = Path(__file__).parent.parent / "assets/default_project_config.yml"
+                with open(default_config_path, 'r', encoding='utf-8') as f:
+                    fallback_config = yaml.safe_load(f)
+                data_fields = fallback_config.get('data_fields', [])
+            except Exception as e:
+                print(f"Error loading fallback project config: {e}")
+                
+        extracted_data = current_item.get('data', {})
+        
+        for field_config in data_fields:
+            field = field_config['name']
+            value = extracted_data.get(field, None)
             
-            if field_config and field_config.get('validation_values'):
+            if field_config.get('validation_values'):
                 options = list(field_config['validation_values'])
                 try:
                     current_index = options.index(value)
@@ -292,7 +314,7 @@ def display():
             else:
                 edited_data[field] = st.text_input(
                     label=f"**{field.replace('_', ' ').title()}**",
-                    value=value,
+                    value=value if value is not None else "",
                     key=f"verify_{index}_{field}"
                 )
 

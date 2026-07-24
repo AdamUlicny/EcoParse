@@ -290,15 +290,8 @@ def display():
                         species_to_process, source_context, update_progress, completed_species
                     )
                     
-                    # Merge with any existing results
-                    if hasattr(st.session_state, 'extraction_results') and st.session_state.extraction_results:
-                        # Combine existing and new results
-                        all_results = st.session_state.extraction_results + results
-                    else:
-                        all_results = results
-                    
-                    # Update session state
-                    st.session_state.extraction_results = all_results
+                    # The update_progress callback already merged the new results into st.session_state.extraction_results.
+                    all_results = st.session_state.extraction_results
                     
                     # Update runtime and token counts (accumulate if resuming)
                     existing_runtime = getattr(st.session_state, 'extraction_runtime', 0)
